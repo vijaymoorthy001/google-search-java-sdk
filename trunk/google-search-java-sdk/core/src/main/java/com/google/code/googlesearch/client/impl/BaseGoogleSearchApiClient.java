@@ -19,8 +19,8 @@ import java.util.zip.GZIPInputStream;
 
 import com.google.code.bing.search.client.BaseBingSearchServiceClientImpl;
 import com.google.code.bing.search.client.BingSearchApiUrls;
-import com.google.code.googlesearch.client.BingSearchException;
-import com.google.code.googlesearch.client.constant.BingSearchApiUrls.BingSearchApiUrlBuilder;
+import com.google.code.googlesearch.client.GoogleSearchException;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.BingSearchApiUrlBuilder;
 import com.google.code.googlesearch.schema.SchemaElementFactory;
 import com.google.code.googlesearch.schema.SearchRequest;
 import com.google.code.googlesearch.schema.SearchResponse;
@@ -29,7 +29,7 @@ import com.google.code.googlesearch.schema.SearchResponse;
  * @author Nabeel Mukhtar
  *
  */
-public abstract class BaseBingSearchApiClient extends BaseBingSearchServiceClientImpl {
+public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceClientImpl {
 
     /** Field description */
     private static final String GZIP_ENCODING = "gzip";
@@ -47,7 +47,7 @@ public abstract class BaseBingSearchApiClient extends BaseBingSearchServiceClien
      * @param consumerKey
      * @param consumerSecret
      */
-    protected BaseBingSearchApiClient() {
+    protected BaseGoogleSearchApiClient() {
         requestHeaders = new HashMap<String, String>();
 
         // by default we compress contents
@@ -115,7 +115,7 @@ public abstract class BaseBingSearchApiClient extends BaseBingSearchServiceClien
 	public SearchResponse search(SearchRequest request) {
         assertNotNull("search request", request);
 
-        BingSearchApiUrlBuilder builder = createBingSearchApiUrlBuilder(BingSearchApiUrls.BASE_URL);
+        BingSearchApiUrlBuilder builder = createBingSearchApiUrlBuilder(GoogleSearchApiUrls.BASE_URL);
         String                apiUrl  =
             builder.withSearchRequest(request).buildUrl();
 
@@ -198,7 +198,7 @@ public abstract class BaseBingSearchApiClient extends BaseBingSearchServiceClien
                                              GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
             }
         } catch (IOException e) {
-            throw new BingSearchException(e);
+            throw new GoogleSearchException(e);
         }
     }
 
@@ -241,8 +241,8 @@ public abstract class BaseBingSearchApiClient extends BaseBingSearchServiceClien
      * @param error
      * @return
      */
-    protected BingSearchException createBingSearchApiClientException(Error error) {
-        return new BingSearchException();
+    protected GoogleSearchException createBingSearchApiClientException(Error error) {
+        return new GoogleSearchException();
     }
 
     /**

@@ -3,7 +3,7 @@ package com.google.code.googlesearch.client.impl;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-import com.google.code.googlesearch.client.BingSearchClient;
+import com.google.code.googlesearch.client.GoogleSearchClient;
 import com.google.code.googlesearch.schema.AdultOption;
 import com.google.code.googlesearch.schema.SchemaElementFactory;
 import com.google.code.googlesearch.schema.SearchOption;
@@ -22,8 +22,8 @@ import com.google.code.googlesearch.schema.translation.TranslationRequest;
 import com.google.code.googlesearch.schema.web.WebRequest;
 import com.google.code.googlesearch.schema.web.WebSearchOption;
 
-public abstract class BaseBingSearchServiceClientImpl implements
-	BingSearchClient {
+public abstract class BaseGoogleSearchServiceClientImpl implements
+	GoogleSearchClient {
 	
     /** Field description */
     protected ExecutorService taskExecutor;

@@ -7,7 +7,7 @@ package com.google.code.googlesearch.client;
  * @author nmukhtar
  *
  */
-public class BingSearchException extends RuntimeException {
+public class GoogleSearchException extends RuntimeException {
 
 	/**
 	 * 
@@ -17,19 +17,19 @@ public class BingSearchException extends RuntimeException {
 	/**
 	 * 
 	 */
-	public BingSearchException() {}
+	public GoogleSearchException() {}
 
 	/**
 	 * @param message
 	 */
-	public BingSearchException(String message) {
+	public GoogleSearchException(String message) {
 		super(message);
 	}
 
 	/**
 	 * @param cause
 	 */
-	public BingSearchException(Throwable cause) {
+	public GoogleSearchException(Throwable cause) {
 		super(cause);
 	}
 
@@ -37,7 +37,7 @@ public class BingSearchException extends RuntimeException {
 	 * @param message
 	 * @param cause
 	 */
-	public BingSearchException(String message, Throwable cause) {
+	public GoogleSearchException(String message, Throwable cause) {
 		super(message, cause);
 	}
 }

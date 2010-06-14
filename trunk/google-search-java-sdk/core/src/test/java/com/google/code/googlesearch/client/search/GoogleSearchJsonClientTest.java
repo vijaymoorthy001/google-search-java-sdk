@@ -16,7 +16,7 @@ import com.google.code.googlesearch.schema.SearchResponse;
  * @author nmukhtar
  *
  */
-public class BingSearchJsonClientTest extends BaseBingSearchClientTest {
+public class GoogleSearchJsonClientTest extends BaseGoogleSearchClientTest {
 
 	/**
 	 * @throws java.lang.Exception
@@ -35,7 +35,7 @@ public class BingSearchJsonClientTest extends BaseBingSearchClientTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.googlesearch.client.impl.BaseBingSearchApiClient#search(com.microsoft.schemas.livesearch._2008._03.search.SearchRequest)}.
+	 * Test method for {@link com.google.code.googlesearch.client.impl.BaseGoogleSearchApiClient#search(com.microsoft.schemas.livesearch._2008._03.search.SearchRequest)}.
 	 */
 	@Test
 	public void testSearch() {
@@ -44,7 +44,7 @@ public class BingSearchJsonClientTest extends BaseBingSearchClientTest {
 	}
 
 	/**
-	 * Test method for {@link com.google.code.googlesearch.client.impl.BaseBingSearchApiClient#searchAsync(com.microsoft.schemas.livesearch._2008._03.search.SearchRequest)}.
+	 * Test method for {@link com.google.code.googlesearch.client.impl.BaseGoogleSearchApiClient#searchAsync(com.microsoft.schemas.livesearch._2008._03.search.SearchRequest)}.
 	 */
 	@Test
 	public void testSearchAsync() {
