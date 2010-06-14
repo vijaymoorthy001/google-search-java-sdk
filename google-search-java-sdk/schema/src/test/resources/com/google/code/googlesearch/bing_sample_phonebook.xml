@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.0">
+	<Query>
+		<SearchTerms>microsoft offices</SearchTerms>
+	</Query>
+	<pho:Phonebook xmlns:pho="http://schemas.microsoft.com/LiveSearch/2008/04/XML/phonebook">
+		<pho:Total>1</pho:Total>
+		<pho:Offset>0</pho:Offset>
+		<pho:LocalSerpUrl>http://maps.live.com/localsearch/default.aspx?what=microsoft+offices&amp;where=&amp;s_cid=ansPhBkYp01&amp;mkt=en-us&amp;ac=false&amp;FORM=SOAPGN</pho:LocalSerpUrl>
+		<pho:Title>Top local listings for microsoft offices near</pho:Title>
+		<pho:Results>
+			<pho:PhonebookResult>
+				<pho:Title>Microsoft Corp</pho:Title>
+				<pho:Url>http://maps.live.com/localsearch/details.aspx?lid=YN925x15774182&amp;qt=yp&amp;what=microsoft+offices&amp;where=&amp;s_cid=ansPhBkYp02&amp;mkt=en-us&amp;FORM=SOAPGN</pho:Url>
+				<pho:Business>Microsoft Corp</pho:Business>
+				<pho:PhoneNumber>(425) 882-8080</pho:PhoneNumber>
+				<pho:Address>1 Microsoft Way</pho:Address>
+				<pho:City>Redmond</pho:City>
+				<pho:StateOrProvince>WA</pho:StateOrProvince>
+				<pho:CountryOrRegion>US</pho:CountryOrRegion>
+				<pho:PostalCode/>
+				<pho:Latitude>47.643119</pho:Latitude>
+				<pho:Longitude>-122.130607</pho:Longitude>
+				<pho:UniqueId>YN925x15774182</pho:UniqueId>
+				<pho:BusinessUrl>http://www.microsoft.com/</pho:BusinessUrl>
+				<pho:UserRating>5.868999</pho:UserRating>
+				<pho:ReviewCount>43</pho:ReviewCount>
+				<pho:DisplayUrl>http://local.live.com/localsearch/Details.aspx?lid=YN925x15774182</pho:DisplayUrl>
+			</pho:PhonebookResult>
+		</pho:Results>
+	</pho:Phonebook>
+</SearchResponse>

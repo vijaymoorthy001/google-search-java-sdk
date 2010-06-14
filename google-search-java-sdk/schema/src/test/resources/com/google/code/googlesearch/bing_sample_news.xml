@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.0">
+	<Query>
+		<SearchTerms>msn moneycentral</SearchTerms>
+	</Query>
+	<news:News xmlns:news="http://schemas.microsoft.com/LiveSearch/2008/04/XML/news">
+		<news:Total>72</news:Total>
+		<news:Offset>0</news:Offset>
+		<news:Results>
+			<news:NewsResult>
+				<news:Title>MSN MoneyCentral</news:Title>
+				<news:Source>moneycentral.msn.com/</news:Source>
+				<news:Snippet>Quotes, stock research, portfolio tracking, news, and online bill payment. Keep informed and plan for retirement, college, taxes, insurance, real estate, and savings.</news:Snippet>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>Equity One posts rise in funds from operations</news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=AP&amp;date=20081104&amp;id=9350115</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>NORTH MIAMI BEACH, Fla. (AP) - Shopping-center owner Equity One Inc. said Tuesday its third-quarter funds from operations slightly beat Wall Street expectations, though the company swung to a net loss and occupancy dropped. Excluding a charge, funds ... </news:Snippet>
+				<news:Date>2008-11-04T23:42:29Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>Ultra Petroleum Announces Record Third Quarter Financial and ... </news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=PR&amp;date=20081104&amp;id=9350053</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>-- Record earnings of $0.78 per diluted share (adjusted) or $122.4 million (adjusted), an increase of 227 percent from third quarter 2007 -- Record operating cash flow(1) of $242.5 million , up 166 percent from the same period a year ago -- Record ... </news:Snippet>
+				<news:Date>2008-11-04T23:42:29Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>RRsat Presents 34% Revenue Increase and Operating Margin Expansion in ... </news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=PR&amp;date=20081104&amp;id=9350060</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>Revenues for the third quarter of 2008 totaled a record $20.1 million , an increase of 34% compared to $15.0 million in the third quarter of 2007. Backlog of signed agreements, as of September 30, 2008 , reached a record $178.5 million , a further ... </news:Snippet>
+				<news:Date>2008-11-04T23:42:29Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>ACME Communications Schedules Third Quarter 2008 Earnings Release and ... </news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=BW&amp;date=20081104&amp;id=9350102</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>ACME Communications, Inc. (Pink Sheets:ACME) announced today that it will release its third quarter 2008 financial results after the market closes on Thursday, November 13, 2008. The Company will also host a conference call to discuss its third ... </news:Snippet>
+				<news:Date>2008-11-04T23:28:10Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>Mannatech says SEC inquiry ends without action</news:Title>
+				<news:Url>http://moneycentral.msn.com/inc/news/providerredir.asp?feed=AP&amp;date=20081104&amp;id=9350099</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>COPPELL, Texas (AP) - Mannatech Inc., a maker of dietary supplements and skin care products, said Tuesday that the Securities and Exchange Commission has informed the company it will not face civil action related to the dismissal of its accountant ... </news:Snippet>
+				<news:Date>2008-11-04T23:28:10Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>U.S. Bancorp to Present at the Merrill Lynch Banking &amp; Financial ... </news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=BW&amp;date=20081104&amp;id=9350091</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>U.S. Bancorp USB announced today that Richard K. Davis, chairman, president and chief executive officer, is scheduled to present at the Merrill Lynch Banking &amp; Financial Services Investor Conference. The presentation will begin at 1:45 p.m. EST on ... </news:Snippet>
+				<news:Date>2008-11-04T23:21:01Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>U.S. Bancorp to Present at the BancAnalysts Association of Boston ... </news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=BW&amp;date=20081104&amp;id=9350092</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>U.S. Bancorp USB announced today that Andrew Cecere, vice chairman and chief financial officer, is scheduled to present at the BancAnalysts Association of Boston Investor Conference. The presentation will begin at 9:00 a.m. EST on Friday, November 7 ... </news:Snippet>
+				<news:Date>2008-11-04T23:21:01Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>S &amp; P Assigns Aqua Pennsylvania &apos;AA-&apos; Secured Debt Rating</news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=BW&amp;date=20081104&amp;id=9350093</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>Aqua America, Inc. WTR announced today that Standard and Poor s has assigned its = AA-secured debt rating and = 1+ recovery rating (1+ through 6) to the $80 million tax-free First Mortgage Bonds planned for issuance by the company ... </news:Snippet>
+				<news:Date>2008-11-04T23:21:01Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>Andersons Inc. reports 3Q profit up 22 percent</news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=AP&amp;date=20081104&amp;id=9350095</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>MAUMEE, Ohio (AP) - Andersons Inc., an ethanol, railroad and fertilizer company, said Tuesday that its third quarter profit rose 22 percent, driven by increased sales of plant nutrients. The company posted net income of $12.8 million, or 70 cents per ... </news:Snippet>
+				<news:Date>2008-11-04T23:21:01Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+			<news:NewsResult>
+				<news:Title>Shining Prospect&apos;s Rio Shares Transferred</news:Title>
+				<news:Url>http://news.moneycentral.msn.com/provider/providerarticle.aspx?feed=BW&amp;date=20081104&amp;id=9350096</news:Url>
+				<news:Source>MSN MoneyCentral</news:Source>
+				<news:Snippet>Alcoa AA today announced the shares held in Rio Tinto plc by Alcoa and Chinalco, which were held under a custodian agreement with Lehman Brothers International Europe, have been transferred to a new custodian acting on behalf of Shining Prospect ... </news:Snippet>
+				<news:Date>2008-11-04T23:21:01Z</news:Date>
+				<news:BreakingNews>0</news:BreakingNews>
+			</news:NewsResult>
+		</news:Results>
+	</news:News>
+</SearchResponse>

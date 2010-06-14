@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.2">
+	<Query>
+		<SearchTerms>testign</SearchTerms>
+	</Query>
+	<spl:Spell xmlns:spl="http://schemas.microsoft.com/LiveSearch/2008/04/XML/spell">
+		<spl:Total>1</spl:Total>
+		<spl:Results>
+			<spl:SpellResult>
+				<spl:Value>testing </spl:Value>
+			</spl:SpellResult>
+		</spl:Results>
+	</spl:Spell>
+	<web:Web xmlns:web="http://schemas.microsoft.com/LiveSearch/2008/04/XML/web">
+		<web:Total>5680</web:Total>
+		<web:Offset>0</web:Offset>
+		<web:Results>
+			<web:WebResult>
+				<web:Title>Hacker News | PHP Unit testign</web:Title>
+				<web:Description>PHP Unit testign: 1 point by amrithk 134 days ago | 1 comment: Interested to know what tools people use/recommend for unit testing for PHP? What do people think about PHPUnit?</web:Description>
+				<web:Url>http://news.ycombinator.com/item?id=196435</web:Url>
+				<web:DisplayUrl>http://news.ycombinator.com/item?id=196435</web:DisplayUrl>
+				<web:DateTime>2008-10-03T15:09:15Z</web:DateTime>
+			</web:WebResult>
+		</web:Results>
+	</web:Web>
+</SearchResponse>

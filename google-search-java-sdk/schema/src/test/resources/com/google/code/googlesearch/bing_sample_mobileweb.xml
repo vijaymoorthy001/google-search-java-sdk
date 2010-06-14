@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.1">
+	<Query>
+		<SearchTerms>msdn blogs</SearchTerms>
+	</Query>
+	<mw:MobileWeb xmlns:mw="http://schemas.microsoft.com/LiveSearch/2008/04/XML/mobileweb">
+		<mw:Total>139</mw:Total>
+		<mw:Offset>0</mw:Offset>
+		<mw:Results>
+			<mw:MobileWebResult>
+				<mw:Title>Smoothplanet</mw:Title>
+				<mw:Description>Caution! You leave this KAYWA Weblog now! This is an external link to a page that might not be adapted for a mobile phone. If you want to proceed click on the link.</mw:Description>
+				<mw:Url>http://smoothplanet.kaywa.com/mobile/exturl/http/blogs.msdn.com/iemobile</mw:Url>
+				<mw:DisplayUrl>smoothplanet.kaywa.com/mobile/exturl/http/blogs.msdn.com/iemobile</mw:DisplayUrl>
+				<mw:DateTime>2009-02-23T10:17:58Z</mw:DateTime>
+			</mw:MobileWebResult>
+			<mw:MobileWebResult>
+				<mw:Title>Version 5.0 of the Virtual Earth API now available | AnyGeo - A ... </mw:Title>
+				<mw:Description>Over at the MSDNlogs Virtual Earth program manager Andy McGovern has come up with the following update: &quot;we&apos;ve been busy poking around the Virtual Earth forums and blogs, listening ... </mw:Description>
+				<mw:Url>http://blog.gisuser.com/?p=1105</mw:Url>
+				<mw:DisplayUrl>blog.gisuser.com/?p=1105</mw:DisplayUrl>
+				<mw:DateTime>2009-03-05T06:09:53Z</mw:DateTime>
+			</mw:MobileWebResult>
+		</mw:Results>
+	</mw:MobileWeb>
+</SearchResponse>

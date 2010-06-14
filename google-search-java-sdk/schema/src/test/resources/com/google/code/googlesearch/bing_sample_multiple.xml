@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate ?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.0">
+	<Query>
+		<SearchTerms>microsift</SearchTerms>
+		<AlteredQuery>microsoft</AlteredQuery>
+		<AlterationOverrideQuery>+microsift</AlterationOverrideQuery>
+	</Query>
+	<spl:Spell xmlns:spl="http://schemas.microsoft.com/LiveSearch/2008/04/XML/spell">
+		<spl:Total>1</spl:Total>
+		<spl:Results>
+			<spl:SpellResult>
+				<spl:Value>microsoft</spl:Value>
+			</spl:SpellResult>
+		</spl:Results>
+	</spl:Spell>
+	<web:Web xmlns:web="http://schemas.microsoft.com/LiveSearch/2008/04/XML/web">
+		<web:Total>224000000</web:Total>
+		<web:Offset>0</web:Offset>
+		<web:Results>
+			<web:WebResult>
+				<web:Title>Microsoft Corporation</web:Title>
+				<web:Description>Get product information, support, and news from Microsoft. ... Microsoft Silverlight delivers a new generation of high-quality audio and video, engaging media experiences, and ...</web:Description>
+				<web:Url>http://www.microsoft.com/</web:Url>
+				<web:DisplayUrl>http://www.microsoft.com/</web:DisplayUrl>
+				<web:DateTime>2008-10-28T04:45:28Z</web:DateTime>
+			</web:WebResult>
+			<web:WebResult>
+				<web:Title>Microsoft Help and Support</web:Title>
+				<web:Description>The Microsoft Help and Support home page is your portal to help and support for Microsoft products. Download the latest updates and find top issues, error messages, and ...</web:Description>
+				<web:Url>http://support.microsoft.com/</web:Url>
+				<web:DisplayUrl>http://support.microsoft.com/</web:DisplayUrl>
+				<web:DateTime>2008-11-03T08:41:44Z</web:DateTime>
+				<web:SearchTags>
+					<web:WebSearchTag>
+						<web:Name>search.kbparents</web:Name>
+						<web:Value>""</web:Value>
+					</web:WebSearchTag>
+					<web:WebSearchTag>
+						<web:Name>search.description</web:Name>
+						<web:Value>"The Microsoft Help and Support home page is your portal to help and support for Microsoft products. Download the latest updates and find top issues, error messages, and troubleshooting tips for Windows XP, Windows Vista, the 2007 Microsoft Office system, and other Microsoft programs."</web:Value>
+					</web:WebSearchTag>
+					<web:WebSearchTag>
+						<web:Name>search.contenttype</web:Name>
+						<web:Value>"gp"</web:Value>
+					</web:WebSearchTag>
+					<web:WebSearchTag>
+						<web:Name>search.title</web:Name>
+						<web:Value>"Microsoft Help and Support"</web:Value>
+					</web:WebSearchTag>
+				</web:SearchTags>
+			</web:WebResult>
+		</web:Results>
+	</web:Web>
+</SearchResponse>
