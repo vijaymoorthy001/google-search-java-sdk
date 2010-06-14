@@ -21,7 +21,7 @@ import com.google.code.googlesearch.schema.web.WebSearchOption;
  * 
  * @author Nabeel Mukhtar
  */
-public interface BingSearchClient {
+public interface GoogleSearchClient {
 	
 	public SearchRequestBuilder newSearchRequestBuilder();
 	

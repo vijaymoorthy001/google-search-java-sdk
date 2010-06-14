@@ -14,9 +14,9 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import com.google.code.bing.search.client.ApiProtocol;
-import com.google.code.googlesearch.client.BingSearchClient;
-import com.google.code.googlesearch.client.BingSearchServiceClientFactory;
-import com.google.code.googlesearch.client.BingSearchClient.SearchRequestBuilder;
+import com.google.code.googlesearch.client.GoogleSearchClient;
+import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
+import com.google.code.googlesearch.client.GoogleSearchClient.SearchRequestBuilder;
 import com.google.code.googlesearch.schema.SearchOption;
 import com.google.code.googlesearch.schema.SearchRequest;
 import com.google.code.googlesearch.schema.SearchResponse;
@@ -80,8 +80,8 @@ public class NewsSample {
         		}
         	}
         	
-    		BingSearchServiceClientFactory factory = BingSearchServiceClientFactory.newInstance();
-    		BingSearchClient client = factory.createBingSearchClient(protocol);
+    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
+    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
     		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
     		printResponse(response);
         } else {
@@ -149,7 +149,7 @@ public class NewsSample {
 		}
 	}
 
-	private static SearchRequest createSearchRequest(BingSearchClient client, String applicationId, String query) {
+	private static SearchRequest createSearchRequest(GoogleSearchClient client, String applicationId, String query) {
 		SearchRequestBuilder builder = client.newSearchRequestBuilder();
 		builder.withAppId(applicationId);
 		builder.withQuery(query);

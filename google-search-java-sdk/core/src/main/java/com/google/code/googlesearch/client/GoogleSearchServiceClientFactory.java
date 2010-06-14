@@ -22,21 +22,21 @@ import com.google.code.googlesearch.client.impl.BingSearchSoapClientImpl;
  * 
  * @author Nabeel Mukhtar
  */
-public class BingSearchServiceClientFactory {
+public class GoogleSearchServiceClientFactory {
 
     /** The task executor. */
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
     
-    private static final Map<ApiProtocol, BingSearchClient> clientImplementations = new EnumMap<ApiProtocol, BingSearchClient>(ApiProtocol.class);
+    private static final Map<ApiProtocol, GoogleSearchClient> clientImplementations = new EnumMap<ApiProtocol, GoogleSearchClient>(ApiProtocol.class);
     
     static {
-    	clientImplementations.put(ApiProtocol.JSON, new BingSearchJsonClientImpl());
+    	clientImplementations.put(ApiProtocol.JSON, new GoogleSearchJsonClientImpl());
     	clientImplementations.put(ApiProtocol.XML, new BingSearchJaxbClientImpl());
     	clientImplementations.put(ApiProtocol.SOAP, new BingSearchSoapClientImpl());
     	clientImplementations.put(ApiProtocol.RSS, new BingSearchRssClientImpl());
     }
     
-    private BingSearchServiceClientFactory() {}
+    private GoogleSearchServiceClientFactory() {}
 
     /**
      * Sets the task executor to be used for asynchronous API calls. 
@@ -55,16 +55,16 @@ public class BingSearchServiceClientFactory {
      * 
      * @return the linked in api client factory
      */
-    public static BingSearchServiceClientFactory newInstance() {
-        return new BingSearchServiceClientFactory();
+    public static GoogleSearchServiceClientFactory newInstance() {
+        return new GoogleSearchServiceClientFactory();
     }
     
     /**
      * 
      * 
      */
-    public BingSearchClient createBingSearchClient(ApiProtocol protocol) {
-    	BaseBingSearchServiceClientImpl client = (BaseBingSearchServiceClientImpl) clientImplementations.get(protocol);
+    public GoogleSearchClient createBingSearchClient(ApiProtocol protocol) {
+    	BaseGoogleSearchServiceClientImpl client = (BaseGoogleSearchServiceClientImpl) clientImplementations.get(protocol);
     	client.setTaskExecutor(taskExecutor);
     	return client;
     }

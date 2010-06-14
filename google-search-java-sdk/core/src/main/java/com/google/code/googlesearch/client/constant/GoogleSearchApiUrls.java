@@ -32,20 +32,20 @@ import com.google.code.googlesearch.schema.web.WebSearchOption;
 /**
  * The Class LinkedInApiUrls.
  */
-public final class BingSearchApiUrls {
+public final class GoogleSearchApiUrls {
 
     /** The Constant API_URLS_FILE. */
     public static final String API_URLS_FILE = "BingSearchApiUrls.properties";
 
     /** The static logger. */
-    private static final Logger LOG = Logger.getLogger(BingSearchApiUrls.class.getCanonicalName());
+    private static final Logger LOG = Logger.getLogger(GoogleSearchApiUrls.class.getCanonicalName());
     
     /** The Constant linkedInApiUrls. */
     private static final Properties bingSearchApiUrls = new Properties();
 
     static {
         try {
-            bingSearchApiUrls.load(BingSearchApiUrls.class.getResourceAsStream(API_URLS_FILE));
+            bingSearchApiUrls.load(GoogleSearchApiUrls.class.getResourceAsStream(API_URLS_FILE));
         } catch (IOException e) {
         	LOG.log(Level.SEVERE, "An error occurred while loading urls.", e);
         }
@@ -58,7 +58,7 @@ public final class BingSearchApiUrls {
     /**
      * Instantiates a new linked in api urls.
      */
-    private BingSearchApiUrls() {}
+    private GoogleSearchApiUrls() {}
 
     /**
      * The Class LinkedInApiUrlBuilder.

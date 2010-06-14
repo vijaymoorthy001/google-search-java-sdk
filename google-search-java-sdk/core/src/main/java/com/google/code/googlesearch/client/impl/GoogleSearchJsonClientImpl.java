@@ -14,8 +14,8 @@ import org.json.simple.parser.JSONParser;
 
 import com.google.code.bing.search.client.ApiProtocol;
 import com.google.code.googlesearch.BaseBingSearchApiClient;
-import com.google.code.googlesearch.client.BingSearchException;
-import com.google.code.googlesearch.client.constant.BingSearchApiUrls.BingSearchApiUrlBuilder;
+import com.google.code.googlesearch.client.GoogleSearchException;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.BingSearchApiUrlBuilder;
 import com.google.code.googlesearch.schema.Adaptable;
 import com.google.code.googlesearch.schema.Error;
 import com.google.code.googlesearch.schema.Query;
@@ -98,7 +98,7 @@ import com.google.code.googlesearch.schema.web.WebSearchTag;
  * @author Nabeel Mukhtar
  *
  */
-public class BingSearchJsonClientImpl extends BaseBingSearchApiClient {
+public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
 
     /** Field description */
     private static final SchemaElementFactory OBJECT_FACTORY = new JsonElementFactory();
@@ -136,9 +136,9 @@ public class BingSearchJsonClientImpl extends BaseBingSearchApiClient {
             		return (T) adaptable;
         		}
         	}
-        	throw new BingSearchException("Unknown content found in response:" + response.toString());
+        	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
-            throw new BingSearchException(e);
+            throw new GoogleSearchException(e);
         }
     }
 
@@ -157,7 +157,7 @@ public class BingSearchJsonClientImpl extends BaseBingSearchApiClient {
             // TODO-NM: Implement this method.
             return writer.toString();
         } catch (Exception e) {
-            throw new BingSearchException(e);
+            throw new GoogleSearchException(e);
         }
     }
 
