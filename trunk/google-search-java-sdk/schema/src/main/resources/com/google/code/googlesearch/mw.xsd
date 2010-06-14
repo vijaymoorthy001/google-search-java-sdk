@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/mobileweb" xmlns:mms="http://schemas.microsoft.com/LiveSearch/2008/04/XML/multimedia" xmlns:element="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" xmlns:web="http://schemas.microsoft.com/LiveSearch/2008/04/XML/web" xmlns:enc="http://schemas.microsoft.com/LiveSearch/2008/04/XML/encarta" xmlns:pho="http://schemas.microsoft.com/LiveSearch/2008/04/XML/phonebook" xmlns:ia="http://schemas.microsoft.com/LiveSearch/2008/04/XML/instantanswer" xmlns:rs="http://schemas.microsoft.com/LiveSearch/2008/04/XML/relatedsearch" xmlns:news="http://schemas.microsoft.com/LiveSearch/2008/04/XML/news" xmlns:ads="http://schemas.microsoft.com/LiveSearch/2008/04/XML/ads" xmlns:spl="http://schemas.microsoft.com/LiveSearch/2008/04/XML/spell" xmlns:tra="http://schemas.microsoft.com/LiveSearch/2008/04/XML/translation" xmlns:fls="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element/flightstatus" xmlns:mw="http://schemas.microsoft.com/LiveSearch/2008/04/XML/mobileweb">
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/ads" schemaLocation="ads.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" schemaLocation="bing-search-api.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element/flightstatus" schemaLocation="fls.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/encarta" schemaLocation="enc.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/instantanswer" schemaLocation="ia.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/multimedia" schemaLocation="mms.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/news" schemaLocation="news.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/phonebook" schemaLocation="pho.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/relatedsearch" schemaLocation="rs.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/spell" schemaLocation="spl.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/translation" schemaLocation="tra.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/LiveSearch/2008/04/XML/web" schemaLocation="web.xsd"/>
+  <xs:element name="MobileWeb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="mw:Total"/>
+        <xs:element minOccurs="0" ref="mw:Offset"/>
+        <xs:element minOccurs="0" ref="mw:Results"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Total" type="xs:integer"/>
+  <xs:element name="Offset" type="xs:integer"/>
+  <xs:element name="Results">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="mw:MobileWebResult"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MobileWebResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mw:Title"/>
+        <xs:element ref="mw:Description"/>
+        <xs:element ref="mw:Url"/>
+        <xs:element ref="mw:DisplayUrl"/>
+        <xs:element ref="mw:DateTime"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Title" type="xs:string"/>
+  <xs:element name="Description" type="xs:string"/>
+  <xs:element name="Url" type="xs:anyURI"/>
+  <xs:element name="DisplayUrl" type="xs:string"/>
+  <xs:element name="DateTime" type="xs:string"/>
+</xs:schema>

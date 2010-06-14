@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?pageview_candidate ?>
+<SearchResponse xmlns="http://schemas.microsoft.com/LiveSearch/2008/04/XML/element" Version="2.0">
+	<Query>
+		<SearchTerms>word powerpoint</SearchTerms>
+	</Query>
+	<ads:Ad xmlns:ads="http://schemas.microsoft.com/LiveSearch/2008/04/XML/ads">
+		<ads:Total>2</ads:Total>
+		<ads:PageNumber>0</ads:PageNumber>
+		<ads:AdApiVersion>1.0</ads:AdApiVersion>
+		<ads:Results>
+			<ads:AdResult>
+				<ads:Rank>1</ads:Rank>
+				<ads:Position>mainline</ads:Position>
+				<ads:Title>Sample Word 2007 Ad</ads:Title>
+				<ads:Description>Spend More Time Writing &amp; Less Time Formatting with Word 2007.</ads:Description>
+				<ads:DisplayUrl>Microsoft.com/Office2007</ads:DisplayUrl>
+				<ads:AdLinkUrl>http://0.r.msn.com/?ld=2vj0c1Ca9KZ/KmiuYWlpfXcdGq+8uSk+BPAdEDywJtTYD3Cy8hy03njO7A4tgBWCFXszGFyPxq3cw0CyeJV1TL08GAvx4g865GqsBul8R3W2uBh6ZQ4k2k91E9jwnSZnfguoNH81sEt35A0m58e/OiP7zMaxNd/amhu6aIzQhYWf2lVQccf4Wx+HA+ykFoZmmZqMCV+iwE/RJXOx0OHGUOsmaF9FK1c7vwSE9HmMj9r0yHZn8+DZIL</ads:AdLinkUrl>
+			</ads:AdResult>
+			<ads:AdResult>
+				<ads:Rank>2</ads:Rank>
+				<ads:Position>sidebar</ads:Position>
+				<ads:Title>Sample Powerpoint Ad</ads:Title>
+				<ads:Description>Shop and compare Presentation Software at Bing cashback.</ads:Description>
+				<ads:DisplayUrl>Search.Live.com/cashback</ads:DisplayUrl>
+				<ads:AdLinkUrl>http://0.r.msn.com/?ld=2vIQ0yZgfOWi9JD/vlulkxfSMjhwHMxFnn0tHbEYUM1vw/6jycSA85i6OiBMhzjpiApnZoRpIH6AdxuknhyuXuJnnE8ItLp++MSeBAba5HbAmaxDJzYnDT7s5O0/u6cGXohS8ihO/gON5ESvBXQ1tTqlsBIF2TBGeUO82VqR+7kjv4VJ7X/5gG62EO6W4UW19pSgPNKDZFdPQ95+4Ul4p7D4t18HYwkldqdptv/iJsDBC9xe5Be86tMpAEXrSbeTIyRgTBMtmYzXGkHF/RRi5Bd+vxBFJFk0NSmvShF8BWZrYpeHvCIJZMhINCLau6pyj2/OqSGM74aEIka2tqVfrhzJLnc6gvlmXZ0NTLWAKPFhBSvOKhdcLsPF7MEHMm4c9UFVxjRNHwSE9Hb9UOB0e5JPrNs9IL</ads:AdLinkUrl>
+			</ads:AdResult>
+		</ads:Results>
+	</ads:Ad>
+</SearchResponse>

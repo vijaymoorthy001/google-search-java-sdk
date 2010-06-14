@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns="http://java.sun.com/xml/ns/jaxws">
+    <bindings node="wsdl:definitions">
+        <enableAsyncMapping>true</enableAsyncMapping>
+		<bindings node="wsdl:types">
+			<jaxb:globalBindings localScoping="toplevel" generateValueClass="false">
+				<jaxb:javaType name="double" xmlType="xs:double"/>
+				<jaxb:javaType name="long" xmlType="xs:integer"/>
+				<xjc:superInterface name="SchemaEntity"/>
+				<xjc:serializable uid="2461660169443089969"/>
+			</jaxb:globalBindings>
+			<jaxb:bindings node="//xsd:schema">
+				<jaxb:bindings node="//xsd:complexType[@name='SearchRequest']">
+					<jaxb:class name="SearchRequestParameters"/>
+				</jaxb:bindings>
+				<jaxb:bindings node="//xsd:complexType[@name='SearchResponse']">
+					<jaxb:class name="SearchResponseParameters"/>
+				</jaxb:bindings>
+			</jaxb:bindings>
+		</bindings>
+    </bindings>
+</bindings>
