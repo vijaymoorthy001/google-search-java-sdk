@@ -8,91 +8,16 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.beanutils.BeanUtilsBean;
+import javax.jws.WebResult;
+import javax.management.Query;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.google.code.bing.search.client.ApiProtocol;
-import com.google.code.googlesearch.BaseBingSearchApiClient;
 import com.google.code.googlesearch.client.GoogleSearchException;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.BingSearchApiUrlBuilder;
-import com.google.code.googlesearch.schema.Adaptable;
-import com.google.code.googlesearch.schema.Error;
-import com.google.code.googlesearch.schema.Query;
-import com.google.code.googlesearch.schema.SchemaElementFactory;
 import com.google.code.googlesearch.schema.SchemaEntity;
-import com.google.code.googlesearch.schema.SearchRequest;
-import com.google.code.googlesearch.schema.SearchResponse;
-import com.google.code.googlesearch.schema.adapter.json.ErrorImpl;
-import com.google.code.googlesearch.schema.adapter.json.QueryImpl;
-import com.google.code.googlesearch.schema.adapter.json.SearchRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.SearchResponseImpl;
-import com.google.code.googlesearch.schema.adapter.json.instantanswer.InstantAnswerImpl;
-import com.google.code.googlesearch.schema.adapter.json.instantanswer.InstantAnswerResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.mobileweb.MobileWebImpl;
-import com.google.code.googlesearch.schema.adapter.json.mobileweb.MobileWebRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.mobileweb.MobileWebResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.ImageImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.ImageRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.ImageResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.ThumbnailImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.VideoImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.VideoRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.multimedia.VideoResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsArticleImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsCollectionImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsRelatedSearchImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.news.NewsResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.phonebook.PhonebookImpl;
-import com.google.code.googlesearch.schema.adapter.json.phonebook.PhonebookRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.phonebook.PhonebookResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.relatedsearch.RelatedSearchImpl;
-import com.google.code.googlesearch.schema.adapter.json.relatedsearch.RelatedSearchResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.spell.SpellImpl;
-import com.google.code.googlesearch.schema.adapter.json.spell.SpellResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.translation.TranslationImpl;
-import com.google.code.googlesearch.schema.adapter.json.translation.TranslationRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.translation.TranslationResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.web.DeepLinkImpl;
-import com.google.code.googlesearch.schema.adapter.json.web.WebImpl;
-import com.google.code.googlesearch.schema.adapter.json.web.WebRequestImpl;
-import com.google.code.googlesearch.schema.adapter.json.web.WebResultImpl;
-import com.google.code.googlesearch.schema.adapter.json.web.WebSearchTagImpl;
-import com.google.code.googlesearch.schema.instantanswer.InstantAnswerResponse;
-import com.google.code.googlesearch.schema.instantanswer.InstantAnswerResult;
-import com.google.code.googlesearch.schema.mobileweb.MobileWebRequest;
-import com.google.code.googlesearch.schema.mobileweb.MobileWebResponse;
-import com.google.code.googlesearch.schema.mobileweb.MobileWebResult;
-import com.google.code.googlesearch.schema.multimedia.ImageRequest;
-import com.google.code.googlesearch.schema.multimedia.ImageResponse;
-import com.google.code.googlesearch.schema.multimedia.ImageResult;
-import com.google.code.googlesearch.schema.multimedia.Thumbnail;
-import com.google.code.googlesearch.schema.multimedia.VideoRequest;
-import com.google.code.googlesearch.schema.multimedia.VideoResponse;
-import com.google.code.googlesearch.schema.multimedia.VideoResult;
-import com.google.code.googlesearch.schema.news.NewsArticle;
-import com.google.code.googlesearch.schema.news.NewsCollection;
-import com.google.code.googlesearch.schema.news.NewsRelatedSearch;
-import com.google.code.googlesearch.schema.news.NewsRequest;
-import com.google.code.googlesearch.schema.news.NewsResponse;
-import com.google.code.googlesearch.schema.news.NewsResult;
-import com.google.code.googlesearch.schema.phonebook.PhonebookRequest;
-import com.google.code.googlesearch.schema.phonebook.PhonebookResponse;
-import com.google.code.googlesearch.schema.phonebook.PhonebookResult;
-import com.google.code.googlesearch.schema.relatedsearch.RelatedSearchResponse;
-import com.google.code.googlesearch.schema.relatedsearch.RelatedSearchResult;
-import com.google.code.googlesearch.schema.spell.SpellResponse;
-import com.google.code.googlesearch.schema.spell.SpellResult;
-import com.google.code.googlesearch.schema.translation.TranslationRequest;
-import com.google.code.googlesearch.schema.translation.TranslationResponse;
-import com.google.code.googlesearch.schema.translation.TranslationResult;
-import com.google.code.googlesearch.schema.web.DeepLink;
-import com.google.code.googlesearch.schema.web.WebRequest;
-import com.google.code.googlesearch.schema.web.WebResponse;
-import com.google.code.googlesearch.schema.web.WebResult;
-import com.google.code.googlesearch.schema.web.WebSearchTag;
+import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * @author Nabeel Mukhtar
@@ -104,8 +29,6 @@ public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
     private static final SchemaElementFactory OBJECT_FACTORY = new JsonElementFactory();
     
     /** Field description */
-    private static final ApiProtocol SUPPORTED_PROTOCOL = ApiProtocol.JSON;
-    
     private final JSONParser parser = new JSONParser();
     
     /** Field description */
@@ -113,7 +36,6 @@ public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
 	
 	static {
 		ADAPTER_CLASSES_MAP.put(SearchResponse.class, SearchResponseImpl.class);
-		BeanUtilsBean.setInstance(new com.google.code.googlesearch.schema.adapter.BeanUtilsBean());
 	}
     
     /**
