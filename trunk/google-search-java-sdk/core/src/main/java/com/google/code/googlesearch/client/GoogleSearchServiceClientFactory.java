@@ -27,15 +27,6 @@ public class GoogleSearchServiceClientFactory {
     /** The task executor. */
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
     
-    private static final Map<ApiProtocol, GoogleSearchClient> clientImplementations = new EnumMap<ApiProtocol, GoogleSearchClient>(ApiProtocol.class);
-    
-    static {
-    	clientImplementations.put(ApiProtocol.JSON, new GoogleSearchJsonClientImpl());
-    	clientImplementations.put(ApiProtocol.XML, new BingSearchJaxbClientImpl());
-    	clientImplementations.put(ApiProtocol.SOAP, new BingSearchSoapClientImpl());
-    	clientImplementations.put(ApiProtocol.RSS, new BingSearchRssClientImpl());
-    }
-    
     private GoogleSearchServiceClientFactory() {}
 
     /**
@@ -63,8 +54,8 @@ public class GoogleSearchServiceClientFactory {
      * 
      * 
      */
-    public GoogleSearchClient createBingSearchClient(ApiProtocol protocol) {
-    	BaseGoogleSearchServiceClientImpl client = (BaseGoogleSearchServiceClientImpl) clientImplementations.get(protocol);
+    public GoogleSearchClient createBingSearchClient() {
+    	GoogleSearchClient client = new GoogleSearchJsonClientImpl();
     	client.setTaskExecutor(taskExecutor);
     	return client;
     }
