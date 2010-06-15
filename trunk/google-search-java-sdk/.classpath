@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="schema/src/main/java"/>
 	<classpathentry kind="src" path="schema/src/main/resources"/>
-	<classpathentry kind="src" path="schema/src/test/java"/>
-	<classpathentry kind="src" path="schema/src/test/resources"/>
 	<classpathentry kind="src" path="core/src/main/java"/>
 	<classpathentry kind="src" path="core/src/main/resources"/>
 	<classpathentry kind="src" path="core/src/test/java"/>
