@@ -12,28 +12,13 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Date;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 
-import com.google.code.stackexchange.client.constant.ApplicationConstants;
-import com.google.code.stackexchange.client.constant.ErrorCodes;
-import com.google.code.stackexchange.client.exception.InternalServerException;
-import com.google.code.stackexchange.client.exception.InvalidApplicationKeyException;
-import com.google.code.stackexchange.client.exception.InvalidOrderException;
-import com.google.code.stackexchange.client.exception.InvalidPageSizeException;
-import com.google.code.stackexchange.client.exception.InvalidSortException;
-import com.google.code.stackexchange.client.exception.InvalidVectorFormatException;
-import com.google.code.stackexchange.client.exception.NotFoundException;
-import com.google.code.stackexchange.client.exception.RequestLimitExceededException;
-import com.google.code.stackexchange.client.exception.StackExchangeApiException;
-import com.google.code.stackexchange.client.exception.TooManyIdsException;
-import com.google.code.stackexchange.client.exception.UnconstrainedSearchException;
-import com.google.code.stackexchange.client.provider.ApiProvider;
-import com.google.code.stackexchange.client.provider.StackOverflowApiProvider;
-import com.google.code.stackexchange.schema.Error;
+import com.google.code.googlesearch.client.GoogleSearchException;
+import com.google.code.googlesearch.client.constant.ApplicationConstants;
 
 /**
  * The Class StackExchangeApiGateway.
@@ -52,18 +37,9 @@ public abstract class GoogleSearchApiGateway {
 	/** The application key. */
 	protected String applicationKey;
 	
-	/** The api provider. */
-	private ApiProvider apiProvider = new StackOverflowApiProvider();
-	
 	/** The api version. */
 	protected String apiVersion = ApplicationConstants.DEFAULT_API_VERSION;
 	
-	/** The max rate limit. */
-	private int maxRateLimit = -1;
-	
-	/** The current rate limit. */
-	private int currentRateLimit = -1;
-
 	/**
 	 * Gets the api version.
 	 * 
@@ -137,42 +113,7 @@ public abstract class GoogleSearchApiGateway {
 		this.applicationKey = applicationKey;
 	}
 
-	/**
-	 * Gets the api provider.
-	 * 
-	 * @return the api provider
-	 */
-	public ApiProvider getApiProvider() {
-		return apiProvider;
-	}
-
-	/**
-	 * Sets the api provider.
-	 * 
-	 * @param apiProvider the new api provider
-	 */
-	public void setApiProvider(ApiProvider apiProvider) {
-		this.apiProvider = apiProvider;
-	}
-	
     /**
-     * Gets the max rate limit.
-     * 
-     * @return the max rate limit
-     */
-    public int getMaxRateLimit() {
-    	return maxRateLimit;
-    }
-    
-    /**
-     * Gets the current rate limit.
-     * 
-     * @return the current rate limit
-     */
-    public int getCurrentRateLimit() {
-    	return currentRateLimit;
-    }
-
 	/**
 	 * Convert stream to string.
 	 * 
@@ -245,22 +186,15 @@ public abstract class GoogleSearchApiGateway {
 	        }
 	        
 	        request.connect();
-	        maxRateLimit = request.getHeaderFieldInt(ApplicationConstants.MAX_RATE_LIMIT_HEADER, -1);
-	        currentRateLimit = request.getHeaderFieldInt(ApplicationConstants.CURRENT_RATE_LIMIT_HEADER, -1);
 	        
 	        if (request.getResponseCode() != expected) {
-	            Error error = readResponse(Error.class,
-	                    getWrappedInputStream(request.getErrorStream(),
-	                        GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding())));
-	            error.setStatusCode(request.getResponseCode());
-	        	
-	            throw createStackOverflowApiClientException(error);
+	            throw new GoogleSearchException(convertStreamToString(request.getErrorStream()));
 	        } else {
 	            return getWrappedInputStream(request.getInputStream(),
 	                                         GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
 	        }
 	    } catch (IOException e) {
-	        throw new StackExchangeApiException(e);
+	        throw new GoogleSearchException(e);
 	    }
 	}
 
@@ -310,22 +244,14 @@ public abstract class GoogleSearchApiGateway {
 			
 			        request.connect();
 			        
-			        maxRateLimit = request.getHeaderFieldInt(ApplicationConstants.MAX_RATE_LIMIT_HEADER, -1);
-			        currentRateLimit = request.getHeaderFieldInt(ApplicationConstants.CURRENT_RATE_LIMIT_HEADER, -1);
-			        
 			        if (request.getResponseCode() != expected) {
-			            Error error = readResponse(Error.class,
-			                    getWrappedInputStream(request.getErrorStream(),
-			                        GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding())));
-			            error.setStatusCode(request.getResponseCode());
-			            
-			            throw createStackOverflowApiClientException(error);
+			            throw new GoogleSearchException(convertStreamToString(request.getErrorStream()));
 			        } else {
 			            return getWrappedInputStream(request.getInputStream(),
 			                                         GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
 			        }
 			    } catch (IOException e) {
-			        throw new StackExchangeApiException(e);
+			        throw new GoogleSearchException(e);
 			    }
 			}
 
@@ -357,50 +283,6 @@ public abstract class GoogleSearchApiGateway {
 	    } catch (Exception e) {
 	    	LOG.log(Level.SEVERE, "An error occurred while disconnecting connection.", e);	
 	    }
-	}
-
-	/**
-	 * Creates the stack overflow api client exception.
-	 * 
-	 * @param error the error
-	 * 
-	 * @return the stack exchange api exception
-	 */
-	protected StackExchangeApiException createStackOverflowApiClientException(Error error) {
-		switch (error.getErrorCode()) {
-		
-		case ErrorCodes.INTERNAL_SERVER_ERROR:
-			return new InternalServerException(error.getMessage(), new Date());
-	
-		case ErrorCodes.INVALID_APPLICATION_KEY:
-			return new InvalidApplicationKeyException(error.getMessage(), new Date());
-			
-		case ErrorCodes.INVALID_ORDER:
-			return new InvalidOrderException(error.getMessage(), new Date());
-			
-		case ErrorCodes.INVALID_PAGE_SIZE:
-			return new InvalidPageSizeException(error.getMessage(), new Date());
-			
-		case ErrorCodes.INVALID_SORT:
-			return new InvalidSortException(error.getMessage(), new Date());
-	
-		case ErrorCodes.NOT_FOUND:
-			return new NotFoundException(error.getMessage(), new Date());
-			
-		case ErrorCodes.REQUEST_LIMIT_EXCEEDED:
-			return new RequestLimitExceededException(error.getMessage(), new Date());
-			
-		case ErrorCodes.INVALID_VECTOR_FORMAT:
-			return new InvalidVectorFormatException(error.getMessage(), new Date());
-			
-		case ErrorCodes.TOO_MANY_IDS:
-			return new TooManyIdsException(error.getMessage(), new Date());
-			
-		case ErrorCodes.UNCONSTRAINED_SEARCH:
-			return new UnconstrainedSearchException(error.getMessage(), new Date());
-		default:
-			return new StackExchangeApiException(error.getMessage(), error.getStatusCode(), error.getErrorCode(), new Date());
-		}
 	}
 
 	/**

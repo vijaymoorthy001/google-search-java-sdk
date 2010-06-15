@@ -13,16 +13,6 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.google.code.bing.search.client.ApiProtocol;
-import com.google.code.googlesearch.client.GoogleSearchClient;
-import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
-import com.google.code.googlesearch.client.GoogleSearchClient.SearchRequestBuilder;
-import com.google.code.googlesearch.schema.AdultOption;
-import com.google.code.googlesearch.schema.SearchRequest;
-import com.google.code.googlesearch.schema.SearchResponse;
-import com.google.code.googlesearch.schema.SourceType;
-import com.google.code.googlesearch.schema.multimedia.ImageResult;
-
 /**
  * @author nmukhtar
  *
@@ -70,53 +60,24 @@ public class ImageSample {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
-        	ApiProtocol protocol = ApiProtocol.JSON;
-        	if (line.hasOption(PROTOCOL_OPTION)) {
-        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
-        		if (protocol == null) {
-        			printHelp(options);
-        			return;
-        		}
-        	}
-        	
-    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
-    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
-    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
-    		printResponse(response);
+//        	ApiProtocol protocol = ApiProtocol.JSON;
+//        	if (line.hasOption(PROTOCOL_OPTION)) {
+//        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
+//        		if (protocol == null) {
+//        			printHelp(options);
+//        			return;
+//        		}
+//        	}
+//        	
+//    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
+//    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
+//    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
+//    		printResponse(response);
         } else {
         	printHelp(options);
         }
 	}
 
-	private static void printResponse(SearchResponse response) {
-		System.out.println("Bing API Version " + response.getVersion());
-		System.out.println("Image results for " + response.getQuery().getSearchTerms());
-		for (ImageResult result : response.getImage().getResults().getImageResultList()) {
-			System.out.println(result.getMediaUrl());
-			System.out.println("Page Title: " + result.getTitle());
-			System.out.println("Page URL: " + result.getUrl());
-			System.out.println("Dimensions: "
-	                + result.getWidth()
-	                + "x"
-	                + result.getHeight());
-			System.out.println("Thumbnail URL: " + result.getThumbnail().getUrl());
-		}
-	}
-
-	private static SearchRequest createSearchRequest(GoogleSearchClient client, String applicationId, String query) {
-		SearchRequestBuilder builder = client.newSearchRequestBuilder();
-		builder.withAppId(applicationId);
-		builder.withQuery(query);
-		builder.withSourceType(SourceType.IMAGE);
-		builder.withVersion("2.0");
-		builder.withMarket("en-us");
-		builder.withAdultOption(AdultOption.MODERATE);
-		builder.withImageRequestCount(10L);
-		builder.withImageRequestOffset(0L);
-		
-		return builder.getResult();
-	}
-	
 	/**
      * Build command line options object.
      */

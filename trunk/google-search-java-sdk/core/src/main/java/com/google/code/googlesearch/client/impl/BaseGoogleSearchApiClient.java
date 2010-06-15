@@ -17,13 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 
-import com.google.code.bing.search.client.BaseBingSearchServiceClientImpl;
-import com.google.code.bing.search.client.BingSearchApiUrls;
 import com.google.code.googlesearch.client.GoogleSearchException;
-import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.BingSearchApiUrlBuilder;
-import com.google.code.googlesearch.schema.SchemaElementFactory;
-import com.google.code.googlesearch.schema.SearchRequest;
-import com.google.code.googlesearch.schema.SearchResponse;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
 
 /**
  * @author Nabeel Mukhtar
@@ -108,33 +103,6 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
         return taskExecutor.submit(task);
     }
     
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public SearchResponse search(SearchRequest request) {
-        assertNotNull("search request", request);
-
-        BingSearchApiUrlBuilder builder = createBingSearchApiUrlBuilder(GoogleSearchApiUrls.BASE_URL);
-        String                apiUrl  =
-            builder.withSearchRequest(request).buildUrl();
-
-        return readResponse(SearchResponse.class, callApiMethod(apiUrl));
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public Future<SearchResponse> searchAsync(final SearchRequest request) {
-		return execute(new Callable<SearchResponse>() {
-            @Override
-            public SearchResponse call() throws Exception {
-                return search(request);
-            }
-        });	
-     }
-	
     /**
      * Method description
      *
@@ -352,12 +320,5 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
      *
      * @return
      */
-    protected abstract BingSearchApiUrlBuilder createBingSearchApiUrlBuilder(String urlFormat);
-
-    /**
-     * Method description
-     *
-     * @return
-     */
-    protected abstract SchemaElementFactory createObjectFactory();
+    protected abstract GoogleSearchApiUrlBuilder createBingSearchApiUrlBuilder(String urlFormat);
 }

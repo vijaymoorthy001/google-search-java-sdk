@@ -3,19 +3,10 @@
  */
 package com.google.code.googlesearch.client;
 
-import java.util.EnumMap;
-import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.google.code.bing.search.client.ApiProtocol;
-import com.google.code.bing.search.client.BaseBingSearchServiceClientImpl;
-import com.google.code.bing.search.client.BingSearchJsonClientImpl;
-import com.google.code.googlesearch.BingSearchClient;
-import com.google.code.googlesearch.BingSearchServiceClientFactory;
-import com.google.code.googlesearch.client.impl.BingSearchJaxbClientImpl;
-import com.google.code.googlesearch.client.impl.BingSearchRssClientImpl;
-import com.google.code.googlesearch.client.impl.BingSearchSoapClientImpl;
+import com.google.code.googlesearch.client.impl.GoogleSearchJsonClientImpl;
 
 /**
  * A factory for creating LinkedInApiClient objects.
@@ -54,9 +45,9 @@ public class GoogleSearchServiceClientFactory {
      * 
      * 
      */
-    public GoogleSearchClient createBingSearchClient() {
+    public GoogleSearchClient createGoogleSearchClient() {
     	GoogleSearchClient client = new GoogleSearchJsonClientImpl();
-    	client.setTaskExecutor(taskExecutor);
+//    	client.setTaskExecutor(taskExecutor);
     	return client;
     }
 }

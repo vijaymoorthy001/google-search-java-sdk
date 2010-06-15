@@ -136,7 +136,7 @@ public final class GoogleSearchApiUrls {
     /**
      * The Class LinkedInApiUrlBuilder.
      */
-    public static class LinkedInApiUrlBuilder {
+    public static class GoogleSearchApiUrlBuilder {
         
         /** The Constant API_URLS_PLACEHOLDER_START. */
         private static final char API_URLS_PLACEHOLDER_START = '{';
@@ -165,7 +165,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @param urlFormat the url format
 	     */
-	    public LinkedInApiUrlBuilder(String urlFormat) {
+	    public GoogleSearchApiUrlBuilder(String urlFormat) {
     		this.urlFormat = urlFormat;    		
     	}
     	
@@ -175,7 +175,7 @@ public final class GoogleSearchApiUrls {
 	     * @param urlFormat the url format
 	     * @param urlType the url type
 	     */
-	    public LinkedInApiUrlBuilder(String urlFormat, String urlType) {
+	    public GoogleSearchApiUrlBuilder(String urlFormat, String urlType) {
     		this.urlFormat = urlFormat;
     		this.urlType = urlType;
     	}
@@ -188,7 +188,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withParameter(String name, String value) {
+	    public GoogleSearchApiUrlBuilder withParameter(String name, String value) {
 	    	if (value != null && value.length() > 0) {
 	    		parametersMap.put(name, Collections.singleton(encodeUrl(value)));
 	    	}
@@ -204,7 +204,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withParameters(String name, Collection<String> values) {
+	    public GoogleSearchApiUrlBuilder withParameters(String name, Collection<String> values) {
 	    	List<String> encodedValues = new ArrayList<String>(values.size());
 	    	for (String value : values) {
 	    		encodedValues.add(encodeUrl(value));
@@ -222,7 +222,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withParameterEnumSet(String name, Set<? extends ValueEnum> enumSet) {
+	    public GoogleSearchApiUrlBuilder withParameterEnumSet(String name, Set<? extends ValueEnum> enumSet) {
 	    	Set<String> values = new HashSet<String>(enumSet.size());
 	    	
 	    	for (ValueEnum fieldEnum : enumSet) {
@@ -242,7 +242,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withParameterEnum(String name, ValueEnum value) {
+	    public GoogleSearchApiUrlBuilder withParameterEnum(String name, ValueEnum value) {
 	    	withParameter(name, value.value());
     		
     		return this;
@@ -255,7 +255,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withParameterEnumMap(Map<? extends ValueEnum, String> enumMap) {
+	    public GoogleSearchApiUrlBuilder withParameterEnumMap(Map<? extends ValueEnum, String> enumMap) {
 	    	for (ValueEnum parameter : enumMap.keySet()) {
 	    		withParameter(parameter.value(), enumMap.get(parameter));
 	    	}
@@ -270,7 +270,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withEmptyField(String name) {
+	    public GoogleSearchApiUrlBuilder withEmptyField(String name) {
     		fieldsMap.put(name, "");
     		
     		return this;
@@ -284,7 +284,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withField(String name, String value) {
+	    public GoogleSearchApiUrlBuilder withField(String name, String value) {
 	    	withField(name, value, false);
     		
     		return this;
@@ -298,7 +298,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withField(String name, String value, boolean escape) {
+	    public GoogleSearchApiUrlBuilder withField(String name, String value, boolean escape) {
 	    	if (escape) {
 	    		fieldsMap.put(name, encodeUrl(value));
 	    	} else {
@@ -316,7 +316,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withFieldEnum(String name, ValueEnum value) {
+	    public GoogleSearchApiUrlBuilder withFieldEnum(String name, ValueEnum value) {
 	    	if (value.value() == null || value.value().length() == 0) {
 	    		fieldsMap.put(name, "");
 	    	} else {
@@ -334,7 +334,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @return the linked in api url builder
 	     */
-	    public LinkedInApiUrlBuilder withFieldEnumSet(String name, Set<? extends ValueEnum> enumSet) {
+	    public GoogleSearchApiUrlBuilder withFieldEnumSet(String name, Set<? extends ValueEnum> enumSet) {
 	    	StringBuilder builder = new StringBuilder();
 	    	if (!enumSet.isEmpty()) {
 	        	builder.append(":");
