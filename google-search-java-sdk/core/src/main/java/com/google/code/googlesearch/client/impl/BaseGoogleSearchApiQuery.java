@@ -9,22 +9,19 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.google.code.stackexchange.client.AsyncResponseHandler;
-import com.google.code.stackexchange.client.exception.StackExchangeApiException;
-import com.google.code.stackexchange.client.impl.StackExchangeApiGateway;
-import com.google.code.stackexchange.client.provider.url.ApiUrlBuilder;
-import com.google.code.stackexchange.client.query.StackExchangeApiQuery;
-import com.google.code.stackexchange.common.PagedList;
-import com.google.code.stackexchange.schema.Error;
-import com.google.code.stackexchange.schema.adapter.json.ErrorImpl;
+import com.google.code.googlesearch.client.AsyncResponseHandler;
+import com.google.code.googlesearch.client.GoogleSearchQuery;
+import com.google.code.googlesearch.client.GoogleSearchException;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
+import com.google.code.googlesearch.common.PagedList;
 
 /**
  * The Class BaseStackOverflowApiQuery.
  */
-public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway implements StackExchangeApiQuery<T> {
+public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway implements GoogleSearchQuery<T> {
 	
 	/** The api url builder. */
-	protected ApiUrlBuilder apiUrlBuilder;
+	protected GoogleSearchApiUrlBuilder apiUrlBuilder;
     
     /** The parser. */
     private final JSONParser parser = new JSONParser();
@@ -71,9 +68,9 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
         		notifyObservers(responseList);
 				return responseList;
         	}
-        	throw new StackExchangeApiException("Unknown content found in response:" + response.toString());
+        	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
-            throw new StackExchangeApiException(e);
+            throw new GoogleSearchException(e);
         } finally {
 	        closeStream(jsonContent);
 	    }
@@ -93,9 +90,9 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
         		notifyObservers(responseList);
 				return getFirstElement(responseList);
         	}
-        	throw new StackExchangeApiException("Unknown content found in response:" + response.toString());
+        	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
-            throw new StackExchangeApiException(e);
+            throw new GoogleSearchException(e);
         } finally {
 	        closeStream(jsonContent);
 	    }
@@ -119,27 +116,6 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		handlers.add(handler);
 	}
 	
-	
-    /* (non-Javadoc)
-     * @see com.google.code.stackexchange.client.impl.StackOverflowApiGateway#unmarshallObject(java.lang.Class, java.io.InputStream)
-     */
-    @SuppressWarnings("unchecked")
-	protected <A> A unmarshallObject(Class<A> clazz, InputStream jsonContent) {
-    	if (clazz.equals(Error.class)) {
-            try {
-            	Object response = parser.parse(new InputStreamReader(jsonContent));
-            	if (response instanceof JSONObject) {
-            		ErrorImpl error = new ErrorImpl();
-            		error.adaptFrom((JSONObject)response);
-            		return (A) error;
-            	}
-            } catch (Exception e) {
-                throw new StackExchangeApiException(e);
-            }
-    	}
-    	return null;
-    }
-
     /* (non-Javadoc)
      * @see com.google.code.stackexchange.client.impl.StackOverflowApiGateway#marshallObject(java.lang.Object)
      */
@@ -168,5 +144,10 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 			return null;
 		}
 		return list.get(0);
+	}
+	
+	@Override
+	protected <V> V unmarshallObject(Class<V> clazz, InputStream xmlContent) {
+		return null;
 	}
 }

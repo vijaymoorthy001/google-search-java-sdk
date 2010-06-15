@@ -3,12 +3,12 @@
  */
 package com.google.code.googlesearch.client.search;
 
+import java.util.Collection;
+
 import junit.framework.TestCase;
 
 import com.google.code.googlesearch.client.GoogleSearchClient;
 import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
-import com.google.code.googlesearch.client.GoogleSearchClient.SearchRequestBuilder;
-import com.google.code.googlesearch.schema.SearchRequest;
 
 /**
  * @author nmukhtar
@@ -24,17 +24,19 @@ public class BaseGoogleSearchClientTest extends TestCase {
 	/**
 	 * 
 	 */
-	protected SearchRequest createSearchRequest() {
-		SearchRequestBuilder requestBuilder = client.newSearchRequestBuilder();
-		// TODO-NM: Populate request with test data.
-		return requestBuilder.getResult();
-	}
-	
-	/**
-	 * 
-	 */
 	protected static void assertNotNullOrEmpty(String message, String value) {
 		assertNotNull(message, value);
 		assertFalse(message, "".equals(value));
+	}
+	
+	/**
+	 * Assert not null or empty.
+	 * 
+	 * @param message the message
+	 * @param value the value
+	 */
+	protected static void assertNotNullOrEmpty(String message, Collection<?> value) {
+		assertNotNull(message, value);
+		assertFalse(message, value.isEmpty());
 	}
 }

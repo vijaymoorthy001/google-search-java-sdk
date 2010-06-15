@@ -5,8 +5,6 @@ package com.google.code.googlesearch.client;
 
 import java.util.Map;
 
-import com.google.code.stackexchange.client.provider.ApiProvider;
-
 /**
  * The Interface StackExchangeCommunicationClient.
  */
@@ -40,32 +38,4 @@ public interface GoogleSearchCommunicationClient {
      * @param headerName the header name
      */
     public void removeRequestHeader(String headerName);
-    
-    /**
-     * Sets the api provider.
-     * 
-     * @param apiProvider the new api provider
-     */
-    public void setApiProvider(ApiProvider apiProvider);
-    
-    /**
-     * Gets the api provider.
-     * 
-     * @return the api provider
-     */
-    public ApiProvider getApiProvider();
-    
-    /**
-     * Gets the max rate limit.
-     * 
-     * @return the max rate limit
-     */
-    public int getMaxRateLimit();
-    
-    /**
-     * Gets the current rate limit.
-     * 
-     * @return the current rate limit
-     */
-    public int getCurrentRateLimit();
 }

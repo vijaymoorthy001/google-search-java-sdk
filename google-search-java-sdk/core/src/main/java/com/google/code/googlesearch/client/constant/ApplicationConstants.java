@@ -10,15 +10,13 @@ import java.util.logging.Logger;
 
 /**
  * The Class ApplicationConstants.
- *
- * @author Nabeel Mukhtar
  */
 public final class ApplicationConstants {
 
     /** The Constant APP_CONSTANTS_FILE. */
     public static final String APP_CONSTANTS_FILE = "ApplicationConstants.properties";
 
-    /** The static logger. */
+    /** The Constant LOG. */
     private static final Logger LOG = Logger.getLogger(ApplicationConstants.class.getCanonicalName());
     
     /** The Constant applicationConstants. */
@@ -32,15 +30,34 @@ public final class ApplicationConstants {
             LOG.log(Level.SEVERE, "An error occurred while loading properties.", e);
         }
     }
-    
-    /** The Constant CONTENT_TYPE_XML. */
-    public static final String CONTENT_TYPE_XML = getProperty("com.google.code.bing.search.client.contentTypeXml");
+
+    /** The Constant VALIDATE_XML. */
+    public static final boolean VALIDATE_XML = getBooleanProperty("com.google.code.stackexchange.client.validateXml");
+
+    /** The Constant DEFAULT_PAGE_SIZE. */
+    public static final int DEFAULT_PAGE_SIZE =
+        getIntProperty("com.google.code.stackexchange.client.defaultPageSize");
 
     /** The Constant CONTENT_ENCODING. */
-    public static final String CONTENT_ENCODING = getProperty("com.google.code.bing.search.client.encoding");
+    public static final String CONTENT_ENCODING = getProperty("com.google.code.stackexchange.client.encoding");
+
+    /** The Constant CLIENT_DEFAULT_IMPL. */
+    public static final String CLIENT_DEFAULT_IMPL = getProperty("com.google.code.stackexchange.client.defaultImpl");
+
+    /** The Constant DEFAULT_API_VERSION. */
+    public static final String DEFAULT_API_VERSION = getProperty("com.google.code.stackexchange.client.defaultApiVersion");
     
-    /** The Constant IN_WS_CONTAINER. */
-    public static final boolean STANDALONE_MODE = Boolean.getBoolean("com.google.code.bing.search.client.standalone");
+    /** The Constant CONNECT_TIMEOUT. */
+    public static final int CONNECT_TIMEOUT = getIntProperty("com.google.code.stackexchange.client.connectTimeout");
+    
+    /** The Constant READ_TIMEOUT. */
+    public static final int READ_TIMEOUT = getIntProperty("com.google.code.stackexchange.client.readTimeout");
+    
+    /** The Constant MAX_RATE_LIMIT_HEADER. */
+    public static final String MAX_RATE_LIMIT_HEADER = getProperty("com.google.code.stackexchange.client.maxRateLimitHeader");
+
+    /** The Constant CURRENT_RATE_LIMIT_HEADER. */
+    public static final String CURRENT_RATE_LIMIT_HEADER = getProperty("com.google.code.stackexchange.client.currentRateLimitHeader");
     
     /**
      * Instantiates a new application constants.
@@ -48,14 +65,22 @@ public final class ApplicationConstants {
     private ApplicationConstants() {}
 
     /**
-     * Get property as int.
+     * Gets the property.
+     * 
+     * @param key the key
+     * 
+     * @return the property
      */
     public static String getProperty(String key) {
         return applicationConstants.getProperty(key);
     }
 
     /**
-     * Get property as int.
+     * Gets the int property.
+     * 
+     * @param key the key
+     * 
+     * @return the int property
      */
     public static int getIntProperty(String key) {
         String property = applicationConstants.getProperty(key);
@@ -68,7 +93,11 @@ public final class ApplicationConstants {
     }
 
     /**
-     * Get property as boolean.
+     * Gets the boolean property.
+     * 
+     * @param key the key
+     * 
+     * @return the boolean property
      */
     public static boolean getBooleanProperty(String key) {
         String property = applicationConstants.getProperty(key);
@@ -81,7 +110,11 @@ public final class ApplicationConstants {
     }
 
     /**
-     * Get property as double.
+     * Gets the double property.
+     * 
+     * @param key the key
+     * 
+     * @return the double property
      */
     public static double getDoubleProperty(String key) {
         String property = applicationConstants.getProperty(key);
@@ -94,7 +127,11 @@ public final class ApplicationConstants {
     }
 
     /**
-     * Get property as long.
+     * Gets the long property.
+     * 
+     * @param key the key
+     * 
+     * @return the long property
      */
     public static long getLongProperty(String key) {
         String property = applicationConstants.getProperty(key);
@@ -107,7 +144,11 @@ public final class ApplicationConstants {
     }
 
     /**
-     * Get property as long.
+     * Checks if is null or empty.
+     * 
+     * @param s the s
+     * 
+     * @return true, if is null or empty
      */
     private static boolean isNullOrEmpty(String s) {
         return ((s == null) || s.length() == 0);

@@ -13,17 +13,6 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.google.code.bing.search.client.ApiProtocol;
-import com.google.code.googlesearch.client.GoogleSearchClient;
-import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
-import com.google.code.googlesearch.client.GoogleSearchClient.SearchRequestBuilder;
-import com.google.code.googlesearch.schema.SearchOption;
-import com.google.code.googlesearch.schema.SearchRequest;
-import com.google.code.googlesearch.schema.SearchResponse;
-import com.google.code.googlesearch.schema.SourceType;
-import com.google.code.googlesearch.schema.news.NewsResult;
-import com.google.code.googlesearch.schema.news.NewsSortOption;
-
 /**
  * @author nmukhtar
  *
@@ -71,19 +60,19 @@ public class NewsSample {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
-        	ApiProtocol protocol = ApiProtocol.JSON;
-        	if (line.hasOption(PROTOCOL_OPTION)) {
-        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
-        		if (protocol == null) {
-        			printHelp(options);
-        			return;
-        		}
-        	}
-        	
-    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
-    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
-    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
-    		printResponse(response);
+//        	ApiProtocol protocol = ApiProtocol.JSON;
+//        	if (line.hasOption(PROTOCOL_OPTION)) {
+//        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
+//        		if (protocol == null) {
+//        			printHelp(options);
+//        			return;
+//        		}
+//        	}
+//        	
+//    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
+//    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
+//    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
+//    		printResponse(response);
         } else {
         	printHelp(options);
         }
@@ -134,33 +123,4 @@ public class NewsSample {
         String footer = MessageFormat.format("\nThe valid values for -{0} option are xml|json|soap. The default is json.", PROTOCOL_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, footer, false);
     }
-
-	private static void printResponse(SearchResponse response) {
-		System.out.println("Bing API Version " + response.getVersion());
-		System.out.println("News results for " + response.getQuery().getSearchTerms());
-		
-		for (NewsResult result : response.getNews().getResults().getNewsResultList()) {
-			System.out.println(result.getTitle());
-			System.out.println(result.getUrl());
-			System.out.println(result.getSource());
-			System.out.println(result.getDate());
-			System.out.println(result.getSnippet());
-			System.out.println();
-		}
-	}
-
-	private static SearchRequest createSearchRequest(GoogleSearchClient client, String applicationId, String query) {
-		SearchRequestBuilder builder = client.newSearchRequestBuilder();
-		builder.withAppId(applicationId);
-		builder.withQuery(query);
-		builder.withSourceType(SourceType.NEWS);
-		builder.withVersion("2.0");
-		builder.withMarket("en-us");
-		builder.withSearchOption(SearchOption.ENABLE_HIGHLIGHTING);
-		
-		builder.withNewsRequestOffset(0L);
-		builder.withNewsRequestCategory("rt_Political");
-		builder.withNewsRequestSortOption(NewsSortOption.RELEVANCE);
-		return builder.getResult();
-	}
 }
