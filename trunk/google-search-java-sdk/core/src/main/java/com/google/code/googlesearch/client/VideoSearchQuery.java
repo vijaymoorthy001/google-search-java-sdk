@@ -10,5 +10,6 @@ import com.google.code.googlesearch.schema.VideoResult;
  *
  */
 public interface VideoSearchQuery extends GoogleSearchQuery<VideoResult> {
+	public VideoSearchQuery withOrder(VideoSortOrder order);
 
 }

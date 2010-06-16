@@ -31,11 +31,17 @@ public abstract class GoogleSearchApiGateway {
 	/** The Constant GZIP_ENCODING. */
 	private static final String GZIP_ENCODING = "gzip";
 	
+	/** The Constant GZIP_ENCODING. */
+	private static final String REFERRER = "Referer";
+	
 	/** The request headers. */
 	protected Map<String, String> requestHeaders;
 	
 	/** The application key. */
 	protected String applicationKey;
+	
+	/** The application key. */
+	protected String userIpAddress;
 	
 	/** The api version. */
 	protected String apiVersion = ApplicationConstants.DEFAULT_API_VERSION;
@@ -112,8 +118,21 @@ public abstract class GoogleSearchApiGateway {
 	public void setApplicationKey(String applicationKey) {
 		this.applicationKey = applicationKey;
 	}
+	
+	/**
+	 * @param referer the referer to set
+	 */
+	public void setReferrer(String referrer) {
+		requestHeaders.put(REFERRER, referrer);
+	}
 
-    /**
+	/**
+	 * @param referer the referer to set
+	 */
+	public void setUserIpAddress(String userIpAddress) {
+		this.userIpAddress = userIpAddress;
+	}
+	
 	/**
 	 * Convert stream to string.
 	 * 

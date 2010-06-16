@@ -10,5 +10,6 @@ import com.google.code.googlesearch.schema.BlogResult;
  *
  */
 public interface BlogSearchQuery extends GoogleSearchQuery<BlogResult> {
+	public BlogSearchQuery withOrder(BlogSortOrder order);
 
 }

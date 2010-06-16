@@ -10,5 +10,7 @@ import com.google.code.googlesearch.schema.PatentResult;
  *
  */
 public interface PatentSearchQuery extends GoogleSearchQuery<PatentResult> {
-
+	public PatentSearchQuery withSearchType(PatentSearchType type);
+	public PatentSearchQuery withOrder(PatentSortOrder order);
+	
 }

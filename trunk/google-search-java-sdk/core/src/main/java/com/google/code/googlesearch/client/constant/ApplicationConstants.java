@@ -36,28 +36,19 @@ public final class ApplicationConstants {
 
     /** The Constant DEFAULT_PAGE_SIZE. */
     public static final int DEFAULT_PAGE_SIZE =
-        getIntProperty("com.google.code.stackexchange.client.defaultPageSize");
+        getIntProperty("com.google.code.google.search.client.defaultPageSize");
 
     /** The Constant CONTENT_ENCODING. */
-    public static final String CONTENT_ENCODING = getProperty("com.google.code.stackexchange.client.encoding");
-
-    /** The Constant CLIENT_DEFAULT_IMPL. */
-    public static final String CLIENT_DEFAULT_IMPL = getProperty("com.google.code.stackexchange.client.defaultImpl");
+    public static final String CONTENT_ENCODING = getProperty("com.google.code.google.search.client.encoding");
 
     /** The Constant DEFAULT_API_VERSION. */
-    public static final String DEFAULT_API_VERSION = getProperty("com.google.code.stackexchange.client.defaultApiVersion");
+    public static final String DEFAULT_API_VERSION = getProperty("com.google.code.google.search.client.defaultApiVersion");
     
     /** The Constant CONNECT_TIMEOUT. */
-    public static final int CONNECT_TIMEOUT = getIntProperty("com.google.code.stackexchange.client.connectTimeout");
+    public static final int CONNECT_TIMEOUT = getIntProperty("com.google.code.google.search.client.connectTimeout");
     
     /** The Constant READ_TIMEOUT. */
-    public static final int READ_TIMEOUT = getIntProperty("com.google.code.stackexchange.client.readTimeout");
-    
-    /** The Constant MAX_RATE_LIMIT_HEADER. */
-    public static final String MAX_RATE_LIMIT_HEADER = getProperty("com.google.code.stackexchange.client.maxRateLimitHeader");
-
-    /** The Constant CURRENT_RATE_LIMIT_HEADER. */
-    public static final String CURRENT_RATE_LIMIT_HEADER = getProperty("com.google.code.stackexchange.client.currentRateLimitHeader");
+    public static final int READ_TIMEOUT = getIntProperty("com.google.code.google.search.client.readTimeout");
     
     /**
      * Instantiates a new application constants.

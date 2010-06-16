@@ -6,8 +6,11 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.LocalSearchQuery;
-import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.client.LocalSearchType;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
+import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.schema.LocalResult;
+import com.google.code.googlesearch.schema.adapter.json.LocalResultImpl;
 
 /**
  * @author nmukhtar
@@ -27,15 +30,35 @@ public class LocalSearchQueryImpl extends BaseGoogleSearchApiQuery<LocalResult> 
 	
 	
 	@Override
-	protected PagedList<LocalResult> unmarshall(JSONObject json) {
-		// TODO-NM: Implement this method
-		return null;
+	public void reset() {
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_LOCAL_URL);
 	}
-	
+
 
 	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
+	public LocalSearchQuery withBoundingBox(double x, double y) {
+		apiUrlBuilder.withParameter(ParameterNames.BOUNDING_BOX, x + "," + y);
+		return this;
+	}
 
+
+	@Override
+	public LocalSearchQuery withLocalSearchType(LocalSearchType type) {
+		apiUrlBuilder.withParameterEnum(ParameterNames.TYPE_OF_LISTING, type);
+		return this;
+	}
+
+
+	@Override
+	public LocalSearchQuery withLocation(double latitude, double longitude) {
+		apiUrlBuilder.withParameter(ParameterNames.SEARCH_CENTER_POINT, latitude + "," + longitude);
+		return this;
+	}
+	
+	@Override
+	protected LocalResult unmarshall(JSONObject json) {
+		LocalResultImpl result = new LocalResultImpl();
+		result.adaptFrom(json);
+		return result;
 	}
 }

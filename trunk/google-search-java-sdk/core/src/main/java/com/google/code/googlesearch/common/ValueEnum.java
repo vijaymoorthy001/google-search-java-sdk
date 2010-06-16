@@ -1,4 +1,4 @@
-package com.google.code.googlesearch.schema;
+package com.google.code.googlesearch.common;
 
 /**
  * The Interface ValueEnum.

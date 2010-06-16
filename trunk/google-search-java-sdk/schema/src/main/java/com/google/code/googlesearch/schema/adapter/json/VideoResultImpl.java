@@ -14,7 +14,7 @@ import com.google.code.googlesearch.schema.adapter.Adaptable;
  * @author nmukhtar
  *
  */
-public class VideoResultImple extends BaseJsonAdapter implements VideoResult, Adaptable<VideoResult, JSONObject> {
+public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Adaptable<VideoResult, JSONObject> {
 
 	/**
 	 * 

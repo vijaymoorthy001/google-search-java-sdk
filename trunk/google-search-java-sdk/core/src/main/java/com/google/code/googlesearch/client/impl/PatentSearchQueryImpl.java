@@ -6,8 +6,12 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.PatentSearchQuery;
-import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.client.PatentSearchType;
+import com.google.code.googlesearch.client.PatentSortOrder;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
+import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.schema.PatentResult;
+import com.google.code.googlesearch.schema.adapter.json.PatentResultImpl;
 
 /**
  * @author nmukhtar
@@ -27,15 +31,30 @@ public class PatentSearchQueryImpl extends BaseGoogleSearchApiQuery<PatentResult
 	
 	
 	@Override
-	protected PagedList<PatentResult> unmarshall(JSONObject json) {
-		// TODO-NM: Implement this method
-		return null;
+	public void reset() {
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_PATENT_URL);
 	}
-	
+
 
 	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
+	public PatentSearchQuery withOrder(PatentSortOrder order) {
+		apiUrlBuilder.withParameterEnum(ParameterNames.SCORING, order);
+		return this;
+	}
 
+
+	@Override
+	public PatentSearchQuery withSearchType(PatentSearchType type) {
+		if (type.value() != null) {
+			apiUrlBuilder.withParameter(type.value(), "1");
+		}
+		return this;
+	}
+	
+	@Override
+	protected PatentResult unmarshall(JSONObject json) {
+		PatentResultImpl result = new PatentResultImpl();
+		result.adaptFrom(json);
+		return result;
 	}
 }

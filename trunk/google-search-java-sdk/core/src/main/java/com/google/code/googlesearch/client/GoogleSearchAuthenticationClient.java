@@ -22,4 +22,14 @@ public interface GoogleSearchAuthenticationClient extends GoogleSearchCommunicat
      * @return the application key
      */
     public String getApplicationKey();
+    
+	/**
+	 * @param userIpAddress the userIpAddress to set
+	 */
+	public void setUserIpAddress(String userIpAddress);
+
+	/**
+	 * @param referer the referer to set
+	 */
+	public void setReferrer(String referrer);
 }

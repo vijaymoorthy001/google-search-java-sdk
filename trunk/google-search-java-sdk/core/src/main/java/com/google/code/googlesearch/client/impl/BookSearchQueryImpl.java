@@ -6,8 +6,11 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.BookSearchQuery;
-import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.client.BookSearchType;
+import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
+import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.schema.BookResult;
+import com.google.code.googlesearch.schema.adapter.json.BookResultImpl;
 
 /**
  * @author nmukhtar
@@ -27,15 +30,30 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 	
 	
 	@Override
-	protected PagedList<BookResult> unmarshall(JSONObject json) {
-		// TODO-NM: Implement this method
-		return null;
+	public void reset() {
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_BOOK_URL);
 	}
-	
+
 
 	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
+	public BookSearchQuery withLibrary(String library) {
+		apiUrlBuilder.withParameter(ParameterNames.BOOK_LIBRARY, library);
+		return this;
+	}
 
+
+	@Override
+	public BookSearchQuery withSearchType(BookSearchType type) {
+		if (type.value() != null) {
+			apiUrlBuilder.withParameter(type.value(), "1");
+		}
+		return this;
+	}
+	
+	@Override
+	protected BookResult unmarshall(JSONObject json) {
+		BookResultImpl result = new BookResultImpl();
+		result.adaptFrom(json);
+		return result;
 	}
 }
