@@ -3,6 +3,7 @@
  */
 package com.google.code.googlesearch.client;
 
+import com.google.code.googlesearch.client.enumeration.BlogSortOrder;
 import com.google.code.googlesearch.schema.BlogResult;
 
 /**

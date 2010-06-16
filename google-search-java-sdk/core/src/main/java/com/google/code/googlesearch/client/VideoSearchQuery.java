@@ -3,6 +3,7 @@
  */
 package com.google.code.googlesearch.client;
 
+import com.google.code.googlesearch.client.enumeration.VideoSortOrder;
 import com.google.code.googlesearch.schema.VideoResult;
 
 /**

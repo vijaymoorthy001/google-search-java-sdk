@@ -7,11 +7,11 @@ import java.util.Locale;
 
 import org.json.simple.JSONObject;
 
-import com.google.code.googlesearch.client.DuplicateContentFilter;
-import com.google.code.googlesearch.client.SafetyLevel;
 import com.google.code.googlesearch.client.WebSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.DuplicateContentFilter;
+import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.WebResult;
 import com.google.code.googlesearch.schema.adapter.json.WebResultImpl;
 

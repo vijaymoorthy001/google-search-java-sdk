@@ -5,6 +5,7 @@ package com.google.code.googlesearch.client;
 
 import java.util.Locale;
 
+import com.google.code.googlesearch.client.enumeration.ResultSetSize;
 import com.google.code.googlesearch.common.PagedList;
 
 

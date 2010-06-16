@@ -32,6 +32,7 @@ public class ImageResultImpl extends BaseJsonAdapter implements ImageResult, Ada
 	private String tbUrl;
 	private String content;
 	private String contentNoFormatting;
+	private String imageId;
 	/**
 	 * @return the title
 	 */
@@ -189,6 +190,18 @@ public class ImageResultImpl extends BaseJsonAdapter implements ImageResult, Ada
 		this.contentNoFormatting = contentNoFormatting;
 	}
 	
+	/**
+	 * @return the imageId
+	 */
+	public String getImageId() {
+		return imageId;
+	}
+	/**
+	 * @param imageId the imageId to set
+	 */
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);

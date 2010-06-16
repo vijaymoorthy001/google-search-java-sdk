@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum PatentSearchType implements ValueEnum {
-	ALL(null), FILED("as_psra"), ISSUED("as_psrg");
+public enum ResultSetSize implements ValueEnum {
+	LARGE("large"), SMALL("small");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, PatentSearchType> stringToEnum = new HashMap<String, PatentSearchType>();
+	private static final Map<String, ResultSetSize> stringToEnum = new HashMap<String, ResultSetSize>();
 
 	static { // Initialize map from constant name to enum constant
-		for (PatentSearchType op : values()) {
+		for (ResultSetSize op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum PatentSearchType implements ValueEnum {
      * 
      * @param value the value
      */
-    PatentSearchType(String value) {
+    ResultSetSize(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,7 @@ public enum PatentSearchType implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static PatentSearchType fromValue(String value) {
+	public static ResultSetSize fromValue(String value) {
 		return stringToEnum.get(value);
 	}
-
 }

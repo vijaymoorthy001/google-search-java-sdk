@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum NewsEdition implements ValueEnum {
-	US("us"), UK("uk");
+public enum ImageFileType implements ValueEnum {
+	JPG("jpg"), PNG("png"), GIF("gif"), BMP("bmp");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, NewsEdition> stringToEnum = new HashMap<String, NewsEdition>();
+	private static final Map<String, ImageFileType> stringToEnum = new HashMap<String, ImageFileType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (NewsEdition op : values()) {
+		for (ImageFileType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum NewsEdition implements ValueEnum {
      * 
      * @param value the value
      */
-    NewsEdition(String value) {
+    ImageFileType(String value) {
         this.value = value;
     }
 
@@ -48,7 +48,7 @@ public enum NewsEdition implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static NewsEdition fromValue(String value) {
+	public static ImageFileType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

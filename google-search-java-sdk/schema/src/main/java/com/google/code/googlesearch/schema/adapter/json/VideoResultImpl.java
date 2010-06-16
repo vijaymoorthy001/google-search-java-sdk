@@ -8,6 +8,7 @@ import java.util.Date;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.schema.VideoResult;
+import com.google.code.googlesearch.schema.VideoType;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
@@ -34,7 +35,9 @@ public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Ada
 	private String playUrl;
 	private String author;
 	private int viewCount;
-	private int rating;
+	private double rating;
+	private VideoType videoType;
+	
 	/**
 	 * @return the title
 	 */
@@ -194,16 +197,28 @@ public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Ada
 	/**
 	 * @return the rating
 	 */
-	public int getRating() {
+	public double getRating() {
 		return rating;
 	}
 	/**
 	 * @param rating the rating to set
 	 */
-	public void setRating(int rating) {
+	public void setRating(double rating) {
 		this.rating = rating;
 	}
 	
+	/**
+	 * @return the videoType
+	 */
+	public VideoType getVideoType() {
+		return videoType;
+	}
+	/**
+	 * @param videoType the videoType to set
+	 */
+	public void setVideoType(VideoType videoType) {
+		this.videoType = videoType;
+	}
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);

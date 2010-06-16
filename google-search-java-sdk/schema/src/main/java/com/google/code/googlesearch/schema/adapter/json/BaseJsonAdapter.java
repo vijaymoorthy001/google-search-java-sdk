@@ -9,6 +9,7 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,9 @@ import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
 
+import com.google.code.googlesearch.schema.ListingType;
+import com.google.code.googlesearch.schema.PatentStatus;
+import com.google.code.googlesearch.schema.VideoType;
 import com.google.code.googlesearch.schema.adapter.Converter;
 
 /**
@@ -32,15 +36,63 @@ public abstract class BaseJsonAdapter implements Serializable {
 	
 	/** The converters. */
 	protected Map<Class<?>, Converter<?, ?>> converters = new HashMap<Class<?>, Converter<? , ?>>();
+	
+	private static final SimpleDateFormat RFC822DATEFORMAT
+    		= new SimpleDateFormat("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z");	
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 250056223059654638L;
 	
 	{
-		converters.put(Date.class, new Converter<Long, Date>() {
+		converters.put(Date.class, new Converter<String, Date>() {
 			@Override
-			public Date convert(Long source) {
-				return (source == null)? null : new Date(source.longValue() * 1000);
+			public Date convert(String source) {
+				if (source != null) {
+					try {
+						return RFC822DATEFORMAT.parse(source);
+					} catch (Exception e) {}
+				}
+				return null;
+			}
+		});
+		converters.put(ListingType.class, new Converter<String, ListingType>() {
+			@Override
+			public ListingType convert(String source) {
+				return ListingType.fromValue(source);
+			}
+		});
+		converters.put(PatentStatus.class, new Converter<String, PatentStatus>() {
+			@Override
+			public PatentStatus convert(String source) {
+				return PatentStatus.fromValue(source);
+			}
+		});
+		converters.put(VideoType.class, new Converter<String, VideoType>() {
+			@Override
+			public VideoType convert(String source) {
+				return VideoType.fromValue(source);
+			}
+		});
+		converters.put(int.class, new Converter<String, Integer>() {
+			@Override
+			public Integer convert(String source) {
+				if (source != null) {
+					try {
+						return Integer.parseInt(source);
+					} catch (Exception e) {}
+				}
+				return null;
+			}
+		});
+		converters.put(double.class, new Converter<String, Double>() {
+			@Override
+			public Double convert(String source) {
+				if (source != null) {
+					try {
+						return Double.parseDouble(source);
+					} catch (Exception e) {}
+				}
+				return null;
 			}
 		});
 	}
@@ -65,7 +117,9 @@ public abstract class BaseJsonAdapter implements Serializable {
 								logger.warning("Could not convert property '" + entry.getKey() + "' with value:" + entry.getValue());
 							}
 						}
-						descriptor.getWriteMethod().invoke(dest, value);
+						if (value != null) {
+							descriptor.getWriteMethod().invoke(dest, value);
+						}
 					}
 				} else {
 					logger.warning("Additional property '" + entry.getKey() + "' found in response for object." + dest.getClass());

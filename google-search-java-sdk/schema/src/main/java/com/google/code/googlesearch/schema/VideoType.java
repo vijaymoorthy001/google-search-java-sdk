@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.schema;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum BookSearchType implements ValueEnum {
-	ALL(null), FULL_VIEW("as_brr");
+public enum VideoType implements ValueEnum {
+	YOU_TUBE("YouTube");
 
     /** The Constant stringToEnum. */
-	private static final Map<String, BookSearchType> stringToEnum = new HashMap<String, BookSearchType>();
+	private static final Map<String, VideoType> stringToEnum = new HashMap<String, VideoType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (BookSearchType op : values()) {
+		for (VideoType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum BookSearchType implements ValueEnum {
      * 
      * @param value the value
      */
-    BookSearchType(String value) {
+    VideoType(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,7 @@ public enum BookSearchType implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static BookSearchType fromValue(String value) {
+	public static VideoType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
-	
 }

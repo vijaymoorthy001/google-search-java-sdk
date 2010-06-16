@@ -5,12 +5,12 @@ package com.google.code.googlesearch.client.impl;
 
 import org.json.simple.JSONObject;
 
-import com.google.code.googlesearch.client.NewsEdition;
 import com.google.code.googlesearch.client.NewsSearchQuery;
-import com.google.code.googlesearch.client.NewsSortOrder;
-import com.google.code.googlesearch.client.NewsTopic;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.NewsEdition;
+import com.google.code.googlesearch.client.enumeration.NewsSortOrder;
+import com.google.code.googlesearch.client.enumeration.NewsTopic;
 import com.google.code.googlesearch.schema.NewsResult;
 import com.google.code.googlesearch.schema.adapter.json.NewsResultImpl;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum ImageColorization implements ValueEnum {
-	GRAY("gray"), COLOR("color");
+public enum ImageSize implements ValueEnum  {
+	ICON("icon"), SMALL("small"), MEDIUM("medium"), LARGE("large"), XLARGE("xlarge"), XXLARGE("xxlarge"), HUGE("huge");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, ImageColorization> stringToEnum = new HashMap<String, ImageColorization>();
+	private static final Map<String, ImageSize> stringToEnum = new HashMap<String, ImageSize>();
 
 	static { // Initialize map from constant name to enum constant
-		for (ImageColorization op : values()) {
+		for (ImageSize op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum ImageColorization implements ValueEnum {
      * 
      * @param value the value
      */
-    ImageColorization(String value) {
+    ImageSize(String value) {
         this.value = value;
     }
 
@@ -48,7 +48,7 @@ public enum ImageColorization implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static ImageColorization fromValue(String value) {
+	public static ImageSize fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

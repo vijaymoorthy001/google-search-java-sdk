@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum DuplicateContentFilter implements ValueEnum {
-	OFF("0"), ON("1");
-
+public enum ImageType implements ValueEnum {
+	FACE("face"), PHOTO("photo"), CLIPART("clipart"), LINEART("lineart");
+	
     /** The Constant stringToEnum. */
-	private static final Map<String, DuplicateContentFilter> stringToEnum = new HashMap<String, DuplicateContentFilter>();
+	private static final Map<String, ImageType> stringToEnum = new HashMap<String, ImageType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (DuplicateContentFilter op : values()) {
+		for (ImageType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum DuplicateContentFilter implements ValueEnum {
      * 
      * @param value the value
      */
-    DuplicateContentFilter(String value) {
+    ImageType(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum DuplicateContentFilter implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static DuplicateContentFilter fromValue(String value) {
+	public static ImageType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
-	
+
 }

@@ -6,9 +6,9 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.VideoSearchQuery;
-import com.google.code.googlesearch.client.VideoSortOrder;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.VideoSortOrder;
 import com.google.code.googlesearch.schema.VideoResult;
 import com.google.code.googlesearch.schema.adapter.json.VideoResultImpl;
 

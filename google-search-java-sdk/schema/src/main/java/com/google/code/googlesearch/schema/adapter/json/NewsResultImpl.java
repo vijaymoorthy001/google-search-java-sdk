@@ -35,6 +35,7 @@ public class NewsResultImpl extends BaseJsonAdapter implements NewsResult, Adapt
 	private Image image;
 	private String language;
 	private String author;
+	private String signedRedirectUrl;
 	
 	/**
 	 * @return the title
@@ -193,6 +194,18 @@ public class NewsResultImpl extends BaseJsonAdapter implements NewsResult, Adapt
 		this.author = author;
 	}
 	
+	/**
+	 * @return the signedRedirectUrl
+	 */
+	public String getSignedRedirectUrl() {
+		return signedRedirectUrl;
+	}
+	/**
+	 * @param signedRedirectUrl the signedRedirectUrl to set
+	 */
+	public void setSignedRedirectUrl(String signedRedirectUrl) {
+		this.signedRedirectUrl = signedRedirectUrl;
+	}
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);

@@ -13,6 +13,11 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.google.code.googlesearch.client.GoogleSearchQueryFactory;
+import com.google.code.googlesearch.client.ImageSearchQuery;
+import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.schema.ImageResult;
+
 /**
  * @author nmukhtar
  *
@@ -29,11 +34,6 @@ public class ImageSample {
      */
     private static final String QUERY_OPTION = "query";
 	
-    /**
-     * Query
-     */
-    private static final String PROTOCOL_OPTION = "protocol";
-    
     /**
      * Name of the help command line option.
      */
@@ -60,22 +60,23 @@ public class ImageSample {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
-//        	ApiProtocol protocol = ApiProtocol.JSON;
-//        	if (line.hasOption(PROTOCOL_OPTION)) {
-//        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
-//        		if (protocol == null) {
-//        			printHelp(options);
-//        			return;
-//        		}
-//        	}
-//        	
-//    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
-//    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
-//    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
-//    		printResponse(response);
+    		GoogleSearchQueryFactory factory = GoogleSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
+    		ImageSearchQuery query = factory.newImageSearchQuery();
+    		PagedList<ImageResult> response = query.withQuery(line.getOptionValue(QUERY_OPTION)).list();
+    		printResponse(response);
         } else {
         	printHelp(options);
         }
+	}
+
+	private static void printResponse(PagedList<ImageResult> response) {
+		for (ImageResult result : response) {
+			System.out.println(result.getTitle());
+			System.out.println(result.getContent());
+			System.out.println(result.getUrl());
+			System.out.println(result.getWidth() + ":" + result.getHeight());
+			System.out.println("===========================");
+		}
 	}
 
 	/**
@@ -103,13 +104,6 @@ public class ImageSample {
         Option query = OptionBuilder.create(QUERY_OPTION);
         opts.addOption(query);
         
-        String protocolMsg = "API Protocol";
-        OptionBuilder.withArgName("protocol");
-        OptionBuilder.hasArg();
-        OptionBuilder.withDescription(protocolMsg);
-        Option protocol = OptionBuilder.create(PROTOCOL_OPTION);
-        opts.addOption(protocol);
-        
         return opts;
     }
     
@@ -120,7 +114,6 @@ public class ImageSample {
         int width = 80;
         String syntax = ImageSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
-        String footer = MessageFormat.format("\nThe valid values for -{0} option are xml|json|soap. The default is json.", PROTOCOL_OPTION);
-        new HelpFormatter().printHelp(width, syntax, header, options, footer, false);
+        new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }
 }

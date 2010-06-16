@@ -14,9 +14,9 @@ import org.json.simple.parser.JSONParser;
 import com.google.code.googlesearch.client.AsyncResponseHandler;
 import com.google.code.googlesearch.client.GoogleSearchException;
 import com.google.code.googlesearch.client.GoogleSearchQuery;
-import com.google.code.googlesearch.client.ResultSetSize;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
+import com.google.code.googlesearch.client.enumeration.ResultSetSize;
 import com.google.code.googlesearch.common.PagedArrayList;
 import com.google.code.googlesearch.common.PagedList;
 
@@ -157,20 +157,6 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	}
 	
 	protected abstract T unmarshall(JSONObject json);
-	
-	/**
-	 * Gets the first element.
-	 * 
-	 * @param list the list
-	 * 
-	 * @return the first element
-	 */
-	private T getFirstElement(List<T> list) {
-		if (list.isEmpty()) {
-			return null;
-		}
-		return list.get(0);
-	}
 	
 	@Override
 	protected <V> V unmarshallObject(Class<V> clazz, InputStream xmlContent) {

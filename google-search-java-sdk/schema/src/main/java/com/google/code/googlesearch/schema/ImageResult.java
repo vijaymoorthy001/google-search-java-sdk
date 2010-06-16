@@ -132,4 +132,13 @@ public interface ImageResult extends SchemaEntity {
 	 */
 	public void setContentNoFormatting(String contentNoFormatting);
 
+	/**
+	 * @return the imageId
+	 */
+	public String getImageId();
+	
+	/**
+	 * @param imageId the imageId to set
+	 */
+	public void setImageId(String imageId);
 }

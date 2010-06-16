@@ -137,11 +137,20 @@ public interface VideoResult extends SchemaEntity {
 	/**
 	 * @return the rating
 	 */
-	public int getRating();
+	public double getRating();
 
 	/**
 	 * @param rating the rating to set
 	 */
-	public void setRating(int rating);
-
+	public void setRating(double rating);
+	
+	/**
+	 * @return the videoType
+	 */
+	public VideoType getVideoType() ;
+	
+	/**
+	 * @param videoType the videoType to set
+	 */
+	public void setVideoType(VideoType videoType);
 }

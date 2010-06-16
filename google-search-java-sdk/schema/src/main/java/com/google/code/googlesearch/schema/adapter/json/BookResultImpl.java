@@ -28,6 +28,10 @@ public class BookResultImpl extends BaseJsonAdapter implements BookResult, Adapt
 	private String publishedYear;
 	private int pageCount;
 	private String thumbnailHtml;
+	private int tbWidth;
+	private int tbHeight;
+	private String tbUrl;
+	
 	/**
 	 * @return the title
 	 */
@@ -135,6 +139,43 @@ public class BookResultImpl extends BaseJsonAdapter implements BookResult, Adapt
 	 */
 	public void setThumbnailHtml(String thumbnailHtml) {
 		this.thumbnailHtml = thumbnailHtml;
+	}
+	
+	/**
+	 * @return the tbWidth
+	 */
+	public int getTbWidth() {
+		return tbWidth;
+	}
+	/**
+	 * @param tbWidth the tbWidth to set
+	 */
+	public void setTbWidth(int tbWidth) {
+		this.tbWidth = tbWidth;
+	}
+	/**
+	 * @return the tbHeight
+	 */
+	public int getTbHeight() {
+		return tbHeight;
+	}
+	/**
+	 * @param tbHeight the tbHeight to set
+	 */
+	public void setTbHeight(int tbHeight) {
+		this.tbHeight = tbHeight;
+	}
+	/**
+	 * @return the tbUrl
+	 */
+	public String getTbUrl() {
+		return tbUrl;
+	}
+	/**
+	 * @param tbUrl the tbUrl to set
+	 */
+	public void setTbUrl(String tbUrl) {
+		this.tbUrl = tbUrl;
 	}
 	
 	@Override

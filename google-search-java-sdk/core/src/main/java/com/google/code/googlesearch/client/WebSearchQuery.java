@@ -5,6 +5,8 @@ package com.google.code.googlesearch.client;
 
 import java.util.Locale;
 
+import com.google.code.googlesearch.client.enumeration.DuplicateContentFilter;
+import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.WebResult;
 
 /**
