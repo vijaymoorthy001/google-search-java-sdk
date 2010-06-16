@@ -10,5 +10,6 @@ import com.google.code.googlesearch.schema.BookResult;
  *
  */
 public interface BookSearchQuery extends GoogleSearchQuery<BookResult> {
-
+	public BookSearchQuery withSearchType(BookSearchType type);
+	public BookSearchQuery withLibrary(String library);
 }

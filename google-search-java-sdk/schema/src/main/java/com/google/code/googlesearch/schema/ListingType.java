@@ -3,6 +3,8 @@ package com.google.code.googlesearch.schema;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.code.googlesearch.common.ValueEnum;
+
 public enum ListingType implements ValueEnum {
 	
 	LOCAL("local"), KML("kml");

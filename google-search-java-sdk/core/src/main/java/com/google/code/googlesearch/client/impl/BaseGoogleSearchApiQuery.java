@@ -5,14 +5,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.google.code.googlesearch.client.AsyncResponseHandler;
-import com.google.code.googlesearch.client.GoogleSearchQuery;
 import com.google.code.googlesearch.client.GoogleSearchException;
+import com.google.code.googlesearch.client.GoogleSearchQuery;
+import com.google.code.googlesearch.client.ResultSetSize;
+import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
+import com.google.code.googlesearch.common.PagedArrayList;
 import com.google.code.googlesearch.common.PagedList;
 
 /**
@@ -64,7 +69,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
         	Object response = parser.parse(new InputStreamReader(jsonContent));
         	if (response instanceof JSONObject) {
-        		PagedList<T> responseList = unmarshall((JSONObject) response);
+        		PagedList<T> responseList = unmarshallList((JSONObject) response);
         		notifyObservers(responseList);
 				return responseList;
         	}
@@ -85,11 +90,11 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
         	Object response = parser.parse(new InputStreamReader(jsonContent));
-        	if (response instanceof JSONObject) {
-        		PagedList<T> responseList = unmarshall((JSONObject) response);
-        		notifyObservers(responseList);
-				return getFirstElement(responseList);
-        	}
+//        	if (response instanceof JSONObject) {
+//        		PagedList<T> responseList = unmarshall((JSONObject) response);
+//        		notifyObservers(responseList);
+//				return getFirstElement(responseList);
+//        	}
         	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
             throw new GoogleSearchException(e);
@@ -130,7 +135,28 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	 * 
 	 * @return the paged list< t>
 	 */
-	protected abstract PagedList<T> unmarshall(JSONObject json);
+	protected PagedList<T> unmarshallList(JSONObject json) {
+		int status = ((Long) json.get("responseStatus")).intValue();
+		if (status != 200) {
+			throw new GoogleSearchException(String.valueOf(json.get("responseDetails")));
+		}
+		JSONObject data = (JSONObject) json.get("responseData");
+		PagedList<T> list = new PagedArrayList<T>();
+		if (data != null) { 
+			JSONArray results = (JSONArray) data.get("results");
+			if (results != null) {
+				for (Object object : results) {
+					T element = unmarshall((JSONObject) object);
+					list.add(element);
+				}
+			}
+			JSONObject cursor = (JSONObject) data.get("cursor");
+			// TODO-NM: Set cursor
+		} 
+		return list;
+	}
+	
+	protected abstract T unmarshall(JSONObject json);
 	
 	/**
 	 * Gets the first element.
@@ -149,5 +175,51 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	@Override
 	protected <V> V unmarshallObject(Class<V> clazz, InputStream xmlContent) {
 		return null;
+	}
+	
+	protected GoogleSearchApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
+		return new GoogleSearchApiUrlBuilder(urlFormat);
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withCallback(String callback) {
+		apiUrlBuilder.withParameter(ParameterNames.CALLBACK, callback);
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withContext(String context) {
+		apiUrlBuilder.withParameter(ParameterNames.CONTEXT, context);
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withLocale(Locale locale) {
+		apiUrlBuilder.withParameter(ParameterNames.HOST_LANGUAGE, locale.getLanguage());
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withQuery(String query) {
+		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withResultSetSize(ResultSetSize rsz) {
+		apiUrlBuilder.withParameterEnum(ParameterNames.RESULTSET_SIZE, rsz);
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withSiteSearch(String site) {
+		// TODO Auto-generated method stub
+		return this;
+	}
+
+	@Override
+	public GoogleSearchQuery<T> withStartIndex(int startIndex) {
+		apiUrlBuilder.withParameter(ParameterNames.START, String.valueOf(startIndex));
+		return this;
 	}
 }

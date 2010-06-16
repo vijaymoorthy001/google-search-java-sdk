@@ -13,6 +13,11 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.google.code.googlesearch.client.GoogleSearchQueryFactory;
+import com.google.code.googlesearch.client.WebSearchQuery;
+import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.schema.WebResult;
+
 /**
  * @author nmukhtar
  *
@@ -60,22 +65,22 @@ public class WebSample {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
-//        	ApiProtocol protocol = ApiProtocol.JSON;
-//        	if (line.hasOption(PROTOCOL_OPTION)) {
-//        		protocol = ApiProtocol.fromValue(line.getOptionValue(PROTOCOL_OPTION));
-//        		if (protocol == null) {
-//        			printHelp(options);
-//        			return;
-//        		}
-//        	}
-//        	
-//    		GoogleSearchServiceClientFactory factory = GoogleSearchServiceClientFactory.newInstance();
-//    		GoogleSearchClient client = factory.createBingSearchClient(protocol);
-//    		SearchResponse response = client.search(createSearchRequest(client, line.getOptionValue(APPLICATION_KEY_OPTION), line.getOptionValue(QUERY_OPTION)));
-//    		printResponse(response);
+    		GoogleSearchQueryFactory factory = GoogleSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
+    		WebSearchQuery query = factory.newWebSearchQuery();
+    		PagedList<WebResult> response = query.withQuery(line.getOptionValue(QUERY_OPTION)).list();
+    		printResponse(response);
         } else {
         	printHelp(options);
         }
+	}
+
+	private static void printResponse(PagedList<WebResult> response) {
+		for (WebResult result : response) {
+			System.out.println(result.getTitle());			
+			System.out.println(result.getContent());			
+			System.out.println(result.getUrl());			
+			System.out.println("=======================================");			
+		}
 	}
 
 	/**

@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.code.googlesearch.schema.ValueEnum;
+import com.google.code.googlesearch.common.ValueEnum;
 
 /**
  * The Class LinkedInApiUrls.
@@ -27,106 +27,42 @@ import com.google.code.googlesearch.schema.ValueEnum;
 public final class GoogleSearchApiUrls {
 
     /** The Constant API_URLS_FILE. */
-    public static final String API_URLS_FILE = "LinkedInApiUrls.properties";
+    public static final String API_URLS_FILE = "GoogleSearchApiUrls.properties";
 
     /** The static logger. */
     private static final Logger LOG = Logger.getLogger(GoogleSearchApiUrls.class.getCanonicalName());
     
     /** The Constant linkedInApiUrls. */
-    private static final Properties linkedInApiUrls = new Properties();
+    private static final Properties googleApiUrls = new Properties();
 
     static {
         try {
-            linkedInApiUrls.load(GoogleSearchApiUrls.class.getResourceAsStream(API_URLS_FILE));
+            googleApiUrls.load(GoogleSearchApiUrls.class.getResourceAsStream(API_URLS_FILE));
         } catch (IOException e) {
         	LOG.log(Level.SEVERE, "An error occurred while loading urls.", e);
         }
     }
 
-    /** The Constant GET_PROFILE_FOR_CURRENT_USER. */
-    public static final String GET_PROFILE_FOR_CURRENT_USER =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getProfileForCurrentUser");
-
-    /** The Constant GET_PROFILE_BY_ID. */
-    public static final String GET_PROFILE_BY_ID =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getProfileById");
-
-    /** The Constant GET_PROFILE_BY_URL. */
-    public static final String GET_PROFILE_BY_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getProfileByUrl");
-
-    /** The Constant SEARCH_PEOPLE. */
-    public static final String SEARCH_PEOPLE =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.searchPeople");
-
-    /** The Constant POST_UPDATE. */
-    public static final String POST_UPDATE =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.postUpdate");
-
-    /** The Constant POST_STATUS. */
-    public static final String POST_STATUS =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.postStatus");
-
-    /** The Constant POST_COMMENT. */
-    public static final String POST_COMMENT =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.postComment");
-
-    /** The Constant SEND_MESSAGE. */
-    public static final String SEND_MESSAGE =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.sendMessage");
-
-
-    /** The Constant LINKED_IN_OAUTH_REQUEST_TOKEN_URL. */
-    public static final String LINKED_IN_OAUTH_REQUEST_TOKEN_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.oauth.requestToken");
-
-    /** The Constant LINKED_IN_OAUTH_AUTHORIZE_URL. */
-    public static final String LINKED_IN_OAUTH_AUTHORIZE_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.oauth.authorize");
-
-    /** The Constant LINKED_IN_OAUTH_ACCESS_TOKEN_URL. */
-    public static final String LINKED_IN_OAUTH_ACCESS_TOKEN_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.oauth.accessToken");
-
-    /** The Constant LINKED_IN_OAUTH_ACCESS_TOKEN_URL. */
-    public static final String LINKED_IN_OAUTH_INVALIDATE_TOKEN_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.oauth.invalidateToken");
-    
-    /** The Constant NETWORK_UPDATES. */
-    public static final String NETWORK_UPDATES =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.networkUpdates");
-    
-    /** The Constant NETWORK_UPDATE_COMMENTS. */
-    public static final String NETWORK_UPDATE_COMMENTS =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.networkUpdateComments");
-    
-    /** The Constant GET_CONNECTIONS_FOR_CURRENT_USER. */
-    public static final String GET_CONNECTIONS_FOR_CURRENT_USER =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getConnectionsForCurrentUser");
-
-    /** The Constant GET_CONNECTIONS_BY_ID. */
-    public static final String GET_CONNECTIONS_BY_ID =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getConnectionsById");
-
-    /** The Constant GET_CONNECTIONS_BY_EMAIL. */
-    public static final String GET_CONNECTIONS_BY_EMAIL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getConnectionsByEmail");
-
-    /** The Constant GET_CONNECTIONS_BY_URL. */
-    public static final String GET_CONNECTIONS_BY_URL =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.getConnectionsByUrl");
-
-    /** The Constant SEND_MESSAGE_PERSON_PATH. */
-    public static final String SEND_MESSAGE_PERSON_PATH =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.messagePersonPath");
-
-    /** The Constant SEND_INVITE_ID_PERSON_PATH. */
-    public static final String SEND_INVITE_ID_PERSON_PATH =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.inviteIdPersonPath");
-
-    /** The Constant SEND_INVITE_EMAIL_PERSON_PATH. */
-    public static final String SEND_INVITE_EMAIL_PERSON_PATH =
-        linkedInApiUrls.getProperty("com.google.code.linkedinapi.client.inviteEmailPersonPath");
+    public static final String SEARCH_WEB_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.web");
+    public static final String SEARCH_LOCAL_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.local");
+    public static final String SEARCH_VIDEO_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.video");
+    public static final String SEARCH_BLOG_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.blog");
+    public static final String SEARCH_NEWS_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.new");
+    public static final String SEARCH_BOOK_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.book");
+    public static final String SEARCH_IMAGE_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.image");
+    public static final String SEARCH_PATENT_URL =
+        googleApiUrls.getProperty("com.google.code.google.search.url.patent");
+    public static final String LANGUAGE_TRANSLATE_URL =
+        googleApiUrls.getProperty("com.google.code.google.language.url.translate");
+    public static final String LANGUAGE_DETECT_URL =
+        googleApiUrls.getProperty("com.google.code.google.language.url.detect");
     
     /**
      * Instantiates a new linked in api urls.
@@ -149,16 +85,9 @@ public final class GoogleSearchApiUrls {
     	
     	/** The url format. */
 	    private String urlFormat;
-    	
-	    /** The url type. */
-	    @SuppressWarnings("unused")
-		private String urlType;
-    	
+	    
     	/** The parameters map. */
 	    private Map<String, Collection<String>> parametersMap = new HashMap<String, Collection<String>>();
-    	
-	    /** The fields map. */
-	    private Map<String, String> fieldsMap = new HashMap<String, String>();
     	
     	/**
 	     * Instantiates a new linked in api url builder.
@@ -166,20 +95,19 @@ public final class GoogleSearchApiUrls {
 	     * @param urlFormat the url format
 	     */
 	    public GoogleSearchApiUrlBuilder(String urlFormat) {
-    		this.urlFormat = urlFormat;    		
+	    	this(urlFormat, ApplicationConstants.DEFAULT_API_VERSION);
     	}
     	
     	/**
 	     * Instantiates a new linked in api url builder.
 	     * 
 	     * @param urlFormat the url format
-	     * @param urlType the url type
 	     */
-	    public GoogleSearchApiUrlBuilder(String urlFormat, String urlType) {
+	    public GoogleSearchApiUrlBuilder(String urlFormat, String apiVersion) {
     		this.urlFormat = urlFormat;
-    		this.urlType = urlType;
+    		parametersMap.put(ParameterNames.VERSION, Collections.singleton(encodeUrl(apiVersion)));
     	}
-    	
+	    
     	/**
 	     * With parameter.
 	     * 
@@ -264,98 +192,6 @@ public final class GoogleSearchApiUrls {
     	}
 	    
     	/**
-	     * With empty field.
-	     * 
-	     * @param name the name
-	     * 
-	     * @return the linked in api url builder
-	     */
-	    public GoogleSearchApiUrlBuilder withEmptyField(String name) {
-    		fieldsMap.put(name, "");
-    		
-    		return this;
-    	}
-	    
-    	/**
-	     * With field.
-	     * 
-	     * @param name the name
-	     * @param value the value
-	     * 
-	     * @return the linked in api url builder
-	     */
-	    public GoogleSearchApiUrlBuilder withField(String name, String value) {
-	    	withField(name, value, false);
-    		
-    		return this;
-    	}
-	    
-    	/**
-	     * With field.
-	     * 
-	     * @param name the name
-	     * @param value the value
-	     * 
-	     * @return the linked in api url builder
-	     */
-	    public GoogleSearchApiUrlBuilder withField(String name, String value, boolean escape) {
-	    	if (escape) {
-	    		fieldsMap.put(name, encodeUrl(value));
-	    	} else {
-	    		fieldsMap.put(name, value);
-	    	}
-    		
-    		return this;
-    	}
-	    
-    	/**
-	     * With field enum.
-	     * 
-	     * @param name the name
-	     * @param value the value
-	     * 
-	     * @return the linked in api url builder
-	     */
-	    public GoogleSearchApiUrlBuilder withFieldEnum(String name, ValueEnum value) {
-	    	if (value.value() == null || value.value().length() == 0) {
-	    		fieldsMap.put(name, "");
-	    	} else {
-	    		fieldsMap.put(name, ":" + value.value());
-	    	}
-    		
-    		return this;
-    	}
-    	
-    	/**
-	     * With field enum set.
-	     * 
-	     * @param name the name
-	     * @param enumSet the enum set
-	     * 
-	     * @return the linked in api url builder
-	     */
-	    public GoogleSearchApiUrlBuilder withFieldEnumSet(String name, Set<? extends ValueEnum> enumSet) {
-	    	StringBuilder builder = new StringBuilder();
-	    	if (!enumSet.isEmpty()) {
-	        	builder.append(":");
-	    		Iterator<? extends ValueEnum> iter = enumSet.iterator();
-	        	builder.append("(");
-	    		while (iter.hasNext()) {
-	    			ValueEnum fieldEnum = iter.next();
-	    			builder.append(fieldEnum.value());
-	    			if (iter.hasNext()) {
-	    				builder.append(",");
-	    			}
-	    		}
-	        	builder.append(")");
-	    	}
-    		
-    		fieldsMap.put(name, builder.toString());
-    		
-    		return this;
-    	}
-    	
-    	/**
 	     * Builds the url.
 	     * 
 	     * @return the string
@@ -370,12 +206,9 @@ public final class GoogleSearchApiUrls {
         			placeHolderFlag = true;
         		} else if (placeHolderFlag && urlFormat.charAt(i) == API_URLS_PLACEHOLDER_END) {
         			String placeHolder = placeHolderBuilder.toString();
-        			if (fieldsMap.containsKey(placeHolder)) {
-        				urlBuilder.append(fieldsMap.get(placeHolder));
-        			} else if (QUERY_PARAMETERS_PLACEHOLDER.equals(placeHolder)) {
+        			if (QUERY_PARAMETERS_PLACEHOLDER.equals(placeHolder)) {
     			    	StringBuilder builder = new StringBuilder();
     			    	if (!parametersMap.isEmpty()) {
-    			        	builder.append("?");
     			    		Iterator<String> iter = parametersMap.keySet().iterator();
     			    		while (iter.hasNext()) {
     			    			String name = iter.next();
