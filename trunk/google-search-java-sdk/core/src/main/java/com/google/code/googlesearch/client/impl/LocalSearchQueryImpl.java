@@ -6,9 +6,9 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.LocalSearchQuery;
-import com.google.code.googlesearch.client.LocalSearchType;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.LocalSearchType;
 import com.google.code.googlesearch.schema.LocalResult;
 import com.google.code.googlesearch.schema.adapter.json.LocalResultImpl;
 

@@ -13,16 +13,16 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.google.code.googlesearch.client.BookSearchQuery;
 import com.google.code.googlesearch.client.GoogleSearchQueryFactory;
-import com.google.code.googlesearch.client.VideoSearchQuery;
 import com.google.code.googlesearch.common.PagedList;
-import com.google.code.googlesearch.schema.VideoResult;
+import com.google.code.googlesearch.schema.BookResult;
 
 /**
  * @author nmukhtar
  *
  */
-public class VideoSample {
+public class BookSample {
 
     /**
      * Application Key
@@ -61,20 +61,20 @@ public class VideoSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleSearchQueryFactory factory = GoogleSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		VideoSearchQuery query = factory.newVideoSearchQuery();
-    		PagedList<VideoResult> response = query.withQuery(line.getOptionValue(QUERY_OPTION)).list();
+    		BookSearchQuery query = factory.newBookSearchQuery();
+    		PagedList<BookResult> response = query.withQuery(line.getOptionValue(QUERY_OPTION)).list();
     		printResponse(response);
         } else {
         	printHelp(options);
         }
 	}
 
-	private static void printResponse(PagedList<VideoResult> response) {
-		for (VideoResult result : response) {
-			System.out.println(result.getTitle());
-			System.out.println(result.getContent());
-			System.out.println(result.getPlayUrl());
-			System.out.println("=======================================");
+	private static void printResponse(PagedList<BookResult> response) {
+		for (BookResult result : response) {
+			System.out.println(result.getTitle());			
+			System.out.println(result.getAuthors());			
+			System.out.println(result.getUrl());			
+			System.out.println("=======================================");			
 		}
 	}
 
@@ -111,7 +111,7 @@ public class VideoSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = VideoSample.class.getName() + " <options>";
+        String syntax = BookSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }

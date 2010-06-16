@@ -6,10 +6,10 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.PatentSearchQuery;
-import com.google.code.googlesearch.client.PatentSearchType;
-import com.google.code.googlesearch.client.PatentSortOrder;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.PatentSearchType;
+import com.google.code.googlesearch.client.enumeration.PatentSortOrder;
 import com.google.code.googlesearch.schema.PatentResult;
 import com.google.code.googlesearch.schema.adapter.json.PatentResultImpl;
 

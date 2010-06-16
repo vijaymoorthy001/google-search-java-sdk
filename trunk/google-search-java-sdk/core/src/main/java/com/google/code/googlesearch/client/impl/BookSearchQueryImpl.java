@@ -6,9 +6,9 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.BookSearchQuery;
-import com.google.code.googlesearch.client.BookSearchType;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
+import com.google.code.googlesearch.client.enumeration.BookSearchType;
 import com.google.code.googlesearch.schema.BookResult;
 import com.google.code.googlesearch.schema.adapter.json.BookResultImpl;
 

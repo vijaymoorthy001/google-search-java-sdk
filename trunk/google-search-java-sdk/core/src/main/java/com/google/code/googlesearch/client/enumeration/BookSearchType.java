@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum ImageSize implements ValueEnum  {
-	ICON("icon"), SMALL("small"), MEDIUM("medium"), LARGE("large"), XLARGE("xlarge"), XXLARGE("xxlarge"), HUGE("huge");
-	
+public enum BookSearchType implements ValueEnum {
+	ALL(null), FULL_VIEW("as_brr");
+
     /** The Constant stringToEnum. */
-	private static final Map<String, ImageSize> stringToEnum = new HashMap<String, ImageSize>();
+	private static final Map<String, BookSearchType> stringToEnum = new HashMap<String, BookSearchType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (ImageSize op : values()) {
+		for (BookSearchType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum ImageSize implements ValueEnum  {
      * 
      * @param value the value
      */
-    ImageSize(String value) {
+    BookSearchType(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum ImageSize implements ValueEnum  {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static ImageSize fromValue(String value) {
+	public static BookSearchType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
-
+	
 }

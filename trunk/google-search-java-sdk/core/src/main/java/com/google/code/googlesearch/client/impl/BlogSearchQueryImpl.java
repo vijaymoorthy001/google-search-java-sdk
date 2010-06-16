@@ -6,10 +6,9 @@ package com.google.code.googlesearch.client.impl;
 import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.client.BlogSearchQuery;
-import com.google.code.googlesearch.client.BlogSortOrder;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
-import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.client.enumeration.BlogSortOrder;
 import com.google.code.googlesearch.schema.BlogResult;
 import com.google.code.googlesearch.schema.adapter.json.BlogResultImpl;
 

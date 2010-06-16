@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum NewsSortOrder implements ValueEnum {
+public enum VideoSortOrder implements ValueEnum {
 	RELEVANCE(""), DATE("d");	
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, NewsSortOrder> stringToEnum = new HashMap<String, NewsSortOrder>();
+	private static final Map<String, VideoSortOrder> stringToEnum = new HashMap<String, VideoSortOrder>();
 
 	static { // Initialize map from constant name to enum constant
-		for (NewsSortOrder op : values()) {
+		for (VideoSortOrder op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum NewsSortOrder implements ValueEnum {
      * 
      * @param value the value
      */
-    NewsSortOrder(String value) {
+    VideoSortOrder(String value) {
         this.value = value;
     }
 
@@ -48,7 +48,8 @@ public enum NewsSortOrder implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static NewsSortOrder fromValue(String value) {
+	public static VideoSortOrder fromValue(String value) {
 		return stringToEnum.get(value);
 	}
+
 }

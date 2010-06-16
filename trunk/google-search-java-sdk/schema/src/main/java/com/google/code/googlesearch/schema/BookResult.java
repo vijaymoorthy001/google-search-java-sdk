@@ -92,4 +92,33 @@ public interface BookResult extends SchemaEntity {
 	 */
 	public void setThumbnailHtml(String thumbnailHtml);
 
+	/**
+	 * @return the tbWidth
+	 */
+	public int getTbWidth();
+
+	/**
+	 * @param tbWidth the tbWidth to set
+	 */
+	public void setTbWidth(int tbWidth);
+
+	/**
+	 * @return the tbHeight
+	 */
+	public int getTbHeight();
+
+	/**
+	 * @param tbHeight the tbHeight to set
+	 */
+	public void setTbHeight(int tbHeight);
+
+	/**
+	 * @return the tbUrl
+	 */
+	public String getTbUrl();
+
+	/**
+	 * @param tbUrl the tbUrl to set
+	 */
+	public void setTbUrl(String tbUrl);
 }

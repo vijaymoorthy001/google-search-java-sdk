@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import com.google.code.googlesearch.common.ValueEnum;
  * @author nmukhtar
  *
  */
-public enum NewsTopic implements ValueEnum {
-	TOP_HEADLINES("h"),WORLD("w"), BUSINESS("b"), NATION("n"), SCIENCE_AND_TECH("t"), ELECTRONICS("el"), POLITICS("p"), ENTERTAINMENT("e"), SPORTS("s"), HEALTH("m");
+public enum PatentSearchType implements ValueEnum {
+	ALL(null), FILED("as_psra"), ISSUED("as_psrg");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, NewsTopic> stringToEnum = new HashMap<String, NewsTopic>();
+	private static final Map<String, PatentSearchType> stringToEnum = new HashMap<String, PatentSearchType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (NewsTopic op : values()) {
+		for (PatentSearchType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +32,7 @@ public enum NewsTopic implements ValueEnum {
      * 
      * @param value the value
      */
-    NewsTopic(String value) {
+    PatentSearchType(String value) {
         this.value = value;
     }
 
@@ -48,7 +48,7 @@ public enum NewsTopic implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static NewsTopic fromValue(String value) {
+	public static PatentSearchType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

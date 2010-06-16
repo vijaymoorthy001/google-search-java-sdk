@@ -138,4 +138,13 @@ public interface NewsResult extends SchemaEntity {
 	 */
 	public void setAuthor(String author);
 
+	/**
+	 * @return the signedRedirectUrl
+	 */
+	public String getSignedRedirectUrl();
+	
+	/**
+	 * @param signedRedirectUrl the signedRedirectUrl to set
+	 */
+	public void setSignedRedirectUrl(String signedRedirectUrl);
 }

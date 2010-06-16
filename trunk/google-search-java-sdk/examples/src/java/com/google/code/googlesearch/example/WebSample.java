@@ -35,11 +35,6 @@ public class WebSample {
     private static final String QUERY_OPTION = "query";
 	
     /**
-     * Query
-     */
-    private static final String PROTOCOL_OPTION = "protocol";
-    
-    /**
      * Name of the help command line option.
      */
     private static final String HELP_OPTION = "help";
@@ -108,13 +103,6 @@ public class WebSample {
         Option query = OptionBuilder.create(QUERY_OPTION);
         opts.addOption(query);
         
-        String protocolMsg = "API Protocol";
-        OptionBuilder.withArgName("protocol");
-        OptionBuilder.hasArg();
-        OptionBuilder.withDescription(protocolMsg);
-        Option protocol = OptionBuilder.create(PROTOCOL_OPTION);
-        opts.addOption(protocol);
-        
         return opts;
     }
     
@@ -125,7 +113,6 @@ public class WebSample {
         int width = 80;
         String syntax = WebSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
-        String footer = MessageFormat.format("\nThe valid values for -{0} option are xml|json|soap. The default is json.", PROTOCOL_OPTION);
-        new HelpFormatter().printHelp(width, syntax, header, options, footer, false);
+        new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }
 }

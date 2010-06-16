@@ -1,25 +1,18 @@
-/**
- * 
- */
-package com.google.code.googlesearch.client;
+package com.google.code.googlesearch.client.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.code.googlesearch.common.ValueEnum;
 
-/**
- * @author nmukhtar
- *
- */
-public enum ImageRights implements ValueEnum {
-	CC_PUBLICDOMAIN("cc_publicdomain"), CC_ATTRIBUTE("cc_attribute"), CC_SHAREALIKE("cc_sharealike"), CC_NONCOMMERCIAL("cc_noncommercial"), CC_NONDERIVED("cc_nonderived");
+public enum SafetyLevel implements ValueEnum {
+	ACTIVE("active"), MODERATE("moderate"), OFF("off");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, ImageRights> stringToEnum = new HashMap<String, ImageRights>();
+	private static final Map<String, SafetyLevel> stringToEnum = new HashMap<String, SafetyLevel>();
 
 	static { // Initialize map from constant name to enum constant
-		for (ImageRights op : values()) {
+		for (SafetyLevel op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -32,7 +25,7 @@ public enum ImageRights implements ValueEnum {
      * 
      * @param value the value
      */
-    ImageRights(String value) {
+    SafetyLevel(String value) {
         this.value = value;
     }
 
@@ -48,7 +41,7 @@ public enum ImageRights implements ValueEnum {
 	 * 
 	 * @return the user timeline type
 	 */
-	public static ImageRights fromValue(String value) {
+	public static SafetyLevel fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

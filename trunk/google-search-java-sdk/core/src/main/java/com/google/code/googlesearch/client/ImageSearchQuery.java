@@ -3,6 +3,13 @@
  */
 package com.google.code.googlesearch.client;
 
+import com.google.code.googlesearch.client.enumeration.ImageColor;
+import com.google.code.googlesearch.client.enumeration.ImageColorization;
+import com.google.code.googlesearch.client.enumeration.ImageFileType;
+import com.google.code.googlesearch.client.enumeration.ImageRights;
+import com.google.code.googlesearch.client.enumeration.ImageSize;
+import com.google.code.googlesearch.client.enumeration.ImageType;
+import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.ImageResult;
 
 /**
