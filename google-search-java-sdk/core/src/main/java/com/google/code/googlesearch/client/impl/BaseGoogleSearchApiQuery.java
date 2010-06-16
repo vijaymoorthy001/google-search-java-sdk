@@ -90,11 +90,17 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
         	Object response = parser.parse(new InputStreamReader(jsonContent));
-//        	if (response instanceof JSONObject) {
-//        		PagedList<T> responseList = unmarshall((JSONObject) response);
-//        		notifyObservers(responseList);
-//				return getFirstElement(responseList);
-//        	}
+        	if (response instanceof JSONObject) {
+        		JSONObject json = (JSONObject) response;
+        		int status = ((Long) json.get("responseStatus")).intValue();
+        		if (status != 200) {
+        			throw new GoogleSearchException(String.valueOf(json.get("responseDetails")));
+        		}
+        		JSONObject data = (JSONObject) json.get("responseData");
+        		if (data != null) {
+        			return unmarshall(data);
+        		}
+        	}
         	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
             throw new GoogleSearchException(e);

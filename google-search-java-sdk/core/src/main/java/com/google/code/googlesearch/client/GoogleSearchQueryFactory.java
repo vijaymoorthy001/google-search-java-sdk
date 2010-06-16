@@ -5,10 +5,12 @@ package com.google.code.googlesearch.client;
 
 import com.google.code.googlesearch.client.impl.BlogSearchQueryImpl;
 import com.google.code.googlesearch.client.impl.BookSearchQueryImpl;
+import com.google.code.googlesearch.client.impl.DetectLanguageQueryImpl;
 import com.google.code.googlesearch.client.impl.ImageSearchQueryImpl;
 import com.google.code.googlesearch.client.impl.LocalSearchQueryImpl;
 import com.google.code.googlesearch.client.impl.NewsSearchQueryImpl;
 import com.google.code.googlesearch.client.impl.PatentSearchQueryImpl;
+import com.google.code.googlesearch.client.impl.TranslateLanguageQueryImpl;
 import com.google.code.googlesearch.client.impl.VideoSearchQueryImpl;
 import com.google.code.googlesearch.client.impl.WebSearchQueryImpl;
 
@@ -113,4 +115,23 @@ public class GoogleSearchQueryFactory {
     public WebSearchQuery newWebSearchQuery() {
     	return new WebSearchQueryImpl(applicationKey);
     }
+    
+    /**
+     * New answer api query.
+     * 
+     * @return the answer api query
+     */
+    public TranslateLanguageQuery newTranslateLanguageQuery() {
+    	return new TranslateLanguageQueryImpl(applicationKey);
+    }
+
+    /**
+     * New answer api query.
+     * 
+     * @return the answer api query
+     */
+    public DetectLanguageQuery newDetectLanguageQuery() {
+    	return new DetectLanguageQueryImpl(applicationKey);
+    }
+    
 }

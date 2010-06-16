@@ -57,4 +57,8 @@ public interface ParameterNames {
 	// Patent Search Specific Arguments
 	public static final String PATENTS_ISSUED = "as_psrg";
 	public static final String PATENTS_FILED = "as_psra";
+	
+	// Translate Language Specific Arguments
+	public static final String LANGUAGE_PAIR = "langpair";
+	public static final String FORMAT= "format";
 }
