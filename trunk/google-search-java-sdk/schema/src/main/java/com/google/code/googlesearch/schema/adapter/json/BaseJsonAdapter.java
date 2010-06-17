@@ -20,6 +20,7 @@ import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.schema.GsearchResultClass;
 import com.google.code.googlesearch.schema.ListingType;
+import com.google.code.googlesearch.schema.Pair;
 import com.google.code.googlesearch.schema.PatentStatus;
 import com.google.code.googlesearch.schema.VideoType;
 import com.google.code.googlesearch.schema.ViewPortMode;
@@ -37,7 +38,7 @@ public abstract class BaseJsonAdapter implements Serializable {
     protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
 	
 	/** The converters. */
-	protected Map<Class<?>, Converter<?, ?>> converters = new HashMap<Class<?>, Converter<? , ?>>();
+	protected Map<Pair<Class<?>, Class<?>>, Converter<?, ?>> converters = new HashMap<Pair<Class<?>, Class<?>>, Converter<? , ?>>();
 	
 	/** The Constant RFC822DATEFORMAT. */
 	private static final SimpleDateFormat RFC822DATEFORMAT
@@ -50,7 +51,7 @@ public abstract class BaseJsonAdapter implements Serializable {
 	private static final long serialVersionUID = 250056223059654638L;
 	
 	{
-		converters.put(Date.class, new Converter<String, Date>() {
+		converters.put(new Pair<Class<?>, Class<?>>(Date.class, String.class), new Converter<String, Date>() {
 			@Override
 			public Date convert(String source) {
 				if (source != null) {
@@ -61,37 +62,37 @@ public abstract class BaseJsonAdapter implements Serializable {
 				return null;
 			}
 		});
-		converters.put(ListingType.class, new Converter<String, ListingType>() {
+		converters.put(new Pair<Class<?>, Class<?>>(ListingType.class, String.class), new Converter<String, ListingType>() {
 			@Override
 			public ListingType convert(String source) {
 				return ListingType.fromValue(source);
 			}
 		});
-		converters.put(PatentStatus.class, new Converter<String, PatentStatus>() {
+		converters.put(new Pair<Class<?>, Class<?>>(PatentStatus.class, String.class), new Converter<String, PatentStatus>() {
 			@Override
 			public PatentStatus convert(String source) {
 				return PatentStatus.fromValue(source);
 			}
 		});
-		converters.put(VideoType.class, new Converter<String, VideoType>() {
+		converters.put(new Pair<Class<?>, Class<?>>(VideoType.class, String.class), new Converter<String, VideoType>() {
 			@Override
 			public VideoType convert(String source) {
 				return VideoType.fromValue(source);
 			}
 		});
-		converters.put(ViewPortMode.class, new Converter<String, ViewPortMode>() {
+		converters.put(new Pair<Class<?>, Class<?>>(ViewPortMode.class, String.class), new Converter<String, ViewPortMode>() {
 			@Override
 			public ViewPortMode convert(String source) {
 				return ViewPortMode.fromValue(source);
 			}
 		});
-		converters.put(GsearchResultClass.class, new Converter<String, GsearchResultClass>() {
+		converters.put(new Pair<Class<?>, Class<?>>(GsearchResultClass.class, String.class), new Converter<String, GsearchResultClass>() {
 			@Override
 			public GsearchResultClass convert(String source) {
 				return GsearchResultClass.fromValue(source);
 			}
 		});
-		converters.put(int.class, new Converter<String, Integer>() {
+		converters.put(new Pair<Class<?>, Class<?>>(int.class, String.class), new Converter<String, Integer>() {
 			@Override
 			public Integer convert(String source) {
 				if (source != null) {
@@ -102,7 +103,7 @@ public abstract class BaseJsonAdapter implements Serializable {
 				return null;
 			}
 		});
-		converters.put(double.class, new Converter<String, Double>() {
+		converters.put(new Pair<Class<?>, Class<?>>(double.class, String.class), new Converter<String, Double>() {
 			@Override
 			public Double convert(String source) {
 				if (source != null) {
@@ -129,14 +130,19 @@ public abstract class BaseJsonAdapter implements Serializable {
 				Object value = entry.getValue();
 				if (descriptor != null && descriptor.getWriteMethod() != null) {
 					if (includeProperty(descriptor.getName(), value)) {
-						if (value != null && converters.containsKey(descriptor.getPropertyType())) {
-							value = ((Converter<Object, Object>) converters.get(descriptor.getPropertyType())).convert(value);
+						if (value != null && converters.containsKey(new Pair(descriptor.getPropertyType(), value.getClass()))) {
+							value = ((Converter<Object, Object>) converters.get(new Pair(descriptor.getPropertyType(), value.getClass()))).convert(value);
 							if (value == null) {
 								logger.warning("Could not convert property '" + entry.getKey() + "' with value:" + entry.getValue());
 							}
 						}
 						if (value != null) {
-							descriptor.getWriteMethod().invoke(dest, value);
+							try {
+								descriptor.getWriteMethod().invoke(dest, value);
+							} catch (Exception e) {
+								System.out.println(descriptor.getName() + ":" + value.getClass() + ":" + value);
+								e.printStackTrace();
+							}
 						}
 					}
 				} else {
@@ -179,8 +185,8 @@ public abstract class BaseJsonAdapter implements Serializable {
 	 * @return the string
 	 */
 	protected String convertToCamelCase(String original) {
-		if (original.startsWith("is_")) {
-			original = original.substring(3);			
+		if (original.startsWith("is")) {
+			original = original.substring(2);			
 		}
 		StringBuilder builder = new StringBuilder();
 		boolean upperCase = false;

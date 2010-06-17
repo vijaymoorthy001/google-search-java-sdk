@@ -20,10 +20,10 @@ public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectL
 	private String language;
 	
 	/** The is reliable. */
-	private boolean isReliable;
+	private boolean reliable;
 	
 	/** The confidence. */
-	private String confidence;
+	private double confidence;
 	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#getLanguage()
@@ -43,27 +43,27 @@ public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectL
 	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#isReliable()
 	 */
 	public boolean isReliable() {
-		return isReliable;
+		return reliable;
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#setReliable(boolean)
 	 */
-	public void setReliable(boolean isReliable) {
-		this.isReliable = isReliable;
+	public void setReliable(boolean reliable) {
+		this.reliable = reliable;
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#getConfidence()
 	 */
-	public String getConfidence() {
+	public double getConfidence() {
 		return confidence;
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#setConfidence(java.lang.String)
 	 */
-	public void setConfidence(String confidence) {
+	public void setConfidence(double confidence) {
 		this.confidence = confidence;
 	}
 	

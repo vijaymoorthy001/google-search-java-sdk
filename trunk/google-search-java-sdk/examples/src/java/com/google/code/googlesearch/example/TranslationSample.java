@@ -13,8 +13,10 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.google.code.googlesearch.client.DetectLanguageQuery;
 import com.google.code.googlesearch.client.GoogleSearchQueryFactory;
 import com.google.code.googlesearch.client.TranslateLanguageQuery;
+import com.google.code.googlesearch.schema.DetectLanguageResult;
 import com.google.code.googlesearch.schema.TranslateLanguageResult;
 
 /**
@@ -58,12 +60,21 @@ public class TranslationSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleSearchQueryFactory factory = GoogleSearchQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		TranslateLanguageQuery query = factory.newTranslateLanguageQuery();
-    		TranslateLanguageResult response = query.withLanguagePair(null, "de").withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
-    		printResponse(response);
+    		DetectLanguageQuery detectQuery = factory.newDetectLanguageQuery();
+    		DetectLanguageResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		printResponse(detectResponse);
+    		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
+    		TranslateLanguageResult translateResponse = translateQuery.withLanguagePair(null, "de").withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		printResponse(translateResponse);
         } else {
         	printHelp(options);
         }
+	}
+
+	private static void printResponse(DetectLanguageResult detectResponse) {
+		System.out.println(detectResponse.getLanguage());
+		System.out.println(detectResponse.getConfidence());
+		System.out.println(detectResponse.isReliable());
 	}
 
 	/**

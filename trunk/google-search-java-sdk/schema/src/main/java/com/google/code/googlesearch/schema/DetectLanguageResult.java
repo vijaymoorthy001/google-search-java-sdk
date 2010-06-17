@@ -38,13 +38,13 @@ public interface DetectLanguageResult {
 	 * 
 	 * @return the confidence
 	 */
-	public String getConfidence();
+	public double getConfidence();
 
 	/**
 	 * Sets the confidence.
 	 * 
 	 * @param confidence the new confidence
 	 */
-	public void setConfidence(String confidence);
+	public void setConfidence(double confidence);
 
 }
