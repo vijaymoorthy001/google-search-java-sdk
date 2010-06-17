@@ -6,15 +6,14 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * @author Nabeel Mukhtar
- *
+ * The Class TestConstants.
  */
 public final class TestConstants {
 
-    /** Field description */
+    /** The Constant TEST_CONSTANTS_FILE. */
     public static final String TEST_CONSTANTS_FILE = "TestConstants.properties";
 
-    /** Field description */
+    /** The Constant testConstants. */
     private static final Properties testConstants = new Properties();
 
     static {
@@ -26,8 +25,7 @@ public final class TestConstants {
     }
     
     /**
-     * Constructs ...
-     *
+     * Instantiates a new test constants.
      */
     private TestConstants() {}
 }

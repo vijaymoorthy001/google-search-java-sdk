@@ -15,14 +15,13 @@ import com.google.code.googlesearch.schema.NewsResult;
 import com.google.code.googlesearch.schema.adapter.json.NewsResultImpl;
 
 /**
- * @author nmukhtar
- *
+ * The Class NewsSearchQueryImpl.
  */
 public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> implements
 		NewsSearchQuery {
 	
 	/**
-	 * Instantiates a new answer api query impl.
+	 * Instantiates a new news search query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -31,12 +30,18 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#reset()
+	 */
 	@Override
 	public void reset() {
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_NEWS_URL);
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.NewsSearchQuery#withEdition(com.google.code.googlesearch.client.enumeration.NewsEdition)
+	 */
 	@Override
 	public NewsSearchQuery withEdition(NewsEdition edition) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.NEWS_EDITION, edition);
@@ -44,6 +49,9 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.NewsSearchQuery#withLocation(java.lang.String)
+	 */
 	@Override
 	public NewsSearchQuery withLocation(String location) {
 		apiUrlBuilder.withParameter(ParameterNames.GEO, location);
@@ -51,6 +59,9 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.NewsSearchQuery#withOrder(com.google.code.googlesearch.client.enumeration.NewsSortOrder)
+	 */
 	@Override
 	public NewsSearchQuery withOrder(NewsSortOrder order) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.SCORING, order);
@@ -58,6 +69,9 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.NewsSearchQuery#withQuoteTypeId(java.lang.String)
+	 */
 	@Override
 	public NewsSearchQuery withQuoteTypeId(String qsid) {
 		apiUrlBuilder.withParameter(ParameterNames.QSID, qsid);
@@ -65,12 +79,18 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.NewsSearchQuery#withTopic(com.google.code.googlesearch.client.enumeration.NewsTopic)
+	 */
 	@Override
 	public NewsSearchQuery withTopic(NewsTopic topic) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.TOPIC, topic);
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
+	 */
 	@Override
 	protected NewsResult unmarshall(JSONObject json) {
 		NewsResultImpl result = new NewsResultImpl();

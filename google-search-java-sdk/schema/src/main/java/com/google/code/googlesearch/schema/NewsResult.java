@@ -6,145 +6,204 @@ import java.util.List;
 import com.google.code.googlesearch.schema.adapter.json.Image;
 import com.google.code.googlesearch.schema.adapter.json.NewsStory;
 
+/**
+ * The Interface NewsResult.
+ */
 public interface NewsResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
-	 * @return the unescapedUrl
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl();
 
 	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
-	 * @return the clusterUrl
+	 * Gets the cluster url.
+	 * 
+	 * @return the cluster url
 	 */
 	public String getClusterUrl();
 
 	/**
-	 * @param clusterUrl the clusterUrl to set
+	 * Sets the cluster url.
+	 * 
+	 * @param clusterUrl the new cluster url
 	 */
 	public void setClusterUrl(String clusterUrl);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
+	 * Gets the publisher.
+	 * 
 	 * @return the publisher
 	 */
 	public String getPublisher();
 
 	/**
-	 * @param publisher the publisher to set
+	 * Sets the publisher.
+	 * 
+	 * @param publisher the new publisher
 	 */
 	public void setPublisher(String publisher);
 
 	/**
+	 * Gets the location.
+	 * 
 	 * @return the location
 	 */
 	public String getLocation();
 
 	/**
-	 * @param location the location to set
+	 * Sets the location.
+	 * 
+	 * @param location the new location
 	 */
 	public void setLocation(String location);
 
 	/**
-	 * @return the publishedDate
+	 * Gets the published date.
+	 * 
+	 * @return the published date
 	 */
 	public Date getPublishedDate();
 
 	/**
-	 * @param publishedDate the publishedDate to set
+	 * Sets the published date.
+	 * 
+	 * @param publishedDate the new published date
 	 */
 	public void setPublishedDate(Date publishedDate);
 
 	/**
-	 * @return the relatedStories
+	 * Gets the related stories.
+	 * 
+	 * @return the related stories
 	 */
 	public List<NewsStory> getRelatedStories();
 
 	/**
-	 * @param relatedStories the relatedStories to set
+	 * Sets the related stories.
+	 * 
+	 * @param relatedStories the new related stories
 	 */
 	public void setRelatedStories(List<NewsStory> relatedStories);
 
 	/**
+	 * Gets the image.
+	 * 
 	 * @return the image
 	 */
 	public Image getImage();
 
 	/**
-	 * @param image the image to set
+	 * Sets the image.
+	 * 
+	 * @param image the new image
 	 */
 	public void setImage(Image image);
 
 	/**
+	 * Gets the language.
+	 * 
 	 * @return the language
 	 */
 	public String getLanguage();
 
 	/**
-	 * @param language the language to set
+	 * Sets the language.
+	 * 
+	 * @param language the new language
 	 */
 	public void setLanguage(String language);
 
 	/**
+	 * Gets the author.
+	 * 
 	 * @return the author
 	 */
 	public String getAuthor();
 
 	/**
-	 * @param author the author to set
+	 * Sets the author.
+	 * 
+	 * @param author the new author
 	 */
 	public void setAuthor(String author);
 
 	/**
-	 * @return the signedRedirectUrl
+	 * Gets the signed redirect url.
+	 * 
+	 * @return the signed redirect url
 	 */
 	public String getSignedRedirectUrl();
 	
 	/**
-	 * @param signedRedirectUrl the signedRedirectUrl to set
+	 * Sets the signed redirect url.
+	 * 
+	 * @param signedRedirectUrl the new signed redirect url
 	 */
 	public void setSignedRedirectUrl(String signedRedirectUrl);
 }

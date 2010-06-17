@@ -21,7 +21,7 @@ import com.google.code.googlesearch.client.GoogleSearchException;
 import com.google.code.googlesearch.client.constant.ApplicationConstants;
 
 /**
- * The Class StackExchangeApiGateway.
+ * The Class GoogleSearchApiGateway.
  */
 public abstract class GoogleSearchApiGateway {
 	
@@ -31,7 +31,7 @@ public abstract class GoogleSearchApiGateway {
 	/** The Constant GZIP_ENCODING. */
 	private static final String GZIP_ENCODING = "gzip";
 	
-	/** The Constant GZIP_ENCODING. */
+	/** The Constant REFERRER. */
 	private static final String REFERRER = "Referer";
 	
 	/** The request headers. */
@@ -40,7 +40,7 @@ public abstract class GoogleSearchApiGateway {
 	/** The application key. */
 	protected String applicationKey;
 	
-	/** The application key. */
+	/** The user ip address. */
 	protected String userIpAddress;
 	
 	/** The api version. */
@@ -120,14 +120,18 @@ public abstract class GoogleSearchApiGateway {
 	}
 	
 	/**
-	 * @param referer the referer to set
+	 * Sets the referrer.
+	 * 
+	 * @param referrer the new referrer
 	 */
 	public void setReferrer(String referrer) {
 		requestHeaders.put(REFERRER, referrer);
 	}
 
 	/**
-	 * @param referer the referer to set
+	 * Sets the user ip address.
+	 * 
+	 * @param userIpAddress the new user ip address
 	 */
 	public void setUserIpAddress(String userIpAddress) {
 		this.userIpAddress = userIpAddress;

@@ -17,29 +17,22 @@ import com.google.code.googlesearch.schema.SchemaEntity;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author Nabeel Mukhtar
- *
+ * The Class GoogleSearchJsonClientImpl.
  */
 public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
 
-    /** Field description */
+    /** The parser. */
     private final JSONParser parser = new JSONParser();
     
-    /** Field description */
+    /** The Constant ADAPTER_CLASSES_MAP. */
 	private static final Map<Class<? extends SchemaEntity>, Class<? extends Adaptable<?, ?>>> ADAPTER_CLASSES_MAP = new HashMap<Class<? extends SchemaEntity>, Class<? extends Adaptable<?, ?>>>();
 	
 	static {
 //		ADAPTER_CLASSES_MAP.put(SearchResponse.class, SearchResponseImpl.class);
 	}
     
-    /**
-     * Method description
-     *
-     *
-     * @param xmlContent
-     * @param <T>
-     *
-     * @return
+    /* (non-Javadoc)
+     * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiClient#unmarshallObject(java.lang.Class, java.io.InputStream)
      */
     @SuppressWarnings("unchecked")
     protected <T> T unmarshallObject(Class<T> clazz, InputStream jsonContent) {
@@ -58,13 +51,8 @@ public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
         }
     }
 
-    /**
-     * Method description
-     *
-     *
-     * @param element
-     *
-     * @return
+    /* (non-Javadoc)
+     * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiClient#marshallObject(java.lang.Object)
      */
     protected String marshallObject(Object element) {
         try {
@@ -77,13 +65,8 @@ public class GoogleSearchJsonClientImpl extends BaseGoogleSearchApiClient {
         }
     }
 
-    /**
-     * Method description
-     *
-     *
-     * @param urlFormat
-     *
-     * @return
+    /* (non-Javadoc)
+     * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiClient#createBingSearchApiUrlBuilder(java.lang.String)
      */
     protected GoogleSearchApiUrlBuilder createBingSearchApiUrlBuilder(String urlFormat) {
         return new GoogleSearchApiUrlBuilder(urlFormat);

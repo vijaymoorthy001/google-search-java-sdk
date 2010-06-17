@@ -6,7 +6,7 @@ package com.google.code.googlesearch.client;
 import java.util.Map;
 
 /**
- * The Interface StackExchangeCommunicationClient.
+ * The Interface GoogleSearchCommunicationClient.
  */
 public interface GoogleSearchCommunicationClient {
 

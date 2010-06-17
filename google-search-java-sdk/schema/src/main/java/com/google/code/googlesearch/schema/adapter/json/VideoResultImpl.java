@@ -12,218 +12,279 @@ import com.google.code.googlesearch.schema.VideoType;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author nmukhtar
- *
+ * The Class VideoResultImpl.
  */
 public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Adaptable<VideoResult, JSONObject> {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -544563069546960689L;
 	
+	/** The title. */
 	private String title;
+	
+	/** The title no formatting. */
 	private String titleNoFormatting;
+	
+	/** The content. */
 	private String content;
+	
+	/** The url. */
 	private String url;
+	
+	/** The published. */
 	private Date published;
+	
+	/** The publisher. */
 	private String publisher;
+	
+	/** The duration. */
 	private int duration;
+	
+	/** The tb width. */
 	private int tbWidth;
+	
+	/** The tb height. */
 	private int tbHeight;
+	
+	/** The tb url. */
 	private String tbUrl;
+	
+	/** The play url. */
 	private String playUrl;
+	
+	/** The author. */
 	private String author;
+	
+	/** The view count. */
 	private int viewCount;
+	
+	/** The rating. */
 	private double rating;
+	
+	/** The video type. */
 	private VideoType videoType;
 	
-	/**
-	 * @return the title
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTitle()
 	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the titleNoFormatting
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTitleNoFormatting()
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
-	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTitleNoFormatting(java.lang.String)
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
-	/**
-	 * @return the content
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getContent()
 	 */
 	public String getContent() {
 		return content;
 	}
-	/**
-	 * @param content the content to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setContent(java.lang.String)
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	/**
-	 * @return the url
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getUrl()
 	 */
 	public String getUrl() {
 		return url;
 	}
-	/**
-	 * @param url the url to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setUrl(java.lang.String)
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	/**
-	 * @return the published
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPublished()
 	 */
 	public Date getPublished() {
 		return published;
 	}
-	/**
-	 * @param published the published to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPublished(java.util.Date)
 	 */
 	public void setPublished(Date published) {
 		this.published = published;
 	}
-	/**
-	 * @return the publisher
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPublisher()
 	 */
 	public String getPublisher() {
 		return publisher;
 	}
-	/**
-	 * @param publisher the publisher to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPublisher(java.lang.String)
 	 */
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	/**
-	 * @return the duration
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getDuration()
 	 */
 	public int getDuration() {
 		return duration;
 	}
-	/**
-	 * @param duration the duration to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setDuration(int)
 	 */
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	/**
-	 * @return the tbWidth
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbWidth()
 	 */
 	public int getTbWidth() {
 		return tbWidth;
 	}
-	/**
-	 * @param tbWidth the tbWidth to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbWidth(int)
 	 */
 	public void setTbWidth(int tbWidth) {
 		this.tbWidth = tbWidth;
 	}
-	/**
-	 * @return the tbHeight
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbHeight()
 	 */
 	public int getTbHeight() {
 		return tbHeight;
 	}
-	/**
-	 * @param tbHeight the tbHeight to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbHeight(int)
 	 */
 	public void setTbHeight(int tbHeight) {
 		this.tbHeight = tbHeight;
 	}
-	/**
-	 * @return the tbUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbUrl()
 	 */
 	public String getTbUrl() {
 		return tbUrl;
 	}
-	/**
-	 * @param tbUrl the tbUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbUrl(java.lang.String)
 	 */
 	public void setTbUrl(String tbUrl) {
 		this.tbUrl = tbUrl;
 	}
-	/**
-	 * @return the playUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPlayUrl()
 	 */
 	public String getPlayUrl() {
 		return playUrl;
 	}
-	/**
-	 * @param playUrl the playUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPlayUrl(java.lang.String)
 	 */
 	public void setPlayUrl(String playUrl) {
 		this.playUrl = playUrl;
 	}
-	/**
-	 * @return the author
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getAuthor()
 	 */
 	public String getAuthor() {
 		return author;
 	}
-	/**
-	 * @param author the author to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setAuthor(java.lang.String)
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	/**
-	 * @return the viewCount
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getViewCount()
 	 */
 	public int getViewCount() {
 		return viewCount;
 	}
-	/**
-	 * @param viewCount the viewCount to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setViewCount(int)
 	 */
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-	/**
-	 * @return the rating
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getRating()
 	 */
 	public double getRating() {
 		return rating;
 	}
-	/**
-	 * @param rating the rating to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setRating(double)
 	 */
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
 	
-	/**
-	 * @return the videoType
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getVideoType()
 	 */
 	public VideoType getVideoType() {
 		return videoType;
 	}
-	/**
-	 * @param videoType the videoType to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setVideoType(com.google.code.googlesearch.schema.VideoType)
 	 */
 	public void setVideoType(VideoType videoType) {
 		this.videoType = videoType;
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

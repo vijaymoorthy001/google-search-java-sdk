@@ -4,18 +4,21 @@
 package com.google.code.googlesearch.schema;
 
 /**
- * @author Nabeel Mukhtar
- *
+ * The Interface SchemaEntity.
  */
 public interface SchemaEntity {
 	
 	/**
-	 * @return the gsearchResultClass
+	 * Gets the gsearch result class.
+	 * 
+	 * @return the gsearch result class
 	 */
 	public GsearchResultClass getGsearchResultClass();
 
 	/**
-	 * @param gsearchResultClass the gsearchResultClass to set
+	 * Sets the gsearch result class.
+	 * 
+	 * @param gsearchResultClass the new gsearch result class
 	 */
 	public void setGsearchResultClass(GsearchResultClass gsearchResultClass);
 }

@@ -4,205 +4,288 @@ import java.util.List;
 
 import com.google.code.googlesearch.schema.adapter.json.PhoneNumber;
 
+/**
+ * The Interface LocalResult.
+ */
 public interface LocalResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
+	 * Gets the lat.
+	 * 
 	 * @return the lat
 	 */
 	public double getLat();
 
 	/**
-	 * @param lat the lat to set
+	 * Sets the lat.
+	 * 
+	 * @param lat the new lat
 	 */
 	public void setLat(double lat);
 
 	/**
+	 * Gets the lng.
+	 * 
 	 * @return the lng
 	 */
 	public double getLng();
 
 	/**
-	 * @param lng the lng to set
+	 * Sets the lng.
+	 * 
+	 * @param lng the new lng
 	 */
 	public void setLng(double lng);
 
 	/**
-	 * @return the streetAddress
+	 * Gets the street address.
+	 * 
+	 * @return the street address
 	 */
 	public String getStreetAddress();
 
 	/**
-	 * @param streetAddress the streetAddress to set
+	 * Sets the street address.
+	 * 
+	 * @param streetAddress the new street address
 	 */
 	public void setStreetAddress(String streetAddress);
 
 	/**
+	 * Gets the city.
+	 * 
 	 * @return the city
 	 */
 	public String getCity();
 
 	/**
-	 * @param city the city to set
+	 * Sets the city.
+	 * 
+	 * @param city the new city
 	 */
 	public void setCity(String city);
 
 	/**
+	 * Gets the region.
+	 * 
 	 * @return the region
 	 */
 	public String getRegion();
 
 	/**
-	 * @param region the region to set
+	 * Sets the region.
+	 * 
+	 * @param region the new region
 	 */
 	public void setRegion(String region);
 
 	/**
+	 * Gets the country.
+	 * 
 	 * @return the country
 	 */
 	public String getCountry();
 
 	/**
-	 * @param country the country to set
+	 * Sets the country.
+	 * 
+	 * @param country the new country
 	 */
 	public void setCountry(String country);
 
 	/**
-	 * @return the phoneNumbers
+	 * Gets the phone numbers.
+	 * 
+	 * @return the phone numbers
 	 */
 	public List<PhoneNumber> getPhoneNumbers();
 
 	/**
-	 * @param phoneNumbers the phoneNumbers to set
+	 * Sets the phone numbers.
+	 * 
+	 * @param phoneNumbers the new phone numbers
 	 */
 	public void setPhoneNumbers(List<PhoneNumber> phoneNumbers);
 
 	/**
-	 * @return the addressLines
+	 * Gets the address lines.
+	 * 
+	 * @return the address lines
 	 */
 	public List<String> getAddressLines();
 
 	/**
-	 * @param addressLines the addressLines to set
+	 * Sets the address lines.
+	 * 
+	 * @param addressLines the new address lines
 	 */
 	public void setAddressLines(List<String> addressLines);
 
 	/**
-	 * @return the ddUrl
+	 * Gets the dd url.
+	 * 
+	 * @return the dd url
 	 */
 	public String getDdUrl();
 
 	/**
-	 * @param ddUrl the ddUrl to set
+	 * Sets the dd url.
+	 * 
+	 * @param ddUrl the new dd url
 	 */
 	public void setDdUrl(String ddUrl);
 
 	/**
-	 * @return the ddUrlToHere
+	 * Gets the dd url to here.
+	 * 
+	 * @return the dd url to here
 	 */
 	public String getDdUrlToHere();
 
 	/**
-	 * @param ddUrlToHere the ddUrlToHere to set
+	 * Sets the dd url to here.
+	 * 
+	 * @param ddUrlToHere the new dd url to here
 	 */
 	public void setDdUrlToHere(String ddUrlToHere);
 
 	/**
-	 * @return the ddUrlFromHere
+	 * Gets the dd url from here.
+	 * 
+	 * @return the dd url from here
 	 */
 	public String getDdUrlFromHere();
 
 	/**
-	 * @param ddUrlFromHere the ddUrlFromHere to set
+	 * Sets the dd url from here.
+	 * 
+	 * @param ddUrlFromHere the new dd url from here
 	 */
 	public void setDdUrlFromHere(String ddUrlFromHere);
 
 	/**
-	 * @return the staticMapUrl
+	 * Gets the static map url.
+	 * 
+	 * @return the static map url
 	 */
 	public String getStaticMapUrl();
 
 	/**
-	 * @param staticMapUrl the staticMapUrl to set
+	 * Sets the static map url.
+	 * 
+	 * @param staticMapUrl the new static map url
 	 */
 	public void setStaticMapUrl(String staticMapUrl);
 
 	/**
-	 * @return the listingType
+	 * Gets the listing type.
+	 * 
+	 * @return the listing type
 	 */
 	public ListingType getListingType();
 
 	/**
-	 * @param listingType the listingType to set
+	 * Sets the listing type.
+	 * 
+	 * @param listingType the new listing type
 	 */
 	public void setListingType(ListingType listingType);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
-	 * @return the maxAge
+	 * Gets the max age.
+	 * 
+	 * @return the max age
 	 */
 	public long getMaxAge();
 	
 	/**
-	 * @param maxAge the maxAge to set
+	 * Sets the max age.
+	 * 
+	 * @param maxAge the new max age
 	 */
 	public void setMaxAge(long maxAge);
 	
 	/**
+	 * Gets the accuracy.
+	 * 
 	 * @return the accuracy
 	 */
 	public int getAccuracy();
 	
 	/**
-	 * @param accuracy the accuracy to set
+	 * Sets the accuracy.
+	 * 
+	 * @param accuracy the new accuracy
 	 */
 	public void setAccuracy(int accuracy);
 	
 	/**
+	 * Gets the viewportmode.
+	 * 
 	 * @return the viewportmode
 	 */
 	public ViewPortMode getViewportmode();
 	
 	/**
-	 * @param viewportmode the viewportmode to set
+	 * Sets the viewportmode.
+	 * 
+	 * @param viewportmode the new viewportmode
 	 */
 	public void setViewportmode(ViewPortMode viewportmode);
 }

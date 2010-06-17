@@ -4,8 +4,7 @@
 package com.google.code.googlesearch.schema.adapter.json;
 
 /**
- * @author nmukhtar
- *
+ * The Class PhoneNumber.
  */
 public class PhoneNumber {
 

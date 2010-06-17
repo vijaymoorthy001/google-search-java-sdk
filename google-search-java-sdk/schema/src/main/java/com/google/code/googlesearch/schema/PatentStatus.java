@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum PatentStatus.
  */
 public enum PatentStatus implements ValueEnum {
-	FILED("filed"), ISSUED("issued");
+	
+	/** The FILED. */
+	FILED("filed"), 
+ /** The ISSUED. */
+ ISSUED("issued");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, PatentStatus> stringToEnum = new HashMap<String, PatentStatus>();
@@ -28,7 +31,7 @@ public enum PatentStatus implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new patent status.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum PatentStatus implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum PatentStatus implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the patent status
 	 */
 	public static PatentStatus fromValue(String value) {
 		return stringToEnum.get(value);

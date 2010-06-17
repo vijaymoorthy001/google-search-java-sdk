@@ -2,75 +2,106 @@ package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 
+/**
+ * The Interface BlogResult.
+ */
 public interface BlogResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
-	 * @return the postUrl
+	 * Gets the post url.
+	 * 
+	 * @return the post url
 	 */
 	public String getPostUrl();
 
 	/**
-	 * @param postUrl the postUrl to set
+	 * Sets the post url.
+	 * 
+	 * @param postUrl the new post url
 	 */
 	public void setPostUrl(String postUrl);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
+	 * Gets the author.
+	 * 
 	 * @return the author
 	 */
 	public String getAuthor();
 
 	/**
-	 * @param author the author to set
+	 * Sets the author.
+	 * 
+	 * @param author the new author
 	 */
 	public void setAuthor(String author);
 
 	/**
-	 * @return the blogUrl
+	 * Gets the blog url.
+	 * 
+	 * @return the blog url
 	 */
 	public String getBlogUrl();
 
 	/**
-	 * @param blogUrl the blogUrl to set
+	 * Sets the blog url.
+	 * 
+	 * @param blogUrl the new blog url
 	 */
 	public void setBlogUrl(String blogUrl);
 
 	/**
-	 * @return the publishedDate
+	 * Gets the published date.
+	 * 
+	 * @return the published date
 	 */
 	public Date getPublishedDate();
 
 	/**
-	 * @param publishedDate the publishedDate to set
+	 * Sets the published date.
+	 * 
+	 * @param publishedDate the new published date
 	 */
 	public void setPublishedDate(Date publishedDate);
 

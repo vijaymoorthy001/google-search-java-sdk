@@ -19,14 +19,13 @@ import com.google.code.googlesearch.schema.ImageResult;
 import com.google.code.googlesearch.schema.adapter.json.ImageResultImpl;
 
 /**
- * @author nmukhtar
- *
+ * The Class ImageSearchQueryImpl.
  */
 public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> implements
 		ImageSearchQuery {
 	
 	/**
-	 * Instantiates a new answer api query impl.
+	 * Instantiates a new image search query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -35,12 +34,18 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#reset()
+	 */
 	@Override
 	public void reset() {
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_IMAGE_URL);
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withFileType(com.google.code.googlesearch.client.enumeration.ImageFileType)
+	 */
 	@Override
 	public ImageSearchQuery withFileType(ImageFileType fileType) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_FILE_TYPE, fileType);
@@ -48,6 +53,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withImageColor(com.google.code.googlesearch.client.enumeration.ImageColor)
+	 */
 	@Override
 	public ImageSearchQuery withImageColor(ImageColor color) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_COLOR, color);
@@ -55,6 +63,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withImageColorization(com.google.code.googlesearch.client.enumeration.ImageColorization)
+	 */
 	@Override
 	public ImageSearchQuery withImageColorization(ImageColorization colorization) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_COLORIZATION, colorization);
@@ -62,6 +73,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withImageRights(com.google.code.googlesearch.client.enumeration.ImageRights)
+	 */
 	@Override
 	public ImageSearchQuery withImageRights(ImageRights rights) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_RIGHTS, rights);
@@ -69,6 +83,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withImageSize(com.google.code.googlesearch.client.enumeration.ImageSize)
+	 */
 	@Override
 	public ImageSearchQuery withImageSize(ImageSize imgsz) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_SIZE, imgsz);
@@ -76,6 +93,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withImageType(com.google.code.googlesearch.client.enumeration.ImageType)
+	 */
 	@Override
 	public ImageSearchQuery withImageType(ImageType type) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.IMAGE_TYPE, type);
@@ -83,12 +103,18 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.ImageSearchQuery#withSafetyLevel(com.google.code.googlesearch.client.enumeration.SafetyLevel)
+	 */
 	@Override
 	public ImageSearchQuery withSafetyLevel(SafetyLevel safe) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.SAFETY_LEVEL, safe);
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
+	 */
 	@Override
 	protected ImageResult unmarshall(JSONObject json) {
 		ImageResultImpl result = new ImageResultImpl();

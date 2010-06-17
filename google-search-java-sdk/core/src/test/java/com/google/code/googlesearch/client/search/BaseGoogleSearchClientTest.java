@@ -11,18 +11,21 @@ import com.google.code.googlesearch.client.GoogleSearchClient;
 import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
 
 /**
- * @author nmukhtar
- *
+ * The Class BaseGoogleSearchClientTest.
  */
 public class BaseGoogleSearchClientTest extends TestCase {
-    /** Field description */
+    
+    /** The factory. */
 	protected GoogleSearchServiceClientFactory factory;
 	
-    /** Field description */
+    /** The client. */
 	protected GoogleSearchClient client;
 
 	/**
+	 * Assert not null or empty.
 	 * 
+	 * @param message the message
+	 * @param value the value
 	 */
 	protected static void assertNotNullOrEmpty(String message, String value) {
 		assertNotNull(message, value);

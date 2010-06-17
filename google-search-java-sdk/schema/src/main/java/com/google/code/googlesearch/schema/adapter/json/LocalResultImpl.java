@@ -13,282 +13,364 @@ import com.google.code.googlesearch.schema.ViewPortMode;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author nmukhtar
- *
+ * The Class LocalResultImpl.
  */
 public class LocalResultImpl extends BaseJsonAdapter implements LocalResult, Adaptable<LocalResult, JSONObject> {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 6016892309811530169L;
 	
+	/** The title. */
 	private String title;
+	
+	/** The title no formatting. */
 	private String titleNoFormatting;
+	
+	/** The url. */
 	private String url;
+	
+	/** The lat. */
 	private double lat;
+	
+	/** The lng. */
 	private double lng;
+	
+	/** The street address. */
 	private String streetAddress;
+	
+	/** The city. */
 	private String city;
+	
+	/** The region. */
 	private String region;
+	
+	/** The country. */
 	private String country;
+	
+	/** The phone numbers. */
 	private List<PhoneNumber> phoneNumbers;
+	
+	/** The address lines. */
 	private List<String> addressLines;
+	
+	/** The dd url. */
 	private String ddUrl;
+	
+	/** The dd url to here. */
 	private String ddUrlToHere;
+	
+	/** The dd url from here. */
 	private String ddUrlFromHere;
+	
+	/** The static map url. */
 	private String staticMapUrl;
+	
+	/** The listing type. */
 	private ListingType listingType;
+	
+	/** The content. */
 	private String content;
+	
+	/** The max age. */
 	private long maxAge;
+	
+	/** The accuracy. */
 	private int accuracy;
+	
+	/** The viewportmode. */
 	private ViewPortMode viewportmode;
-	/**
-	 * @return the title
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getTitle()
 	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the titleNoFormatting
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getTitleNoFormatting()
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
-	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setTitleNoFormatting(java.lang.String)
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
-	/**
-	 * @return the url
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getUrl()
 	 */
 	public String getUrl() {
 		return url;
 	}
-	/**
-	 * @param url the url to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setUrl(java.lang.String)
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	/**
-	 * @return the lat
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getLat()
 	 */
 	public double getLat() {
 		return lat;
 	}
-	/**
-	 * @param lat the lat to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setLat(double)
 	 */
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
-	/**
-	 * @return the lng
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getLng()
 	 */
 	public double getLng() {
 		return lng;
 	}
-	/**
-	 * @param lng the lng to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setLng(double)
 	 */
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
-	/**
-	 * @return the streetAddress
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getStreetAddress()
 	 */
 	public String getStreetAddress() {
 		return streetAddress;
 	}
-	/**
-	 * @param streetAddress the streetAddress to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setStreetAddress(java.lang.String)
 	 */
 	public void setStreetAddress(String streetAddress) {
 		this.streetAddress = streetAddress;
 	}
-	/**
-	 * @return the city
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getCity()
 	 */
 	public String getCity() {
 		return city;
 	}
-	/**
-	 * @param city the city to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setCity(java.lang.String)
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-	/**
-	 * @return the region
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getRegion()
 	 */
 	public String getRegion() {
 		return region;
 	}
-	/**
-	 * @param region the region to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setRegion(java.lang.String)
 	 */
 	public void setRegion(String region) {
 		this.region = region;
 	}
-	/**
-	 * @return the country
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getCountry()
 	 */
 	public String getCountry() {
 		return country;
 	}
-	/**
-	 * @param country the country to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setCountry(java.lang.String)
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	/**
-	 * @return the phoneNumbers
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getPhoneNumbers()
 	 */
 	public List<PhoneNumber> getPhoneNumbers() {
 		return phoneNumbers;
 	}
-	/**
-	 * @param phoneNumbers the phoneNumbers to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setPhoneNumbers(java.util.List)
 	 */
 	public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
 		this.phoneNumbers = phoneNumbers;
 	}
-	/**
-	 * @return the addressLines
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getAddressLines()
 	 */
 	public List<String> getAddressLines() {
 		return addressLines;
 	}
-	/**
-	 * @param addressLines the addressLines to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setAddressLines(java.util.List)
 	 */
 	public void setAddressLines(List<String> addressLines) {
 		this.addressLines = addressLines;
 	}
-	/**
-	 * @return the ddUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrl()
 	 */
 	public String getDdUrl() {
 		return ddUrl;
 	}
-	/**
-	 * @param ddUrl the ddUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrl(java.lang.String)
 	 */
 	public void setDdUrl(String ddUrl) {
 		this.ddUrl = ddUrl;
 	}
-	/**
-	 * @return the ddUrlToHere
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrlToHere()
 	 */
 	public String getDdUrlToHere() {
 		return ddUrlToHere;
 	}
-	/**
-	 * @param ddUrlToHere the ddUrlToHere to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrlToHere(java.lang.String)
 	 */
 	public void setDdUrlToHere(String ddUrlToHere) {
 		this.ddUrlToHere = ddUrlToHere;
 	}
-	/**
-	 * @return the ddUrlFromHere
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrlFromHere()
 	 */
 	public String getDdUrlFromHere() {
 		return ddUrlFromHere;
 	}
-	/**
-	 * @param ddUrlFromHere the ddUrlFromHere to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrlFromHere(java.lang.String)
 	 */
 	public void setDdUrlFromHere(String ddUrlFromHere) {
 		this.ddUrlFromHere = ddUrlFromHere;
 	}
-	/**
-	 * @return the staticMapUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getStaticMapUrl()
 	 */
 	public String getStaticMapUrl() {
 		return staticMapUrl;
 	}
-	/**
-	 * @param staticMapUrl the staticMapUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setStaticMapUrl(java.lang.String)
 	 */
 	public void setStaticMapUrl(String staticMapUrl) {
 		this.staticMapUrl = staticMapUrl;
 	}
-	/**
-	 * @return the listingType
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getListingType()
 	 */
 	public ListingType getListingType() {
 		return listingType;
 	}
-	/**
-	 * @param listingType the listingType to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setListingType(com.google.code.googlesearch.schema.ListingType)
 	 */
 	public void setListingType(ListingType listingType) {
 		this.listingType = listingType;
 	}
-	/**
-	 * @return the content
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getContent()
 	 */
 	public String getContent() {
 		return content;
 	}
-	/**
-	 * @param content the content to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setContent(java.lang.String)
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
-	/**
-	 * @return the maxAge
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getMaxAge()
 	 */
 	public long getMaxAge() {
 		return maxAge;
 	}
-	/**
-	 * @param maxAge the maxAge to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setMaxAge(long)
 	 */
 	public void setMaxAge(long maxAge) {
 		this.maxAge = maxAge;
 	}
-	/**
-	 * @return the accuracy
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getAccuracy()
 	 */
 	public int getAccuracy() {
 		return accuracy;
 	}
-	/**
-	 * @param accuracy the accuracy to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setAccuracy(int)
 	 */
 	public void setAccuracy(int accuracy) {
 		this.accuracy = accuracy;
 	}
-	/**
-	 * @return the viewportmode
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#getViewportmode()
 	 */
 	public ViewPortMode getViewportmode() {
 		return viewportmode;
 	}
-	/**
-	 * @param viewportmode the viewportmode to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.LocalResult#setViewportmode(com.google.code.googlesearch.schema.ViewPortMode)
 	 */
 	public void setViewportmode(ViewPortMode viewportmode) {
 		this.viewportmode = viewportmode;
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

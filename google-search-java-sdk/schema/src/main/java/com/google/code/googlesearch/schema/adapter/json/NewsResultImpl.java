@@ -12,205 +12,262 @@ import com.google.code.googlesearch.schema.NewsResult;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author nmukhtar
- *
+ * The Class NewsResultImpl.
  */
 public class NewsResultImpl extends BaseJsonAdapter implements NewsResult, Adaptable<NewsResult, JSONObject> {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 8463967785278054587L;
 	
+	/** The title. */
 	private String title;
+	
+	/** The title no formatting. */
 	private String titleNoFormatting;
+	
+	/** The unescaped url. */
 	private String unescapedUrl;
+	
+	/** The url. */
 	private String url;
+	
+	/** The cluster url. */
 	private String clusterUrl;
+	
+	/** The content. */
 	private String content;
+	
+	/** The publisher. */
 	private String publisher;
+	
+	/** The location. */
 	private String location;
+	
+	/** The published date. */
 	private Date publishedDate;
+	
+	/** The related stories. */
 	private List<NewsStory> relatedStories;
+	
+	/** The image. */
 	private Image image;
+	
+	/** The language. */
 	private String language;
+	
+	/** The author. */
 	private String author;
+	
+	/** The signed redirect url. */
 	private String signedRedirectUrl;
 	
-	/**
-	 * @return the title
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getTitle()
 	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the titleNoFormatting
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getTitleNoFormatting()
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
-	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setTitleNoFormatting(java.lang.String)
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
-	/**
-	 * @return the unescapedUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getUnescapedUrl()
 	 */
 	public String getUnescapedUrl() {
 		return unescapedUrl;
 	}
-	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setUnescapedUrl(java.lang.String)
 	 */
 	public void setUnescapedUrl(String unescapedUrl) {
 		this.unescapedUrl = unescapedUrl;
 	}
-	/**
-	 * @return the url
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getUrl()
 	 */
 	public String getUrl() {
 		return url;
 	}
-	/**
-	 * @param url the url to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setUrl(java.lang.String)
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	/**
-	 * @return the clusterUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getClusterUrl()
 	 */
 	public String getClusterUrl() {
 		return clusterUrl;
 	}
-	/**
-	 * @param clusterUrl the clusterUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setClusterUrl(java.lang.String)
 	 */
 	public void setClusterUrl(String clusterUrl) {
 		this.clusterUrl = clusterUrl;
 	}
-	/**
-	 * @return the content
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getContent()
 	 */
 	public String getContent() {
 		return content;
 	}
-	/**
-	 * @param content the content to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setContent(java.lang.String)
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	/**
-	 * @return the publisher
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getPublisher()
 	 */
 	public String getPublisher() {
 		return publisher;
 	}
-	/**
-	 * @param publisher the publisher to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setPublisher(java.lang.String)
 	 */
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	/**
-	 * @return the location
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getLocation()
 	 */
 	public String getLocation() {
 		return location;
 	}
-	/**
-	 * @param location the location to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setLocation(java.lang.String)
 	 */
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	/**
-	 * @return the publishedDate
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getPublishedDate()
 	 */
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
-	/**
-	 * @param publishedDate the publishedDate to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setPublishedDate(java.util.Date)
 	 */
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;
 	}
-	/**
-	 * @return the relatedStories
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getRelatedStories()
 	 */
 	public List<NewsStory> getRelatedStories() {
 		return relatedStories;
 	}
-	/**
-	 * @param relatedStories the relatedStories to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setRelatedStories(java.util.List)
 	 */
 	public void setRelatedStories(List<NewsStory> relatedStories) {
 		this.relatedStories = relatedStories;
 	}
-	/**
-	 * @return the image
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getImage()
 	 */
 	public Image getImage() {
 		return image;
 	}
-	/**
-	 * @param image the image to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setImage(com.google.code.googlesearch.schema.adapter.json.Image)
 	 */
 	public void setImage(Image image) {
 		this.image = image;
 	}
-	/**
-	 * @return the language
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getLanguage()
 	 */
 	public String getLanguage() {
 		return language;
 	}
-	/**
-	 * @param language the language to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setLanguage(java.lang.String)
 	 */
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	/**
-	 * @return the author
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getAuthor()
 	 */
 	public String getAuthor() {
 		return author;
 	}
-	/**
-	 * @param author the author to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setAuthor(java.lang.String)
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 	
-	/**
-	 * @return the signedRedirectUrl
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getSignedRedirectUrl()
 	 */
 	public String getSignedRedirectUrl() {
 		return signedRedirectUrl;
 	}
-	/**
-	 * @param signedRedirectUrl the signedRedirectUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setSignedRedirectUrl(java.lang.String)
 	 */
 	public void setSignedRedirectUrl(String signedRedirectUrl) {
 		this.signedRedirectUrl = signedRedirectUrl;
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

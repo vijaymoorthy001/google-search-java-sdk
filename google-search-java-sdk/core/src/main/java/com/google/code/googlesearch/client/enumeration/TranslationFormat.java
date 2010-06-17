@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum TranslationFormat.
  */
 public enum TranslationFormat implements ValueEnum {
-	HTML("html"), TEXT("text");
+	
+	/** The HTML. */
+	HTML("html"), 
+ /** The TEXT. */
+ TEXT("text");
 
     /** The Constant stringToEnum. */
 	private static final Map<String, TranslationFormat> stringToEnum = new HashMap<String, TranslationFormat>();
@@ -28,7 +31,7 @@ public enum TranslationFormat implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new translation format.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum TranslationFormat implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum TranslationFormat implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the translation format
 	 */
 	public static TranslationFormat fromValue(String value) {
 		return stringToEnum.get(value);

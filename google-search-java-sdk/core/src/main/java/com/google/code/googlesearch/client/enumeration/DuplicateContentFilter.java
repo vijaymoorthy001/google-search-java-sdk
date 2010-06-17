@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum DuplicateContentFilter.
  */
 public enum DuplicateContentFilter implements ValueEnum {
-	OFF("0"), ON("1");
+	
+	/** The OFF. */
+	OFF("0"), 
+ /** The ON. */
+ ON("1");
 
     /** The Constant stringToEnum. */
 	private static final Map<String, DuplicateContentFilter> stringToEnum = new HashMap<String, DuplicateContentFilter>();
@@ -28,7 +31,7 @@ public enum DuplicateContentFilter implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new duplicate content filter.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum DuplicateContentFilter implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum DuplicateContentFilter implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the duplicate content filter
 	 */
 	public static DuplicateContentFilter fromValue(String value) {
 		return stringToEnum.get(value);

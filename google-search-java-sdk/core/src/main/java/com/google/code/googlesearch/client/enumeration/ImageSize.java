@@ -9,11 +9,24 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum ImageSize.
  */
 public enum ImageSize implements ValueEnum  {
-	ICON("icon"), SMALL("small"), MEDIUM("medium"), LARGE("large"), XLARGE("xlarge"), XXLARGE("xxlarge"), HUGE("huge");
+	
+	/** The ICON. */
+	ICON("icon"), 
+ /** The SMALL. */
+ SMALL("small"), 
+ /** The MEDIUM. */
+ MEDIUM("medium"), 
+ /** The LARGE. */
+ LARGE("large"), 
+ /** The XLARGE. */
+ XLARGE("xlarge"), 
+ /** The XXLARGE. */
+ XXLARGE("xxlarge"), 
+ /** The HUGE. */
+ HUGE("huge");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ImageSize> stringToEnum = new HashMap<String, ImageSize>();
@@ -28,7 +41,7 @@ public enum ImageSize implements ValueEnum  {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new image size.
      * 
      * @param value the value
      */
@@ -36,6 +49,9 @@ public enum ImageSize implements ValueEnum  {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +62,7 @@ public enum ImageSize implements ValueEnum  {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the image size
 	 */
 	public static ImageSize fromValue(String value) {
 		return stringToEnum.get(value);

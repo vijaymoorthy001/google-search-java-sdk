@@ -21,7 +21,7 @@ import com.google.code.googlesearch.common.PagedArrayList;
 import com.google.code.googlesearch.common.PagedList;
 
 /**
- * The Class BaseStackOverflowApiQuery.
+ * The Class BaseGoogleSearchApiQuery.
  */
 public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway implements GoogleSearchQuery<T> {
 	
@@ -35,7 +35,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
     private List<AsyncResponseHandler<PagedList<T>>> handlers = new ArrayList<AsyncResponseHandler<PagedList<T>>>();
 	
 	/**
-	 * Instantiates a new base stack overflow api query.
+	 * Instantiates a new base google search api query.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -49,7 +49,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	}
 
 	/**
-	 * Instantiates a new base stack overflow api query.
+	 * Instantiates a new base google search api query.
 	 * 
 	 * @param applicationId the application id
 	 * @param apiVersion the api version
@@ -135,7 +135,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
     }
 	
 	/**
-	 * Unmarshall.
+	 * Unmarshall list.
 	 * 
 	 * @param json the json
 	 * 
@@ -162,53 +162,91 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		return list;
 	}
 	
+	/**
+	 * Unmarshall.
+	 * 
+	 * @param json the json
+	 * 
+	 * @return the t
+	 */
 	protected abstract T unmarshall(JSONObject json);
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.GoogleSearchApiGateway#unmarshallObject(java.lang.Class, java.io.InputStream)
+	 */
 	@Override
 	protected <V> V unmarshallObject(Class<V> clazz, InputStream xmlContent) {
 		return null;
 	}
 	
+	/**
+	 * Creates the google search api url builder.
+	 * 
+	 * @param urlFormat the url format
+	 * 
+	 * @return the google search api url builder
+	 */
 	protected GoogleSearchApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
 		return new GoogleSearchApiUrlBuilder(urlFormat);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withCallback(java.lang.String)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withCallback(String callback) {
 		apiUrlBuilder.withParameter(ParameterNames.CALLBACK, callback);
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withContext(java.lang.String)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withContext(String context) {
 		apiUrlBuilder.withParameter(ParameterNames.CONTEXT, context);
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withLocale(java.util.Locale)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withLocale(Locale locale) {
 		apiUrlBuilder.withParameter(ParameterNames.HOST_LANGUAGE, locale.getLanguage());
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withQuery(java.lang.String)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withQuery(String query) {
 		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withResultSetSize(com.google.code.googlesearch.client.enumeration.ResultSetSize)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withResultSetSize(ResultSetSize rsz) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.RESULTSET_SIZE, rsz);
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withSiteSearch(java.lang.String)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withSiteSearch(String site) {
 		// TODO Auto-generated method stub
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withStartIndex(int)
+	 */
 	@Override
 	public GoogleSearchQuery<T> withStartIndex(int startIndex) {
 		apiUrlBuilder.withParameter(ParameterNames.START, String.valueOf(startIndex));

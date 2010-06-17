@@ -5,7 +5,7 @@ package com.google.code.googlesearch.client;
 
 
 /**
- * The Interface StackExchangeAuthenticationClient.
+ * The Interface GoogleSearchAuthenticationClient.
  */
 public interface GoogleSearchAuthenticationClient extends GoogleSearchCommunicationClient {
 
@@ -24,12 +24,16 @@ public interface GoogleSearchAuthenticationClient extends GoogleSearchCommunicat
     public String getApplicationKey();
     
 	/**
-	 * @param userIpAddress the userIpAddress to set
+	 * Sets the user ip address.
+	 * 
+	 * @param userIpAddress the new user ip address
 	 */
 	public void setUserIpAddress(String userIpAddress);
 
 	/**
-	 * @param referer the referer to set
+	 * Sets the referrer.
+	 * 
+	 * @param referrer the new referrer
 	 */
 	public void setReferrer(String referrer);
 }

@@ -1,74 +1,105 @@
 package com.google.code.googlesearch.schema;
 
+/**
+ * The Interface WebResult.
+ */
 public interface WebResult extends SchemaEntity {
 
 	/**
-	 * @return the unescapedUrl
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl();
 
 	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
-	 * @return the visibleUrl
+	 * Gets the visible url.
+	 * 
+	 * @return the visible url
 	 */
 	public String getVisibleUrl();
 
 	/**
-	 * @param visibleUrl the visibleUrl to set
+	 * Sets the visible url.
+	 * 
+	 * @param visibleUrl the new visible url
 	 */
 	public void setVisibleUrl(String visibleUrl);
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
-	 * @return the cacheUrl
+	 * Gets the cache url.
+	 * 
+	 * @return the cache url
 	 */
 	public String getCacheUrl();
 
 	/**
-	 * @param cacheUrl the cacheUrl to set
+	 * Sets the cache url.
+	 * 
+	 * @param cacheUrl the new cache url
 	 */
 	public void setCacheUrl(String cacheUrl);
 

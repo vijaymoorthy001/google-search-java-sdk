@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum ImageColorization.
  */
 public enum ImageColorization implements ValueEnum {
-	GRAY("gray"), COLOR("color");
+	
+	/** The GRAY. */
+	GRAY("gray"), 
+ /** The COLOR. */
+ COLOR("color");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ImageColorization> stringToEnum = new HashMap<String, ImageColorization>();
@@ -28,7 +31,7 @@ public enum ImageColorization implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new image colorization.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum ImageColorization implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum ImageColorization implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the image colorization
 	 */
 	public static ImageColorization fromValue(String value) {
 		return stringToEnum.get(value);

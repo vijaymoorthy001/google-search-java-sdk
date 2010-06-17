@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum NewsEdition.
  */
 public enum NewsEdition implements ValueEnum {
-	US("us"), UK("uk");
+	
+	/** The US. */
+	US("us"), 
+ /** The UK. */
+ UK("uk");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, NewsEdition> stringToEnum = new HashMap<String, NewsEdition>();
@@ -28,7 +31,7 @@ public enum NewsEdition implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new news edition.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum NewsEdition implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum NewsEdition implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the news edition
 	 */
 	public static NewsEdition fromValue(String value) {
 		return stringToEnum.get(value);

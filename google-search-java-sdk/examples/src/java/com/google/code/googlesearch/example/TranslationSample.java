@@ -18,29 +18,24 @@ import com.google.code.googlesearch.client.TranslateLanguageQuery;
 import com.google.code.googlesearch.schema.TranslateLanguageResult;
 
 /**
- * @author nmukhtar
- *
+ * The Class TranslationSample.
  */
 public class TranslationSample {
 
-    /**
-     * Application Key
-     */
+    /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
 	
-    /**
-     * Query
-     */
+    /** The Constant QUERY_OPTION. */
     private static final String QUERY_OPTION = "query";
 	
-    /**
-     * Name of the help command line option.
-     */
+    /** The Constant HELP_OPTION. */
     private static final String HELP_OPTION = "help";
     
     /**
-	 * @param args
-	 */
+     * The main method.
+     * 
+     * @param args the arguments
+     */
 	public static void main(String[] args) {
 		Options options = buildOptions();
         try {
@@ -53,7 +48,10 @@ public class TranslationSample {
 	}
     
 	/**
-	 * @param args
+	 * Process command line.
+	 * 
+	 * @param line the line
+	 * @param options the options
 	 */
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
@@ -68,14 +66,21 @@ public class TranslationSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
 	private static void printResponse(TranslateLanguageResult response) {
 		System.out.println(response.getDetectedSourceLanguage());			
 		System.out.println(response.getTranslatedText());			
 	}
 
 	/**
-     * Build command line options object.
-     */
+	 * Builds the options.
+	 * 
+	 * @return the options
+	 */
     private static Options buildOptions() {
        
         Options opts = new Options();
@@ -102,7 +107,9 @@ public class TranslationSample {
     }
     
     /**
-     * Print help and usage.
+     * Prints the help.
+     * 
+     * @param options the options
      */
     private static void printHelp(Options options) {
         int width = 80;

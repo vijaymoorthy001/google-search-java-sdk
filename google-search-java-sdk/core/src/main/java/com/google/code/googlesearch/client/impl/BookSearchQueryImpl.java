@@ -13,14 +13,13 @@ import com.google.code.googlesearch.schema.BookResult;
 import com.google.code.googlesearch.schema.adapter.json.BookResultImpl;
 
 /**
- * @author nmukhtar
- *
+ * The Class BookSearchQueryImpl.
  */
 public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> implements
 		BookSearchQuery {
 	
 	/**
-	 * Instantiates a new answer api query impl.
+	 * Instantiates a new book search query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -29,12 +28,18 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#reset()
+	 */
 	@Override
 	public void reset() {
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.SEARCH_BOOK_URL);
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.BookSearchQuery#withLibrary(java.lang.String)
+	 */
 	@Override
 	public BookSearchQuery withLibrary(String library) {
 		apiUrlBuilder.withParameter(ParameterNames.BOOK_LIBRARY, library);
@@ -42,6 +47,9 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.BookSearchQuery#withSearchType(com.google.code.googlesearch.client.enumeration.BookSearchType)
+	 */
 	@Override
 	public BookSearchQuery withSearchType(BookSearchType type) {
 		if (type.value() != null) {
@@ -50,6 +58,9 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
+	 */
 	@Override
 	protected BookResult unmarshall(JSONObject json) {
 		BookResultImpl result = new BookResultImpl();

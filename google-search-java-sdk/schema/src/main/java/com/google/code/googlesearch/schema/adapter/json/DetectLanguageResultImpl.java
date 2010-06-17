@@ -9,61 +9,75 @@ import com.google.code.googlesearch.schema.DetectLanguageResult;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author nmukhtar
- *
+ * The Class DetectLanguageResultImpl.
  */
 public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectLanguageResult , Adaptable<DetectLanguageResult, JSONObject> {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
 	
+	/** The language. */
 	private String language;
+	
+	/** The is reliable. */
 	private boolean isReliable;
+	
+	/** The confidence. */
 	private String confidence;
-	/**
-	 * @return the language
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#getLanguage()
 	 */
 	public String getLanguage() {
 		return language;
 	}
-	/**
-	 * @param language the language to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#setLanguage(java.lang.String)
 	 */
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	/**
-	 * @return the isReliable
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#isReliable()
 	 */
 	public boolean isReliable() {
 		return isReliable;
 	}
-	/**
-	 * @param isReliable the isReliable to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#setReliable(boolean)
 	 */
 	public void setReliable(boolean isReliable) {
 		this.isReliable = isReliable;
 	}
-	/**
-	 * @return the confidence
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#getConfidence()
 	 */
 	public String getConfidence() {
 		return confidence;
 	}
-	/**
-	 * @param confidence the confidence to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.DetectLanguageResult#setConfidence(java.lang.String)
 	 */
 	public void setConfidence(String confidence) {
 		this.confidence = confidence;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

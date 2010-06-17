@@ -9,11 +9,26 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum GsearchResultClass.
  */
 public enum GsearchResultClass implements ValueEnum {
-	GlocalSearch("GlocalSearch"), GblogSearch("GblogSearch"), GbookSearch("GbookSearch"), GimageSearch("GimageSearch"), GnewsSearch("GnewsSearch"), GpatentSearch("GpatentSearch"), GvideoSearch("GvideoSearch"), GwebSearch("GwebSearch");
+	
+	/** The Glocal search. */
+	GlocalSearch("GlocalSearch"), 
+ /** The Gblog search. */
+ GblogSearch("GblogSearch"), 
+ /** The Gbook search. */
+ GbookSearch("GbookSearch"), 
+ /** The Gimage search. */
+ GimageSearch("GimageSearch"), 
+ /** The Gnews search. */
+ GnewsSearch("GnewsSearch"), 
+ /** The Gpatent search. */
+ GpatentSearch("GpatentSearch"), 
+ /** The Gvideo search. */
+ GvideoSearch("GvideoSearch"), 
+ /** The Gweb search. */
+ GwebSearch("GwebSearch");
 
     /** The Constant stringToEnum. */
 	private static final Map<String, GsearchResultClass> stringToEnum = new HashMap<String, GsearchResultClass>();
@@ -28,7 +43,7 @@ public enum GsearchResultClass implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new gsearch result class.
      * 
      * @param value the value
      */
@@ -36,6 +51,9 @@ public enum GsearchResultClass implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +64,7 @@ public enum GsearchResultClass implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the gsearch result class
 	 */
 	public static GsearchResultClass fromValue(String value) {
 		return stringToEnum.get(value);
