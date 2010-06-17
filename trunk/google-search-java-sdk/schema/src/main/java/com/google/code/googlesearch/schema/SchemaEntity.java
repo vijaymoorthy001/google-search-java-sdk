@@ -8,5 +8,14 @@ package com.google.code.googlesearch.schema;
  *
  */
 public interface SchemaEntity {
+	
+	/**
+	 * @return the gsearchResultClass
+	 */
+	public GsearchResultClass getGsearchResultClass();
 
+	/**
+	 * @param gsearchResultClass the gsearchResultClass to set
+	 */
+	public void setGsearchResultClass(GsearchResultClass gsearchResultClass);
 }

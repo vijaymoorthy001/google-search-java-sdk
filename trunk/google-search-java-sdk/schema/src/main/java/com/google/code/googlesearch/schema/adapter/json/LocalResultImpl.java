@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 
 import com.google.code.googlesearch.schema.ListingType;
 import com.google.code.googlesearch.schema.LocalResult;
+import com.google.code.googlesearch.schema.ViewPortMode;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
@@ -39,6 +40,9 @@ public class LocalResultImpl extends BaseJsonAdapter implements LocalResult, Ada
 	private String staticMapUrl;
 	private ListingType listingType;
 	private String content;
+	private long maxAge;
+	private int accuracy;
+	private ViewPortMode viewportmode;
 	/**
 	 * @return the title
 	 */
@@ -244,6 +248,42 @@ public class LocalResultImpl extends BaseJsonAdapter implements LocalResult, Ada
 		this.content = content;
 	}
 	
+	/**
+	 * @return the maxAge
+	 */
+	public long getMaxAge() {
+		return maxAge;
+	}
+	/**
+	 * @param maxAge the maxAge to set
+	 */
+	public void setMaxAge(long maxAge) {
+		this.maxAge = maxAge;
+	}
+	/**
+	 * @return the accuracy
+	 */
+	public int getAccuracy() {
+		return accuracy;
+	}
+	/**
+	 * @param accuracy the accuracy to set
+	 */
+	public void setAccuracy(int accuracy) {
+		this.accuracy = accuracy;
+	}
+	/**
+	 * @return the viewportmode
+	 */
+	public ViewPortMode getViewportmode() {
+		return viewportmode;
+	}
+	/**
+	 * @param viewportmode the viewportmode to set
+	 */
+	public void setViewportmode(ViewPortMode viewportmode) {
+		this.viewportmode = viewportmode;
+	}
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
