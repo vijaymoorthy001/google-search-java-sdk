@@ -9,11 +9,18 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum ImageType.
  */
 public enum ImageType implements ValueEnum {
-	FACE("face"), PHOTO("photo"), CLIPART("clipart"), LINEART("lineart");
+	
+	/** The FACE. */
+	FACE("face"), 
+ /** The PHOTO. */
+ PHOTO("photo"), 
+ /** The CLIPART. */
+ CLIPART("clipart"), 
+ /** The LINEART. */
+ LINEART("lineart");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ImageType> stringToEnum = new HashMap<String, ImageType>();
@@ -28,7 +35,7 @@ public enum ImageType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new image type.
      * 
      * @param value the value
      */
@@ -36,6 +43,9 @@ public enum ImageType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +56,7 @@ public enum ImageType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the image type
 	 */
 	public static ImageType fromValue(String value) {
 		return stringToEnum.get(value);

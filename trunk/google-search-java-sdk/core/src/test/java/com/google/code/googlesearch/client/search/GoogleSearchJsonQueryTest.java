@@ -27,28 +27,31 @@ import com.google.code.googlesearch.schema.VideoResult;
 import com.google.code.googlesearch.schema.WebResult;
 
 /**
- * @author nmukhtar
- *
+ * The Class GoogleSearchJsonQueryTest.
  */
 public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 	
+	/** The factory. */
 	GoogleSearchQueryFactory factory = GoogleSearchQueryFactory.newInstance(null);
 	
 
-	/**
-	 * @throws java.lang.Exception
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
-	/**
-	 * @throws java.lang.Exception
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#tearDown()
 	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test search blogs.
+	 */
 	@Test
 	public void testSearchBlogs() {
 		BlogSearchQuery query = factory.newBlogSearchQuery();
@@ -56,6 +59,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search books.
+	 */
 	@Test
 	public void testSearchBooks() {
 		BookSearchQuery query = factory.newBookSearchQuery();
@@ -63,6 +69,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search images.
+	 */
 	@Test
 	public void testSearchImages() {
 		ImageSearchQuery query = factory.newImageSearchQuery();
@@ -70,6 +79,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search local.
+	 */
 	@Test
 	public void testSearchLocal() {
 		LocalSearchQuery query = factory.newLocalSearchQuery();
@@ -77,6 +89,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search news.
+	 */
 	@Test
 	public void testSearchNews() {
 		NewsSearchQuery query = factory.newNewsSearchQuery();
@@ -84,6 +99,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search patents.
+	 */
 	@Test
 	public void testSearchPatents() {
 		PatentSearchQuery query = factory.newPatentSearchQuery();
@@ -91,6 +109,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search videos.
+	 */
 	@Test
 	public void testSearchVideos() {
 		VideoSearchQuery query = factory.newVideoSearchQuery();
@@ -98,6 +119,9 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 		assertNotNullOrEmpty("Search result should not be null or empty.", result);
 	}
 	
+	/**
+	 * Test search web.
+	 */
 	@Test
 	public void testSearchWeb() {
 		WebSearchQuery query = factory.newWebSearchQuery();

@@ -1,124 +1,175 @@
 package com.google.code.googlesearch.schema;
 
+/**
+ * The Interface BookResult.
+ */
 public interface BookResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
-	 * @return the unescapedUrl
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl();
 
 	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
+	 * Gets the authors.
+	 * 
 	 * @return the authors
 	 */
 	public String getAuthors();
 
 	/**
-	 * @param authors the authors to set
+	 * Sets the authors.
+	 * 
+	 * @param authors the new authors
 	 */
 	public void setAuthors(String authors);
 
 	/**
-	 * @return the bookId
+	 * Gets the book id.
+	 * 
+	 * @return the book id
 	 */
 	public String getBookId();
 
 	/**
-	 * @param bookId the bookId to set
+	 * Sets the book id.
+	 * 
+	 * @param bookId the new book id
 	 */
 	public void setBookId(String bookId);
 
 	/**
-	 * @return the publishedYear
+	 * Gets the published year.
+	 * 
+	 * @return the published year
 	 */
 	public String getPublishedYear();
 
 	/**
-	 * @param publishedYear the publishedYear to set
+	 * Sets the published year.
+	 * 
+	 * @param publishedYear the new published year
 	 */
 	public void setPublishedYear(String publishedYear);
 
 	/**
-	 * @return the pageCount
+	 * Gets the page count.
+	 * 
+	 * @return the page count
 	 */
 	public int getPageCount();
 
 	/**
-	 * @param pageCount the pageCount to set
+	 * Sets the page count.
+	 * 
+	 * @param pageCount the new page count
 	 */
 	public void setPageCount(int pageCount);
 
 	/**
-	 * @return the thumbnailHtml
+	 * Gets the thumbnail html.
+	 * 
+	 * @return the thumbnail html
 	 */
 	public String getThumbnailHtml();
 
 	/**
-	 * @param thumbnailHtml the thumbnailHtml to set
+	 * Sets the thumbnail html.
+	 * 
+	 * @param thumbnailHtml the new thumbnail html
 	 */
 	public void setThumbnailHtml(String thumbnailHtml);
 
 	/**
-	 * @return the tbWidth
+	 * Gets the tb width.
+	 * 
+	 * @return the tb width
 	 */
 	public int getTbWidth();
 
 	/**
-	 * @param tbWidth the tbWidth to set
+	 * Sets the tb width.
+	 * 
+	 * @param tbWidth the new tb width
 	 */
 	public void setTbWidth(int tbWidth);
 
 	/**
-	 * @return the tbHeight
+	 * Gets the tb height.
+	 * 
+	 * @return the tb height
 	 */
 	public int getTbHeight();
 
 	/**
-	 * @param tbHeight the tbHeight to set
+	 * Sets the tb height.
+	 * 
+	 * @param tbHeight the new tb height
 	 */
 	public void setTbHeight(int tbHeight);
 
 	/**
-	 * @return the tbUrl
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl();
 
 	/**
-	 * @param tbUrl the tbUrl to set
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl);
 }

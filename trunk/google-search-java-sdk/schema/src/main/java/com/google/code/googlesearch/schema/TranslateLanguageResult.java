@@ -1,24 +1,35 @@
 package com.google.code.googlesearch.schema;
 
+/**
+ * The Interface TranslateLanguageResult.
+ */
 public interface TranslateLanguageResult {
 
 	/**
-	 * @return the translatedText
+	 * Gets the translated text.
+	 * 
+	 * @return the translated text
 	 */
 	public String getTranslatedText();
 
 	/**
-	 * @param translatedText the translatedText to set
+	 * Sets the translated text.
+	 * 
+	 * @param translatedText the new translated text
 	 */
 	public void setTranslatedText(String translatedText);
 
 	/**
-	 * @return the detectedSourceLanguage
+	 * Gets the detected source language.
+	 * 
+	 * @return the detected source language
 	 */
 	public String getDetectedSourceLanguage();
 
 	/**
-	 * @param detectedSourceLanguage the detectedSourceLanguage to set
+	 * Sets the detected source language.
+	 * 
+	 * @param detectedSourceLanguage the new detected source language
 	 */
 	public void setDetectedSourceLanguage(String detectedSourceLanguage);
 

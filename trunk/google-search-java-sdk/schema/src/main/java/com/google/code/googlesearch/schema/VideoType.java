@@ -9,10 +9,11 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum VideoType.
  */
 public enum VideoType implements ValueEnum {
+	
+	/** The YO u_ tube. */
 	YOU_TUBE("YouTube");
 
     /** The Constant stringToEnum. */
@@ -28,7 +29,7 @@ public enum VideoType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new video type.
      * 
      * @param value the value
      */
@@ -36,6 +37,9 @@ public enum VideoType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +50,7 @@ public enum VideoType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the video type
 	 */
 	public static VideoType fromValue(String value) {
 		return stringToEnum.get(value);

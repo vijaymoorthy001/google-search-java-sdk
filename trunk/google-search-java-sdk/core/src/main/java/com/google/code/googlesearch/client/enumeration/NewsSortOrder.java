@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum NewsSortOrder.
  */
 public enum NewsSortOrder implements ValueEnum {
-	RELEVANCE(""), DATE("d");	
+	
+	/** The RELEVANCE. */
+	RELEVANCE(""), 
+ /** The DATE. */
+ DATE("d");	
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, NewsSortOrder> stringToEnum = new HashMap<String, NewsSortOrder>();
@@ -28,7 +31,7 @@ public enum NewsSortOrder implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new news sort order.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum NewsSortOrder implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum NewsSortOrder implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the news sort order
 	 */
 	public static NewsSortOrder fromValue(String value) {
 		return stringToEnum.get(value);

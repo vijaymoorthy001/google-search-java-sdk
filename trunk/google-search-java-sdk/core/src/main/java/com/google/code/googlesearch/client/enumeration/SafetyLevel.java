@@ -5,8 +5,17 @@ import java.util.Map;
 
 import com.google.code.googlesearch.common.ValueEnum;
 
+/**
+ * The Enum SafetyLevel.
+ */
 public enum SafetyLevel implements ValueEnum {
-	ACTIVE("active"), MODERATE("moderate"), OFF("off");
+	
+	/** The ACTIVE. */
+	ACTIVE("active"), 
+ /** The MODERATE. */
+ MODERATE("moderate"), 
+ /** The OFF. */
+ OFF("off");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, SafetyLevel> stringToEnum = new HashMap<String, SafetyLevel>();
@@ -21,7 +30,7 @@ public enum SafetyLevel implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new safety level.
      * 
      * @param value the value
      */
@@ -29,6 +38,9 @@ public enum SafetyLevel implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -39,7 +51,7 @@ public enum SafetyLevel implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the safety level
 	 */
 	public static SafetyLevel fromValue(String value) {
 		return stringToEnum.get(value);

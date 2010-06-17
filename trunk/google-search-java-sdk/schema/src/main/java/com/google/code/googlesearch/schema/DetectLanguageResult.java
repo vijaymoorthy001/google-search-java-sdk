@@ -1,34 +1,49 @@
 package com.google.code.googlesearch.schema;
 
+/**
+ * The Interface DetectLanguageResult.
+ */
 public interface DetectLanguageResult {
 
 	/**
+	 * Gets the language.
+	 * 
 	 * @return the language
 	 */
 	public String getLanguage();
 
 	/**
-	 * @param language the language to set
+	 * Sets the language.
+	 * 
+	 * @param language the new language
 	 */
 	public void setLanguage(String language);
 
 	/**
-	 * @return the isReliable
+	 * Checks if is reliable.
+	 * 
+	 * @return true, if is reliable
 	 */
 	public boolean isReliable();
 
 	/**
-	 * @param isReliable the isReliable to set
+	 * Sets the reliable.
+	 * 
+	 * @param isReliable the new reliable
 	 */
 	public void setReliable(boolean isReliable);
 
 	/**
+	 * Gets the confidence.
+	 * 
 	 * @return the confidence
 	 */
 	public String getConfidence();
 
 	/**
-	 * @param confidence the confidence to set
+	 * Sets the confidence.
+	 * 
+	 * @param confidence the new confidence
 	 */
 	public void setConfidence(String confidence);
 

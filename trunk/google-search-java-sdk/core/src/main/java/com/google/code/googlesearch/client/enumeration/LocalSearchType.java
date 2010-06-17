@@ -9,11 +9,16 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum LocalSearchType.
  */
 public enum LocalSearchType implements ValueEnum {
-	BLENDED("blended"), KMLONLY("kmlonly"), LOCALONLY("localonly");
+	
+	/** The BLENDED. */
+	BLENDED("blended"), 
+ /** The KMLONLY. */
+ KMLONLY("kmlonly"), 
+ /** The LOCALONLY. */
+ LOCALONLY("localonly");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, LocalSearchType> stringToEnum = new HashMap<String, LocalSearchType>();
@@ -28,7 +33,7 @@ public enum LocalSearchType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new local search type.
      * 
      * @param value the value
      */
@@ -36,6 +41,9 @@ public enum LocalSearchType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +54,7 @@ public enum LocalSearchType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the local search type
 	 */
 	public static LocalSearchType fromValue(String value) {
 		return stringToEnum.get(value);

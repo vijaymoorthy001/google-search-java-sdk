@@ -13,14 +13,13 @@ import com.google.code.googlesearch.schema.TranslateLanguageResult;
 import com.google.code.googlesearch.schema.adapter.json.TranslateLanguageResultImpl;
 
 /**
- * @author nmukhtar
- *
+ * The Class TranslateLanguageQueryImpl.
  */
 public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<TranslateLanguageResult> implements
 	TranslateLanguageQuery {
 	
 	/**
-	 * Instantiates a new answer api query impl.
+	 * Instantiates a new translate language query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -29,6 +28,9 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#reset()
+	 */
 	@Override
 	public void reset() {
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.LANGUAGE_TRANSLATE_URL);
@@ -36,6 +38,9 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 
 
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
+	 */
 	@Override
 	protected TranslateLanguageResult unmarshall(JSONObject json) {
 		TranslateLanguageResultImpl result = new TranslateLanguageResultImpl();
@@ -44,6 +49,9 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.TranslateLanguageQuery#withFormat(com.google.code.googlesearch.client.enumeration.TranslationFormat)
+	 */
 	@Override
 	public TranslateLanguageQuery withFormat(TranslationFormat format) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.FORMAT, format);
@@ -51,6 +59,9 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.TranslateLanguageQuery#withLanguagePair(java.lang.String, java.lang.String)
+	 */
 	@Override
 	public TranslateLanguageQuery withLanguagePair(String sourceLanguage,
 			String targetLanguage) {

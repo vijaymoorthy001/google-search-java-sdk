@@ -1,144 +1,203 @@
 package com.google.code.googlesearch.schema;
 
+/**
+ * The Interface ImageResult.
+ */
 public interface ImageResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
-	 * @return the unescapedUrl
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl();
 
 	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
-	 * @return the visibleUrl
+	 * Gets the visible url.
+	 * 
+	 * @return the visible url
 	 */
 	public String getVisibleUrl();
 
 	/**
-	 * @param visibleUrl the visibleUrl to set
+	 * Sets the visible url.
+	 * 
+	 * @param visibleUrl the new visible url
 	 */
 	public void setVisibleUrl(String visibleUrl);
 
 	/**
-	 * @return the originalContextUrl
+	 * Gets the original context url.
+	 * 
+	 * @return the original context url
 	 */
 	public String getOriginalContextUrl();
 
 	/**
-	 * @param originalContextUrl the originalContextUrl to set
+	 * Sets the original context url.
+	 * 
+	 * @param originalContextUrl the new original context url
 	 */
 	public void setOriginalContextUrl(String originalContextUrl);
 
 	/**
+	 * Gets the width.
+	 * 
 	 * @return the width
 	 */
 	public int getWidth();
 
 	/**
-	 * @param width the width to set
+	 * Sets the width.
+	 * 
+	 * @param width the new width
 	 */
 	public void setWidth(int width);
 
 	/**
+	 * Gets the height.
+	 * 
 	 * @return the height
 	 */
 	public int getHeight();
 
 	/**
-	 * @param height the height to set
+	 * Sets the height.
+	 * 
+	 * @param height the new height
 	 */
 	public void setHeight(int height);
 
 	/**
-	 * @return the tbWidth
+	 * Gets the tb width.
+	 * 
+	 * @return the tb width
 	 */
 	public int getTbWidth();
 
 	/**
-	 * @param tbWidth the tbWidth to set
+	 * Sets the tb width.
+	 * 
+	 * @param tbWidth the new tb width
 	 */
 	public void setTbWidth(int tbWidth);
 
 	/**
-	 * @return the tbHeight
+	 * Gets the tb height.
+	 * 
+	 * @return the tb height
 	 */
 	public int getTbHeight();
 
 	/**
-	 * @param tbHeight the tbHeight to set
+	 * Sets the tb height.
+	 * 
+	 * @param tbHeight the new tb height
 	 */
 	public void setTbHeight(int tbHeight);
 
 	/**
-	 * @return the tbUrl
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl();
 
 	/**
-	 * @param tbUrl the tbUrl to set
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
-	 * @return the contentNoFormatting
+	 * Gets the content no formatting.
+	 * 
+	 * @return the content no formatting
 	 */
 	public String getContentNoFormatting();
 
 	/**
-	 * @param contentNoFormatting the contentNoFormatting to set
+	 * Sets the content no formatting.
+	 * 
+	 * @param contentNoFormatting the new content no formatting
 	 */
 	public void setContentNoFormatting(String contentNoFormatting);
 
 	/**
-	 * @return the imageId
+	 * Gets the image id.
+	 * 
+	 * @return the image id
 	 */
 	public String getImageId();
 	
 	/**
-	 * @param imageId the imageId to set
+	 * Sets the image id.
+	 * 
+	 * @param imageId the new image id
 	 */
 	public void setImageId(String imageId);
 }

@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum ResultSetSize.
  */
 public enum ResultSetSize implements ValueEnum {
-	LARGE("large"), SMALL("small");
+	
+	/** The LARGE. */
+	LARGE("large"), 
+ /** The SMALL. */
+ SMALL("small");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ResultSetSize> stringToEnum = new HashMap<String, ResultSetSize>();
@@ -28,7 +31,7 @@ public enum ResultSetSize implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new result set size.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum ResultSetSize implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum ResultSetSize implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the result set size
 	 */
 	public static ResultSetSize fromValue(String value) {
 		return stringToEnum.get(value);

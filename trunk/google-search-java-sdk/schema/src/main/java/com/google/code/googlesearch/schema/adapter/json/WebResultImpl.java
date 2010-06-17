@@ -5,108 +5,144 @@ import org.json.simple.JSONObject;
 import com.google.code.googlesearch.schema.WebResult;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
+/**
+ * The Class WebResultImpl.
+ */
 public class WebResultImpl extends BaseJsonAdapter implements WebResult, Adaptable<WebResult, JSONObject> {
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -8535742587293626160L;
+	
+	/** The unescaped url. */
 	private String unescapedUrl;
+	
+	/** The url. */
 	private String url;
+	
+	/** The visible url. */
 	private String visibleUrl;
+	
+	/** The title. */
 	private String title;
+	
+	/** The title no formatting. */
 	private String titleNoFormatting;
+	
+	/** The content. */
 	private String content;
+	
+	/** The cache url. */
 	private String cacheUrl;
-	/**
-	 * @return the unescapedUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getUnescapedUrl()
 	 */
 	public String getUnescapedUrl() {
 		return unescapedUrl;
 	}
-	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setUnescapedUrl(java.lang.String)
 	 */
 	public void setUnescapedUrl(String unescapedUrl) {
 		this.unescapedUrl = unescapedUrl;
 	}
-	/**
-	 * @return the url
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getUrl()
 	 */
 	public String getUrl() {
 		return url;
 	}
-	/**
-	 * @param url the url to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setUrl(java.lang.String)
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	/**
-	 * @return the visibleUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getVisibleUrl()
 	 */
 	public String getVisibleUrl() {
 		return visibleUrl;
 	}
-	/**
-	 * @param visibleUrl the visibleUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setVisibleUrl(java.lang.String)
 	 */
 	public void setVisibleUrl(String visibleUrl) {
 		this.visibleUrl = visibleUrl;
 	}
-	/**
-	 * @return the title
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getTitle()
 	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the titleNoFormatting
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getTitleNoFormatting()
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
-	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setTitleNoFormatting(java.lang.String)
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
-	/**
-	 * @return the content
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getContent()
 	 */
 	public String getContent() {
 		return content;
 	}
-	/**
-	 * @param content the content to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setContent(java.lang.String)
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	/**
-	 * @return the cacheUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#getCacheUrl()
 	 */
 	public String getCacheUrl() {
 		return cacheUrl;
 	}
-	/**
-	 * @param cacheUrl the cacheUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.WebResult#setCacheUrl(java.lang.String)
 	 */
 	public void setCacheUrl(String cacheUrl) {
 		this.cacheUrl = cacheUrl;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

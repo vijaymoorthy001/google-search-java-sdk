@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum VideoSortOrder.
  */
 public enum VideoSortOrder implements ValueEnum {
-	RELEVANCE(""), DATE("d");	
+	
+	/** The RELEVANCE. */
+	RELEVANCE(""), 
+ /** The DATE. */
+ DATE("d");	
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, VideoSortOrder> stringToEnum = new HashMap<String, VideoSortOrder>();
@@ -28,7 +31,7 @@ public enum VideoSortOrder implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new video sort order.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum VideoSortOrder implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum VideoSortOrder implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the video sort order
 	 */
 	public static VideoSortOrder fromValue(String value) {
 		return stringToEnum.get(value);

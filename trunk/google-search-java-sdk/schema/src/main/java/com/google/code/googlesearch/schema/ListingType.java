@@ -5,9 +5,14 @@ import java.util.Map;
 
 import com.google.code.googlesearch.common.ValueEnum;
 
+/**
+ * The Enum ListingType.
+ */
 public enum ListingType implements ValueEnum {
 	
-	LOCAL("local"), KML("kml");
+	/** The LOCAL. */
+	LOCAL("local"), /** The KML. */
+ KML("kml");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ListingType> stringToEnum = new HashMap<String, ListingType>();
@@ -22,7 +27,7 @@ public enum ListingType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new listing type.
      * 
      * @param value the value
      */
@@ -30,6 +35,9 @@ public enum ListingType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -40,7 +48,7 @@ public enum ListingType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the listing type
 	 */
 	public static ListingType fromValue(String value) {
 		return stringToEnum.get(value);

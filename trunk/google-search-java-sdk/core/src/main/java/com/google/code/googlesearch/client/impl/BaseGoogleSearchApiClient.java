@@ -21,26 +21,21 @@ import com.google.code.googlesearch.client.GoogleSearchException;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
 
 /**
- * @author Nabeel Mukhtar
- *
+ * The Class BaseGoogleSearchApiClient.
  */
 public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceClientImpl {
 
-    /** Field description */
+    /** The Constant GZIP_ENCODING. */
     private static final String GZIP_ENCODING = "gzip";
 
-    /** The static logger. */
+    /** The LOG. */
     protected final Logger LOG = Logger.getLogger(getClass().getCanonicalName());
     
-    /** Field description */
+    /** The request headers. */
     private Map<String, String> requestHeaders;
     
     /**
-     * Constructs ...
-     *
-     *
-     * @param consumerKey
-     * @param consumerSecret
+     * Instantiates a new base google search api client.
      */
     protected BaseGoogleSearchApiClient() {
         requestHeaders = new HashMap<String, String>();
@@ -50,40 +45,48 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the request headers.
+     * 
+     * @param requestHeaders the request headers
      */
     public void setRequestHeaders(Map<String, String> requestHeaders) {
         this.requestHeaders = requestHeaders;
     }
 
     /**
-     * {@inheritDoc}
+     * Gets the request headers.
+     * 
+     * @return the request headers
      */
     public Map<String, String> getRequestHeaders() {
         return requestHeaders;
     }
 
     /**
-     * {@inheritDoc}
+     * Adds the request header.
+     * 
+     * @param headerName the header name
+     * @param headerValue the header value
      */
     public void addRequestHeader(String headerName, String headerValue) {
         requestHeaders.put(headerName, headerValue);
     }
 
     /**
-     * {@inheritDoc}
+     * Removes the request header.
+     * 
+     * @param headerName the header name
      */
     public void removeRequestHeader(String headerName) {
         requestHeaders.remove(headerName);
     }
 
     /**
-     * Method description
-     *
-     *
-     * @param task
-     *
-     * @return
+     * Execute.
+     * 
+     * @param task the task
+     * 
+     * @return the future
      */
     @SuppressWarnings("unchecked")
 	protected Future execute(Runnable task) {
@@ -91,29 +94,23 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * Method description
-     *
-     *
-     * @param task
-     * @param <T>
-     *
-     * @return
+     * Execute.
+     * 
+     * @param task the task
+     * 
+     * @return the future< t>
      */
     protected <T> Future<T> execute(Callable<T> task) {
         return taskExecutor.submit(task);
     }
     
     /**
-     * Method description
-     *
-     *
-     *
-     *
-     * @param clazz
-     * @param is
-     * @param <T>
-     *
-     * @return
+     * Read response.
+     * 
+     * @param clazz the clazz
+     * @param is the is
+     * 
+     * @return the t
      */
     protected <T> T readResponse(Class<T> clazz, InputStream is) {
         try {
@@ -124,25 +121,23 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     *
-     *
-     * @param apiUrl
-     * @param httpHeaders
-     *
-     * @return
+     * Call api method.
+     * 
+     * @param apiUrl the api url
+     * 
+     * @return the input stream
      */
     protected InputStream callApiMethod(String apiUrl) {
         return callApiMethod(apiUrl, HttpURLConnection.HTTP_OK);
     }
 
     /**
-     *
-     *
-     * @param apiUrl
-     * @param expected
-     * @param httpHeaders
-     *
-     * @return
+     * Call api method.
+     * 
+     * @param apiUrl the api url
+     * @param expected the expected
+     * 
+     * @return the input stream
      */
     protected InputStream callApiMethod(String apiUrl, int expected) {
         try {
@@ -171,11 +166,9 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * Method description
-     *
-     *
-     * @param is
-     *
+     * Close stream.
+     * 
+     * @param is the is
      */
     protected void closeStream(InputStream is) {
         try {
@@ -186,11 +179,9 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * Method description
-     *
-     *
-     * @param connection
-     *
+     * Close connection.
+     * 
+     * @param connection the connection
      */
     protected void closeConnection(HttpURLConnection connection) {
         try {
@@ -203,24 +194,25 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
     
     /**
-     * Method description
-     *
-     *
-     * @param error
-     * @return
+     * Creates the bing search api client exception.
+     * 
+     * @param error the error
+     * 
+     * @return the google search exception
      */
     protected GoogleSearchException createBingSearchApiClientException(Error error) {
         return new GoogleSearchException();
     }
 
     /**
-     * Method description
-     *
-     *
-     * @param is
-     * @param gzip
-     * @return
-     * @throws IOException
+     * Gets the wrapped input stream.
+     * 
+     * @param is the is
+     * @param gzip the gzip
+     * 
+     * @return the wrapped input stream
+     * 
+     * @throws IOException Signals that an I/O exception has occurred.
      */
     protected InputStream getWrappedInputStream(InputStream is, boolean gzip) throws IOException {
         if (gzip) {
@@ -231,21 +223,21 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * Get property as long.
-     *
-     * @param s
-     *
-     * @return
+     * Checks if is null or empty.
+     * 
+     * @param s the s
+     * 
+     * @return true, if is null or empty
      */
     protected boolean isNullOrEmpty(String s) {
         return ((s == null) || (s.length() == 0));
     }
 
     /**
-     *
-     *
-     * @param name
-     * @param value
+     * Assert not null or empty.
+     * 
+     * @param name the name
+     * @param value the value
      */
     protected void assertNotNullOrEmpty(String name, String value) {
         if (isNullOrEmpty(value)) {
@@ -254,10 +246,10 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     *
-     *
-     * @param name
-     * @param value
+     * Assert not null or empty.
+     * 
+     * @param name the name
+     * @param value the value
      */
     protected void assertNotNullOrEmpty(String name, Collection<?> value) {
         if ((value == null) || value.isEmpty()) {
@@ -266,10 +258,10 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     *
-     *
-     * @param name
-     * @param value
+     * Assert positive number.
+     * 
+     * @param name the name
+     * @param value the value
      */
     protected void assertPositiveNumber(String name, int value) {
         if (value < 0) {
@@ -278,10 +270,10 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     *
-     *
-     * @param name
-     * @param value
+     * Assert not null.
+     * 
+     * @param name the name
+     * @param value the value
      */
     protected void assertNotNull(String name, Object value) {
         if (value == null) {
@@ -290,35 +282,30 @@ public abstract class BaseGoogleSearchApiClient extends BaseGoogleSearchServiceC
     }
 
     /**
-     * Method description
-     *
-     *
-     *
-     * @param clazz
-     * @param xmlContent
-     * @param <T>
-     *
-     * @return
+     * Unmarshall object.
+     * 
+     * @param clazz the clazz
+     * @param xmlContent the xml content
+     * 
+     * @return the t
      */
     protected abstract <T> T unmarshallObject(Class<T> clazz, InputStream xmlContent);
 
     /**
-     * Method description
-     *
-     *
-     * @param element
-     *
-     * @return
+     * Marshall object.
+     * 
+     * @param element the element
+     * 
+     * @return the string
      */
     protected abstract String marshallObject(Object element);
 
     /**
-     * Method description
-     *
-     *
-     * @param urlFormat
-     *
-     * @return
+     * Creates the bing search api url builder.
+     * 
+     * @param urlFormat the url format
+     * 
+     * @return the google search api url builder
      */
     protected abstract GoogleSearchApiUrlBuilder createBingSearchApiUrlBuilder(String urlFormat);
 }

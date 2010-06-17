@@ -9,11 +9,20 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum ImageRights.
  */
 public enum ImageRights implements ValueEnum {
-	CC_PUBLICDOMAIN("cc_publicdomain"), CC_ATTRIBUTE("cc_attribute"), CC_SHAREALIKE("cc_sharealike"), CC_NONCOMMERCIAL("cc_noncommercial"), CC_NONDERIVED("cc_nonderived");
+	
+	/** The C c_ publicdomain. */
+	CC_PUBLICDOMAIN("cc_publicdomain"), 
+ /** The C c_ attribute. */
+ CC_ATTRIBUTE("cc_attribute"), 
+ /** The C c_ sharealike. */
+ CC_SHAREALIKE("cc_sharealike"), 
+ /** The C c_ noncommercial. */
+ CC_NONCOMMERCIAL("cc_noncommercial"), 
+ /** The C c_ nonderived. */
+ CC_NONDERIVED("cc_nonderived");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, ImageRights> stringToEnum = new HashMap<String, ImageRights>();
@@ -28,7 +37,7 @@ public enum ImageRights implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new image rights.
      * 
      * @param value the value
      */
@@ -36,6 +45,9 @@ public enum ImageRights implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +58,7 @@ public enum ImageRights implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the image rights
 	 */
 	public static ImageRights fromValue(String value) {
 		return stringToEnum.get(value);

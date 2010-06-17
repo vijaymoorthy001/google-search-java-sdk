@@ -19,29 +19,24 @@ import com.google.code.googlesearch.common.PagedList;
 import com.google.code.googlesearch.schema.NewsResult;
 
 /**
- * @author nmukhtar
- *
+ * The Class NewsSample.
  */
 public class NewsSample {
 
-    /**
-     * Application Key
-     */
+    /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
 	
-    /**
-     * Query
-     */
+    /** The Constant QUERY_OPTION. */
     private static final String QUERY_OPTION = "query";
 	
-    /**
-     * Name of the help command line option.
-     */
+    /** The Constant HELP_OPTION. */
     private static final String HELP_OPTION = "help";
     
     /**
-	 * @param args
-	 */
+     * The main method.
+     * 
+     * @param args the arguments
+     */
 	public static void main(String[] args) {
 		Options options = buildOptions();
         try {
@@ -54,7 +49,10 @@ public class NewsSample {
 	}
     
 	/**
-	 * @param args
+	 * Process command line.
+	 * 
+	 * @param line the line
+	 * @param options the options
 	 */
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
@@ -69,6 +67,11 @@ public class NewsSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
 	private static void printResponse(PagedList<NewsResult> response) {
 		for (NewsResult result : response) {
 			System.out.println(result.getTitle());
@@ -80,8 +83,10 @@ public class NewsSample {
 	}
 
 	/**
-     * Build command line options object.
-     */
+	 * Builds the options.
+	 * 
+	 * @return the options
+	 */
     private static Options buildOptions() {
        
         Options opts = new Options();
@@ -108,7 +113,9 @@ public class NewsSample {
     }
     
     /**
-     * Print help and usage.
+     * Prints the help.
+     * 
+     * @param options the options
      */
     private static void printHelp(Options options) {
         int width = 80;

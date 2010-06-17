@@ -39,9 +39,11 @@ public abstract class BaseJsonAdapter implements Serializable {
 	/** The converters. */
 	protected Map<Class<?>, Converter<?, ?>> converters = new HashMap<Class<?>, Converter<? , ?>>();
 	
+	/** The Constant RFC822DATEFORMAT. */
 	private static final SimpleDateFormat RFC822DATEFORMAT
     		= new SimpleDateFormat("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z");
 	
+	/** The gsearch result class. */
 	private GsearchResultClass gsearchResultClass;
 
 	/** The Constant serialVersionUID. */
@@ -354,14 +356,18 @@ public abstract class BaseJsonAdapter implements Serializable {
 	}
 
 	/**
-	 * @return the gsearchResultClass
+	 * Gets the gsearch result class.
+	 * 
+	 * @return the gsearch result class
 	 */
 	public GsearchResultClass getGsearchResultClass() {
 		return gsearchResultClass;
 	}
 
 	/**
-	 * @param gsearchResultClass the gsearchResultClass to set
+	 * Sets the gsearch result class.
+	 * 
+	 * @param gsearchResultClass the new gsearch result class
 	 */
 	public void setGsearchResultClass(GsearchResultClass gsearchResultClass) {
 		this.gsearchResultClass = gsearchResultClass;

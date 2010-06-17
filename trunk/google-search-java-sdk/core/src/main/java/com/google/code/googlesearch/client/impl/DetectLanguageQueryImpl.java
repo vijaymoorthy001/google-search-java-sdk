@@ -11,14 +11,13 @@ import com.google.code.googlesearch.schema.DetectLanguageResult;
 import com.google.code.googlesearch.schema.adapter.json.DetectLanguageResultImpl;
 
 /**
- * @author nmukhtar
- *
+ * The Class DetectLanguageQueryImpl.
  */
 public class DetectLanguageQueryImpl extends BaseGoogleSearchApiQuery<DetectLanguageResult> implements
 	DetectLanguageQuery {
 	
 	/**
-	 * Instantiates a new answer api query impl.
+	 * Instantiates a new detect language query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -27,6 +26,9 @@ public class DetectLanguageQueryImpl extends BaseGoogleSearchApiQuery<DetectLang
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#reset()
+	 */
 	@Override
 	public void reset() {
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.LANGUAGE_DETECT_URL);
@@ -34,6 +36,9 @@ public class DetectLanguageQueryImpl extends BaseGoogleSearchApiQuery<DetectLang
 
 
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
+	 */
 	@Override
 	protected DetectLanguageResult unmarshall(JSONObject json) {
 		DetectLanguageResultImpl result = new DetectLanguageResultImpl();

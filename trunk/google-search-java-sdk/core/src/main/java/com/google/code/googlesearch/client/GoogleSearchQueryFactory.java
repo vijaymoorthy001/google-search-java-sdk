@@ -17,7 +17,7 @@ import com.google.code.googlesearch.client.impl.WebSearchQueryImpl;
 
 
 /**
- * A factory for creating StackExchangeApiQuery objects.
+ * A factory for creating GoogleSearchQuery objects.
  */
 public class GoogleSearchQueryFactory {
 
@@ -25,7 +25,7 @@ public class GoogleSearchQueryFactory {
     private String applicationKey;
 
     /**
-     * Instantiates a new stack exchange api query factory.
+     * Instantiates a new google search query factory.
      * 
      * @param applicationKey the application key
      */
@@ -38,97 +38,97 @@ public class GoogleSearchQueryFactory {
      * 
      * @param applicationKey the application key
      * 
-     * @return the stack exchange api query factory
+     * @return the google search query factory
      */
     public static GoogleSearchQueryFactory newInstance(String applicationKey) {
         return new GoogleSearchQueryFactory(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New blog search query.
      * 
-     * @return the answer api query
+     * @return the blog search query
      */
     public BlogSearchQuery newBlogSearchQuery() {
     	return new BlogSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New book search query.
      * 
-     * @return the answer api query
+     * @return the book search query
      */
     public BookSearchQuery newBookSearchQuery() {
     	return new BookSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New image search query.
      * 
-     * @return the answer api query
+     * @return the image search query
      */
     public ImageSearchQuery newImageSearchQuery() {
     	return new ImageSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New local search query.
      * 
-     * @return the answer api query
+     * @return the local search query
      */
     public LocalSearchQuery newLocalSearchQuery() {
     	return new LocalSearchQueryImpl(applicationKey);
     }
 
     /**
-     * New answer api query.
+     * New news search query.
      * 
-     * @return the answer api query
+     * @return the news search query
      */
     public NewsSearchQuery newNewsSearchQuery() {
     	return new NewsSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New patent search query.
      * 
-     * @return the answer api query
+     * @return the patent search query
      */
     public PatentSearchQuery newPatentSearchQuery() {
     	return new PatentSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New video search query.
      * 
-     * @return the answer api query
+     * @return the video search query
      */
     public VideoSearchQuery newVideoSearchQuery() {
     	return new VideoSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New web search query.
      * 
-     * @return the answer api query
+     * @return the web search query
      */
     public WebSearchQuery newWebSearchQuery() {
     	return new WebSearchQueryImpl(applicationKey);
     }
     
     /**
-     * New answer api query.
+     * New translate language query.
      * 
-     * @return the answer api query
+     * @return the translate language query
      */
     public TranslateLanguageQuery newTranslateLanguageQuery() {
     	return new TranslateLanguageQueryImpl(applicationKey);
     }
 
     /**
-     * New answer api query.
+     * New detect language query.
      * 
-     * @return the answer api query
+     * @return the detect language query
      */
     public DetectLanguageQuery newDetectLanguageQuery() {
     	return new DetectLanguageQueryImpl(applicationKey);

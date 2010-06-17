@@ -11,113 +11,143 @@ import com.google.code.googlesearch.schema.BlogResult;
 import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
- * @author nmukhtar
- *
+ * The Class BlogResultImpl.
  */
 public class BlogResultImpl extends BaseJsonAdapter implements BlogResult, Adaptable<BlogResult, JSONObject> {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1556677921929249355L;
 	
+	/** The title. */
 	private String title;
+	
+	/** The title no formatting. */
 	private String titleNoFormatting;
+	
+	/** The post url. */
 	private String postUrl;
+	
+	/** The content. */
 	private String content;
+	
+	/** The author. */
 	private String author;
+	
+	/** The blog url. */
 	private String blogUrl;
+	
+	/** The published date. */
 	private Date publishedDate;
-	/**
-	 * @return the title
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getTitle()
 	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title the title to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * @return the titleNoFormatting
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getTitleNoFormatting()
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
-	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setTitleNoFormatting(java.lang.String)
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
-	/**
-	 * @return the postUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getPostUrl()
 	 */
 	public String getPostUrl() {
 		return postUrl;
 	}
-	/**
-	 * @param postUrl the postUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setPostUrl(java.lang.String)
 	 */
 	public void setPostUrl(String postUrl) {
 		this.postUrl = postUrl;
 	}
-	/**
-	 * @return the content
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getContent()
 	 */
 	public String getContent() {
 		return content;
 	}
-	/**
-	 * @param content the content to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setContent(java.lang.String)
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
-	/**
-	 * @return the author
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getAuthor()
 	 */
 	public String getAuthor() {
 		return author;
 	}
-	/**
-	 * @param author the author to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setAuthor(java.lang.String)
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	/**
-	 * @return the blogUrl
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getBlogUrl()
 	 */
 	public String getBlogUrl() {
 		return blogUrl;
 	}
-	/**
-	 * @param blogUrl the blogUrl to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setBlogUrl(java.lang.String)
 	 */
 	public void setBlogUrl(String blogUrl) {
 		this.blogUrl = blogUrl;
 	}
-	/**
-	 * @return the publishedDate
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getPublishedDate()
 	 */
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
-	/**
-	 * @param publishedDate the publishedDate to set
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setPublishedDate(java.util.Date)
 	 */
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
+	 */
 	@Override
 	public void adaptFrom(JSONObject adaptee) {
 		copyProperties(this, adaptee);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
+	 */
 	@Override
 	public JSONObject adaptTo() {
 		JSONObject adapter = new JSONObject();

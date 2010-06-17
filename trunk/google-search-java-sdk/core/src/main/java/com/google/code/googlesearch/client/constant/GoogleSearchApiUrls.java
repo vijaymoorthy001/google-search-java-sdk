@@ -22,17 +22,17 @@ import java.util.logging.Logger;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * The Class LinkedInApiUrls.
+ * The Class GoogleSearchApiUrls.
  */
 public final class GoogleSearchApiUrls {
 
     /** The Constant API_URLS_FILE. */
     public static final String API_URLS_FILE = "GoogleSearchApiUrls.properties";
 
-    /** The static logger. */
+    /** The Constant LOG. */
     private static final Logger LOG = Logger.getLogger(GoogleSearchApiUrls.class.getCanonicalName());
     
-    /** The Constant linkedInApiUrls. */
+    /** The Constant googleApiUrls. */
     private static final Properties googleApiUrls = new Properties();
 
     static {
@@ -43,34 +43,53 @@ public final class GoogleSearchApiUrls {
         }
     }
 
+    /** The Constant SEARCH_WEB_URL. */
     public static final String SEARCH_WEB_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.web");
+    
+    /** The Constant SEARCH_LOCAL_URL. */
     public static final String SEARCH_LOCAL_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.local");
+    
+    /** The Constant SEARCH_VIDEO_URL. */
     public static final String SEARCH_VIDEO_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.video");
+    
+    /** The Constant SEARCH_BLOG_URL. */
     public static final String SEARCH_BLOG_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.blog");
+    
+    /** The Constant SEARCH_NEWS_URL. */
     public static final String SEARCH_NEWS_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.new");
+    
+    /** The Constant SEARCH_BOOK_URL. */
     public static final String SEARCH_BOOK_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.book");
+    
+    /** The Constant SEARCH_IMAGE_URL. */
     public static final String SEARCH_IMAGE_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.image");
+    
+    /** The Constant SEARCH_PATENT_URL. */
     public static final String SEARCH_PATENT_URL =
         googleApiUrls.getProperty("com.google.code.google.search.url.patent");
+    
+    /** The Constant LANGUAGE_TRANSLATE_URL. */
     public static final String LANGUAGE_TRANSLATE_URL =
         googleApiUrls.getProperty("com.google.code.google.language.url.translate");
+    
+    /** The Constant LANGUAGE_DETECT_URL. */
     public static final String LANGUAGE_DETECT_URL =
         googleApiUrls.getProperty("com.google.code.google.language.url.detect");
     
     /**
-     * Instantiates a new linked in api urls.
+     * Instantiates a new google search api urls.
      */
     private GoogleSearchApiUrls() {}
 
     /**
-     * The Class LinkedInApiUrlBuilder.
+     * The Class GoogleSearchApiUrlBuilder.
      */
     public static class GoogleSearchApiUrlBuilder {
         
@@ -90,7 +109,7 @@ public final class GoogleSearchApiUrls {
 	    private Map<String, Collection<String>> parametersMap = new HashMap<String, Collection<String>>();
     	
     	/**
-	     * Instantiates a new linked in api url builder.
+	     * Instantiates a new google search api url builder.
 	     * 
 	     * @param urlFormat the url format
 	     */
@@ -99,9 +118,10 @@ public final class GoogleSearchApiUrls {
     	}
     	
     	/**
-	     * Instantiates a new linked in api url builder.
+	     * Instantiates a new google search api url builder.
 	     * 
 	     * @param urlFormat the url format
+	     * @param apiVersion the api version
 	     */
 	    public GoogleSearchApiUrlBuilder(String urlFormat, String apiVersion) {
     		this.urlFormat = urlFormat;
@@ -114,7 +134,7 @@ public final class GoogleSearchApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the linked in api url builder
+	     * @return the google search api url builder
 	     */
 	    public GoogleSearchApiUrlBuilder withParameter(String name, String value) {
 	    	if (value != null && value.length() > 0) {
@@ -130,7 +150,7 @@ public final class GoogleSearchApiUrls {
 	     * @param name the name
 	     * @param values the values
 	     * 
-	     * @return the linked in api url builder
+	     * @return the google search api url builder
 	     */
 	    public GoogleSearchApiUrlBuilder withParameters(String name, Collection<String> values) {
 	    	List<String> encodedValues = new ArrayList<String>(values.size());
@@ -148,7 +168,7 @@ public final class GoogleSearchApiUrls {
 	     * @param name the name
 	     * @param enumSet the enum set
 	     * 
-	     * @return the linked in api url builder
+	     * @return the google search api url builder
 	     */
 	    public GoogleSearchApiUrlBuilder withParameterEnumSet(String name, Set<? extends ValueEnum> enumSet) {
 	    	Set<String> values = new HashSet<String>(enumSet.size());
@@ -168,7 +188,7 @@ public final class GoogleSearchApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the linked in api url builder
+	     * @return the google search api url builder
 	     */
 	    public GoogleSearchApiUrlBuilder withParameterEnum(String name, ValueEnum value) {
 	    	withParameter(name, value.value());
@@ -181,7 +201,7 @@ public final class GoogleSearchApiUrls {
 	     * 
 	     * @param enumMap the enum map
 	     * 
-	     * @return the linked in api url builder
+	     * @return the google search api url builder
 	     */
 	    public GoogleSearchApiUrlBuilder withParameterEnumMap(Map<? extends ValueEnum, String> enumMap) {
 	    	for (ValueEnum parameter : enumMap.keySet()) {
@@ -250,7 +270,6 @@ public final class GoogleSearchApiUrls {
          * Encode url.
          * 
          * @param original the original
-         * @param encoding the encoding
          * 
          * @return the string
          */

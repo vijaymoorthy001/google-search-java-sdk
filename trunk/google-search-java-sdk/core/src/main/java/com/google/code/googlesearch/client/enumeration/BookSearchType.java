@@ -9,11 +9,14 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum BookSearchType.
  */
 public enum BookSearchType implements ValueEnum {
-	ALL(null), FULL_VIEW("as_brr");
+	
+	/** The ALL. */
+	ALL(null), 
+ /** The FUL l_ view. */
+ FULL_VIEW("as_brr");
 
     /** The Constant stringToEnum. */
 	private static final Map<String, BookSearchType> stringToEnum = new HashMap<String, BookSearchType>();
@@ -28,7 +31,7 @@ public enum BookSearchType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new book search type.
      * 
      * @param value the value
      */
@@ -36,6 +39,9 @@ public enum BookSearchType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +52,7 @@ public enum BookSearchType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the book search type
 	 */
 	public static BookSearchType fromValue(String value) {
 		return stringToEnum.get(value);

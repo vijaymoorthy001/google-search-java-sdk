@@ -9,11 +9,16 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum PatentSearchType.
  */
 public enum PatentSearchType implements ValueEnum {
-	ALL(null), FILED("as_psra"), ISSUED("as_psrg");
+	
+	/** The ALL. */
+	ALL(null), 
+ /** The FILED. */
+ FILED("as_psra"), 
+ /** The ISSUED. */
+ ISSUED("as_psrg");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, PatentSearchType> stringToEnum = new HashMap<String, PatentSearchType>();
@@ -28,7 +33,7 @@ public enum PatentSearchType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new patent search type.
      * 
      * @param value the value
      */
@@ -36,6 +41,9 @@ public enum PatentSearchType implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +54,7 @@ public enum PatentSearchType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the patent search type
 	 */
 	public static PatentSearchType fromValue(String value) {
 		return stringToEnum.get(value);

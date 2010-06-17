@@ -9,11 +9,30 @@ import java.util.Map;
 import com.google.code.googlesearch.common.ValueEnum;
 
 /**
- * @author nmukhtar
- *
+ * The Enum NewsTopic.
  */
 public enum NewsTopic implements ValueEnum {
-	TOP_HEADLINES("h"),WORLD("w"), BUSINESS("b"), NATION("n"), SCIENCE_AND_TECH("t"), ELECTRONICS("el"), POLITICS("p"), ENTERTAINMENT("e"), SPORTS("s"), HEALTH("m");
+	
+	/** The TO p_ headlines. */
+	TOP_HEADLINES("h"),
+/** The WORLD. */
+WORLD("w"), 
+ /** The BUSINESS. */
+ BUSINESS("b"), 
+ /** The NATION. */
+ NATION("n"), 
+ /** The SCIENC e_ an d_ tech. */
+ SCIENCE_AND_TECH("t"), 
+ /** The ELECTRONICS. */
+ ELECTRONICS("el"), 
+ /** The POLITICS. */
+ POLITICS("p"), 
+ /** The ENTERTAINMENT. */
+ ENTERTAINMENT("e"), 
+ /** The SPORTS. */
+ SPORTS("s"), 
+ /** The HEALTH. */
+ HEALTH("m");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, NewsTopic> stringToEnum = new HashMap<String, NewsTopic>();
@@ -28,7 +47,7 @@ public enum NewsTopic implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new user timeline type.
+     * Instantiates a new news topic.
      * 
      * @param value the value
      */
@@ -36,6 +55,9 @@ public enum NewsTopic implements ValueEnum {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.common.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -46,7 +68,7 @@ public enum NewsTopic implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the user timeline type
+	 * @return the news topic
 	 */
 	public static NewsTopic fromValue(String value) {
 		return stringToEnum.get(value);

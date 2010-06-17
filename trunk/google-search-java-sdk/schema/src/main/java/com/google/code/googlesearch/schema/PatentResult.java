@@ -3,105 +3,148 @@ package com.google.code.googlesearch.schema;
 import java.util.Date;
 
 
+/**
+ * The Interface PatentResult.
+ */
 public interface PatentResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
-	 * @return the unescapedUrl
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl();
 
 	/**
-	 * @param unescapedUrl the unescapedUrl to set
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
-	 * @return the applicationDate
+	 * Gets the application date.
+	 * 
+	 * @return the application date
 	 */
 	public Date getApplicationDate();
 
 	/**
-	 * @param applicationDate the applicationDate to set
+	 * Sets the application date.
+	 * 
+	 * @param applicationDate the new application date
 	 */
 	public void setApplicationDate(Date applicationDate);
 
 	/**
-	 * @return the patentNumber
+	 * Gets the patent number.
+	 * 
+	 * @return the patent number
 	 */
 	public String getPatentNumber();
 
 	/**
-	 * @param patentNumber the patentNumber to set
+	 * Sets the patent number.
+	 * 
+	 * @param patentNumber the new patent number
 	 */
 	public void setPatentNumber(String patentNumber);
 
 	/**
-	 * @return the patentStatus
+	 * Gets the patent status.
+	 * 
+	 * @return the patent status
 	 */
 	public PatentStatus getPatentStatus();
 
 	/**
-	 * @param patentStatus the patentStatus to set
+	 * Sets the patent status.
+	 * 
+	 * @param patentStatus the new patent status
 	 */
 	public void setPatentStatus(PatentStatus patentStatus);
 
 	/**
+	 * Gets the assignee.
+	 * 
 	 * @return the assignee
 	 */
 	public String getAssignee();
 
 	/**
-	 * @param assignee the assignee to set
+	 * Sets the assignee.
+	 * 
+	 * @param assignee the new assignee
 	 */
 	public void setAssignee(String assignee);
 
 	/**
-	 * @return the tbUrl
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl();
 
 	/**
-	 * @param tbUrl the tbUrl to set
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl);
 

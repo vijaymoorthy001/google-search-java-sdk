@@ -2,155 +2,218 @@ package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 
+/**
+ * The Interface VideoResult.
+ */
 public interface VideoResult extends SchemaEntity {
 
 	/**
+	 * Gets the title.
+	 * 
 	 * @return the title
 	 */
 	public String getTitle();
 
 	/**
-	 * @param title the title to set
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title);
 
 	/**
-	 * @return the titleNoFormatting
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting();
 
 	/**
-	 * @param titleNoFormatting the titleNoFormatting to set
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting);
 
 	/**
+	 * Gets the content.
+	 * 
 	 * @return the content
 	 */
 	public String getContent();
 
 	/**
-	 * @param content the content to set
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content);
 
 	/**
+	 * Gets the url.
+	 * 
 	 * @return the url
 	 */
 	public String getUrl();
 
 	/**
-	 * @param url the url to set
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url);
 
 	/**
+	 * Gets the published.
+	 * 
 	 * @return the published
 	 */
 	public Date getPublished();
 
 	/**
-	 * @param published the published to set
+	 * Sets the published.
+	 * 
+	 * @param published the new published
 	 */
 	public void setPublished(Date published);
 
 	/**
+	 * Gets the publisher.
+	 * 
 	 * @return the publisher
 	 */
 	public String getPublisher();
 
 	/**
-	 * @param publisher the publisher to set
+	 * Sets the publisher.
+	 * 
+	 * @param publisher the new publisher
 	 */
 	public void setPublisher(String publisher);
 
 	/**
+	 * Gets the duration.
+	 * 
 	 * @return the duration
 	 */
 	public int getDuration();
 
 	/**
-	 * @param duration the duration to set
+	 * Sets the duration.
+	 * 
+	 * @param duration the new duration
 	 */
 	public void setDuration(int duration);
 
 	/**
-	 * @return the tbWidth
+	 * Gets the tb width.
+	 * 
+	 * @return the tb width
 	 */
 	public int getTbWidth();
 
 	/**
-	 * @param tbWidth the tbWidth to set
+	 * Sets the tb width.
+	 * 
+	 * @param tbWidth the new tb width
 	 */
 	public void setTbWidth(int tbWidth);
 
 	/**
-	 * @return the tbHeight
+	 * Gets the tb height.
+	 * 
+	 * @return the tb height
 	 */
 	public int getTbHeight();
 
 	/**
-	 * @param tbHeight the tbHeight to set
+	 * Sets the tb height.
+	 * 
+	 * @param tbHeight the new tb height
 	 */
 	public void setTbHeight(int tbHeight);
 
 	/**
-	 * @return the tbUrl
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl();
 
 	/**
-	 * @param tbUrl the tbUrl to set
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl);
 
 	/**
-	 * @return the playUrl
+	 * Gets the play url.
+	 * 
+	 * @return the play url
 	 */
 	public String getPlayUrl();
 
 	/**
-	 * @param playUrl the playUrl to set
+	 * Sets the play url.
+	 * 
+	 * @param playUrl the new play url
 	 */
 	public void setPlayUrl(String playUrl);
 
 	/**
+	 * Gets the author.
+	 * 
 	 * @return the author
 	 */
 	public String getAuthor();
 
 	/**
-	 * @param author the author to set
+	 * Sets the author.
+	 * 
+	 * @param author the new author
 	 */
 	public void setAuthor(String author);
 
 	/**
-	 * @return the viewCount
+	 * Gets the view count.
+	 * 
+	 * @return the view count
 	 */
 	public int getViewCount();
 
 	/**
-	 * @param viewCount the viewCount to set
+	 * Sets the view count.
+	 * 
+	 * @param viewCount the new view count
 	 */
 	public void setViewCount(int viewCount);
 
 	/**
+	 * Gets the rating.
+	 * 
 	 * @return the rating
 	 */
 	public double getRating();
 
 	/**
-	 * @param rating the rating to set
+	 * Sets the rating.
+	 * 
+	 * @param rating the new rating
 	 */
 	public void setRating(double rating);
 	
 	/**
-	 * @return the videoType
+	 * Gets the video type.
+	 * 
+	 * @return the video type
 	 */
 	public VideoType getVideoType() ;
 	
 	/**
-	 * @param videoType the videoType to set
+	 * Sets the video type.
+	 * 
+	 * @param videoType the new video type
 	 */
 	public void setVideoType(VideoType videoType);
 }
