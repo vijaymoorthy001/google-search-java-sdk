@@ -24,6 +24,16 @@ public final class TestConstants {
         }
     }
     
+    /** The Constant STACK_OVERFLOW_TEST_API_KEY. */
+    public static final String TEST_API_KEY =
+        testConstants.getProperty("com.google.code.google.search.client.applicationId");
+    
+    public static final String TEST_REFERRER =
+        testConstants.getProperty("com.google.code.google.search.client.referrer");
+    
+    public static final String TEST_QUERY =
+        testConstants.getProperty("com.google.code.google.search.client.testQuery");
+    
     /**
      * Instantiates a new test constants.
      */
