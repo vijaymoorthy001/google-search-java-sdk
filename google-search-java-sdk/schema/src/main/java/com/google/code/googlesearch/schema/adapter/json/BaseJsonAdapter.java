@@ -18,9 +18,11 @@ import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
 
+import com.google.code.googlesearch.schema.GsearchResultClass;
 import com.google.code.googlesearch.schema.ListingType;
 import com.google.code.googlesearch.schema.PatentStatus;
 import com.google.code.googlesearch.schema.VideoType;
+import com.google.code.googlesearch.schema.ViewPortMode;
 import com.google.code.googlesearch.schema.adapter.Converter;
 
 /**
@@ -38,7 +40,9 @@ public abstract class BaseJsonAdapter implements Serializable {
 	protected Map<Class<?>, Converter<?, ?>> converters = new HashMap<Class<?>, Converter<? , ?>>();
 	
 	private static final SimpleDateFormat RFC822DATEFORMAT
-    		= new SimpleDateFormat("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z");	
+    		= new SimpleDateFormat("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z");
+	
+	private GsearchResultClass gsearchResultClass;
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 250056223059654638L;
@@ -71,6 +75,18 @@ public abstract class BaseJsonAdapter implements Serializable {
 			@Override
 			public VideoType convert(String source) {
 				return VideoType.fromValue(source);
+			}
+		});
+		converters.put(ViewPortMode.class, new Converter<String, ViewPortMode>() {
+			@Override
+			public ViewPortMode convert(String source) {
+				return ViewPortMode.fromValue(source);
+			}
+		});
+		converters.put(GsearchResultClass.class, new Converter<String, GsearchResultClass>() {
+			@Override
+			public GsearchResultClass convert(String source) {
+				return GsearchResultClass.fromValue(source);
 			}
 		});
 		converters.put(int.class, new Converter<String, Integer>() {
@@ -122,7 +138,7 @@ public abstract class BaseJsonAdapter implements Serializable {
 						}
 					}
 				} else {
-					logger.warning("Additional property '" + entry.getKey() + "' found in response for object." + dest.getClass());
+					logger.warning("Additional property '" + entry.getKey() + "':" + entry.getValue() +  ":" + entry.getValue().getClass() + ": found in response for object." + dest.getClass());
 				}
 			}
 		} catch (Exception e) {
@@ -174,7 +190,11 @@ public abstract class BaseJsonAdapter implements Serializable {
 					builder.append(Character.toUpperCase(original.charAt(i)));
 					upperCase = false;
 				} else {
-					builder.append(original.charAt(i));
+					if (i == 0 && Character.isUpperCase(original.charAt(i))) {
+						builder.append(Character.toLowerCase(original.charAt(i)));
+					} else {
+						builder.append(original.charAt(i));
+					}
 				}
 			}
 		}
@@ -331,5 +351,19 @@ public abstract class BaseJsonAdapter implements Serializable {
 			return ((Long) src.get(name)).intValue();
 		}
 		return 0;
+	}
+
+	/**
+	 * @return the gsearchResultClass
+	 */
+	public GsearchResultClass getGsearchResultClass() {
+		return gsearchResultClass;
+	}
+
+	/**
+	 * @param gsearchResultClass the gsearchResultClass to set
+	 */
+	public void setGsearchResultClass(GsearchResultClass gsearchResultClass) {
+		this.gsearchResultClass = gsearchResultClass;
 	}
 }

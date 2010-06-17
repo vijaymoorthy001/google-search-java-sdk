@@ -176,4 +176,33 @@ public interface LocalResult extends SchemaEntity {
 	 */
 	public void setContent(String content);
 
+	/**
+	 * @return the maxAge
+	 */
+	public long getMaxAge();
+	
+	/**
+	 * @param maxAge the maxAge to set
+	 */
+	public void setMaxAge(long maxAge);
+	
+	/**
+	 * @return the accuracy
+	 */
+	public int getAccuracy();
+	
+	/**
+	 * @param accuracy the accuracy to set
+	 */
+	public void setAccuracy(int accuracy);
+	
+	/**
+	 * @return the viewportmode
+	 */
+	public ViewPortMode getViewportmode();
+	
+	/**
+	 * @param viewportmode the viewportmode to set
+	 */
+	public void setViewportmode(ViewPortMode viewportmode);
 }
