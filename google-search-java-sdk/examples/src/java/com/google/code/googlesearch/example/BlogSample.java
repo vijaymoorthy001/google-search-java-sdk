@@ -73,6 +73,10 @@ public class BlogSample {
 	 * @param response the response
 	 */
 	private static void printResponse(PagedList<BlogResult> response) {
+		System.out.println(response.getCurrentPageIndex());
+		System.out.println(response.getEstimatedResultCount());
+		System.out.println(response.getMoreResultsUrl());
+		System.out.println(response.getPages());
 		for (BlogResult result : response) {
 			System.out.println(result.getTitle());			
 			System.out.println(result.getContent());			

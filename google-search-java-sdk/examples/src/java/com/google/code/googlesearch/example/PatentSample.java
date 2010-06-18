@@ -73,6 +73,10 @@ public class PatentSample {
 	 * @param response the response
 	 */
 	private static void printResponse(PagedList<PatentResult> response) {
+		System.out.println(response.getCurrentPageIndex());
+		System.out.println(response.getEstimatedResultCount());
+		System.out.println(response.getMoreResultsUrl());
+		System.out.println(response.getPages());
 		for (PatentResult result : response) {
 			System.out.println(result.getTitle());			
 			System.out.println(result.getContent());			

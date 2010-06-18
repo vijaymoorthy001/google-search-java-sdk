@@ -9,46 +9,59 @@ import java.util.List;
  * The Interface PagedList.
  */
 public interface PagedList<E> extends List<E> {
+	public class Page {
+		private int start;
+		private int label;
+		
+		/**
+		 * @return the start
+		 */
+		public int getStart() {
+			return start;
+		}
+		/**
+		 * @param start the start to set
+		 */
+		public void setStart(int start) {
+			this.start = start;
+		}
+		/**
+		 * @return the label
+		 */
+		public int getLabel() {
+			return label;
+		}
+		/**
+		 * @param label the label to set
+		 */
+		public void setLabel(int label) {
+			this.label = label;
+		}
+
+		@Override
+		public String toString() {
+			return "Page [label=" + label + ", start=" + start + "]";
+		}
+	}
+	
 	
 	/**
-	 * Gets the total.
-	 * 
-	 * @return the total
+	 * @return the pages
 	 */
-	public long getTotal();
+	public List<Page> getPages();
 	
 	/**
-	 * Sets the total.
-	 * 
-	 * @param total the new total
+	 * @return the estimatedResultCount
 	 */
-	public void setTotal(long total);
+	public long getEstimatedResultCount();
 	
 	/**
-	 * Gets the page.
-	 * 
-	 * @return the page
+	 * @return the currentPageIndex
 	 */
-	public int getPage();
+	public int getCurrentPageIndex();
 	
 	/**
-	 * Sets the page.
-	 * 
-	 * @param page the new page
+	 * @return the moreResultsUrl
 	 */
-	public void setPage(int page);
-	
-	/**
-	 * Gets the page size.
-	 * 
-	 * @return the page size
-	 */
-	public int getPageSize();
-	
-	/**
-	 * Sets the page size.
-	 * 
-	 * @param pageSize the new page size
-	 */
-	public void setPageSize(int pageSize);
+	public String getMoreResultsUrl();
 }

@@ -22,6 +22,7 @@ import com.google.code.googlesearch.schema.ListingType;
 import com.google.code.googlesearch.schema.PatentStatus;
 import com.google.code.googlesearch.schema.VideoType;
 import com.google.code.googlesearch.schema.ViewPortMode;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -105,12 +106,16 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 			throw new GoogleSearchException(String.valueOf(response.get("responseDetails").getAsString()));
 		}
 		JsonObject data = response.get("responseData").getAsJsonObject();
-		PagedList<T> list = new PagedArrayList<T>();
+		PagedArrayList<T> list = new PagedArrayList<T>();
 		if (data != null) { 
 			JsonArray results = data.get("results").getAsJsonArray();
 			for (JsonElement object : results) {
 				T element = unmarshall(object);
 				list.add(element);
+			}
+			JsonElement cursor = data.get("cursor");
+			if (cursor != null) {
+				list.setCursor(new Gson().fromJson(cursor, PagedArrayList.Cursor.class));
 			}
 		} 
 		return list;
