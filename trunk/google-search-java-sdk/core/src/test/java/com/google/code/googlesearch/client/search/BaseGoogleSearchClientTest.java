@@ -7,20 +7,11 @@ import java.util.Collection;
 
 import junit.framework.TestCase;
 
-import com.google.code.googlesearch.client.GoogleSearchClient;
-import com.google.code.googlesearch.client.GoogleSearchServiceClientFactory;
-
 /**
  * The Class BaseGoogleSearchClientTest.
  */
 public class BaseGoogleSearchClientTest extends TestCase {
     
-    /** The factory. */
-	protected GoogleSearchServiceClientFactory factory;
-	
-    /** The client. */
-	protected GoogleSearchClient client;
-	
     /** The Constant RESOURCE_MISSING_MESSAGE. */
 	protected static final String RESOURCE_MISSING_MESSAGE = "Please define a test %s in TestConstants.properties file.";
 	

@@ -3,15 +3,12 @@
  */
 package com.google.code.googlesearch.schema.adapter.json;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.DetectLanguageResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class DetectLanguageResultImpl.
  */
-public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectLanguageResult , Adaptable<DetectLanguageResult, JSONObject> {
+public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectLanguageResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
@@ -65,23 +62,5 @@ public class DetectLanguageResultImpl extends BaseJsonAdapter implements DetectL
 	 */
 	public void setConfidence(double confidence) {
 		this.confidence = confidence;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

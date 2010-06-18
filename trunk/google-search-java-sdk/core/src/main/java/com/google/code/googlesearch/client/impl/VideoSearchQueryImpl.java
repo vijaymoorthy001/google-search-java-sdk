@@ -3,14 +3,14 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.VideoSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.VideoSortOrder;
 import com.google.code.googlesearch.schema.VideoResult;
 import com.google.code.googlesearch.schema.adapter.json.VideoResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class VideoSearchQueryImpl.
@@ -45,13 +45,9 @@ public class VideoSearchQueryImpl extends BaseGoogleSearchApiQuery<VideoResult> 
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected VideoResult unmarshall(JSONObject json) {
-		VideoResultImpl result = new VideoResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected VideoResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, VideoResultImpl.class);
 	}
 }

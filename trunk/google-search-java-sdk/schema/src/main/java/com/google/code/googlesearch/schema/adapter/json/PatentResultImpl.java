@@ -5,16 +5,13 @@ package com.google.code.googlesearch.schema.adapter.json;
 
 import java.util.Date;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.PatentResult;
 import com.google.code.googlesearch.schema.PatentStatus;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class PatentResultImpl.
  */
-public class PatentResultImpl extends BaseJsonAdapter implements PatentResult, Adaptable<PatentResult, JSONObject> {
+public class PatentResultImpl extends BaseJsonAdapter implements PatentResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -1220138742878830624L;
@@ -187,23 +184,5 @@ public class PatentResultImpl extends BaseJsonAdapter implements PatentResult, A
 	 */
 	public void setTbUrl(String tbUrl) {
 		this.tbUrl = tbUrl;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

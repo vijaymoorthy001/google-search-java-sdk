@@ -3,15 +3,12 @@
  */
 package com.google.code.googlesearch.schema.adapter.json;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.ImageResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class ImageResultImpl.
  */
-public class ImageResultImpl extends BaseJsonAdapter implements ImageResult, Adaptable<ImageResult, JSONObject> {
+public class ImageResultImpl extends BaseJsonAdapter implements ImageResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 6998066536030585746L;
@@ -252,23 +249,5 @@ public class ImageResultImpl extends BaseJsonAdapter implements ImageResult, Ada
 	 */
 	public void setImageId(String imageId) {
 		this.imageId = imageId;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

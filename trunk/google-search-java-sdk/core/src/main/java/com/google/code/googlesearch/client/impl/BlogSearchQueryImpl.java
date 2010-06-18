@@ -3,14 +3,14 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.BlogSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.BlogSortOrder;
 import com.google.code.googlesearch.schema.BlogResult;
 import com.google.code.googlesearch.schema.adapter.json.BlogResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class BlogSearchQueryImpl.
@@ -46,14 +46,9 @@ public class BlogSearchQueryImpl extends BaseGoogleSearchApiQuery<BlogResult> im
 		return this;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected BlogResult unmarshall(JSONObject json) {
-		BlogResultImpl result = new BlogResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected BlogResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, BlogResultImpl.class);
 	}
 }

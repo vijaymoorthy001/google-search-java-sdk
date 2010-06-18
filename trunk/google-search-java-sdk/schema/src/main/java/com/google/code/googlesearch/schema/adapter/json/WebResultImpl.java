@@ -1,14 +1,11 @@
 package com.google.code.googlesearch.schema.adapter.json;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.WebResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class WebResultImpl.
  */
-public class WebResultImpl extends BaseJsonAdapter implements WebResult, Adaptable<WebResult, JSONObject> {
+public class WebResultImpl extends BaseJsonAdapter implements WebResult {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -8535742587293626160L;
@@ -130,23 +127,5 @@ public class WebResultImpl extends BaseJsonAdapter implements WebResult, Adaptab
 	 */
 	public void setCacheUrl(String cacheUrl) {
 		this.cacheUrl = cacheUrl;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

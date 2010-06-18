@@ -44,6 +44,9 @@ public final class ApplicationConstants {
     /** The Constant DEFAULT_API_VERSION. */
     public static final String DEFAULT_API_VERSION = getProperty("com.google.code.google.search.client.defaultApiVersion");
     
+    /** The Constant RFC822DATEFORMAT. */
+    public static final String RFC822DATEFORMAT = getProperty("com.google.code.google.search.client.dateFormat");
+    
     /** The Constant CONNECT_TIMEOUT. */
     public static final int CONNECT_TIMEOUT = getIntProperty("com.google.code.google.search.client.connectTimeout");
     

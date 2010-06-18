@@ -3,12 +3,12 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.DetectLanguageQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.schema.DetectLanguageResult;
 import com.google.code.googlesearch.schema.adapter.json.DetectLanguageResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -34,15 +34,9 @@ public class DetectLanguageQueryImpl extends BaseGoogleSearchApiQuery<DetectLang
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.LANGUAGE_DETECT_URL);
 	}
 
-
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected DetectLanguageResult unmarshall(JSONObject json) {
-		DetectLanguageResultImpl result = new DetectLanguageResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected DetectLanguageResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, DetectLanguageResultImpl.class);
 	}
 }
