@@ -5,7 +5,7 @@ package com.google.code.googlesearch.schema;
 
 
 /**
- * The Class BookResultImpl.
+ * The Class BookResult.
  */
 public class BookResult extends SchemaEntity {
 
@@ -48,169 +48,217 @@ public class BookResult extends SchemaEntity {
 	/** The tb url. */
 	private String tbUrl;
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getTitle()
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setTitle(java.lang.String)
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getTitleNoFormatting()
+	/**
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setTitleNoFormatting(java.lang.String)
+	/**
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getUnescapedUrl()
+	/**
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl() {
 		return unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setUnescapedUrl(java.lang.String)
+	/**
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl) {
 		this.unescapedUrl = unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getUrl()
+	/**
+	 * Gets the url.
+	 * 
+	 * @return the url
 	 */
 	public String getUrl() {
 		return url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setUrl(java.lang.String)
+	/**
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getAuthors()
+	/**
+	 * Gets the authors.
+	 * 
+	 * @return the authors
 	 */
 	public String getAuthors() {
 		return authors;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setAuthors(java.lang.String)
+	/**
+	 * Sets the authors.
+	 * 
+	 * @param authors the new authors
 	 */
 	public void setAuthors(String authors) {
 		this.authors = authors;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getBookId()
+	/**
+	 * Gets the book id.
+	 * 
+	 * @return the book id
 	 */
 	public String getBookId() {
 		return bookId;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setBookId(java.lang.String)
+	/**
+	 * Sets the book id.
+	 * 
+	 * @param bookId the new book id
 	 */
 	public void setBookId(String bookId) {
 		this.bookId = bookId;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getPublishedYear()
+	/**
+	 * Gets the published year.
+	 * 
+	 * @return the published year
 	 */
 	public String getPublishedYear() {
 		return publishedYear;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setPublishedYear(java.lang.String)
+	/**
+	 * Sets the published year.
+	 * 
+	 * @param publishedYear the new published year
 	 */
 	public void setPublishedYear(String publishedYear) {
 		this.publishedYear = publishedYear;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getPageCount()
+	/**
+	 * Gets the page count.
+	 * 
+	 * @return the page count
 	 */
 	public int getPageCount() {
 		return pageCount;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setPageCount(int)
+	/**
+	 * Sets the page count.
+	 * 
+	 * @param pageCount the new page count
 	 */
 	public void setPageCount(int pageCount) {
 		this.pageCount = pageCount;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getThumbnailHtml()
+	/**
+	 * Gets the thumbnail html.
+	 * 
+	 * @return the thumbnail html
 	 */
 	public String getThumbnailHtml() {
 		return thumbnailHtml;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setThumbnailHtml(java.lang.String)
+	/**
+	 * Sets the thumbnail html.
+	 * 
+	 * @param thumbnailHtml the new thumbnail html
 	 */
 	public void setThumbnailHtml(String thumbnailHtml) {
 		this.thumbnailHtml = thumbnailHtml;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getTbWidth()
+	/**
+	 * Gets the tb width.
+	 * 
+	 * @return the tb width
 	 */
 	public int getTbWidth() {
 		return tbWidth;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setTbWidth(int)
+	/**
+	 * Sets the tb width.
+	 * 
+	 * @param tbWidth the new tb width
 	 */
 	public void setTbWidth(int tbWidth) {
 		this.tbWidth = tbWidth;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getTbHeight()
+	/**
+	 * Gets the tb height.
+	 * 
+	 * @return the tb height
 	 */
 	public int getTbHeight() {
 		return tbHeight;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setTbHeight(int)
+	/**
+	 * Sets the tb height.
+	 * 
+	 * @param tbHeight the new tb height
 	 */
 	public void setTbHeight(int tbHeight) {
 		this.tbHeight = tbHeight;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#getTbUrl()
+	/**
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl() {
 		return tbUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BookResult#setTbUrl(java.lang.String)
+	/**
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl) {
 		this.tbUrl = tbUrl;

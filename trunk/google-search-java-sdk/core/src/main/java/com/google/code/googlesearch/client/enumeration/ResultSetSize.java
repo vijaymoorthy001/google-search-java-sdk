@@ -15,6 +15,7 @@ public enum ResultSetSize implements ValueEnum {
 	
 	/** The LARGE. */
 	LARGE("large"), 
+ 
  /** The SMALL. */
  SMALL("small");
 	

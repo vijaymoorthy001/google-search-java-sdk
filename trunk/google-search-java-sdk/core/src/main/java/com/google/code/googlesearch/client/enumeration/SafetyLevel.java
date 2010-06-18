@@ -12,8 +12,10 @@ public enum SafetyLevel implements ValueEnum {
 	
 	/** The ACTIVE. */
 	ACTIVE("active"), 
+ 
  /** The MODERATE. */
  MODERATE("moderate"), 
+ 
  /** The OFF. */
  OFF("off");
 	

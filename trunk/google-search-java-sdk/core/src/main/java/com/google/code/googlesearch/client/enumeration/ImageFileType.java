@@ -15,10 +15,13 @@ public enum ImageFileType implements ValueEnum {
 	
 	/** The JPG. */
 	JPG("jpg"), 
+ 
  /** The PNG. */
  PNG("png"), 
+ 
  /** The GIF. */
  GIF("gif"), 
+ 
  /** The BMP. */
  BMP("bmp");
 	

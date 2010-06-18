@@ -92,6 +92,13 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	    }
 	}
 
+	/**
+	 * Unmarshall list.
+	 * 
+	 * @param response the response
+	 * 
+	 * @return the paged list< t>
+	 */
 	private PagedList<T> unmarshallList(JsonObject response) {
 		int status = response.get("responseStatus").getAsInt();
 		if (status != 200) {
@@ -109,6 +116,13 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		return list;
 	}
 
+	/**
+	 * Unmarshall.
+	 * 
+	 * @param object the object
+	 * 
+	 * @return the t
+	 */
 	protected abstract T unmarshall(JsonElement object);
 
 	/* (non-Javadoc)
@@ -164,6 +178,11 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
     	return null;
     }
     
+	/**
+	 * Gets the gson builder.
+	 * 
+	 * @return the gson builder
+	 */
 	protected GsonBuilder getGsonBuilder() {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setDateFormat(ApplicationConstants.RFC822DATEFORMAT);

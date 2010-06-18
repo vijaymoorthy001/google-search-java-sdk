@@ -15,6 +15,7 @@ public enum TranslationFormat implements ValueEnum {
 	
 	/** The HTML. */
 	HTML("html"), 
+ 
  /** The TEXT. */
  TEXT("text");
 

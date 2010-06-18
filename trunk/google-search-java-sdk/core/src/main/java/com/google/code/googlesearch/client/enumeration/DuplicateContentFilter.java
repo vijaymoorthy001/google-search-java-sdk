@@ -15,6 +15,7 @@ public enum DuplicateContentFilter implements ValueEnum {
 	
 	/** The OFF. */
 	OFF("0"), 
+ 
  /** The ON. */
  ON("1");
 

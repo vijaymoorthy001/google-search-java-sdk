@@ -97,6 +97,9 @@ public class WebSearchQueryImpl extends BaseGoogleSearchApiQuery<WebResult> impl
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
+	 */
 	@Override
 	protected WebResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();

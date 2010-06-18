@@ -15,6 +15,7 @@ public enum VideoSortOrder implements ValueEnum {
 	
 	/** The RELEVANCE. */
 	RELEVANCE(""), 
+ 
  /** The DATE. */
  DATE("d");	
 	

@@ -33,6 +33,9 @@ public class DetectLanguageQueryImpl extends BaseGoogleSearchApiQuery<DetectLang
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.LANGUAGE_DETECT_URL);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
+	 */
 	@Override
 	protected DetectLanguageResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();

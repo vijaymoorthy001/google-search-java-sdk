@@ -15,12 +15,16 @@ public enum ImageRights implements ValueEnum {
 	
 	/** The C c_ publicdomain. */
 	CC_PUBLICDOMAIN("cc_publicdomain"), 
+ 
  /** The C c_ attribute. */
  CC_ATTRIBUTE("cc_attribute"), 
+ 
  /** The C c_ sharealike. */
  CC_SHAREALIKE("cc_sharealike"), 
+ 
  /** The C c_ noncommercial. */
  CC_NONCOMMERCIAL("cc_noncommercial"), 
+ 
  /** The C c_ nonderived. */
  CC_NONDERIVED("cc_nonderived");
 	

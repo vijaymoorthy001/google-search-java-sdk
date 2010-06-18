@@ -60,6 +60,9 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
+	 */
 	@Override
 	protected TranslateLanguageResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();

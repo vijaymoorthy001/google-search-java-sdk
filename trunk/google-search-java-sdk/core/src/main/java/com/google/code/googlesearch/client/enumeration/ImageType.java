@@ -15,10 +15,13 @@ public enum ImageType implements ValueEnum {
 	
 	/** The FACE. */
 	FACE("face"), 
+ 
  /** The PHOTO. */
  PHOTO("photo"), 
+ 
  /** The CLIPART. */
  CLIPART("clipart"), 
+ 
  /** The LINEART. */
  LINEART("lineart");
 	

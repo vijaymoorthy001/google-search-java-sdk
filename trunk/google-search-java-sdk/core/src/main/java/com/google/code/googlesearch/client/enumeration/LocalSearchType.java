@@ -15,8 +15,10 @@ public enum LocalSearchType implements ValueEnum {
 	
 	/** The BLENDED. */
 	BLENDED("blended"), 
+ 
  /** The KMLONLY. */
  KMLONLY("kmlonly"), 
+ 
  /** The LOCALONLY. */
  LOCALONLY("localonly");
 	

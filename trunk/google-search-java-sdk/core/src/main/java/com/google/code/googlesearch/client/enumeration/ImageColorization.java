@@ -15,6 +15,7 @@ public enum ImageColorization implements ValueEnum {
 	
 	/** The GRAY. */
 	GRAY("gray"), 
+ 
  /** The COLOR. */
  COLOR("color");
 	

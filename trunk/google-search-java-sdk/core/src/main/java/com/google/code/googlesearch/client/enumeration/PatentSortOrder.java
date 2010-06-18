@@ -15,6 +15,7 @@ public enum PatentSortOrder implements ValueEnum {
 	
 	/** The RELEVANCE. */
 	RELEVANCE(""), 
+ 
  /** The DATE. */
  DATE("d");	
 	

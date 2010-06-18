@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 
 /**
- * The Class BaseJsonAdapter.
+ * The Class SchemaEntity.
  */
 public abstract class SchemaEntity implements Serializable {
 
