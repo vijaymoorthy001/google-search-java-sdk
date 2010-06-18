@@ -6,29 +6,21 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="google-search-java-sdk">
     <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
     <path id="google-search-java-sdk.classpath">
         <pathelement location="bin"/>
         <pathelement location="dev-lib/junit-4.5.jar"/>
-        <pathelement location="lib/commons-beanutils-1.8.3.jar"/>
-        <pathelement location="lib/json_simple-1.1.jar"/>
         <pathelement location="dev-lib/commons-cli-1.2.jar"/>
+        <pathelement location="lib/gson-1.4.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="schema/src/main/java" excludes="**/*.launch, **/*.java"/>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="schema/src/main/resources" excludes="**/*.launch, **/*.java"/>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="schema/src/test/java" excludes="**/*.launch, **/*.java"/>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="schema/src/test/resources" excludes="**/*.launch, **/*.java"/>
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="core/src/main/java" excludes="**/*.launch, **/*.java"/>
@@ -62,18 +54,6 @@
             <classpath refid="google-search-java-sdk.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="schema/src/main/resources"/>
-            <classpath refid="google-search-java-sdk.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="schema/src/test/java"/>
-            <classpath refid="google-search-java-sdk.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="schema/src/test/resources"/>
-            <classpath refid="google-search-java-sdk.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="core/src/main/java"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </javac>
@@ -99,4 +79,87 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="BlogSample">
+        <java classname="com.google.code.googlesearch.example.BlogSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="BookSample">
+        <java classname="com.google.code.googlesearch.example.BookSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="GoogleSearchJsonQueryTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.google.code.googlesearch.client.search.GoogleSearchJsonQueryTest" todir="${junit.output.dir}"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </junit>
+    </target>
+    <target name="ImageSample (1)">
+        <java classname="com.google.code.googlesearch.example.ImageSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="LocalSample">
+        <java classname="com.google.code.googlesearch.example.LocalSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="NewsSample (1)">
+        <java classname="com.google.code.googlesearch.example.NewsSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="PatentSample">
+        <java classname="com.google.code.googlesearch.example.PatentSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="TranslationSample (1)">
+        <java classname="com.google.code.googlesearch.example.TranslationSample" failonerror="true" fork="yes">
+            <arg line="-appid BBQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;I am Nabeel.&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="VideoSample (1)">
+        <java classname="com.google.code.googlesearch.example.VideoSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="WebSample (1)">
+        <java classname="com.google.code.googlesearch.example.WebSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query hadoop"/>
+            <classpath refid="google-search-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
 </project>
