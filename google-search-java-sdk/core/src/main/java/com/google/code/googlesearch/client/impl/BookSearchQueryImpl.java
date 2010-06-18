@@ -8,7 +8,6 @@ import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.BookSearchType;
 import com.google.code.googlesearch.schema.BookResult;
-import com.google.code.googlesearch.schema.adapter.json.BookResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -61,6 +60,6 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 	@Override
 	protected BookResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, BookResultImpl.class);
+		return gson.fromJson(object, BookResult.class);
 	}
 }

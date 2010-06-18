@@ -1,108 +1,134 @@
+/**
+ * 
+ */
 package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 
 /**
- * The Interface BlogResult.
+ * The Class BlogResultImpl.
  */
-public interface BlogResult extends SchemaEntity {
+public class BlogResult extends SchemaEntity {
 
-	/**
-	 * Gets the title.
-	 * 
-	 * @return the title
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1556677921929249355L;
+	
+	/** The title. */
+	private String title;
+	
+	/** The title no formatting. */
+	private String titleNoFormatting;
+	
+	/** The post url. */
+	private String postUrl;
+	
+	/** The content. */
+	private String content;
+	
+	/** The author. */
+	private String author;
+	
+	/** The blog url. */
+	private String blogUrl;
+	
+	/** The published date. */
+	private Date publishedDate;
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getTitle()
 	 */
-	public String getTitle();
-
-	/**
-	 * Sets the title.
-	 * 
-	 * @param title the new title
+	public String getTitle() {
+		return title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setTitle(java.lang.String)
 	 */
-	public void setTitle(String title);
-
-	/**
-	 * Gets the title no formatting.
-	 * 
-	 * @return the title no formatting
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getTitleNoFormatting()
 	 */
-	public String getTitleNoFormatting();
-
-	/**
-	 * Sets the title no formatting.
-	 * 
-	 * @param titleNoFormatting the new title no formatting
+	public String getTitleNoFormatting() {
+		return titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setTitleNoFormatting(java.lang.String)
 	 */
-	public void setTitleNoFormatting(String titleNoFormatting);
-
-	/**
-	 * Gets the post url.
-	 * 
-	 * @return the post url
+	public void setTitleNoFormatting(String titleNoFormatting) {
+		this.titleNoFormatting = titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getPostUrl()
 	 */
-	public String getPostUrl();
-
-	/**
-	 * Sets the post url.
-	 * 
-	 * @param postUrl the new post url
+	public String getPostUrl() {
+		return postUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setPostUrl(java.lang.String)
 	 */
-	public void setPostUrl(String postUrl);
-
-	/**
-	 * Gets the content.
-	 * 
-	 * @return the content
+	public void setPostUrl(String postUrl) {
+		this.postUrl = postUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getContent()
 	 */
-	public String getContent();
-
-	/**
-	 * Sets the content.
-	 * 
-	 * @param content the new content
+	public String getContent() {
+		return content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setContent(java.lang.String)
 	 */
-	public void setContent(String content);
-
-	/**
-	 * Gets the author.
-	 * 
-	 * @return the author
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getAuthor()
 	 */
-	public String getAuthor();
-
-	/**
-	 * Sets the author.
-	 * 
-	 * @param author the new author
+	public String getAuthor() {
+		return author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setAuthor(java.lang.String)
 	 */
-	public void setAuthor(String author);
-
-	/**
-	 * Gets the blog url.
-	 * 
-	 * @return the blog url
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getBlogUrl()
 	 */
-	public String getBlogUrl();
-
-	/**
-	 * Sets the blog url.
-	 * 
-	 * @param blogUrl the new blog url
+	public String getBlogUrl() {
+		return blogUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setBlogUrl(java.lang.String)
 	 */
-	public void setBlogUrl(String blogUrl);
-
-	/**
-	 * Gets the published date.
-	 * 
-	 * @return the published date
+	public void setBlogUrl(String blogUrl) {
+		this.blogUrl = blogUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#getPublishedDate()
 	 */
-	public Date getPublishedDate();
-
-	/**
-	 * Sets the published date.
-	 * 
-	 * @param publishedDate the new published date
+	public Date getPublishedDate() {
+		return publishedDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BlogResult#setPublishedDate(java.util.Date)
 	 */
-	public void setPublishedDate(Date publishedDate);
-
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
 }

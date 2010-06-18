@@ -1,209 +1,254 @@
+/**
+ * 
+ */
 package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 import java.util.List;
 
-import com.google.code.googlesearch.schema.adapter.json.Image;
-import com.google.code.googlesearch.schema.adapter.json.NewsStory;
-
 /**
- * The Interface NewsResult.
+ * The Class NewsResultImpl.
  */
-public interface NewsResult extends SchemaEntity {
+public class NewsResult extends SchemaEntity {
 
-	/**
-	 * Gets the title.
-	 * 
-	 * @return the title
-	 */
-	public String getTitle();
-
-	/**
-	 * Sets the title.
-	 * 
-	 * @param title the new title
-	 */
-	public void setTitle(String title);
-
-	/**
-	 * Gets the title no formatting.
-	 * 
-	 * @return the title no formatting
-	 */
-	public String getTitleNoFormatting();
-
-	/**
-	 * Sets the title no formatting.
-	 * 
-	 * @param titleNoFormatting the new title no formatting
-	 */
-	public void setTitleNoFormatting(String titleNoFormatting);
-
-	/**
-	 * Gets the unescaped url.
-	 * 
-	 * @return the unescaped url
-	 */
-	public String getUnescapedUrl();
-
-	/**
-	 * Sets the unescaped url.
-	 * 
-	 * @param unescapedUrl the new unescaped url
-	 */
-	public void setUnescapedUrl(String unescapedUrl);
-
-	/**
-	 * Gets the url.
-	 * 
-	 * @return the url
-	 */
-	public String getUrl();
-
-	/**
-	 * Sets the url.
-	 * 
-	 * @param url the new url
-	 */
-	public void setUrl(String url);
-
-	/**
-	 * Gets the cluster url.
-	 * 
-	 * @return the cluster url
-	 */
-	public String getClusterUrl();
-
-	/**
-	 * Sets the cluster url.
-	 * 
-	 * @param clusterUrl the new cluster url
-	 */
-	public void setClusterUrl(String clusterUrl);
-
-	/**
-	 * Gets the content.
-	 * 
-	 * @return the content
-	 */
-	public String getContent();
-
-	/**
-	 * Sets the content.
-	 * 
-	 * @param content the new content
-	 */
-	public void setContent(String content);
-
-	/**
-	 * Gets the publisher.
-	 * 
-	 * @return the publisher
-	 */
-	public String getPublisher();
-
-	/**
-	 * Sets the publisher.
-	 * 
-	 * @param publisher the new publisher
-	 */
-	public void setPublisher(String publisher);
-
-	/**
-	 * Gets the location.
-	 * 
-	 * @return the location
-	 */
-	public String getLocation();
-
-	/**
-	 * Sets the location.
-	 * 
-	 * @param location the new location
-	 */
-	public void setLocation(String location);
-
-	/**
-	 * Gets the published date.
-	 * 
-	 * @return the published date
-	 */
-	public Date getPublishedDate();
-
-	/**
-	 * Sets the published date.
-	 * 
-	 * @param publishedDate the new published date
-	 */
-	public void setPublishedDate(Date publishedDate);
-
-	/**
-	 * Gets the related stories.
-	 * 
-	 * @return the related stories
-	 */
-	public List<NewsStory> getRelatedStories();
-
-	/**
-	 * Sets the related stories.
-	 * 
-	 * @param relatedStories the new related stories
-	 */
-	public void setRelatedStories(List<NewsStory> relatedStories);
-
-	/**
-	 * Gets the image.
-	 * 
-	 * @return the image
-	 */
-	public Image getImage();
-
-	/**
-	 * Sets the image.
-	 * 
-	 * @param image the new image
-	 */
-	public void setImage(Image image);
-
-	/**
-	 * Gets the language.
-	 * 
-	 * @return the language
-	 */
-	public String getLanguage();
-
-	/**
-	 * Sets the language.
-	 * 
-	 * @param language the new language
-	 */
-	public void setLanguage(String language);
-
-	/**
-	 * Gets the author.
-	 * 
-	 * @return the author
-	 */
-	public String getAuthor();
-
-	/**
-	 * Sets the author.
-	 * 
-	 * @param author the new author
-	 */
-	public void setAuthor(String author);
-
-	/**
-	 * Gets the signed redirect url.
-	 * 
-	 * @return the signed redirect url
-	 */
-	public String getSignedRedirectUrl();
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 8463967785278054587L;
 	
-	/**
-	 * Sets the signed redirect url.
-	 * 
-	 * @param signedRedirectUrl the new signed redirect url
+	/** The title. */
+	private String title;
+	
+	/** The title no formatting. */
+	private String titleNoFormatting;
+	
+	/** The unescaped url. */
+	private String unescapedUrl;
+	
+	/** The url. */
+	private String url;
+	
+	/** The cluster url. */
+	private String clusterUrl;
+	
+	/** The content. */
+	private String content;
+	
+	/** The publisher. */
+	private String publisher;
+	
+	/** The location. */
+	private String location;
+	
+	/** The published date. */
+	private Date publishedDate;
+	
+	/** The related stories. */
+	private List<NewsStory> relatedStories;
+	
+	/** The image. */
+	private Image image;
+	
+	/** The language. */
+	private String language;
+	
+	/** The author. */
+	private String author;
+	
+	/** The signed redirect url. */
+	private String signedRedirectUrl;
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getTitle()
 	 */
-	public void setSignedRedirectUrl(String signedRedirectUrl);
+	public String getTitle() {
+		return title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setTitle(java.lang.String)
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getTitleNoFormatting()
+	 */
+	public String getTitleNoFormatting() {
+		return titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setTitleNoFormatting(java.lang.String)
+	 */
+	public void setTitleNoFormatting(String titleNoFormatting) {
+		this.titleNoFormatting = titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getUnescapedUrl()
+	 */
+	public String getUnescapedUrl() {
+		return unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setUnescapedUrl(java.lang.String)
+	 */
+	public void setUnescapedUrl(String unescapedUrl) {
+		this.unescapedUrl = unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getUrl()
+	 */
+	public String getUrl() {
+		return url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setUrl(java.lang.String)
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getClusterUrl()
+	 */
+	public String getClusterUrl() {
+		return clusterUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setClusterUrl(java.lang.String)
+	 */
+	public void setClusterUrl(String clusterUrl) {
+		this.clusterUrl = clusterUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getContent()
+	 */
+	public String getContent() {
+		return content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setContent(java.lang.String)
+	 */
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getPublisher()
+	 */
+	public String getPublisher() {
+		return publisher;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setPublisher(java.lang.String)
+	 */
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getLocation()
+	 */
+	public String getLocation() {
+		return location;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setLocation(java.lang.String)
+	 */
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getPublishedDate()
+	 */
+	public Date getPublishedDate() {
+		return publishedDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setPublishedDate(java.util.Date)
+	 */
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getRelatedStories()
+	 */
+	public List<NewsStory> getRelatedStories() {
+		return relatedStories;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setRelatedStories(java.util.List)
+	 */
+	public void setRelatedStories(List<NewsStory> relatedStories) {
+		this.relatedStories = relatedStories;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getImage()
+	 */
+	public Image getImage() {
+		return image;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setImage(com.google.code.googlesearch.schema.adapter.json.Image)
+	 */
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getLanguage()
+	 */
+	public String getLanguage() {
+		return language;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setLanguage(java.lang.String)
+	 */
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getAuthor()
+	 */
+	public String getAuthor() {
+		return author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setAuthor(java.lang.String)
+	 */
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#getSignedRedirectUrl()
+	 */
+	public String getSignedRedirectUrl() {
+		return signedRedirectUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.NewsResult#setSignedRedirectUrl(java.lang.String)
+	 */
+	public void setSignedRedirectUrl(String signedRedirectUrl) {
+		this.signedRedirectUrl = signedRedirectUrl;
+	}
 }

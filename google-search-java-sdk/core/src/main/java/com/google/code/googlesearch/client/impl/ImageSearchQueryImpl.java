@@ -14,7 +14,6 @@ import com.google.code.googlesearch.client.enumeration.ImageSize;
 import com.google.code.googlesearch.client.enumeration.ImageType;
 import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.ImageResult;
-import com.google.code.googlesearch.schema.adapter.json.ImageResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -115,6 +114,6 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 	@Override
 	protected ImageResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, ImageResultImpl.class);
+		return gson.fromJson(object, ImageResult.class);
 	}
 }

@@ -1,175 +1,218 @@
+/**
+ * 
+ */
 package com.google.code.googlesearch.schema;
 
+
 /**
- * The Interface BookResult.
+ * The Class BookResultImpl.
  */
-public interface BookResult extends SchemaEntity {
+public class BookResult extends SchemaEntity {
 
-	/**
-	 * Gets the title.
-	 * 
-	 * @return the title
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1165875438932653598L;
+	
+	/** The title. */
+	private String title;
+	
+	/** The title no formatting. */
+	private String titleNoFormatting;
+	
+	/** The unescaped url. */
+	private String unescapedUrl;
+	
+	/** The url. */
+	private String url;
+	
+	/** The authors. */
+	private String authors;
+	
+	/** The book id. */
+	private String bookId;
+	
+	/** The published year. */
+	private String publishedYear;
+	
+	/** The page count. */
+	private int pageCount;
+	
+	/** The thumbnail html. */
+	private String thumbnailHtml;
+	
+	/** The tb width. */
+	private int tbWidth;
+	
+	/** The tb height. */
+	private int tbHeight;
+	
+	/** The tb url. */
+	private String tbUrl;
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getTitle()
 	 */
-	public String getTitle();
-
-	/**
-	 * Sets the title.
-	 * 
-	 * @param title the new title
+	public String getTitle() {
+		return title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setTitle(java.lang.String)
 	 */
-	public void setTitle(String title);
-
-	/**
-	 * Gets the title no formatting.
-	 * 
-	 * @return the title no formatting
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getTitleNoFormatting()
 	 */
-	public String getTitleNoFormatting();
-
-	/**
-	 * Sets the title no formatting.
-	 * 
-	 * @param titleNoFormatting the new title no formatting
+	public String getTitleNoFormatting() {
+		return titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setTitleNoFormatting(java.lang.String)
 	 */
-	public void setTitleNoFormatting(String titleNoFormatting);
-
-	/**
-	 * Gets the unescaped url.
-	 * 
-	 * @return the unescaped url
+	public void setTitleNoFormatting(String titleNoFormatting) {
+		this.titleNoFormatting = titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getUnescapedUrl()
 	 */
-	public String getUnescapedUrl();
-
-	/**
-	 * Sets the unescaped url.
-	 * 
-	 * @param unescapedUrl the new unescaped url
+	public String getUnescapedUrl() {
+		return unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setUnescapedUrl(java.lang.String)
 	 */
-	public void setUnescapedUrl(String unescapedUrl);
-
-	/**
-	 * Gets the url.
-	 * 
-	 * @return the url
+	public void setUnescapedUrl(String unescapedUrl) {
+		this.unescapedUrl = unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getUrl()
 	 */
-	public String getUrl();
-
-	/**
-	 * Sets the url.
-	 * 
-	 * @param url the new url
+	public String getUrl() {
+		return url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setUrl(java.lang.String)
 	 */
-	public void setUrl(String url);
-
-	/**
-	 * Gets the authors.
-	 * 
-	 * @return the authors
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getAuthors()
 	 */
-	public String getAuthors();
-
-	/**
-	 * Sets the authors.
-	 * 
-	 * @param authors the new authors
+	public String getAuthors() {
+		return authors;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setAuthors(java.lang.String)
 	 */
-	public void setAuthors(String authors);
-
-	/**
-	 * Gets the book id.
-	 * 
-	 * @return the book id
+	public void setAuthors(String authors) {
+		this.authors = authors;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getBookId()
 	 */
-	public String getBookId();
-
-	/**
-	 * Sets the book id.
-	 * 
-	 * @param bookId the new book id
+	public String getBookId() {
+		return bookId;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setBookId(java.lang.String)
 	 */
-	public void setBookId(String bookId);
-
-	/**
-	 * Gets the published year.
-	 * 
-	 * @return the published year
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getPublishedYear()
 	 */
-	public String getPublishedYear();
-
-	/**
-	 * Sets the published year.
-	 * 
-	 * @param publishedYear the new published year
+	public String getPublishedYear() {
+		return publishedYear;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setPublishedYear(java.lang.String)
 	 */
-	public void setPublishedYear(String publishedYear);
-
-	/**
-	 * Gets the page count.
-	 * 
-	 * @return the page count
+	public void setPublishedYear(String publishedYear) {
+		this.publishedYear = publishedYear;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getPageCount()
 	 */
-	public int getPageCount();
-
-	/**
-	 * Sets the page count.
-	 * 
-	 * @param pageCount the new page count
+	public int getPageCount() {
+		return pageCount;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setPageCount(int)
 	 */
-	public void setPageCount(int pageCount);
-
-	/**
-	 * Gets the thumbnail html.
-	 * 
-	 * @return the thumbnail html
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getThumbnailHtml()
 	 */
-	public String getThumbnailHtml();
-
-	/**
-	 * Sets the thumbnail html.
-	 * 
-	 * @param thumbnailHtml the new thumbnail html
+	public String getThumbnailHtml() {
+		return thumbnailHtml;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setThumbnailHtml(java.lang.String)
 	 */
-	public void setThumbnailHtml(String thumbnailHtml);
-
-	/**
-	 * Gets the tb width.
-	 * 
-	 * @return the tb width
+	public void setThumbnailHtml(String thumbnailHtml) {
+		this.thumbnailHtml = thumbnailHtml;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getTbWidth()
 	 */
-	public int getTbWidth();
-
-	/**
-	 * Sets the tb width.
-	 * 
-	 * @param tbWidth the new tb width
+	public int getTbWidth() {
+		return tbWidth;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setTbWidth(int)
 	 */
-	public void setTbWidth(int tbWidth);
-
-	/**
-	 * Gets the tb height.
-	 * 
-	 * @return the tb height
+	public void setTbWidth(int tbWidth) {
+		this.tbWidth = tbWidth;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getTbHeight()
 	 */
-	public int getTbHeight();
-
-	/**
-	 * Sets the tb height.
-	 * 
-	 * @param tbHeight the new tb height
+	public int getTbHeight() {
+		return tbHeight;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setTbHeight(int)
 	 */
-	public void setTbHeight(int tbHeight);
-
-	/**
-	 * Gets the tb url.
-	 * 
-	 * @return the tb url
+	public void setTbHeight(int tbHeight) {
+		this.tbHeight = tbHeight;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#getTbUrl()
 	 */
-	public String getTbUrl();
-
-	/**
-	 * Sets the tb url.
-	 * 
-	 * @param tbUrl the new tb url
+	public String getTbUrl() {
+		return tbUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.BookResult#setTbUrl(java.lang.String)
 	 */
-	public void setTbUrl(String tbUrl);
+	public void setTbUrl(String tbUrl) {
+		this.tbUrl = tbUrl;
+	}
 }
