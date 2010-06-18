@@ -8,7 +8,6 @@ import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.VideoSortOrder;
 import com.google.code.googlesearch.schema.VideoResult;
-import com.google.code.googlesearch.schema.adapter.json.VideoResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -48,6 +47,6 @@ public class VideoSearchQueryImpl extends BaseGoogleSearchApiQuery<VideoResult> 
 	@Override
 	protected VideoResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, VideoResultImpl.class);
+		return gson.fromJson(object, VideoResult.class);
 	}
 }

@@ -1,151 +1,186 @@
+/**
+ * 
+ */
 package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 
 
 /**
- * The Interface PatentResult.
+ * The Class PatentResultImpl.
  */
-public interface PatentResult extends SchemaEntity {
+public class PatentResult extends SchemaEntity {
 
-	/**
-	 * Gets the title.
-	 * 
-	 * @return the title
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -1220138742878830624L;
+	
+	/** The title. */
+	private String title;
+	
+	/** The title no formatting. */
+	private String titleNoFormatting;
+	
+	/** The content. */
+	private String content;
+	
+	/** The unescaped url. */
+	private String unescapedUrl;
+	
+	/** The url. */
+	private String url;
+	
+	/** The application date. */
+	private Date applicationDate;
+	
+	/** The patent number. */
+	private String patentNumber;
+	
+	/** The patent status. */
+	private PatentStatus patentStatus;
+	
+	/** The assignee. */
+	private String assignee;
+	
+	/** The tb url. */
+	private String tbUrl;
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getTitle()
 	 */
-	public String getTitle();
-
-	/**
-	 * Sets the title.
-	 * 
-	 * @param title the new title
+	public String getTitle() {
+		return title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setTitle(java.lang.String)
 	 */
-	public void setTitle(String title);
-
-	/**
-	 * Gets the title no formatting.
-	 * 
-	 * @return the title no formatting
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getTitleNoFormatting()
 	 */
-	public String getTitleNoFormatting();
-
-	/**
-	 * Sets the title no formatting.
-	 * 
-	 * @param titleNoFormatting the new title no formatting
+	public String getTitleNoFormatting() {
+		return titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setTitleNoFormatting(java.lang.String)
 	 */
-	public void setTitleNoFormatting(String titleNoFormatting);
-
-	/**
-	 * Gets the content.
-	 * 
-	 * @return the content
+	public void setTitleNoFormatting(String titleNoFormatting) {
+		this.titleNoFormatting = titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getContent()
 	 */
-	public String getContent();
-
-	/**
-	 * Sets the content.
-	 * 
-	 * @param content the new content
+	public String getContent() {
+		return content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setContent(java.lang.String)
 	 */
-	public void setContent(String content);
-
-	/**
-	 * Gets the unescaped url.
-	 * 
-	 * @return the unescaped url
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getUnescapedUrl()
 	 */
-	public String getUnescapedUrl();
-
-	/**
-	 * Sets the unescaped url.
-	 * 
-	 * @param unescapedUrl the new unescaped url
+	public String getUnescapedUrl() {
+		return unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setUnescapedUrl(java.lang.String)
 	 */
-	public void setUnescapedUrl(String unescapedUrl);
-
-	/**
-	 * Gets the url.
-	 * 
-	 * @return the url
+	public void setUnescapedUrl(String unescapedUrl) {
+		this.unescapedUrl = unescapedUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getUrl()
 	 */
-	public String getUrl();
-
-	/**
-	 * Sets the url.
-	 * 
-	 * @param url the new url
+	public String getUrl() {
+		return url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setUrl(java.lang.String)
 	 */
-	public void setUrl(String url);
-
-	/**
-	 * Gets the application date.
-	 * 
-	 * @return the application date
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getApplicationDate()
 	 */
-	public Date getApplicationDate();
-
-	/**
-	 * Sets the application date.
-	 * 
-	 * @param applicationDate the new application date
+	public Date getApplicationDate() {
+		return applicationDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setApplicationDate(java.util.Date)
 	 */
-	public void setApplicationDate(Date applicationDate);
-
-	/**
-	 * Gets the patent number.
-	 * 
-	 * @return the patent number
+	public void setApplicationDate(Date applicationDate) {
+		this.applicationDate = applicationDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getPatentNumber()
 	 */
-	public String getPatentNumber();
-
-	/**
-	 * Sets the patent number.
-	 * 
-	 * @param patentNumber the new patent number
+	public String getPatentNumber() {
+		return patentNumber;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setPatentNumber(java.lang.String)
 	 */
-	public void setPatentNumber(String patentNumber);
-
-	/**
-	 * Gets the patent status.
-	 * 
-	 * @return the patent status
+	public void setPatentNumber(String patentNumber) {
+		this.patentNumber = patentNumber;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getPatentStatus()
 	 */
-	public PatentStatus getPatentStatus();
-
-	/**
-	 * Sets the patent status.
-	 * 
-	 * @param patentStatus the new patent status
+	public PatentStatus getPatentStatus() {
+		return patentStatus;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setPatentStatus(com.google.code.googlesearch.schema.PatentStatus)
 	 */
-	public void setPatentStatus(PatentStatus patentStatus);
-
-	/**
-	 * Gets the assignee.
-	 * 
-	 * @return the assignee
+	public void setPatentStatus(PatentStatus patentStatus) {
+		this.patentStatus = patentStatus;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getAssignee()
 	 */
-	public String getAssignee();
-
-	/**
-	 * Sets the assignee.
-	 * 
-	 * @param assignee the new assignee
+	public String getAssignee() {
+		return assignee;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setAssignee(java.lang.String)
 	 */
-	public void setAssignee(String assignee);
-
-	/**
-	 * Gets the tb url.
-	 * 
-	 * @return the tb url
+	public void setAssignee(String assignee) {
+		this.assignee = assignee;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#getTbUrl()
 	 */
-	public String getTbUrl();
-
-	/**
-	 * Sets the tb url.
-	 * 
-	 * @param tbUrl the new tb url
+	public String getTbUrl() {
+		return tbUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.PatentResult#setTbUrl(java.lang.String)
 	 */
-	public void setTbUrl(String tbUrl);
-
+	public void setTbUrl(String tbUrl) {
+		this.tbUrl = tbUrl;
+	}
 }

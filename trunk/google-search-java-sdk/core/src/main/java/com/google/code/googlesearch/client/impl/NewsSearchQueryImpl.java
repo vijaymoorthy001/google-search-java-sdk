@@ -10,7 +10,6 @@ import com.google.code.googlesearch.client.enumeration.NewsEdition;
 import com.google.code.googlesearch.client.enumeration.NewsSortOrder;
 import com.google.code.googlesearch.client.enumeration.NewsTopic;
 import com.google.code.googlesearch.schema.NewsResult;
-import com.google.code.googlesearch.schema.adapter.json.NewsResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -91,6 +90,6 @@ public class NewsSearchQueryImpl extends BaseGoogleSearchApiQuery<NewsResult> im
 	@Override
 	protected NewsResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, NewsResultImpl.class);
+		return gson.fromJson(object, NewsResult.class);
 	}
 }

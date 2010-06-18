@@ -11,7 +11,6 @@ import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.DuplicateContentFilter;
 import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.WebResult;
-import com.google.code.googlesearch.schema.adapter.json.WebResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -101,6 +100,6 @@ public class WebSearchQueryImpl extends BaseGoogleSearchApiQuery<WebResult> impl
 	@Override
 	protected WebResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, WebResultImpl.class);
+		return gson.fromJson(object, WebResult.class);
 	}
 }

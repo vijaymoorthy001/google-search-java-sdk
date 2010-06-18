@@ -1,219 +1,271 @@
+/**
+ * 
+ */
 package com.google.code.googlesearch.schema;
 
 import java.util.Date;
 
+
 /**
- * The Interface VideoResult.
+ * The Class VideoResultImpl.
  */
-public interface VideoResult extends SchemaEntity {
+public class VideoResult extends SchemaEntity {
 
-	/**
-	 * Gets the title.
-	 * 
-	 * @return the title
-	 */
-	public String getTitle();
-
-	/**
-	 * Sets the title.
-	 * 
-	 * @param title the new title
-	 */
-	public void setTitle(String title);
-
-	/**
-	 * Gets the title no formatting.
-	 * 
-	 * @return the title no formatting
-	 */
-	public String getTitleNoFormatting();
-
-	/**
-	 * Sets the title no formatting.
-	 * 
-	 * @param titleNoFormatting the new title no formatting
-	 */
-	public void setTitleNoFormatting(String titleNoFormatting);
-
-	/**
-	 * Gets the content.
-	 * 
-	 * @return the content
-	 */
-	public String getContent();
-
-	/**
-	 * Sets the content.
-	 * 
-	 * @param content the new content
-	 */
-	public void setContent(String content);
-
-	/**
-	 * Gets the url.
-	 * 
-	 * @return the url
-	 */
-	public String getUrl();
-
-	/**
-	 * Sets the url.
-	 * 
-	 * @param url the new url
-	 */
-	public void setUrl(String url);
-
-	/**
-	 * Gets the published.
-	 * 
-	 * @return the published
-	 */
-	public Date getPublished();
-
-	/**
-	 * Sets the published.
-	 * 
-	 * @param published the new published
-	 */
-	public void setPublished(Date published);
-
-	/**
-	 * Gets the publisher.
-	 * 
-	 * @return the publisher
-	 */
-	public String getPublisher();
-
-	/**
-	 * Sets the publisher.
-	 * 
-	 * @param publisher the new publisher
-	 */
-	public void setPublisher(String publisher);
-
-	/**
-	 * Gets the duration.
-	 * 
-	 * @return the duration
-	 */
-	public int getDuration();
-
-	/**
-	 * Sets the duration.
-	 * 
-	 * @param duration the new duration
-	 */
-	public void setDuration(int duration);
-
-	/**
-	 * Gets the tb width.
-	 * 
-	 * @return the tb width
-	 */
-	public int getTbWidth();
-
-	/**
-	 * Sets the tb width.
-	 * 
-	 * @param tbWidth the new tb width
-	 */
-	public void setTbWidth(int tbWidth);
-
-	/**
-	 * Gets the tb height.
-	 * 
-	 * @return the tb height
-	 */
-	public int getTbHeight();
-
-	/**
-	 * Sets the tb height.
-	 * 
-	 * @param tbHeight the new tb height
-	 */
-	public void setTbHeight(int tbHeight);
-
-	/**
-	 * Gets the tb url.
-	 * 
-	 * @return the tb url
-	 */
-	public String getTbUrl();
-
-	/**
-	 * Sets the tb url.
-	 * 
-	 * @param tbUrl the new tb url
-	 */
-	public void setTbUrl(String tbUrl);
-
-	/**
-	 * Gets the play url.
-	 * 
-	 * @return the play url
-	 */
-	public String getPlayUrl();
-
-	/**
-	 * Sets the play url.
-	 * 
-	 * @param playUrl the new play url
-	 */
-	public void setPlayUrl(String playUrl);
-
-	/**
-	 * Gets the author.
-	 * 
-	 * @return the author
-	 */
-	public String getAuthor();
-
-	/**
-	 * Sets the author.
-	 * 
-	 * @param author the new author
-	 */
-	public void setAuthor(String author);
-
-	/**
-	 * Gets the view count.
-	 * 
-	 * @return the view count
-	 */
-	public int getViewCount();
-
-	/**
-	 * Sets the view count.
-	 * 
-	 * @param viewCount the new view count
-	 */
-	public void setViewCount(int viewCount);
-
-	/**
-	 * Gets the rating.
-	 * 
-	 * @return the rating
-	 */
-	public double getRating();
-
-	/**
-	 * Sets the rating.
-	 * 
-	 * @param rating the new rating
-	 */
-	public void setRating(double rating);
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -544563069546960689L;
 	
-	/**
-	 * Gets the video type.
-	 * 
-	 * @return the video type
-	 */
-	public VideoType getVideoType() ;
+	/** The title. */
+	private String title;
 	
-	/**
-	 * Sets the video type.
-	 * 
-	 * @param videoType the new video type
+	/** The title no formatting. */
+	private String titleNoFormatting;
+	
+	/** The content. */
+	private String content;
+	
+	/** The url. */
+	private String url;
+	
+	/** The published. */
+	private Date published;
+	
+	/** The publisher. */
+	private String publisher;
+	
+	/** The duration. */
+	private int duration;
+	
+	/** The tb width. */
+	private int tbWidth;
+	
+	/** The tb height. */
+	private int tbHeight;
+	
+	/** The tb url. */
+	private String tbUrl;
+	
+	/** The play url. */
+	private String playUrl;
+	
+	/** The author. */
+	private String author;
+	
+	/** The view count. */
+	private int viewCount;
+	
+	/** The rating. */
+	private double rating;
+	
+	/** The video type. */
+	private VideoType videoType;
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTitle()
 	 */
-	public void setVideoType(VideoType videoType);
+	public String getTitle() {
+		return title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTitle(java.lang.String)
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTitleNoFormatting()
+	 */
+	public String getTitleNoFormatting() {
+		return titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTitleNoFormatting(java.lang.String)
+	 */
+	public void setTitleNoFormatting(String titleNoFormatting) {
+		this.titleNoFormatting = titleNoFormatting;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getContent()
+	 */
+	public String getContent() {
+		return content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setContent(java.lang.String)
+	 */
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getUrl()
+	 */
+	public String getUrl() {
+		return url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setUrl(java.lang.String)
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPublished()
+	 */
+	public Date getPublished() {
+		return published;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPublished(java.util.Date)
+	 */
+	public void setPublished(Date published) {
+		this.published = published;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPublisher()
+	 */
+	public String getPublisher() {
+		return publisher;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPublisher(java.lang.String)
+	 */
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getDuration()
+	 */
+	public int getDuration() {
+		return duration;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setDuration(int)
+	 */
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbWidth()
+	 */
+	public int getTbWidth() {
+		return tbWidth;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbWidth(int)
+	 */
+	public void setTbWidth(int tbWidth) {
+		this.tbWidth = tbWidth;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbHeight()
+	 */
+	public int getTbHeight() {
+		return tbHeight;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbHeight(int)
+	 */
+	public void setTbHeight(int tbHeight) {
+		this.tbHeight = tbHeight;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getTbUrl()
+	 */
+	public String getTbUrl() {
+		return tbUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setTbUrl(java.lang.String)
+	 */
+	public void setTbUrl(String tbUrl) {
+		this.tbUrl = tbUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getPlayUrl()
+	 */
+	public String getPlayUrl() {
+		return playUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setPlayUrl(java.lang.String)
+	 */
+	public void setPlayUrl(String playUrl) {
+		this.playUrl = playUrl;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getAuthor()
+	 */
+	public String getAuthor() {
+		return author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setAuthor(java.lang.String)
+	 */
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getViewCount()
+	 */
+	public int getViewCount() {
+		return viewCount;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setViewCount(int)
+	 */
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getRating()
+	 */
+	public double getRating() {
+		return rating;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setRating(double)
+	 */
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#getVideoType()
+	 */
+	public VideoType getVideoType() {
+		return videoType;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.schema.VideoResult#setVideoType(com.google.code.googlesearch.schema.VideoType)
+	 */
+	public void setVideoType(VideoType videoType) {
+		this.videoType = videoType;
+	}
 }

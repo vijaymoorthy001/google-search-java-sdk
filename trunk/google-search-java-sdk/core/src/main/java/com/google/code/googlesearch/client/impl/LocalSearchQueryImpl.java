@@ -8,7 +8,6 @@ import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.LocalSearchType;
 import com.google.code.googlesearch.schema.LocalResult;
-import com.google.code.googlesearch.schema.adapter.json.LocalResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -69,6 +68,6 @@ public class LocalSearchQueryImpl extends BaseGoogleSearchApiQuery<LocalResult> 
 	@Override
 	protected LocalResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, LocalResultImpl.class);
+		return gson.fromJson(object, LocalResult.class);
 	}
 }

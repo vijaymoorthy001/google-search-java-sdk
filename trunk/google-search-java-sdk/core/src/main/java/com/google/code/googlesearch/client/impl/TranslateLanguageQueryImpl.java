@@ -8,7 +8,6 @@ import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.TranslationFormat;
 import com.google.code.googlesearch.schema.TranslateLanguageResult;
-import com.google.code.googlesearch.schema.adapter.json.TranslateLanguageResultImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -64,6 +63,6 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	@Override
 	protected TranslateLanguageResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, TranslateLanguageResultImpl.class);
+		return gson.fromJson(object, TranslateLanguageResult.class);
 	}
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.google.code.googlesearch.schema.adapter.json;
+package com.google.code.googlesearch.schema;
 
 /**
  * The Class PhoneNumber.
