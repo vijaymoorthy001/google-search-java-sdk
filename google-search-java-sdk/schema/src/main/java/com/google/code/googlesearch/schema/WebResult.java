@@ -2,7 +2,7 @@ package com.google.code.googlesearch.schema;
 
 
 /**
- * The Class WebResultImpl.
+ * The Class WebResult.
  */
 public class WebResult extends SchemaEntity {
 	
@@ -30,99 +30,127 @@ public class WebResult extends SchemaEntity {
 	/** The cache url. */
 	private String cacheUrl;
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getUnescapedUrl()
+	/**
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl() {
 		return unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setUnescapedUrl(java.lang.String)
+	/**
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl) {
 		this.unescapedUrl = unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getUrl()
+	/**
+	 * Gets the url.
+	 * 
+	 * @return the url
 	 */
 	public String getUrl() {
 		return url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setUrl(java.lang.String)
+	/**
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getVisibleUrl()
+	/**
+	 * Gets the visible url.
+	 * 
+	 * @return the visible url
 	 */
 	public String getVisibleUrl() {
 		return visibleUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setVisibleUrl(java.lang.String)
+	/**
+	 * Sets the visible url.
+	 * 
+	 * @param visibleUrl the new visible url
 	 */
 	public void setVisibleUrl(String visibleUrl) {
 		this.visibleUrl = visibleUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getTitle()
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setTitle(java.lang.String)
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getTitleNoFormatting()
+	/**
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setTitleNoFormatting(java.lang.String)
+	/**
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getContent()
+	/**
+	 * Gets the content.
+	 * 
+	 * @return the content
 	 */
 	public String getContent() {
 		return content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setContent(java.lang.String)
+	/**
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#getCacheUrl()
+	/**
+	 * Gets the cache url.
+	 * 
+	 * @return the cache url
 	 */
 	public String getCacheUrl() {
 		return cacheUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.WebResult#setCacheUrl(java.lang.String)
+	/**
+	 * Sets the cache url.
+	 * 
+	 * @param cacheUrl the new cache url
 	 */
 	public void setCacheUrl(String cacheUrl) {
 		this.cacheUrl = cacheUrl;

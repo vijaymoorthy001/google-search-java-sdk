@@ -45,6 +45,9 @@ public class BlogSearchQueryImpl extends BaseGoogleSearchApiQuery<BlogResult> im
 		return this;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
+	 */
 	@Override
 	protected BlogResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();

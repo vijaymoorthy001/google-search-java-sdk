@@ -7,7 +7,7 @@ import java.util.List;
 
 
 /**
- * The Class LocalResultImpl.
+ * The Class LocalResult.
  */
 public class LocalResult extends SchemaEntity {
 
@@ -74,281 +74,361 @@ public class LocalResult extends SchemaEntity {
 	/** The viewportmode. */
 	private ViewPortMode viewportmode;
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getTitle()
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setTitle(java.lang.String)
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getTitleNoFormatting()
+	/**
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setTitleNoFormatting(java.lang.String)
+	/**
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getUrl()
+	/**
+	 * Gets the url.
+	 * 
+	 * @return the url
 	 */
 	public String getUrl() {
 		return url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setUrl(java.lang.String)
+	/**
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getLat()
+	/**
+	 * Gets the lat.
+	 * 
+	 * @return the lat
 	 */
 	public double getLat() {
 		return lat;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setLat(double)
+	/**
+	 * Sets the lat.
+	 * 
+	 * @param lat the new lat
 	 */
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getLng()
+	/**
+	 * Gets the lng.
+	 * 
+	 * @return the lng
 	 */
 	public double getLng() {
 		return lng;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setLng(double)
+	/**
+	 * Sets the lng.
+	 * 
+	 * @param lng the new lng
 	 */
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getStreetAddress()
+	/**
+	 * Gets the street address.
+	 * 
+	 * @return the street address
 	 */
 	public String getStreetAddress() {
 		return streetAddress;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setStreetAddress(java.lang.String)
+	/**
+	 * Sets the street address.
+	 * 
+	 * @param streetAddress the new street address
 	 */
 	public void setStreetAddress(String streetAddress) {
 		this.streetAddress = streetAddress;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getCity()
+	/**
+	 * Gets the city.
+	 * 
+	 * @return the city
 	 */
 	public String getCity() {
 		return city;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setCity(java.lang.String)
+	/**
+	 * Sets the city.
+	 * 
+	 * @param city the new city
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getRegion()
+	/**
+	 * Gets the region.
+	 * 
+	 * @return the region
 	 */
 	public String getRegion() {
 		return region;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setRegion(java.lang.String)
+	/**
+	 * Sets the region.
+	 * 
+	 * @param region the new region
 	 */
 	public void setRegion(String region) {
 		this.region = region;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getCountry()
+	/**
+	 * Gets the country.
+	 * 
+	 * @return the country
 	 */
 	public String getCountry() {
 		return country;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setCountry(java.lang.String)
+	/**
+	 * Sets the country.
+	 * 
+	 * @param country the new country
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getPhoneNumbers()
+	/**
+	 * Gets the phone numbers.
+	 * 
+	 * @return the phone numbers
 	 */
 	public List<PhoneNumber> getPhoneNumbers() {
 		return phoneNumbers;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setPhoneNumbers(java.util.List)
+	/**
+	 * Sets the phone numbers.
+	 * 
+	 * @param phoneNumbers the new phone numbers
 	 */
 	public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
 		this.phoneNumbers = phoneNumbers;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getAddressLines()
+	/**
+	 * Gets the address lines.
+	 * 
+	 * @return the address lines
 	 */
 	public List<String> getAddressLines() {
 		return addressLines;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setAddressLines(java.util.List)
+	/**
+	 * Sets the address lines.
+	 * 
+	 * @param addressLines the new address lines
 	 */
 	public void setAddressLines(List<String> addressLines) {
 		this.addressLines = addressLines;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrl()
+	/**
+	 * Gets the dd url.
+	 * 
+	 * @return the dd url
 	 */
 	public String getDdUrl() {
 		return ddUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrl(java.lang.String)
+	/**
+	 * Sets the dd url.
+	 * 
+	 * @param ddUrl the new dd url
 	 */
 	public void setDdUrl(String ddUrl) {
 		this.ddUrl = ddUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrlToHere()
+	/**
+	 * Gets the dd url to here.
+	 * 
+	 * @return the dd url to here
 	 */
 	public String getDdUrlToHere() {
 		return ddUrlToHere;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrlToHere(java.lang.String)
+	/**
+	 * Sets the dd url to here.
+	 * 
+	 * @param ddUrlToHere the new dd url to here
 	 */
 	public void setDdUrlToHere(String ddUrlToHere) {
 		this.ddUrlToHere = ddUrlToHere;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getDdUrlFromHere()
+	/**
+	 * Gets the dd url from here.
+	 * 
+	 * @return the dd url from here
 	 */
 	public String getDdUrlFromHere() {
 		return ddUrlFromHere;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setDdUrlFromHere(java.lang.String)
+	/**
+	 * Sets the dd url from here.
+	 * 
+	 * @param ddUrlFromHere the new dd url from here
 	 */
 	public void setDdUrlFromHere(String ddUrlFromHere) {
 		this.ddUrlFromHere = ddUrlFromHere;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getStaticMapUrl()
+	/**
+	 * Gets the static map url.
+	 * 
+	 * @return the static map url
 	 */
 	public String getStaticMapUrl() {
 		return staticMapUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setStaticMapUrl(java.lang.String)
+	/**
+	 * Sets the static map url.
+	 * 
+	 * @param staticMapUrl the new static map url
 	 */
 	public void setStaticMapUrl(String staticMapUrl) {
 		this.staticMapUrl = staticMapUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getListingType()
+	/**
+	 * Gets the listing type.
+	 * 
+	 * @return the listing type
 	 */
 	public ListingType getListingType() {
 		return listingType;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setListingType(com.google.code.googlesearch.schema.ListingType)
+	/**
+	 * Sets the listing type.
+	 * 
+	 * @param listingType the new listing type
 	 */
 	public void setListingType(ListingType listingType) {
 		this.listingType = listingType;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getContent()
+	/**
+	 * Gets the content.
+	 * 
+	 * @return the content
 	 */
 	public String getContent() {
 		return content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setContent(java.lang.String)
+	/**
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getMaxAge()
+	/**
+	 * Gets the max age.
+	 * 
+	 * @return the max age
 	 */
 	public long getMaxAge() {
 		return maxAge;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setMaxAge(long)
+	/**
+	 * Sets the max age.
+	 * 
+	 * @param maxAge the new max age
 	 */
 	public void setMaxAge(long maxAge) {
 		this.maxAge = maxAge;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getAccuracy()
+	/**
+	 * Gets the accuracy.
+	 * 
+	 * @return the accuracy
 	 */
 	public int getAccuracy() {
 		return accuracy;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setAccuracy(int)
+	/**
+	 * Sets the accuracy.
+	 * 
+	 * @param accuracy the new accuracy
 	 */
 	public void setAccuracy(int accuracy) {
 		this.accuracy = accuracy;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#getViewportmode()
+	/**
+	 * Gets the viewportmode.
+	 * 
+	 * @return the viewportmode
 	 */
 	public ViewPortMode getViewportmode() {
 		return viewportmode;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.LocalResult#setViewportmode(com.google.code.googlesearch.schema.ViewPortMode)
+	/**
+	 * Sets the viewportmode.
+	 * 
+	 * @param viewportmode the new viewportmode
 	 */
 	public void setViewportmode(ViewPortMode viewportmode) {
 		this.viewportmode = viewportmode;

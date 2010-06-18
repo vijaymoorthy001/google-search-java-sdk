@@ -15,22 +15,31 @@ public enum NewsTopic implements ValueEnum {
 	
 	/** The TO p_ headlines. */
 	TOP_HEADLINES("h"),
+
 /** The WORLD. */
 WORLD("w"), 
+ 
  /** The BUSINESS. */
  BUSINESS("b"), 
+ 
  /** The NATION. */
  NATION("n"), 
+ 
  /** The SCIENC e_ an d_ tech. */
  SCIENCE_AND_TECH("t"), 
+ 
  /** The ELECTRONICS. */
  ELECTRONICS("el"), 
+ 
  /** The POLITICS. */
  POLITICS("p"), 
+ 
  /** The ENTERTAINMENT. */
  ENTERTAINMENT("e"), 
+ 
  /** The SPORTS. */
  SPORTS("s"), 
+ 
  /** The HEALTH. */
  HEALTH("m");
 	

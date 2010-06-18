@@ -5,7 +5,7 @@ package com.google.code.googlesearch.schema;
 
 
 /**
- * The Class ImageResultImpl.
+ * The Class ImageResult.
  */
 public class ImageResult extends SchemaEntity {
 
@@ -54,197 +54,253 @@ public class ImageResult extends SchemaEntity {
 	/** The image id. */
 	private String imageId;
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getTitle()
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setTitle(java.lang.String)
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getTitleNoFormatting()
+	/**
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setTitleNoFormatting(java.lang.String)
+	/**
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getUnescapedUrl()
+	/**
+	 * Gets the unescaped url.
+	 * 
+	 * @return the unescaped url
 	 */
 	public String getUnescapedUrl() {
 		return unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setUnescapedUrl(java.lang.String)
+	/**
+	 * Sets the unescaped url.
+	 * 
+	 * @param unescapedUrl the new unescaped url
 	 */
 	public void setUnescapedUrl(String unescapedUrl) {
 		this.unescapedUrl = unescapedUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getUrl()
+	/**
+	 * Gets the url.
+	 * 
+	 * @return the url
 	 */
 	public String getUrl() {
 		return url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setUrl(java.lang.String)
+	/**
+	 * Sets the url.
+	 * 
+	 * @param url the new url
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getVisibleUrl()
+	/**
+	 * Gets the visible url.
+	 * 
+	 * @return the visible url
 	 */
 	public String getVisibleUrl() {
 		return visibleUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setVisibleUrl(java.lang.String)
+	/**
+	 * Sets the visible url.
+	 * 
+	 * @param visibleUrl the new visible url
 	 */
 	public void setVisibleUrl(String visibleUrl) {
 		this.visibleUrl = visibleUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getOriginalContextUrl()
+	/**
+	 * Gets the original context url.
+	 * 
+	 * @return the original context url
 	 */
 	public String getOriginalContextUrl() {
 		return originalContextUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setOriginalContextUrl(java.lang.String)
+	/**
+	 * Sets the original context url.
+	 * 
+	 * @param originalContextUrl the new original context url
 	 */
 	public void setOriginalContextUrl(String originalContextUrl) {
 		this.originalContextUrl = originalContextUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getWidth()
+	/**
+	 * Gets the width.
+	 * 
+	 * @return the width
 	 */
 	public int getWidth() {
 		return width;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setWidth(int)
+	/**
+	 * Sets the width.
+	 * 
+	 * @param width the new width
 	 */
 	public void setWidth(int width) {
 		this.width = width;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getHeight()
+	/**
+	 * Gets the height.
+	 * 
+	 * @return the height
 	 */
 	public int getHeight() {
 		return height;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setHeight(int)
+	/**
+	 * Sets the height.
+	 * 
+	 * @param height the new height
 	 */
 	public void setHeight(int height) {
 		this.height = height;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getTbWidth()
+	/**
+	 * Gets the tb width.
+	 * 
+	 * @return the tb width
 	 */
 	public int getTbWidth() {
 		return tbWidth;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setTbWidth(int)
+	/**
+	 * Sets the tb width.
+	 * 
+	 * @param tbWidth the new tb width
 	 */
 	public void setTbWidth(int tbWidth) {
 		this.tbWidth = tbWidth;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getTbHeight()
+	/**
+	 * Gets the tb height.
+	 * 
+	 * @return the tb height
 	 */
 	public int getTbHeight() {
 		return tbHeight;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setTbHeight(int)
+	/**
+	 * Sets the tb height.
+	 * 
+	 * @param tbHeight the new tb height
 	 */
 	public void setTbHeight(int tbHeight) {
 		this.tbHeight = tbHeight;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getTbUrl()
+	/**
+	 * Gets the tb url.
+	 * 
+	 * @return the tb url
 	 */
 	public String getTbUrl() {
 		return tbUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setTbUrl(java.lang.String)
+	/**
+	 * Sets the tb url.
+	 * 
+	 * @param tbUrl the new tb url
 	 */
 	public void setTbUrl(String tbUrl) {
 		this.tbUrl = tbUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getContent()
+	/**
+	 * Gets the content.
+	 * 
+	 * @return the content
 	 */
 	public String getContent() {
 		return content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setContent(java.lang.String)
+	/**
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getContentNoFormatting()
+	/**
+	 * Gets the content no formatting.
+	 * 
+	 * @return the content no formatting
 	 */
 	public String getContentNoFormatting() {
 		return contentNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setContentNoFormatting(java.lang.String)
+	/**
+	 * Sets the content no formatting.
+	 * 
+	 * @param contentNoFormatting the new content no formatting
 	 */
 	public void setContentNoFormatting(String contentNoFormatting) {
 		this.contentNoFormatting = contentNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#getImageId()
+	/**
+	 * Gets the image id.
+	 * 
+	 * @return the image id
 	 */
 	public String getImageId() {
 		return imageId;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.ImageResult#setImageId(java.lang.String)
+	/**
+	 * Sets the image id.
+	 * 
+	 * @param imageId the new image id
 	 */
 	public void setImageId(String imageId) {
 		this.imageId = imageId;

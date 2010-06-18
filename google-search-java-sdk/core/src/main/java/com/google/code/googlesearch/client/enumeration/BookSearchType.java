@@ -15,6 +15,7 @@ public enum BookSearchType implements ValueEnum {
 	
 	/** The ALL. */
 	ALL(null), 
+ 
  /** The FUL l_ view. */
  FULL_VIEW("as_brr");
 

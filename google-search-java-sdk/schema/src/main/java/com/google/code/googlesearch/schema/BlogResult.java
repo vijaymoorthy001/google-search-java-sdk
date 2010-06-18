@@ -6,7 +6,7 @@ package com.google.code.googlesearch.schema;
 import java.util.Date;
 
 /**
- * The Class BlogResultImpl.
+ * The Class BlogResult.
  */
 public class BlogResult extends SchemaEntity {
 
@@ -34,99 +34,127 @@ public class BlogResult extends SchemaEntity {
 	/** The published date. */
 	private Date publishedDate;
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getTitle()
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setTitle(java.lang.String)
+	/**
+	 * Sets the title.
+	 * 
+	 * @param title the new title
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getTitleNoFormatting()
+	/**
+	 * Gets the title no formatting.
+	 * 
+	 * @return the title no formatting
 	 */
 	public String getTitleNoFormatting() {
 		return titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setTitleNoFormatting(java.lang.String)
+	/**
+	 * Sets the title no formatting.
+	 * 
+	 * @param titleNoFormatting the new title no formatting
 	 */
 	public void setTitleNoFormatting(String titleNoFormatting) {
 		this.titleNoFormatting = titleNoFormatting;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getPostUrl()
+	/**
+	 * Gets the post url.
+	 * 
+	 * @return the post url
 	 */
 	public String getPostUrl() {
 		return postUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setPostUrl(java.lang.String)
+	/**
+	 * Sets the post url.
+	 * 
+	 * @param postUrl the new post url
 	 */
 	public void setPostUrl(String postUrl) {
 		this.postUrl = postUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getContent()
+	/**
+	 * Gets the content.
+	 * 
+	 * @return the content
 	 */
 	public String getContent() {
 		return content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setContent(java.lang.String)
+	/**
+	 * Sets the content.
+	 * 
+	 * @param content the new content
 	 */
 	public void setContent(String content) {
 		this.content = content;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getAuthor()
+	/**
+	 * Gets the author.
+	 * 
+	 * @return the author
 	 */
 	public String getAuthor() {
 		return author;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setAuthor(java.lang.String)
+	/**
+	 * Sets the author.
+	 * 
+	 * @param author the new author
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getBlogUrl()
+	/**
+	 * Gets the blog url.
+	 * 
+	 * @return the blog url
 	 */
 	public String getBlogUrl() {
 		return blogUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setBlogUrl(java.lang.String)
+	/**
+	 * Sets the blog url.
+	 * 
+	 * @param blogUrl the new blog url
 	 */
 	public void setBlogUrl(String blogUrl) {
 		this.blogUrl = blogUrl;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#getPublishedDate()
+	/**
+	 * Gets the published date.
+	 * 
+	 * @return the published date
 	 */
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.BlogResult#setPublishedDate(java.util.Date)
+	/**
+	 * Sets the published date.
+	 * 
+	 * @param publishedDate the new published date
 	 */
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;

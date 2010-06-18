@@ -15,18 +15,25 @@ public enum GsearchResultClass implements ValueEnum {
 	
 	/** The Glocal search. */
 	GlocalSearch("GlocalSearch"), 
+ 
  /** The Gblog search. */
  GblogSearch("GblogSearch"), 
+ 
  /** The Gbook search. */
  GbookSearch("GbookSearch"), 
+ 
  /** The Gimage search. */
  GimageSearch("GimageSearch"), 
+ 
  /** The Gnews search. */
  GnewsSearch("GnewsSearch"), 
+ 
  /** The Gpatent search. */
  GpatentSearch("GpatentSearch"), 
+ 
  /** The Gvideo search. */
  GvideoSearch("GvideoSearch"), 
+ 
  /** The Gweb search. */
  GwebSearch("GwebSearch");
 

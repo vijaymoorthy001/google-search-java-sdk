@@ -15,16 +15,22 @@ public enum ImageSize implements ValueEnum  {
 	
 	/** The ICON. */
 	ICON("icon"), 
+ 
  /** The SMALL. */
  SMALL("small"), 
+ 
  /** The MEDIUM. */
  MEDIUM("medium"), 
+ 
  /** The LARGE. */
  LARGE("large"), 
+ 
  /** The XLARGE. */
  XLARGE("xlarge"), 
+ 
  /** The XXLARGE. */
  XXLARGE("xxlarge"), 
+ 
  /** The HUGE. */
  HUGE("huge");
 	

@@ -15,6 +15,7 @@ public enum NewsEdition implements ValueEnum {
 	
 	/** The US. */
 	US("us"), 
+ 
  /** The UK. */
  UK("uk");
 	

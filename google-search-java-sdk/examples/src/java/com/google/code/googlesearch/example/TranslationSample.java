@@ -71,6 +71,11 @@ public class TranslationSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param detectResponse the detect response
+	 */
 	private static void printResponse(DetectLanguageResult detectResponse) {
 		System.out.println(detectResponse.getLanguage());
 		System.out.println(detectResponse.getConfidence());

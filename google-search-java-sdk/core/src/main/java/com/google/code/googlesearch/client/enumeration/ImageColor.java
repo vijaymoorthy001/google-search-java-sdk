@@ -15,26 +15,37 @@ public enum ImageColor implements ValueEnum {
 	
 	/** The BLACK. */
 	BLACK("black"), 
+ 
  /** The BLUE. */
  BLUE("blue"), 
+ 
  /** The BROWN. */
  BROWN("brown"), 
+ 
  /** The GRAY. */
  GRAY("gray"), 
+ 
  /** The GREEN. */
  GREEN("green"), 
+ 
  /** The ORANGE. */
  ORANGE("orange"), 
+ 
  /** The PINK. */
  PINK("pink"), 
+ 
  /** The PURPLE. */
  PURPLE("purple"), 
+ 
  /** The RED. */
  RED("red"), 
+ 
  /** The TEAL. */
  TEAL("teal"), 
+ 
  /** The WHITE. */
  WHITE("white"), 
+ 
  /** The YELLOW. */
  YELLOW("yellow");
 	

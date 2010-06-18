@@ -58,6 +58,9 @@ public class PatentSearchQueryImpl extends BaseGoogleSearchApiQuery<PatentResult
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
+	 */
 	@Override
 	protected PatentResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();

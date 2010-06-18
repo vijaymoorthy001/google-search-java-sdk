@@ -15,8 +15,10 @@ public enum PatentSearchType implements ValueEnum {
 	
 	/** The ALL. */
 	ALL(null), 
+ 
  /** The FILED. */
  FILED("as_psra"), 
+ 
  /** The ISSUED. */
  ISSUED("as_psrg");
 	

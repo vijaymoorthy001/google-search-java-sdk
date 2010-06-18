@@ -15,6 +15,7 @@ public enum PatentStatus implements ValueEnum {
 	
 	/** The FILED. */
 	FILED("filed"), 
+ 
  /** The ISSUED. */
  ISSUED("issued");
 	

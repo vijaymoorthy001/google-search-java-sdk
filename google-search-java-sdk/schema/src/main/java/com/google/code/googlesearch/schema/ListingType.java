@@ -11,7 +11,8 @@ import com.google.code.googlesearch.common.ValueEnum;
 public enum ListingType implements ValueEnum {
 	
 	/** The LOCAL. */
-	LOCAL("local"), /** The KML. */
+	LOCAL("local"), 
+ /** The KML. */
  KML("kml");
 	
     /** The Constant stringToEnum. */
