@@ -2,23 +2,34 @@ package com.google.code.googlesearch.client.impl;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import com.google.code.googlesearch.client.AsyncResponseHandler;
 import com.google.code.googlesearch.client.GoogleSearchException;
 import com.google.code.googlesearch.client.GoogleSearchQuery;
+import com.google.code.googlesearch.client.constant.ApplicationConstants;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
 import com.google.code.googlesearch.client.enumeration.ResultSetSize;
 import com.google.code.googlesearch.common.PagedArrayList;
 import com.google.code.googlesearch.common.PagedList;
+import com.google.code.googlesearch.schema.GsearchResultClass;
+import com.google.code.googlesearch.schema.ListingType;
+import com.google.code.googlesearch.schema.PatentStatus;
+import com.google.code.googlesearch.schema.VideoType;
+import com.google.code.googlesearch.schema.ViewPortMode;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 
 /**
  * The Class BaseGoogleSearchApiQuery.
@@ -29,7 +40,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	protected GoogleSearchApiUrlBuilder apiUrlBuilder;
     
     /** The parser. */
-    private final JSONParser parser = new JSONParser();
+    private final JsonParser parser = new JsonParser();
     
     /** The handlers. */
     private List<AsyncResponseHandler<PagedList<T>>> handlers = new ArrayList<AsyncResponseHandler<PagedList<T>>>();
@@ -67,11 +78,11 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		InputStream jsonContent = null;
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
-        	Object response = parser.parse(new InputStreamReader(jsonContent));
-        	if (response instanceof JSONObject) {
-        		PagedList<T> responseList = unmarshallList((JSONObject) response);
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent));
+        	if (response.isJsonObject()) {
+        		PagedList<T> responseList = unmarshallList(response.getAsJsonObject());
         		notifyObservers(responseList);
-				return responseList;
+    			return responseList;
         	}
         	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
         } catch (Exception e) {
@@ -81,6 +92,25 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	    }
 	}
 
+	private PagedList<T> unmarshallList(JsonObject response) {
+		int status = response.get("responseStatus").getAsInt();
+		if (status != 200) {
+			throw new GoogleSearchException(String.valueOf(response.get("responseDetails").getAsString()));
+		}
+		JsonObject data = response.get("responseData").getAsJsonObject();
+		PagedList<T> list = new PagedArrayList<T>();
+		if (data != null) { 
+			JsonArray results = data.get("results").getAsJsonArray();
+			for (JsonElement object : results) {
+				T element = unmarshall(object);
+				list.add(element);
+			}
+		} 
+		return list;
+	}
+
+	protected abstract T unmarshall(JsonElement object);
+
 	/* (non-Javadoc)
 	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#singleResult()
 	 */
@@ -89,14 +119,14 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		InputStream jsonContent = null;
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
-        	Object response = parser.parse(new InputStreamReader(jsonContent));
-        	if (response instanceof JSONObject) {
-        		JSONObject json = (JSONObject) response;
-        		int status = ((Long) json.get("responseStatus")).intValue();
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent));
+        	if (response.isJsonObject()) {
+        		JsonObject json = response.getAsJsonObject();
+        		int status = json.get("responseStatus").getAsInt();
         		if (status != 200) {
-        			throw new GoogleSearchException(String.valueOf(json.get("responseDetails")));
+        			throw new GoogleSearchException(json.get("responseDetails").getAsString());
         		}
-        		JSONObject data = (JSONObject) json.get("responseData");
+        		JsonElement data = json.get("responseData");
         		if (data != null) {
         			return unmarshall(data);
         		}
@@ -133,44 +163,59 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
     protected String marshallObject(Object element) {
     	return null;
     }
-	
-	/**
-	 * Unmarshall list.
-	 * 
-	 * @param json the json
-	 * 
-	 * @return the paged list< t>
-	 */
-	protected PagedList<T> unmarshallList(JSONObject json) {
-		int status = ((Long) json.get("responseStatus")).intValue();
-		if (status != 200) {
-			throw new GoogleSearchException(String.valueOf(json.get("responseDetails")));
-		}
-		JSONObject data = (JSONObject) json.get("responseData");
-		PagedList<T> list = new PagedArrayList<T>();
-		if (data != null) { 
-			JSONArray results = (JSONArray) data.get("results");
-			if (results != null) {
-				for (Object object : results) {
-					T element = unmarshall((JSONObject) object);
-					list.add(element);
-				}
+    
+	protected GsonBuilder getGsonBuilder() {
+		GsonBuilder builder = new GsonBuilder();
+		builder.setDateFormat(ApplicationConstants.RFC822DATEFORMAT);
+		builder.registerTypeAdapter(ListingType.class, new JsonDeserializer<ListingType>() {
+
+			@Override
+			public ListingType deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return ListingType.fromValue(arg0.getAsString());
 			}
-			JSONObject cursor = (JSONObject) data.get("cursor");
-			// TODO-NM: Set cursor
-		} 
-		return list;
+			
+		});
+		builder.registerTypeAdapter(PatentStatus.class, new JsonDeserializer<PatentStatus>() {
+
+			@Override
+			public PatentStatus deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return PatentStatus.fromValue(arg0.getAsString());
+			}
+			
+		});
+		builder.registerTypeAdapter(VideoType.class, new JsonDeserializer<VideoType>() {
+
+			@Override
+			public VideoType deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return VideoType.fromValue(arg0.getAsString());
+			}
+			
+		});
+		builder.registerTypeAdapter(ViewPortMode.class, new JsonDeserializer<ViewPortMode>() {
+
+			@Override
+			public ViewPortMode deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return ViewPortMode.fromValue(arg0.getAsString());
+			}
+			
+		});
+		builder.registerTypeAdapter(GsearchResultClass.class, new JsonDeserializer<GsearchResultClass>() {
+
+			@Override
+			public GsearchResultClass deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return GsearchResultClass.fromValue(arg0.getAsString());
+			}
+			
+		});
+		
+		return builder;
 	}
-	
-	/**
-	 * Unmarshall.
-	 * 
-	 * @param json the json
-	 * 
-	 * @return the t
-	 */
-	protected abstract T unmarshall(JSONObject json);
-	
+    
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.client.impl.GoogleSearchApiGateway#unmarshallObject(java.lang.Class, java.io.InputStream)
 	 */

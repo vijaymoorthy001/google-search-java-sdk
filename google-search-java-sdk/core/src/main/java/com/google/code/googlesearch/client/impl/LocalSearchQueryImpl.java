@@ -3,14 +3,14 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.LocalSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.LocalSearchType;
 import com.google.code.googlesearch.schema.LocalResult;
 import com.google.code.googlesearch.schema.adapter.json.LocalResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class LocalSearchQueryImpl.
@@ -66,13 +66,9 @@ public class LocalSearchQueryImpl extends BaseGoogleSearchApiQuery<LocalResult> 
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected LocalResult unmarshall(JSONObject json) {
-		LocalResultImpl result = new LocalResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected LocalResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, LocalResultImpl.class);
 	}
 }

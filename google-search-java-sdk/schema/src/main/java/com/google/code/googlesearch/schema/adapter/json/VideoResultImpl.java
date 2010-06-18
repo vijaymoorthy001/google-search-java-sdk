@@ -5,16 +5,13 @@ package com.google.code.googlesearch.schema.adapter.json;
 
 import java.util.Date;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.VideoResult;
 import com.google.code.googlesearch.schema.VideoType;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class VideoResultImpl.
  */
-public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Adaptable<VideoResult, JSONObject> {
+public class VideoResultImpl extends BaseJsonAdapter implements VideoResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -544563069546960689L;
@@ -272,23 +269,5 @@ public class VideoResultImpl extends BaseJsonAdapter implements VideoResult, Ada
 	 */
 	public void setVideoType(VideoType videoType) {
 		this.videoType = videoType;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

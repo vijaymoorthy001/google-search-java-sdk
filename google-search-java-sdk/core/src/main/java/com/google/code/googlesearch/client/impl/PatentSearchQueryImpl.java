@@ -3,8 +3,6 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.PatentSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
@@ -12,6 +10,8 @@ import com.google.code.googlesearch.client.enumeration.PatentSearchType;
 import com.google.code.googlesearch.client.enumeration.PatentSortOrder;
 import com.google.code.googlesearch.schema.PatentResult;
 import com.google.code.googlesearch.schema.adapter.json.PatentResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class PatentSearchQueryImpl.
@@ -59,13 +59,9 @@ public class PatentSearchQueryImpl extends BaseGoogleSearchApiQuery<PatentResult
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected PatentResult unmarshall(JSONObject json) {
-		PatentResultImpl result = new PatentResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected PatentResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, PatentResultImpl.class);
 	}
 }

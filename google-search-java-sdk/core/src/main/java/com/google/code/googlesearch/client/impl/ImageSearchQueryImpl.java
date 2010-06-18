@@ -3,8 +3,6 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.ImageSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
@@ -17,6 +15,8 @@ import com.google.code.googlesearch.client.enumeration.ImageType;
 import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.ImageResult;
 import com.google.code.googlesearch.schema.adapter.json.ImageResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class ImageSearchQueryImpl.
@@ -112,13 +112,9 @@ public class ImageSearchQueryImpl extends BaseGoogleSearchApiQuery<ImageResult> 
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected ImageResult unmarshall(JSONObject json) {
-		ImageResultImpl result = new ImageResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected ImageResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, ImageResultImpl.class);
 	}
 }

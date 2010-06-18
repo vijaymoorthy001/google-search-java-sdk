@@ -5,15 +5,12 @@ package com.google.code.googlesearch.schema.adapter.json;
 
 import java.util.Date;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.BlogResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class BlogResultImpl.
  */
-public class BlogResultImpl extends BaseJsonAdapter implements BlogResult, Adaptable<BlogResult, JSONObject> {
+public class BlogResultImpl extends BaseJsonAdapter implements BlogResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1556677921929249355L;
@@ -135,23 +132,5 @@ public class BlogResultImpl extends BaseJsonAdapter implements BlogResult, Adapt
 	 */
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

@@ -3,14 +3,14 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.TranslateLanguageQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.TranslationFormat;
 import com.google.code.googlesearch.schema.TranslateLanguageResult;
 import com.google.code.googlesearch.schema.adapter.json.TranslateLanguageResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class TranslateLanguageQueryImpl.
@@ -36,19 +36,6 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.LANGUAGE_TRANSLATE_URL);
 	}
 
-
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
-	@Override
-	protected TranslateLanguageResult unmarshall(JSONObject json) {
-		TranslateLanguageResultImpl result = new TranslateLanguageResultImpl();
-		result.adaptFrom(json);
-		return result;
-	}
-
-
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.client.TranslateLanguageQuery#withFormat(com.google.code.googlesearch.client.enumeration.TranslationFormat)
 	 */
@@ -71,5 +58,12 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 		}
 		apiUrlBuilder.withParameter(ParameterNames.LANGUAGE_PAIR, languagePair);
 		return this;
+	}
+
+
+	@Override
+	protected TranslateLanguageResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, TranslateLanguageResultImpl.class);
 	}
 }

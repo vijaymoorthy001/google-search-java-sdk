@@ -5,8 +5,6 @@ package com.google.code.googlesearch.client.impl;
 
 import java.util.Locale;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.WebSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
@@ -14,6 +12,8 @@ import com.google.code.googlesearch.client.enumeration.DuplicateContentFilter;
 import com.google.code.googlesearch.client.enumeration.SafetyLevel;
 import com.google.code.googlesearch.schema.WebResult;
 import com.google.code.googlesearch.schema.adapter.json.WebResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class WebSearchQueryImpl.
@@ -98,13 +98,9 @@ public class WebSearchQueryImpl extends BaseGoogleSearchApiQuery<WebResult> impl
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected WebResult unmarshall(JSONObject json) {
-		WebResultImpl result = new WebResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected WebResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, WebResultImpl.class);
 	}
 }

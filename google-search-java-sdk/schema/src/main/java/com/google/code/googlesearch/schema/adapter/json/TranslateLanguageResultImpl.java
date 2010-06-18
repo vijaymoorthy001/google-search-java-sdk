@@ -3,15 +3,12 @@
  */
 package com.google.code.googlesearch.schema.adapter.json;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.TranslateLanguageResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class TranslateLanguageResultImpl.
  */
-public class TranslateLanguageResultImpl extends BaseJsonAdapter implements TranslateLanguageResult, Adaptable<TranslateLanguageResult, JSONObject> {
+public class TranslateLanguageResultImpl extends BaseJsonAdapter implements TranslateLanguageResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7036808295558563537L;
@@ -48,23 +45,5 @@ public class TranslateLanguageResultImpl extends BaseJsonAdapter implements Tran
 	 */
 	public void setDetectedSourceLanguage(String detectedSourceLanguage) {
 		this.detectedSourceLanguage = detectedSourceLanguage;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

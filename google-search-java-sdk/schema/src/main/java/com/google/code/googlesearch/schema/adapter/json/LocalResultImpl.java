@@ -5,17 +5,14 @@ package com.google.code.googlesearch.schema.adapter.json;
 
 import java.util.List;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.ListingType;
 import com.google.code.googlesearch.schema.LocalResult;
 import com.google.code.googlesearch.schema.ViewPortMode;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class LocalResultImpl.
  */
-public class LocalResultImpl extends BaseJsonAdapter implements LocalResult, Adaptable<LocalResult, JSONObject> {
+public class LocalResultImpl extends BaseJsonAdapter implements LocalResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 6016892309811530169L;
@@ -358,23 +355,5 @@ public class LocalResultImpl extends BaseJsonAdapter implements LocalResult, Ada
 	 */
 	public void setViewportmode(ViewPortMode viewportmode) {
 		this.viewportmode = viewportmode;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

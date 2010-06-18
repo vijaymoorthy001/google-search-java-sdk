@@ -6,15 +6,12 @@ package com.google.code.googlesearch.schema.adapter.json;
 import java.util.Date;
 import java.util.List;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.NewsResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class NewsResultImpl.
  */
-public class NewsResultImpl extends BaseJsonAdapter implements NewsResult, Adaptable<NewsResult, JSONObject> {
+public class NewsResultImpl extends BaseJsonAdapter implements NewsResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 8463967785278054587L;
@@ -255,23 +252,5 @@ public class NewsResultImpl extends BaseJsonAdapter implements NewsResult, Adapt
 	 */
 	public void setSignedRedirectUrl(String signedRedirectUrl) {
 		this.signedRedirectUrl = signedRedirectUrl;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }

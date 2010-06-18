@@ -3,14 +3,14 @@
  */
 package com.google.code.googlesearch.client.impl;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.client.BookSearchQuery;
 import com.google.code.googlesearch.client.constant.GoogleSearchApiUrls;
 import com.google.code.googlesearch.client.constant.ParameterNames;
 import com.google.code.googlesearch.client.enumeration.BookSearchType;
 import com.google.code.googlesearch.schema.BookResult;
 import com.google.code.googlesearch.schema.adapter.json.BookResultImpl;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 /**
  * The Class BookSearchQueryImpl.
@@ -58,13 +58,9 @@ public class BookSearchQueryImpl extends BaseGoogleSearchApiQuery<BookResult> im
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(org.json.simple.JSONObject)
-	 */
 	@Override
-	protected BookResult unmarshall(JSONObject json) {
-		BookResultImpl result = new BookResultImpl();
-		result.adaptFrom(json);
-		return result;
+	protected BookResult unmarshall(JsonElement object) {
+		Gson gson = getGsonBuilder().create();
+		return gson.fromJson(object, BookResultImpl.class);
 	}
 }

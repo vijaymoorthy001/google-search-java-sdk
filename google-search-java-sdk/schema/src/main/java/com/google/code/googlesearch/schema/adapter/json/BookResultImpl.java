@@ -3,15 +3,12 @@
  */
 package com.google.code.googlesearch.schema.adapter.json;
 
-import org.json.simple.JSONObject;
-
 import com.google.code.googlesearch.schema.BookResult;
-import com.google.code.googlesearch.schema.adapter.Adaptable;
 
 /**
  * The Class BookResultImpl.
  */
-public class BookResultImpl extends BaseJsonAdapter implements BookResult, Adaptable<BookResult, JSONObject> {
+public class BookResultImpl extends BaseJsonAdapter implements BookResult {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1165875438932653598L;
@@ -218,23 +215,5 @@ public class BookResultImpl extends BaseJsonAdapter implements BookResult, Adapt
 	 */
 	public void setTbUrl(String tbUrl) {
 		this.tbUrl = tbUrl;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptFrom(java.lang.Object)
-	 */
-	@Override
-	public void adaptFrom(JSONObject adaptee) {
-		copyProperties(this, adaptee);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.schema.adapter.Adaptable#adaptTo()
-	 */
-	@Override
-	public JSONObject adaptTo() {
-		JSONObject adapter = new JSONObject();
-		copyProperties(adapter, this);
-		return adapter;
 	}
 }
