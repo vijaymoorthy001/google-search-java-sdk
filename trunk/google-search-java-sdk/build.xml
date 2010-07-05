@@ -79,13 +79,13 @@
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="BlogSample">
-        <java classname="com.google.code.googlesearch.example.BlogSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.BlogSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="BookSample">
-        <java classname="com.google.code.googlesearch.example.BookSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.BookSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
@@ -94,48 +94,48 @@
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="com.google.code.googlesearch.client.search.GoogleSearchJsonQueryTest" todir="${junit.output.dir}"/>
+            <test name="com.googleapis.ajax.service.search.GoogleSearchJsonQueryTest" todir="${junit.output.dir}"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </junit>
     </target>
     <target name="ImageSample (1)">
-        <java classname="com.google.code.googlesearch.example.ImageSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.ImageSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="LocalSample">
-        <java classname="com.google.code.googlesearch.example.LocalSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.LocalSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="NewsSample (1)">
-        <java classname="com.google.code.googlesearch.example.NewsSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.NewsSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="PatentSample">
-        <java classname="com.google.code.googlesearch.example.PatentSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.PatentSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="TranslationSample (1)">
-        <java classname="com.google.code.googlesearch.example.TranslationSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.TranslationSample" failonerror="true" fork="yes">
             <arg line="-appid BBQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;I am Nabeel.&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="VideoSample (1)">
-        <java classname="com.google.code.googlesearch.example.VideoSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.VideoSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query &quot;google&quot;"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
     </target>
     <target name="WebSample (1)">
-        <java classname="com.google.code.googlesearch.example.WebSample" failonerror="true" fork="yes">
+        <java classname="com.googleapis.ajax.services.example.WebSample" failonerror="true" fork="yes">
             <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRR-Ea0fe5c1ADb0JE4BMpQTAce0yxSTx4T4BTJneYVLRtRWdvdgxISOFA -query hadoop"/>
             <classpath refid="google-search-java-sdk.classpath"/>
         </java>
