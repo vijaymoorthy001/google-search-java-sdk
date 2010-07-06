@@ -20,6 +20,7 @@ import com.google.gson.JsonParser;
 import com.googleapis.ajax.common.PagedArrayList;
 import com.googleapis.ajax.common.PagedList;
 import com.googleapis.ajax.schema.GsearchResultClass;
+import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.ListingType;
 import com.googleapis.ajax.schema.PatentStatus;
 import com.googleapis.ajax.schema.PhoneNumberType;
@@ -31,7 +32,6 @@ import com.googleapis.ajax.services.GoogleSearchQuery;
 import com.googleapis.ajax.services.constant.ApplicationConstants;
 import com.googleapis.ajax.services.constant.ParameterNames;
 import com.googleapis.ajax.services.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
-import com.googleapis.ajax.services.enumeration.Language;
 import com.googleapis.ajax.services.enumeration.ResultSetSize;
 
 /**

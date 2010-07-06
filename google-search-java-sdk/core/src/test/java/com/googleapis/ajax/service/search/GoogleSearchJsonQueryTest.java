@@ -12,6 +12,7 @@ import com.googleapis.ajax.schema.BlogResult;
 import com.googleapis.ajax.schema.BookResult;
 import com.googleapis.ajax.schema.DetectLanguageResult;
 import com.googleapis.ajax.schema.ImageResult;
+import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.LocalResult;
 import com.googleapis.ajax.schema.NewsResult;
 import com.googleapis.ajax.schema.PatentResult;
@@ -30,7 +31,6 @@ import com.googleapis.ajax.services.TranslateLanguageQuery;
 import com.googleapis.ajax.services.VideoSearchQuery;
 import com.googleapis.ajax.services.WebSearchQuery;
 import com.googleapis.ajax.services.constant.TestConstants;
-import com.googleapis.ajax.services.enumeration.Language;
 
 /**
  * The Class GoogleSearchJsonQueryTest.

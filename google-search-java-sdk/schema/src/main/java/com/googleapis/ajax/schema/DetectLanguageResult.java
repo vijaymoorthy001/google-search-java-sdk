@@ -3,7 +3,6 @@
  */
 package com.googleapis.ajax.schema;
 
-import com.googleapis.ajax.services.enumeration.Language;
 
 
 /**
