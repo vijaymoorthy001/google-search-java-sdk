@@ -138,7 +138,12 @@ public final class GoogleSearchApiUrls {
 	     */
 	    public GoogleSearchApiUrlBuilder withParameter(String name, String value) {
 	    	if (value != null && value.length() > 0) {
-	    		parametersMap.put(name, Collections.singleton(encodeUrl(value)));
+	    		Collection<String> values = parametersMap.get(name);
+	    		if (values == null) {
+	    			values = new ArrayList<String>();
+		    		parametersMap.put(name, values);
+	    		}
+	    		values.add(encodeUrl(value));
 	    	}
     		
     		return this;

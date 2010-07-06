@@ -4,9 +4,14 @@
 package com.googleapis.ajax.services.impl;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.googleapis.ajax.common.PagedArrayList;
+import com.googleapis.ajax.common.PagedList;
 import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
+import com.googleapis.ajax.services.GoogleSearchException;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
 import com.googleapis.ajax.services.constant.GoogleSearchApiUrls;
 import com.googleapis.ajax.services.constant.ParameterNames;
@@ -60,7 +65,38 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 		return this;
 	}
 
-
+	/**
+	 * Unmarshall list.
+	 * 
+	 * @param response the response
+	 * 
+	 * @return the paged list< t>
+	 */
+	protected PagedList<TranslateLanguageResult> unmarshallList(JsonObject response) {
+		int status = response.get("responseStatus").getAsInt();
+		if (status != 200) {
+			throw new GoogleSearchException(String.valueOf(response.get("responseDetails").getAsString()));
+		}
+		JsonArray dataArray = response.get("responseData").getAsJsonArray();
+		PagedArrayList<TranslateLanguageResult> list = new PagedArrayList<TranslateLanguageResult>();
+		if (dataArray != null) {
+			for (JsonElement element : dataArray) {
+	        	if (element.isJsonObject()) {
+	        		JsonObject json = element.getAsJsonObject();
+	        		status = json.get("responseStatus").getAsInt();
+	        		if (status != 200) {
+	        			throw new GoogleSearchException(json.get("responseDetails").getAsString());
+	        		}
+	        		JsonElement data = json.get("responseData");
+	        		if (data != null) {
+	        			list.add(unmarshall(data));
+	        		}
+	        	}
+			}
+		} 
+		return list;
+	}
+	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
 	 */
