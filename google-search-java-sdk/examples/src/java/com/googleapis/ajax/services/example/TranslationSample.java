@@ -13,6 +13,7 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.googleapis.ajax.common.PagedList;
 import com.googleapis.ajax.schema.DetectLanguageResult;
 import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
@@ -65,11 +66,22 @@ public class TranslationSample {
     		DetectLanguageResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
     		printResponse(detectResponse);
     		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
-    		TranslateLanguageResult translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		PagedList<TranslateLanguageResult> translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withLanguagePair(null, Language.FRENCH).withQuery(line.getOptionValue(QUERY_OPTION)).list();
     		printResponse(translateResponse);
         } else {
         	printHelp(options);
         }
+	}
+
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
+	private static void printResponse(PagedList<TranslateLanguageResult> response) {
+		for (TranslateLanguageResult result : response) {
+			printResponse(result);
+		}
 	}
 
 	/**

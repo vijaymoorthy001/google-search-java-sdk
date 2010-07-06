@@ -102,7 +102,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	 * 
 	 * @return the paged list< t>
 	 */
-	private PagedList<T> unmarshallList(JsonObject response) {
+	protected PagedList<T> unmarshallList(JsonObject response) {
 		int status = response.get("responseStatus").getAsInt();
 		if (status != 200) {
 			throw new GoogleSearchException(String.valueOf(response.get("responseDetails").getAsString()));
