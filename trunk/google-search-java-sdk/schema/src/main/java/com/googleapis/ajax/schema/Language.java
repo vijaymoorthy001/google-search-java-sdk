@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.googleapis.ajax.services.enumeration;
+package com.googleapis.ajax.schema;
 
 import java.util.HashMap;
 import java.util.Map;

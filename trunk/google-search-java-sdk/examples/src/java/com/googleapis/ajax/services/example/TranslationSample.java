@@ -14,11 +14,11 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import com.googleapis.ajax.schema.DetectLanguageResult;
+import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
 import com.googleapis.ajax.services.DetectLanguageQuery;
 import com.googleapis.ajax.services.GoogleSearchQueryFactory;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
-import com.googleapis.ajax.services.enumeration.Language;
 
 /**
  * The Class TranslationSample.

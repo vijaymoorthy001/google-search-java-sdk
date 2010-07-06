@@ -3,8 +3,8 @@
  */
 package com.googleapis.ajax.services;
 
+import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
-import com.googleapis.ajax.services.enumeration.Language;
 import com.googleapis.ajax.services.enumeration.TranslationFormat;
 
 /**
