@@ -45,43 +45,43 @@ public final class GoogleSearchApiUrls {
 
     /** The Constant SEARCH_WEB_URL. */
     public static final String SEARCH_WEB_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.web");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.web");
     
     /** The Constant SEARCH_LOCAL_URL. */
     public static final String SEARCH_LOCAL_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.local");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.local");
     
     /** The Constant SEARCH_VIDEO_URL. */
     public static final String SEARCH_VIDEO_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.video");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.video");
     
     /** The Constant SEARCH_BLOG_URL. */
     public static final String SEARCH_BLOG_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.blog");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.blog");
     
     /** The Constant SEARCH_NEWS_URL. */
     public static final String SEARCH_NEWS_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.new");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.new");
     
     /** The Constant SEARCH_BOOK_URL. */
     public static final String SEARCH_BOOK_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.book");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.book");
     
     /** The Constant SEARCH_IMAGE_URL. */
     public static final String SEARCH_IMAGE_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.image");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.image");
     
     /** The Constant SEARCH_PATENT_URL. */
     public static final String SEARCH_PATENT_URL =
-        googleApiUrls.getProperty("com.google.code.google.search.url.patent");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.search.patent");
     
     /** The Constant LANGUAGE_TRANSLATE_URL. */
     public static final String LANGUAGE_TRANSLATE_URL =
-        googleApiUrls.getProperty("com.google.code.google.language.url.translate");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.language.translate");
     
     /** The Constant LANGUAGE_DETECT_URL. */
     public static final String LANGUAGE_DETECT_URL =
-        googleApiUrls.getProperty("com.google.code.google.language.url.detect");
+        googleApiUrls.getProperty("com.googleapis.ajax.services.language.detect");
     
     /**
      * Instantiates a new google search api urls.
