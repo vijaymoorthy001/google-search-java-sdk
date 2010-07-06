@@ -26,15 +26,15 @@ public final class TestConstants {
     
     /** The Constant TEST_API_KEY. */
     public static final String TEST_API_KEY =
-        testConstants.getProperty("com.google.code.google.search.client.applicationId");
+        testConstants.getProperty("com.googleapis.ajax.services.client.applicationId");
     
     /** The Constant TEST_REFERRER. */
     public static final String TEST_REFERRER =
-        testConstants.getProperty("com.google.code.google.search.client.referrer");
+        testConstants.getProperty("com.googleapis.ajax.services.client.referrer");
     
     /** The Constant TEST_QUERY. */
     public static final String TEST_QUERY =
-        testConstants.getProperty("com.google.code.google.search.client.testQuery");
+        testConstants.getProperty("com.googleapis.ajax.services.client.testQuery");
     
     /**
      * Instantiates a new test constants.
