@@ -3,6 +3,8 @@
  */
 package com.googleapis.ajax.schema;
 
+import com.googleapis.ajax.services.enumeration.Language;
+
 
 /**
  * The Class TranslateLanguageResult.
@@ -16,7 +18,7 @@ public class TranslateLanguageResult extends SchemaEntity {
 	private String translatedText;
 	
 	/** The detected source language. */
-	private String detectedSourceLanguage;
+	private Language detectedSourceLanguage;
 	
 	/**
 	 * Gets the translated text.
@@ -41,7 +43,7 @@ public class TranslateLanguageResult extends SchemaEntity {
 	 * 
 	 * @return the detected source language
 	 */
-	public String getDetectedSourceLanguage() {
+	public Language getDetectedSourceLanguage() {
 		return detectedSourceLanguage;
 	}
 	
@@ -50,7 +52,7 @@ public class TranslateLanguageResult extends SchemaEntity {
 	 * 
 	 * @param detectedSourceLanguage the new detected source language
 	 */
-	public void setDetectedSourceLanguage(String detectedSourceLanguage) {
+	public void setDetectedSourceLanguage(Language detectedSourceLanguage) {
 		this.detectedSourceLanguage = detectedSourceLanguage;
 	}
 }

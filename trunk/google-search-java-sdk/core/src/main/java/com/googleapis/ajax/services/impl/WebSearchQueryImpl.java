@@ -12,6 +12,7 @@ import com.googleapis.ajax.services.WebSearchQuery;
 import com.googleapis.ajax.services.constant.GoogleSearchApiUrls;
 import com.googleapis.ajax.services.constant.ParameterNames;
 import com.googleapis.ajax.services.enumeration.DuplicateContentFilter;
+import com.googleapis.ajax.services.enumeration.LanguageFilter;
 import com.googleapis.ajax.services.enumeration.SafetyLevel;
 
 /**
@@ -82,8 +83,8 @@ public class WebSearchQueryImpl extends BaseGoogleSearchApiQuery<WebResult> impl
 	 * @see com.google.code.googlesearch.client.WebSearchQuery#withLanguage(java.util.Locale)
 	 */
 	@Override
-	public WebSearchQuery withLanguage(Locale language) {
-		apiUrlBuilder.withParameter(ParameterNames.LANGUAGE_RESTRICTION, language.getLanguage());
+	public WebSearchQuery withLanguage(LanguageFilter language) {
+		apiUrlBuilder.withParameterEnum(ParameterNames.LANGUAGE_RESTRICTION, language);
 		return this;
 	}
 

@@ -4,6 +4,7 @@
 package com.googleapis.ajax.services;
 
 import com.googleapis.ajax.schema.TranslateLanguageResult;
+import com.googleapis.ajax.services.enumeration.Language;
 import com.googleapis.ajax.services.enumeration.TranslationFormat;
 
 /**
@@ -19,7 +20,7 @@ public interface TranslateLanguageQuery extends GoogleSearchQuery<TranslateLangu
 	 * 
 	 * @return the translate language query
 	 */
-	public TranslateLanguageQuery withLanguagePair(String sourceLanguage, String targetLanguage);
+	public TranslateLanguageQuery withLanguagePair(Language sourceLanguage, Language targetLanguage);
 	
 	/**
 	 * With format.

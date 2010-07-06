@@ -9,6 +9,7 @@ import com.googleapis.ajax.schema.TranslateLanguageResult;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
 import com.googleapis.ajax.services.constant.GoogleSearchApiUrls;
 import com.googleapis.ajax.services.constant.ParameterNames;
+import com.googleapis.ajax.services.enumeration.Language;
 import com.googleapis.ajax.services.enumeration.TranslationFormat;
 
 /**
@@ -49,11 +50,11 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	 * @see com.google.code.googlesearch.client.TranslateLanguageQuery#withLanguagePair(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public TranslateLanguageQuery withLanguagePair(String sourceLanguage,
-			String targetLanguage) {
-		String languagePair = "|" + targetLanguage;
+	public TranslateLanguageQuery withLanguagePair(Language sourceLanguage,
+			Language targetLanguage) {
+		String languagePair = "|" + targetLanguage.value();
 		if (sourceLanguage != null) {
-			languagePair = sourceLanguage + languagePair;
+			languagePair = sourceLanguage.value() + languagePair;
 		}
 		apiUrlBuilder.withParameter(ParameterNames.LANGUAGE_PAIR, languagePair);
 		return this;
