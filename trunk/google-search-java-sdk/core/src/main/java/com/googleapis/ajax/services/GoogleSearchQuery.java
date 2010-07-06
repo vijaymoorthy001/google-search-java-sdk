@@ -76,7 +76,16 @@ public interface GoogleSearchQuery<T> extends GoogleSearchAuthenticationClient {
 	 * 
 	 * @return the google search query< t>
 	 */
-	public GoogleSearchQuery<T> withSiteSearch(String site);	
+	public GoogleSearchQuery<T> withSiteRestriction(String site);	
+	
+	/**
+	 * With site search.
+	 * 
+	 * @param site the site
+	 * 
+	 * @return the google search query< t>
+	 */
+	public GoogleSearchQuery<T> withRelatedSite(String site);
 	
 	/**
 	 * Single result.

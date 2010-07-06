@@ -150,6 +150,29 @@ public final class GoogleSearchApiUrls {
     	}
     	
     	/**
+	     * With parameter.
+	     * 
+	     * @param name the name
+	     * @param value the value
+	     * 
+	     * @return the google search api url builder
+	     */
+	    public GoogleSearchApiUrlBuilder withParameterSuffix(String name, String suffix) {
+	    	if (suffix != null && suffix.length() > 0) {
+	    		Collection<String> values = parametersMap.get(name);
+	    		if (values != null) {
+	    			List<String> updatedValues = new ArrayList<String>(values.size());
+	    			for (String value : values) {
+	    				updatedValues.add(encodeUrl(suffix) + value);	    				
+	    			}
+		    		parametersMap.put(name, updatedValues);
+	    		}
+	    	}
+    		
+    		return this;
+    	}
+	    
+    	/**
 	     * With parameters.
 	     * 
 	     * @param name the name

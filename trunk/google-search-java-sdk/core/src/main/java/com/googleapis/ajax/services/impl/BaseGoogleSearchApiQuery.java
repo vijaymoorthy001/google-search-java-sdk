@@ -327,11 +327,17 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withSiteSearch(java.lang.String)
 	 */
 	@Override
-	public GoogleSearchQuery<T> withSiteSearch(String site) {
-		// TODO Auto-generated method stub
+	public GoogleSearchQuery<T> withSiteRestriction(String site) {
+		apiUrlBuilder.withParameterSuffix(ParameterNames.QUERY, ParameterNames.SITE_SUFFIX + site + " ");
 		return this;
 	}
 
+	@Override
+	public GoogleSearchQuery<T> withRelatedSite(String site) {
+		apiUrlBuilder.withParameterSuffix(ParameterNames.QUERY, ParameterNames.RELATED_SUFFIX + site + " ");
+		return this;
+	}
+	
 	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withStartIndex(int)
 	 */
