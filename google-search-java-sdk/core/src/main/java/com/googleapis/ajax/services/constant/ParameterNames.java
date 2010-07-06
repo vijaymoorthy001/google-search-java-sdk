@@ -122,5 +122,11 @@ public interface ParameterNames {
 	public static final String LANGUAGE_PAIR = "langpair";
 	
 	/** The Constant FORMAT. */
-	public static final String FORMAT= "format";
+	public static final String FORMAT = "format";
+	
+	/** The Constant SITE_SUFFIX. */
+	public static final String SITE_SUFFIX = "site:";
+	
+	/** The Constant RELATED_SUFFIX. */
+	public static final String RELATED_SUFFIX = "related:";
 }
