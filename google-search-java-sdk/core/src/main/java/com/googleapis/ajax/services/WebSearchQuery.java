@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import com.googleapis.ajax.schema.WebResult;
 import com.googleapis.ajax.services.enumeration.DuplicateContentFilter;
+import com.googleapis.ajax.services.enumeration.LanguageFilter;
 import com.googleapis.ajax.services.enumeration.SafetyLevel;
 
 /**
@@ -48,7 +49,7 @@ public interface WebSearchQuery extends GoogleSearchQuery<WebResult> {
 	 * 
 	 * @return the web search query
 	 */
-	public WebSearchQuery withLanguage(Locale language);
+	public WebSearchQuery withLanguage(LanguageFilter language);
 	
 	/**
 	 * With country.

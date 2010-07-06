@@ -31,6 +31,7 @@ import com.googleapis.ajax.services.GoogleSearchQuery;
 import com.googleapis.ajax.services.constant.ApplicationConstants;
 import com.googleapis.ajax.services.constant.ParameterNames;
 import com.googleapis.ajax.services.constant.GoogleSearchApiUrls.GoogleSearchApiUrlBuilder;
+import com.googleapis.ajax.services.enumeration.Language;
 import com.googleapis.ajax.services.enumeration.ResultSetSize;
 
 /**
@@ -245,6 +246,14 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 				return PhoneNumberType.fromValue(arg0.getAsString());
 			}
 			
+		});
+		builder.registerTypeAdapter(Language.class, new JsonDeserializer<Language>() {
+
+			@Override
+			public Language deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return Language.fromValue(arg0.getAsString());
+			}
 		});
 		
 		return builder;

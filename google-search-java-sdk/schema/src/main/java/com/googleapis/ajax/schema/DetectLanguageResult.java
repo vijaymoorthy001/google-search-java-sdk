@@ -3,6 +3,8 @@
  */
 package com.googleapis.ajax.schema;
 
+import com.googleapis.ajax.services.enumeration.Language;
+
 
 /**
  * The Class DetectLanguageResult.
@@ -13,7 +15,7 @@ public class DetectLanguageResult extends SchemaEntity {
 	private static final long serialVersionUID = -7595223844163364948L;
 	
 	/** The language. */
-	private String language;
+	private Language language;
 	
 	/** The reliable. */
 	private boolean reliable;
@@ -26,7 +28,7 @@ public class DetectLanguageResult extends SchemaEntity {
 	 * 
 	 * @return the language
 	 */
-	public String getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 	
@@ -35,7 +37,7 @@ public class DetectLanguageResult extends SchemaEntity {
 	 * 
 	 * @param language the new language
 	 */
-	public void setLanguage(String language) {
+	public void setLanguage(Language language) {
 		this.language = language;
 	}
 	

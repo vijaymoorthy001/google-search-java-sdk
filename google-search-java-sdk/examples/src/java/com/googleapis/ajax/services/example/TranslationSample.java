@@ -18,6 +18,7 @@ import com.googleapis.ajax.schema.TranslateLanguageResult;
 import com.googleapis.ajax.services.DetectLanguageQuery;
 import com.googleapis.ajax.services.GoogleSearchQueryFactory;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
+import com.googleapis.ajax.services.enumeration.Language;
 
 /**
  * The Class TranslationSample.
@@ -64,7 +65,7 @@ public class TranslationSample {
     		DetectLanguageResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
     		printResponse(detectResponse);
     		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
-    		TranslateLanguageResult translateResponse = translateQuery.withLanguagePair(null, "de").withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		TranslateLanguageResult translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
     		printResponse(translateResponse);
         } else {
         	printHelp(options);

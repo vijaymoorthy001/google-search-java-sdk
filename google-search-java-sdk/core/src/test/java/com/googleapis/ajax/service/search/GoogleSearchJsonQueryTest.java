@@ -30,6 +30,7 @@ import com.googleapis.ajax.services.TranslateLanguageQuery;
 import com.googleapis.ajax.services.VideoSearchQuery;
 import com.googleapis.ajax.services.WebSearchQuery;
 import com.googleapis.ajax.services.constant.TestConstants;
+import com.googleapis.ajax.services.enumeration.Language;
 
 /**
  * The Class GoogleSearchJsonQueryTest.
@@ -162,7 +163,7 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 	public void testTranslateLanguage() {
     	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
 		TranslateLanguageQuery query = factory.newTranslateLanguageQuery();
-		TranslateLanguageResult result = query.withLanguagePair(null, "de").withQuery(TestConstants.TEST_QUERY).singleResult();
+		TranslateLanguageResult result = query.withLanguagePair(null, Language.GERMAN).withQuery(TestConstants.TEST_QUERY).singleResult();
 		assertNotNull("Search result should not be null or empty.", result);
 	}
 }
