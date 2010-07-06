@@ -16,7 +16,7 @@ public abstract class SchemaEntity implements Serializable {
     protected final Logger logger = Logger.getLogger(getClass().getCanonicalName());
 	
 	/** The gsearch result class. */
-	private GsearchResultClass gsearchResultClass;
+	private GsearchResultClass GsearchResultClass;
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 250056223059654638L;
@@ -27,7 +27,7 @@ public abstract class SchemaEntity implements Serializable {
 	 * @return the gsearch result class
 	 */
 	public GsearchResultClass getGsearchResultClass() {
-		return gsearchResultClass;
+		return GsearchResultClass;
 	}
 
 	/**
@@ -36,6 +36,6 @@ public abstract class SchemaEntity implements Serializable {
 	 * @param gsearchResultClass the new gsearch result class
 	 */
 	public void setGsearchResultClass(GsearchResultClass gsearchResultClass) {
-		this.gsearchResultClass = gsearchResultClass;
+		this.GsearchResultClass = gsearchResultClass;
 	}
 }
