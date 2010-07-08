@@ -31,13 +31,6 @@ public final class ApplicationConstants {
         }
     }
 
-    /** The Constant VALIDATE_XML. */
-    public static final boolean VALIDATE_XML = getBooleanProperty("com.google.code.stackexchange.client.validateXml");
-
-    /** The Constant DEFAULT_PAGE_SIZE. */
-    public static final int DEFAULT_PAGE_SIZE =
-        getIntProperty("com.googleapis.ajax.services.client.defaultPageSize");
-
     /** The Constant CONTENT_ENCODING. */
     public static final String CONTENT_ENCODING = getProperty("com.googleapis.ajax.services.client.encoding");
 
