@@ -4,6 +4,29 @@
   <artifactId>google-search-java-sdk</artifactId>
   <packaging>pom</packaging>
   <version>0.1</version>
+  <name>Google AJAX APIs Java SDK</name>
+  <inceptionYear>2010</inceptionYear>
+  <description>A Java wrapper for Google AJAX APIs.</description>
+  <url>http://code.google.com/p/google-search-java-sdk/</url>
+
+  <issueManagement>
+    <system>google-code</system>
+    <url>http://code.google.com/p/google-search-java-sdk/issues/list</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:svn:http://google-search-java-sdk.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://google-search-java-sdk.googlecode.com/svn/trunk</developerConnection>
+    <url>http://google-search-java-sdk.googlecode.com/svn/trunk/</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Nabeel Mukhtar</name>
+      <id>nabeelmukhtar</id>
+    </developer>
+  </developers>
+	
   <modules>
     <module>schema</module>
     <module>core</module>
