@@ -3,6 +3,7 @@ package com.googleapis.ajax.services.impl;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +40,8 @@ import com.googleapis.ajax.services.enumeration.ResultSetSize;
  */
 public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway implements GoogleSearchQuery<T> {
 	
+	protected static final Charset UTF_8_CHAR_SET = Charset.forName(ApplicationConstants.CONTENT_ENCODING);
+
 	/** The api url builder. */
 	protected GoogleSearchApiUrlBuilder apiUrlBuilder;
     
@@ -81,7 +84,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		InputStream jsonContent = null;
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
-        	JsonElement response = parser.parse(new InputStreamReader(jsonContent));
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
         	if (response.isJsonObject()) {
         		PagedList<T> responseList = unmarshallList(response.getAsJsonObject());
         		notifyObservers(responseList);
@@ -140,7 +143,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 		InputStream jsonContent = null;
         try {
         	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
-        	JsonElement response = parser.parse(new InputStreamReader(jsonContent));
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
         	if (response.isJsonObject()) {
         		JsonObject json = response.getAsJsonObject();
         		int status = json.get("responseStatus").getAsInt();
