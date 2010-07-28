@@ -23,8 +23,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -186,27 +190,31 @@ public abstract class GoogleSearchApiGateway {
 	}
 
 	/**
-	 * Call api method.
+	 * Call api get.
 	 * 
-	 * @param apiUrl the api url
+	 * @param apiUrl
+	 *            the api url
 	 * 
 	 * @return the input stream
 	 */
-	protected InputStream callApiMethod(String apiUrl) {
-		return callApiMethod(apiUrl, HttpURLConnection.HTTP_OK);
+	protected InputStream callApiGet(String apiUrl) {
+		return callApiGet(apiUrl, HttpURLConnection.HTTP_OK);
 	}
 
 	/**
-	 * Call api method.
+	 * Call api get.
 	 * 
-	 * @param apiUrl the api url
-	 * @param expected the expected
+	 * @param apiUrl
+	 *            the api url
+	 * @param expected
+	 *            the expected
 	 * 
 	 * @return the input stream
 	 */
-	protected InputStream callApiMethod(String apiUrl, int expected) {
+	protected InputStream callApiGet(String apiUrl, int expected) {
 	    try {
 	        URL               url     = new URL(apiUrl);
+	        
 	        HttpURLConnection request = (HttpURLConnection) url.openConnection();
 	
 	        if (ApplicationConstants.CONNECT_TIMEOUT > -1) {
@@ -233,63 +241,161 @@ public abstract class GoogleSearchApiGateway {
 	        throw new GoogleSearchException(e);
 	    }
 	}
+	
+	/**
+	 * Call api post.
+	 * 
+	 * @param apiUrl
+	 *            the api url
+	 * @param parameters
+	 *            the parameters
+	 * 
+	 * @return the input stream
+	 */
+	protected InputStream callApiPost(String apiUrl, Map<String, List<String>> parameters) {
+		return callApiPost(apiUrl, parameters, HttpURLConnection.HTTP_OK);
+	}
+	
+	/**
+	 * Call api post.
+	 * 
+	 * @param apiUrl
+	 *            the api url
+	 * @param parameters
+	 *            the parameters
+	 * @param expected
+	 *            the expected
+	 * 
+	 * @return the input stream
+	 */
+	protected InputStream callApiPost(String apiUrl, Map<String, List<String>> parameters, int expected) {
+		try {
+            URL               url     = new URL(apiUrl);
+            HttpURLConnection request = (HttpURLConnection) url.openConnection();
 
+            if (ApplicationConstants.CONNECT_TIMEOUT > -1) {
+                request.setConnectTimeout(ApplicationConstants.CONNECT_TIMEOUT);
+            }
+
+            if (ApplicationConstants.READ_TIMEOUT > -1) {
+                request.setReadTimeout(ApplicationConstants.READ_TIMEOUT);
+            }
+            
+            for (String headerName : requestHeaders.keySet()) {
+                request.setRequestProperty(headerName, requestHeaders.get(headerName));
+            }
+            
+            request.setRequestMethod("POST");
+            request.setDoOutput(true);
+
+            PrintStream out = new PrintStream(new BufferedOutputStream(request.getOutputStream()));
+            
+            out.print(getParametersString(parameters));
+            out.flush();
+            out.close();
+
+            request.connect();
+            
+	        if (request.getResponseCode() != expected) {
+	            throw new GoogleSearchException(convertStreamToString(request.getErrorStream()));
+	        } else {
+	            return getWrappedInputStream(request.getInputStream(),
+	                                         GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
+	        }
+		} catch (IOException e) {
+	        throw new GoogleSearchException(e);
+		}
+	}
+	
+	/**
+	 * Gets the parameters string.
+	 * 
+	 * @param parameters
+	 *            the parameters
+	 * 
+	 * @return the parameters string
+	 */
+	protected String getParametersString(Map<String, List<String>> parameters) {
+		StringBuilder builder = new StringBuilder();
+		for (Iterator<Map.Entry<String, List<String>>> iter1 = parameters.entrySet().iterator(); iter1.hasNext();) {
+			Map.Entry<String, List<String>> entry = iter1.next();
+			for (Iterator<String> iter2 = entry.getValue().iterator(); iter2.hasNext();) {
+				builder.append(entry.getKey());
+				builder.append("=");
+				builder.append(encodeUrl(iter2.next()));
+				if (iter2.hasNext()) {
+					builder.append("&");				
+				}
+			}
+			if (iter1.hasNext()) {
+				builder.append("&");				
+			}
+		}
+		
+		return builder.toString();
+	}
+	
 	/**
 	 * Call api method.
 	 * 
-	 * @param apiUrl the api url
-	 * @param xmlContent the xml content
-	 * @param contentType the content type
-	 * @param method the method
-	 * @param expected the expected
+	 * @param apiUrl
+	 *            the api url
+	 * @param xmlContent
+	 *            the xml content
+	 * @param contentType
+	 *            the content type
+	 * @param method
+	 *            the method
+	 * @param expected
+	 *            the expected
 	 * 
 	 * @return the input stream
 	 */
 	protected InputStream callApiMethod(String apiUrl, String xmlContent, String contentType,
 			String method, int expected) {
-			    try {
-			        URL               url     = new URL(apiUrl);
-			        HttpURLConnection request = (HttpURLConnection) url.openConnection();
-			
-			        if (ApplicationConstants.CONNECT_TIMEOUT > -1) {
-			            request.setConnectTimeout(ApplicationConstants.CONNECT_TIMEOUT);
-			        }
-			
-			        if (ApplicationConstants.READ_TIMEOUT > -1) {
-			            request.setReadTimeout(ApplicationConstants.READ_TIMEOUT);
-			        }
-			
-			        for (String headerName : requestHeaders.keySet()) {
-			            request.setRequestProperty(headerName, requestHeaders.get(headerName));
-			        }
-			
-			        request.setRequestMethod(method);
-			        request.setDoOutput(true);
-			
-			        if (contentType != null) {
-			            request.setRequestProperty("Content-Type", contentType);
-			        }
-			
-			        if (xmlContent != null) {
-			            PrintStream out = new PrintStream(new BufferedOutputStream(request.getOutputStream()));
-			
-			            out.print(xmlContent);
-			            out.flush();
-			            out.close();
-			        }
-			
-			        request.connect();
-			        
-			        if (request.getResponseCode() != expected) {
-			            throw new GoogleSearchException(convertStreamToString(request.getErrorStream()));
-			        } else {
-			            return getWrappedInputStream(request.getInputStream(),
-			                                         GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
-			        }
-			    } catch (IOException e) {
-			        throw new GoogleSearchException(e);
-			    }
-			}
+	    try {
+	        URL               url     = new URL(apiUrl);
+	        HttpURLConnection request = (HttpURLConnection) url.openConnection();
+	
+	        if (ApplicationConstants.CONNECT_TIMEOUT > -1) {
+	            request.setConnectTimeout(ApplicationConstants.CONNECT_TIMEOUT);
+	        }
+	
+	        if (ApplicationConstants.READ_TIMEOUT > -1) {
+	            request.setReadTimeout(ApplicationConstants.READ_TIMEOUT);
+	        }
+	
+	        for (String headerName : requestHeaders.keySet()) {
+	            request.setRequestProperty(headerName, requestHeaders.get(headerName));
+	        }
+	
+	        request.setRequestMethod(method);
+	        request.setDoOutput(true);
+	
+	        if (contentType != null) {
+	            request.setRequestProperty("Content-Type", contentType);
+	        }
+	
+	        if (xmlContent != null) {
+	            PrintStream out = new PrintStream(new BufferedOutputStream(request.getOutputStream()));
+	
+	            out.print(xmlContent);
+	            out.flush();
+	            out.close();
+	        }
+	
+	        request.connect();
+	        
+	        if (request.getResponseCode() != expected) {
+	            throw new GoogleSearchException(convertStreamToString(request.getErrorStream()));
+	        } else {
+	            return getWrappedInputStream(request.getInputStream(),
+	                                         GZIP_ENCODING.equalsIgnoreCase(request.getContentEncoding()));
+	        }
+	    } catch (IOException e) {
+	        throw new GoogleSearchException(e);
+	    }
+	}
 
 	/**
 	 * Close stream.
@@ -356,7 +462,23 @@ public abstract class GoogleSearchApiGateway {
 	    }
 	}
 	
-
+    /**
+	 * Encode url.
+	 * 
+	 * @param original
+	 *            the original
+	 * 
+	 * @return the string
+	 */
+    private static String encodeUrl(String original) {
+    	try {
+			return URLEncoder.encode(original, ApplicationConstants.CONTENT_ENCODING);
+		} catch (UnsupportedEncodingException e) {
+			// should never be here..
+			return original;
+		}
+    }
+	
     /**
      * Unmarshall object.
      * 

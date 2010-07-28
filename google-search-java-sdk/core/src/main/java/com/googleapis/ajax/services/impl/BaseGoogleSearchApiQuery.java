@@ -62,7 +62,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	protected GoogleSearchApiUrlBuilder apiUrlBuilder;
     
     /** The parser. */
-    private final JsonParser parser = new JsonParser();
+    protected final JsonParser parser = new JsonParser();
     
     /** The handlers. */
     private List<AsyncResponseHandler<PagedList<T>>> handlers = new ArrayList<AsyncResponseHandler<PagedList<T>>>();
@@ -99,7 +99,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	public PagedList<T> list() {
 		InputStream jsonContent = null;
         try {
-        	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
+        	jsonContent = callApiGet(apiUrlBuilder.buildUrl());
         	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
         	if (response.isJsonObject()) {
         		PagedList<T> responseList = unmarshallList(response.getAsJsonObject());
@@ -158,7 +158,7 @@ public abstract class BaseGoogleSearchApiQuery<T> extends GoogleSearchApiGateway
 	public T singleResult() {
 		InputStream jsonContent = null;
         try {
-        	jsonContent = callApiMethod(apiUrlBuilder.buildUrl());
+        	jsonContent = callApiGet(apiUrlBuilder.buildUrl());
         	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
         	if (response.isJsonObject()) {
         		JsonObject json = response.getAsJsonObject();
