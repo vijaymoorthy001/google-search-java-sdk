@@ -16,6 +16,13 @@
  */
 package com.googleapis.ajax.services.impl;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -35,6 +42,7 @@ import com.googleapis.ajax.services.enumeration.TranslationFormat;
  */
 public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<TranslateLanguageResult> implements
 	TranslateLanguageQuery {
+	private Map<String, List<String>> parameters = new HashMap<String, List<String>>(); 
 	
 	/**
 	 * Instantiates a new translate language query impl.
@@ -59,7 +67,8 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	 */
 	@Override
 	public TranslateLanguageQuery withFormat(TranslationFormat format) {
-		apiUrlBuilder.withParameterEnum(ParameterNames.FORMAT, format);
+//		apiUrlBuilder.withParameterEnum(ParameterNames.FORMAT, format);
+		putParameters(ParameterNames.FORMAT, format.value());
 		return this;
 	}
 
@@ -74,8 +83,61 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 		if (sourceLanguage != null) {
 			languagePair = sourceLanguage.value() + languagePair;
 		}
-		apiUrlBuilder.withParameter(ParameterNames.LANGUAGE_PAIR, languagePair);
+//		apiUrlBuilder.withParameter(ParameterNames.LANGUAGE_PAIR, languagePair);
+		putParameters(ParameterNames.LANGUAGE_PAIR, languagePair);
 		return this;
+	}
+	
+	@Override
+	public TranslateLanguageQuery withQuery(String query) {
+//		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
+		putParameters(ParameterNames.QUERY, query);
+		return this;
+	}
+	
+	
+	@Override
+	public PagedList<TranslateLanguageResult> list() {
+		InputStream jsonContent = null;
+        try {
+        	jsonContent = callApiPost(apiUrlBuilder.buildUrl(), parameters);
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
+        	if (response.isJsonObject()) {
+        		PagedList<TranslateLanguageResult> responseList = unmarshallList(response.getAsJsonObject());
+        		notifyObservers(responseList);
+    			return responseList;
+        	}
+        	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
+        } catch (Exception e) {
+            throw new GoogleSearchException(e);
+        } finally {
+	        closeStream(jsonContent);
+	    }
+	}
+	
+	@Override
+	public TranslateLanguageResult singleResult() {
+		InputStream jsonContent = null;
+        try {
+        	jsonContent = callApiPost(apiUrlBuilder.buildUrl(), parameters);
+        	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
+        	if (response.isJsonObject()) {
+        		JsonObject json = response.getAsJsonObject();
+        		int status = json.get("responseStatus").getAsInt();
+        		if (status != 200) {
+        			throw new GoogleSearchException(json.get("responseDetails").getAsString());
+        		}
+        		JsonElement data = json.get("responseData");
+        		if (data != null) {
+        			return unmarshall(data);
+        		}
+        	}
+        	throw new GoogleSearchException("Unknown content found in response:" + response.toString());
+        } catch (Exception e) {
+            throw new GoogleSearchException(e);
+        } finally {
+	        closeStream(jsonContent);
+	    }
 	}
 
 	/**
@@ -117,5 +179,14 @@ public class TranslateLanguageQueryImpl extends BaseGoogleSearchApiQuery<Transla
 	protected TranslateLanguageResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
 		return gson.fromJson(object, TranslateLanguageResult.class);
+	}
+	
+	protected void putParameters(String name, String value) {
+		List<String> values = parameters.get(name);
+		if (values == null) {
+			values = new ArrayList<String>();
+			parameters.put(name, values);
+		}
+		values.add(value);
 	}
 }
