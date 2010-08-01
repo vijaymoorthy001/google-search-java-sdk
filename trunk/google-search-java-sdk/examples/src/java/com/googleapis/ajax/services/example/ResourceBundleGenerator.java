@@ -149,7 +149,10 @@ public class ResourceBundleGenerator {
 		if (optionValue != null) {
 			String[] langs = optionValue.split(",");
 			for (String value : langs) {
-				targetLanguages.add(Language.fromValue(value));
+				Language language = Language.fromValue(value);
+				if (language != null) {
+					targetLanguages.add(language);
+				}
 			}
 		} else {
 			for (Language language : Language.values()) {
