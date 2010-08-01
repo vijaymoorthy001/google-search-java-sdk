@@ -113,8 +113,8 @@ public class ResourceBundleGenerator {
 			String fileName, Language language) {
 		FileOutputStream os = null;
 		try {
-			os = new FileOutputStream(fileName + "_" + language.name() + ".properties");
-			translatedResources.list(new PrintStream(os));
+			os = new FileOutputStream(fileName + "_" + language.value() + ".properties");
+			translatedResources.list(new PrintStream(os, true, "UTF-8"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -150,6 +150,12 @@ public class ResourceBundleGenerator {
 			String[] langs = optionValue.split(",");
 			for (String value : langs) {
 				targetLanguages.add(Language.fromValue(value));
+			}
+		} else {
+			for (Language language : Language.values()) {
+				if (language.supportsTranslation()) {
+					targetLanguages.add(language);
+				}
 			}
 		}
 		return targetLanguages;
