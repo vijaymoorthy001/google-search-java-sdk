@@ -114,7 +114,7 @@ public class ResourceBundleGenerator {
 		FileOutputStream os = null;
 		try {
 			os = new FileOutputStream(fileName + "_" + language.value() + ".properties");
-			translatedResources.list(new PrintStream(os, true, "UTF-8"));
+			translatedResources.list(new PrintStream(os));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
