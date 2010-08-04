@@ -18,7 +18,6 @@ package com.googleapis.ajax.services.example;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -114,7 +113,7 @@ public class ResourceBundleGenerator {
 		FileOutputStream os = null;
 		try {
 			os = new FileOutputStream(fileName + "_" + language.value() + ".properties");
-			translatedResources.list(new PrintStream(os));
+			translatedResources.store(os, "Resources for " + language);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
