@@ -24,6 +24,7 @@ import com.googleapis.ajax.services.impl.LocalSearchQueryImpl;
 import com.googleapis.ajax.services.impl.NewsSearchQueryImpl;
 import com.googleapis.ajax.services.impl.PatentSearchQueryImpl;
 import com.googleapis.ajax.services.impl.TranslateLanguageQueryImpl;
+import com.googleapis.ajax.services.impl.TransliterateLanguageQueryImpl;
 import com.googleapis.ajax.services.impl.VideoSearchQueryImpl;
 import com.googleapis.ajax.services.impl.WebSearchQueryImpl;
 
@@ -138,6 +139,15 @@ public class GoogleSearchQueryFactory {
     	return new TranslateLanguageQueryImpl(applicationKey);
     }
 
+    /**
+     * New translate language query.
+     * 
+     * @return the transliterate language query
+     */
+    public TransliterateLanguageQuery newTransliterateLanguageQuery() {
+    	return new TransliterateLanguageQueryImpl(applicationKey);
+    }
+    
     /**
      * New detect language query.
      * 

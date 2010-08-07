@@ -92,6 +92,10 @@ public final class GoogleSearchApiUrls {
     public static final String LANGUAGE_TRANSLATE_URL =
         googleApiUrls.getProperty("com.googleapis.ajax.services.language.translate");
     
+    /** The Constant LANGUAGE_TRANSLITERATE_URL. */
+    public static final String LANGUAGE_TRANSLITERATE_URL =
+        googleApiUrls.getProperty("com.googleapis.ajax.services.language.transliterate");
+    
     /** The Constant LANGUAGE_DETECT_URL. */
     public static final String LANGUAGE_DETECT_URL =
         googleApiUrls.getProperty("com.googleapis.ajax.services.language.detect");

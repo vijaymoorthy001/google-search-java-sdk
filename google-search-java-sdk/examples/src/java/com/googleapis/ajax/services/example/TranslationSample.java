@@ -30,9 +30,11 @@ import com.googleapis.ajax.common.PagedList;
 import com.googleapis.ajax.schema.DetectLanguageResult;
 import com.googleapis.ajax.schema.Language;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
+import com.googleapis.ajax.schema.TransliterateLanguageResult;
 import com.googleapis.ajax.services.DetectLanguageQuery;
 import com.googleapis.ajax.services.GoogleSearchQueryFactory;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
+import com.googleapis.ajax.services.TransliterateLanguageQuery;
 
 /**
  * The Class TranslationSample.
@@ -81,9 +83,23 @@ public class TranslationSample {
     		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
     		PagedList<TranslateLanguageResult> translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withLanguagePair(null, Language.FRENCH).withQuery(line.getOptionValue(QUERY_OPTION)).list();
     		printResponse(translateResponse);
+    		TransliterateLanguageQuery transliterateQuery = factory.newTransliterateLanguageQuery();
+    		PagedList<TransliterateLanguageResult> transliterateResponse = transliterateQuery.withLanguagePair(Language.ENGLISH, Language.URDU).withQuery(line.getOptionValue(QUERY_OPTION)).list();
+    		for (TransliterateLanguageResult result : transliterateResponse) {
+    			printResponse(result);
+    		}
         } else {
         	printHelp(options);
         }
+	}
+
+	/**
+	 * Prints the response.
+	 * 
+	 * @param transliterateResponse the transliterate response
+	 */
+	private static void printResponse(TransliterateLanguageResult transliterateResponse) {
+		System.out.println(transliterateResponse.getSourceWord() + ":" + transliterateResponse.getTransliteratedWords());
 	}
 
 	/**
