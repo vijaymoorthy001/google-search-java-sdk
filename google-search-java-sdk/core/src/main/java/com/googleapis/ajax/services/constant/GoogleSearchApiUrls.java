@@ -100,6 +100,18 @@ public final class GoogleSearchApiUrls {
     public static final String LANGUAGE_DETECT_URL =
         googleApiUrls.getProperty("com.googleapis.ajax.services.language.detect");
     
+    /** The Constant FEED_LOAD_URL. */
+    public static final String FEED_LOAD_URL =
+        googleApiUrls.getProperty("com.googleapis.ajax.services.feed.load");
+
+    /** The Constant FEED_FIND_URL. */
+    public static final String FEED_FIND_URL =
+        googleApiUrls.getProperty("com.googleapis.ajax.services.feed.find");
+
+    /** The Constant FEED_LOOKUP_URL. */
+    public static final String FEED_LOOKUP_URL =
+        googleApiUrls.getProperty("com.googleapis.ajax.services.feed.lookup");
+    
     /**
      * Instantiates a new google search api urls.
      */

@@ -24,9 +24,12 @@ import com.googleapis.ajax.common.PagedList;
 import com.googleapis.ajax.schema.BlogResult;
 import com.googleapis.ajax.schema.BookResult;
 import com.googleapis.ajax.schema.DetectLanguageResult;
+import com.googleapis.ajax.schema.FindFeedResult;
 import com.googleapis.ajax.schema.ImageResult;
 import com.googleapis.ajax.schema.Language;
+import com.googleapis.ajax.schema.LoadFeedResult;
 import com.googleapis.ajax.schema.LocalResult;
+import com.googleapis.ajax.schema.LookupFeedResult;
 import com.googleapis.ajax.schema.NewsResult;
 import com.googleapis.ajax.schema.PatentResult;
 import com.googleapis.ajax.schema.TranslateLanguageResult;
@@ -35,9 +38,12 @@ import com.googleapis.ajax.schema.WebResult;
 import com.googleapis.ajax.services.BlogSearchQuery;
 import com.googleapis.ajax.services.BookSearchQuery;
 import com.googleapis.ajax.services.DetectLanguageQuery;
+import com.googleapis.ajax.services.FindFeedQuery;
 import com.googleapis.ajax.services.GoogleSearchQueryFactory;
 import com.googleapis.ajax.services.ImageSearchQuery;
+import com.googleapis.ajax.services.LoadFeedQuery;
 import com.googleapis.ajax.services.LocalSearchQuery;
+import com.googleapis.ajax.services.LookupFeedQuery;
 import com.googleapis.ajax.services.NewsSearchQuery;
 import com.googleapis.ajax.services.PatentSearchQuery;
 import com.googleapis.ajax.services.TranslateLanguageQuery;
@@ -177,6 +183,30 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
     	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
 		TranslateLanguageQuery query = factory.newTranslateLanguageQuery();
 		TranslateLanguageResult result = query.withLanguagePair(null, Language.GERMAN).withQuery(TestConstants.TEST_QUERY).singleResult();
+		assertNotNull("Search result should not be null or empty.", result);
+	}
+	
+	@Test
+	public void testLoadFeed() {
+    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+		LoadFeedQuery query = factory.newLoadFeedQuery();
+		LoadFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+		assertNotNull("Search result should not be null or empty.", result);
+		assertNotNull("Search result should not be null or empty.", result.getEntries());
+	}
+	@Test
+	public void testFindFeed() {
+    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+		FindFeedQuery query = factory.newFindFeedQuery();
+		FindFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+		assertNotNull("Search result should not be null or empty.", result);
+		assertNotNull("Search result should not be null or empty.", result.getEntries());
+	}
+	@Test
+	public void testLookupFeed() {
+    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+    	LookupFeedQuery query = factory.newLookupFeedQuery();
+		LookupFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
 		assertNotNull("Search result should not be null or empty.", result);
 	}
 }
