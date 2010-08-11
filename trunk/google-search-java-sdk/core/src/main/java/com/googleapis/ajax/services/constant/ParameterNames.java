@@ -142,4 +142,6 @@ public interface ParameterNames {
 	
 	/** The Constant RELATED_SUFFIX. */
 	public static final String RELATED_SUFFIX = "related:";
+
+	public static final String NUM = "num";
 }

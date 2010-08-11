@@ -19,8 +19,11 @@ package com.googleapis.ajax.services;
 import com.googleapis.ajax.services.impl.BlogSearchQueryImpl;
 import com.googleapis.ajax.services.impl.BookSearchQueryImpl;
 import com.googleapis.ajax.services.impl.DetectLanguageQueryImpl;
+import com.googleapis.ajax.services.impl.FindFeedQueryImpl;
 import com.googleapis.ajax.services.impl.ImageSearchQueryImpl;
+import com.googleapis.ajax.services.impl.LoadFeedQueryImpl;
 import com.googleapis.ajax.services.impl.LocalSearchQueryImpl;
+import com.googleapis.ajax.services.impl.LookupFeedQueryImpl;
 import com.googleapis.ajax.services.impl.NewsSearchQueryImpl;
 import com.googleapis.ajax.services.impl.PatentSearchQueryImpl;
 import com.googleapis.ajax.services.impl.TranslateLanguageQueryImpl;
@@ -157,4 +160,13 @@ public class GoogleSearchQueryFactory {
     	return new DetectLanguageQueryImpl(applicationKey);
     }
     
+    public LoadFeedQuery newLoadFeedQuery() {
+    	return new LoadFeedQueryImpl(applicationKey);
+    }
+    public FindFeedQuery newFindFeedQuery() {
+    	return new FindFeedQueryImpl(applicationKey);
+    }
+    public LookupFeedQuery newLookupFeedQuery() {
+    	return new LookupFeedQueryImpl(applicationKey);
+    }
 }
