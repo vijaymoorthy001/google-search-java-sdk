@@ -187,26 +187,42 @@ public class GoogleSearchJsonQueryTest extends BaseGoogleSearchClientTest {
 	}
 	
 	@Test
-	public void testLoadFeed() {
+	public void testFindLookupAndLoadFeed() {
     	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		LoadFeedQuery query = factory.newLoadFeedQuery();
-		LoadFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Search result should not be null or empty.", result);
-		assertNotNull("Search result should not be null or empty.", result.getEntries());
+		FindFeedQuery findQuery = factory.newFindFeedQuery();
+		FindFeedResult findResult = findQuery.withQuery(TestConstants.TEST_QUERY).singleResult();
+		assertNotNull("Find result should not be null or empty.", findResult);
+		assertNotNull("Find result should not be null or empty.", findResult.getEntries());
+    	LookupFeedQuery lookupQuery = factory.newLookupFeedQuery();
+		LookupFeedResult lookupResult = lookupQuery.withQuery(findResult.getEntries().get(0).getLink()).singleResult();
+		assertNotNull("Lookup result should not be null or empty.", lookupResult);
+		LoadFeedQuery loadQuery = factory.newLoadFeedQuery();
+		LoadFeedResult loadResult = loadQuery.withQuery(lookupResult.getUrl()).singleResult();
+		assertNotNull("Load result should not be null or empty.", loadResult);
+		assertNotNull("Load result should not be null or empty.", loadResult.getEntries());
 	}
-	@Test
-	public void testFindFeed() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		FindFeedQuery query = factory.newFindFeedQuery();
-		FindFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Search result should not be null or empty.", result);
-		assertNotNull("Search result should not be null or empty.", result.getEntries());
-	}
-	@Test
-	public void testLookupFeed() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-    	LookupFeedQuery query = factory.newLookupFeedQuery();
-		LookupFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Search result should not be null or empty.", result);
-	}
+	
+//	@Test
+//	public void testLoadFeed() {
+//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+//		LoadFeedQuery query = factory.newLoadFeedQuery();
+//		LoadFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+//		assertNotNull("Search result should not be null or empty.", result);
+//		assertNotNull("Search result should not be null or empty.", result.getEntries());
+//	}
+//	@Test
+//	public void testFindFeed() {
+//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+//		FindFeedQuery query = factory.newFindFeedQuery();
+//		FindFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+//		assertNotNull("Search result should not be null or empty.", result);
+//		assertNotNull("Search result should not be null or empty.", result.getEntries());
+//	}
+//	@Test
+//	public void testLookupFeed() {
+//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
+//    	LookupFeedQuery query = factory.newLookupFeedQuery();
+//		LookupFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+//		assertNotNull("Search result should not be null or empty.", result);
+//	}
 }
