@@ -23,9 +23,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -34,9 +32,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-import com.googleapis.maps.common.PagedArrayList;
-import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.schema.ListingType;
+import com.googleapis.maps.schema.AddressComponentType;
+import com.googleapis.maps.schema.LocationType;
+import com.googleapis.maps.schema.TravelMode;
 import com.googleapis.maps.services.AsyncResponseHandler;
 import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.GoogleMapsQuery;
@@ -57,7 +55,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
     protected final JsonParser parser = new JsonParser();
     
     /** The handlers. */
-    private List<AsyncResponseHandler<PagedList<T>>> handlers = new ArrayList<AsyncResponseHandler<PagedList<T>>>();
+    private List<AsyncResponseHandler<List<T>>> handlers = new ArrayList<AsyncResponseHandler<List<T>>>();
 	
 	/**
 	 * Instantiates a new base google search api query.
@@ -88,13 +86,13 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#list()
 	 */
 	@Override
-	public PagedList<T> list() {
+	public List<T> list() {
 		InputStream jsonContent = null;
         try {
         	jsonContent = callApiGet(apiUrlBuilder.buildUrl());
         	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
         	if (response.isJsonObject()) {
-        		PagedList<T> responseList = unmarshallList(response.getAsJsonObject());
+        		List<T> responseList = unmarshallList(response.getAsJsonObject());
         		notifyObservers(responseList);
     			return responseList;
         	}
@@ -113,22 +111,18 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * 
 	 * @return the paged list< t>
 	 */
-	protected PagedList<T> unmarshallList(JsonObject response) {
+	protected List<T> unmarshallList(JsonObject response) {
 		int status = response.get("responseStatus").getAsInt();
 		if (status != 200) {
 			throw new GoogleMapsException(String.valueOf(response.get("responseDetails").getAsString()));
 		}
 		JsonObject data = response.get("responseData").getAsJsonObject();
-		PagedArrayList<T> list = new PagedArrayList<T>();
+		ArrayList<T> list = new ArrayList<T>();
 		if (data != null) { 
 			JsonArray results = data.get("results").getAsJsonArray();
 			for (JsonElement object : results) {
 				T element = unmarshall(object);
 				list.add(element);
-			}
-			JsonElement cursor = data.get("cursor");
-			if (cursor != null) {
-				list.setCursor(new Gson().fromJson(cursor, PagedArrayList.Cursor.class));
 			}
 		} 
 		return list;
@@ -176,8 +170,8 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * 
 	 * @param response the response
 	 */
-	protected void notifyObservers(PagedList<T> response) {
-		for(AsyncResponseHandler<PagedList<T>> handler : handlers) {
+	protected void notifyObservers(List<T> response) {
+		for(AsyncResponseHandler<List<T>> handler : handlers) {
 			handler.handleResponse(response);
 		}
 	}
@@ -185,7 +179,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	/* (non-Javadoc)
 	 * @see com.google.code.stackexchange.client.query.StackExchangeApiQuery#addResonseHandler(com.google.code.stackexchange.client.AsyncResponseHandler)
 	 */
-	public void addResonseHandler(AsyncResponseHandler<PagedList<T>> handler) {
+	public void addResonseHandler(AsyncResponseHandler<List<T>> handler) {
 		handlers.add(handler);
 	}
 	
@@ -204,14 +198,26 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	protected GsonBuilder getGsonBuilder() {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setDateFormat(ApplicationConstants.RFC822DATEFORMAT);
-		builder.registerTypeAdapter(ListingType.class, new JsonDeserializer<ListingType>() {
-
+		builder.registerTypeAdapter(LocationType.class, new JsonDeserializer<LocationType>() {
 			@Override
-			public ListingType deserialize(JsonElement arg0, Type arg1,
+			public LocationType deserialize(JsonElement arg0, Type arg1,
 					JsonDeserializationContext arg2) throws JsonParseException {
-				return ListingType.fromValue(arg0.getAsString());
+				return LocationType.fromValue(arg0.getAsString());
 			}
-			
+		});
+		builder.registerTypeAdapter(AddressComponentType.class, new JsonDeserializer<AddressComponentType>() {
+			@Override
+			public AddressComponentType deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return AddressComponentType.fromValue(arg0.getAsString());
+			}
+		});
+		builder.registerTypeAdapter(TravelMode.class, new JsonDeserializer<TravelMode>() {
+			@Override
+			public TravelMode deserialize(JsonElement arg0, Type arg1,
+					JsonDeserializationContext arg2) throws JsonParseException {
+				return TravelMode.fromValue(arg0.getAsString());
+			}
 		});
 		
 		return builder;
@@ -234,23 +240,5 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 */
 	protected GoogleMapsApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
 		return new GoogleMapsApiUrlBuilder(urlFormat);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withLocale(java.util.Locale)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withLocale(Locale locale) {
-//		apiUrlBuilder.withParameter(ParameterNames.HOST_LANGUAGE, locale.getLanguage());
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withQuery(java.lang.String)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withQuery(String query) {
-//		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
-		return this;
 	}
 }

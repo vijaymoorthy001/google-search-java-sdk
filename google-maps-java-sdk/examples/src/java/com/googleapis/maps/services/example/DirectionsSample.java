@@ -72,7 +72,7 @@ public class DirectionsSample {
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		DirectionsQuery query = factory.newDirectionsQuery();
-    		DirectionsResult response = query.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		DirectionsResult response = query.singleResult();
     		printResponse(response);
         } else {
         	printHelp(options);

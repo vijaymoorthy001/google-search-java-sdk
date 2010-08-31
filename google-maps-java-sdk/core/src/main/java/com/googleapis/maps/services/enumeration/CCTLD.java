@@ -24,7 +24,7 @@ import com.googleapis.maps.common.ValueEnum;
 /**
  * The Enum ImageSize.
  */
-public enum LanguageFilter implements ValueEnum  {
+public enum CCTLD implements ValueEnum  {
 	
 	Arabic ("lang_ar"),
 	Bulgarian ("lang_bg"),
@@ -63,10 +63,10 @@ public enum LanguageFilter implements ValueEnum  {
 	Turkish ("lang_tr");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, LanguageFilter> stringToEnum = new HashMap<String, LanguageFilter>();
+	private static final Map<String, CCTLD> stringToEnum = new HashMap<String, CCTLD>();
 
 	static { // Initialize map from constant name to enum constant
-		for (LanguageFilter op : values()) {
+		for (CCTLD op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -79,7 +79,7 @@ public enum LanguageFilter implements ValueEnum  {
      * 
      * @param value the value
      */
-    LanguageFilter(String value) {
+    CCTLD(String value) {
         this.value = value;
     }
 
@@ -95,7 +95,7 @@ public enum LanguageFilter implements ValueEnum  {
 	 * 
 	 * @return the image size
 	 */
-	public static LanguageFilter fromValue(String value) {
+	public static CCTLD fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

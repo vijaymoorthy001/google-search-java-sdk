@@ -16,9 +16,7 @@
  */
 package com.googleapis.maps.services;
 
-import java.util.Locale;
-
-import com.googleapis.maps.common.PagedList;
+import java.util.List;
 
 
 
@@ -26,24 +24,6 @@ import com.googleapis.maps.common.PagedList;
  * The Interface GoogleSearchQuery.
  */
 public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
-	
-	/**
-	 * With query.
-	 * 
-	 * @param query the query
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withQuery(String query);
-	
-	/**
-	 * With locale.
-	 * 
-	 * @param locale the locale
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withLocale(Locale locale);
 	
 	/**
 	 * Single result.
@@ -57,14 +37,14 @@ public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
 	 * 
 	 * @return the paged list< t>
 	 */
-	public PagedList<T> list();
+	public List<T> list();
 	
 	/**
 	 * Adds the resonse handler.
 	 * 
 	 * @param handler the handler
 	 */
-	public void addResonseHandler(AsyncResponseHandler<PagedList<T>> handler);
+	public void addResonseHandler(AsyncResponseHandler<List<T>> handler);
 	
 	/**
 	 * Reset.

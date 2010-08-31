@@ -72,7 +72,7 @@ public class GeocodingSample {
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		GeocodingQuery query = factory.newGeocodingQuery();
-    		GeocodingResult response = query.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		GeocodingResult response = query.singleResult();
     		printResponse(response);
         } else {
         	printHelp(options);

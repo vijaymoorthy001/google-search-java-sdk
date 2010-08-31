@@ -24,18 +24,37 @@ import com.googleapis.maps.common.ValueEnum;
 /**
  * The Enum ListingType.
  */
-public enum ListingType implements ValueEnum {
+public enum AddressComponentType implements ValueEnum {
 	
-	/** The LOCAL. */
-	LOCAL("local"), 
- /** The KML. */
- KML("kml");
+	STREET_ADDRESS("street_address"),
+	ROUTE("route"),
+	INTERSECTION("intersection"),
+	POLITICAL("political"),
+	COUNTRY("country"),
+	ADMINISTRATIVE_AREA_LEVEL_1("administrative_area_level_1"),
+	ADMINISTRATIVE_AREA_LEVEL_2("administrative_area_level_2"),
+	ADMINISTRATIVE_AREA_LEVEL_3("administrative_area_level_3"),
+	COLLOQUIAL_AREA("colloquial_area"),
+	LOCALITY("locality"),
+	SUBLOCALITY("sublocality"),
+	NEIGHBORHOOD("neighborhood"),
+	PREMISE("premise"),
+	SUBPREMISE("subpremise"),
+	POSTAL_CODE("postal_code"),
+	NATURAL_FEATURE("natural_feature"),
+	AIRPORT("airport"),
+	PARK("park"),
+	POINT_OF_INTEREST("point_of_interest"),
+	POST_BOX("post_box"),
+	STREET_NUMBER("street_number"),
+	FLOOR("floor"),
+	ROOM("room");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, ListingType> stringToEnum = new HashMap<String, ListingType>();
+	private static final Map<String, AddressComponentType> stringToEnum = new HashMap<String, AddressComponentType>();
 
 	static { // Initialize map from constant name to enum constant
-		for (ListingType op : values()) {
+		for (AddressComponentType op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -48,7 +67,7 @@ public enum ListingType implements ValueEnum {
      * 
      * @param value the value
      */
-    ListingType(String value) {
+    AddressComponentType(String value) {
         this.value = value;
     }
 
@@ -67,7 +86,7 @@ public enum ListingType implements ValueEnum {
 	 * 
 	 * @return the listing type
 	 */
-	public static ListingType fromValue(String value) {
+	public static AddressComponentType fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 }

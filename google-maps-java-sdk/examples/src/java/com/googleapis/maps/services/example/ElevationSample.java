@@ -72,7 +72,7 @@ public class ElevationSample {
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		ElevationQuery detectQuery = factory.newElevationQuery();
-    		ElevationResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		ElevationResult detectResponse = detectQuery.singleResult();
     		printResponse(detectResponse);
         } else {
         	printHelp(options);
