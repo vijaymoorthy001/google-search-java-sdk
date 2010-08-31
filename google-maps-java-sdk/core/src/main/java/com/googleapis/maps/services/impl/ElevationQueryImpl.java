@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.ElevationResult;
 import com.googleapis.maps.services.ElevationQuery;
+import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -42,7 +43,7 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.GoogleMapsApiUrls);
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleMapsApiUrls.ELEVATION_URL);
 	}
 
 	/* (non-Javadoc)

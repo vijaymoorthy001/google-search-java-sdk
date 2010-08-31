@@ -20,35 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.schema.BlogResult;
-import com.googleapis.maps.schema.BookResult;
-import com.googleapis.maps.schema.GeocodingResult;
-import com.googleapis.maps.schema.FindFeedResult;
-import com.googleapis.maps.schema.ImageResult;
-import com.googleapis.maps.schema.Language;
-import com.googleapis.maps.schema.LoadFeedResult;
-import com.googleapis.maps.schema.LocalResult;
-import com.googleapis.maps.schema.LookupFeedResult;
-import com.googleapis.maps.schema.NewsResult;
-import com.googleapis.maps.schema.PatentResult;
-import com.googleapis.maps.schema.TranslateLanguageResult;
-import com.googleapis.maps.schema.VideoResult;
-import com.googleapis.maps.schema.WebResult;
-import com.googleapis.maps.services.BlogSearchQuery;
-import com.googleapis.maps.services.BookSearchQuery;
-import com.googleapis.maps.services.GeocodingQuery;
-import com.googleapis.maps.services.FindFeedQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
-import com.googleapis.maps.services.ImageSearchQuery;
-import com.googleapis.maps.services.LoadFeedQuery;
-import com.googleapis.maps.services.LocalSearchQuery;
-import com.googleapis.maps.services.LookupFeedQuery;
-import com.googleapis.maps.services.NewsSearchQuery;
-import com.googleapis.maps.services.PatentSearchQuery;
-import com.googleapis.maps.services.TranslateLanguageQuery;
-import com.googleapis.maps.services.VideoSearchQuery;
-import com.googleapis.maps.services.WebSearchQuery;
 import com.googleapis.maps.services.constant.TestConstants;
 
 /**
@@ -77,152 +49,30 @@ public class GoogleMapsJsonQueryTest extends BaseGoogleMapsClientTest {
 	}
 
 	/**
-	 * Test search blogs.
+	 * Test geocode query.
 	 */
 	@Test
-	public void testSearchBlogs() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		BlogSearchQuery query = factory.newBlogSearchQuery();
-		PagedList<BlogResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
+	public void testGeocodeQuery() {
 	}
 	
 	/**
-	 * Test search books.
+	 * Test directions query.
 	 */
 	@Test
-	public void testSearchBooks() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		BookSearchQuery query = factory.newBookSearchQuery();
-		PagedList<BookResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
+	public void testDirectionsQuery() {
 	}
 	
 	/**
-	 * Test search images.
+	 * Test elevation query.
 	 */
 	@Test
-	public void testSearchImages() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		ImageSearchQuery query = factory.newImageSearchQuery();
-		PagedList<ImageResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
+	public void testElevationQuery() {
 	}
 	
 	/**
-	 * Test search local.
+	 * Test place query.
 	 */
 	@Test
-	public void testSearchLocal() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		LocalSearchQuery query = factory.newLocalSearchQuery();
-		PagedList<LocalResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
+	public void testPlaceQuery() {
 	}
-	
-	/**
-	 * Test search news.
-	 */
-	@Test
-	public void testSearchNews() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		NewsSearchQuery query = factory.newNewsSearchQuery();
-		PagedList<NewsResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
-	}
-	
-	/**
-	 * Test search patents.
-	 */
-	@Test
-	public void testSearchPatents() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		PatentSearchQuery query = factory.newPatentSearchQuery();
-		PagedList<PatentResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
-	}
-	
-	/**
-	 * Test search videos.
-	 */
-	@Test
-	public void testSearchVideos() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		VideoSearchQuery query = factory.newVideoSearchQuery();
-		PagedList<VideoResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
-	}
-	
-	/**
-	 * Test search web.
-	 */
-	@Test
-	public void testSearchWeb() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		WebSearchQuery query = factory.newWebSearchQuery();
-		PagedList<WebResult> result = query.withQuery(TestConstants.TEST_QUERY).list();
-		assertNotNullOrEmpty("Search result should not be null or empty.", result);
-	}
-	
-	/**
-	 * Test detect language.
-	 */
-	@Test
-	public void testDetectLanguage() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		GeocodingQuery query = factory.newDetectLanguageQuery();
-		GeocodingResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Search result should not be null or empty.", result);
-	}
-
-	/**
-	 * Test translate language.
-	 */
-	@Test
-	public void testTranslateLanguage() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		TranslateLanguageQuery query = factory.newTranslateLanguageQuery();
-		TranslateLanguageResult result = query.withLanguagePair(null, Language.GERMAN).withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Search result should not be null or empty.", result);
-	}
-	
-	@Test
-	public void testFindLookupAndLoadFeed() {
-    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		FindFeedQuery findQuery = factory.newFindFeedQuery();
-		FindFeedResult findResult = findQuery.withQuery(TestConstants.TEST_QUERY).singleResult();
-		assertNotNull("Find result should not be null or empty.", findResult);
-		assertNotNull("Find result should not be null or empty.", findResult.getEntries());
-    	LookupFeedQuery lookupQuery = factory.newLookupFeedQuery();
-		LookupFeedResult lookupResult = lookupQuery.withQuery(findResult.getEntries().get(0).getLink()).singleResult();
-		assertNotNull("Lookup result should not be null or empty.", lookupResult);
-		LoadFeedQuery loadQuery = factory.newLoadFeedQuery();
-		LoadFeedResult loadResult = loadQuery.withQuery(lookupResult.getUrl()).singleResult();
-		assertNotNull("Load result should not be null or empty.", loadResult);
-		assertNotNull("Load result should not be null or empty.", loadResult.getEntries());
-	}
-	
-//	@Test
-//	public void testLoadFeed() {
-//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-//		LoadFeedQuery query = factory.newLoadFeedQuery();
-//		LoadFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-//		assertNotNull("Search result should not be null or empty.", result);
-//		assertNotNull("Search result should not be null or empty.", result.getEntries());
-//	}
-//	@Test
-//	public void testFindFeed() {
-//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-//		FindFeedQuery query = factory.newFindFeedQuery();
-//		FindFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-//		assertNotNull("Search result should not be null or empty.", result);
-//		assertNotNull("Search result should not be null or empty.", result.getEntries());
-//	}
-//	@Test
-//	public void testLookupFeed() {
-//    	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-//    	LookupFeedQuery query = factory.newLookupFeedQuery();
-//		LookupFeedResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
-//		assertNotNull("Search result should not be null or empty.", result);
-//	}
 }

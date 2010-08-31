@@ -46,51 +46,6 @@ public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
 	public GoogleMapsQuery<T> withLocale(Locale locale);
 	
 	/**
-	 * With start index.
-	 * 
-	 * @param startIndex the start index
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withStartIndex(int startIndex);
-	
-	/**
-	 * With callback.
-	 * 
-	 * @param callback the callback
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withCallback(String callback);
-
-	/**
-	 * With context.
-	 * 
-	 * @param context the context
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withContext(String context);
-	
-	/**
-	 * With site search.
-	 * 
-	 * @param site the site
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withSiteRestriction(String site);	
-	
-	/**
-	 * With site search.
-	 * 
-	 * @param site the site
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withRelatedSite(String site);
-	
-	/**
 	 * Single result.
 	 * 
 	 * @return the t

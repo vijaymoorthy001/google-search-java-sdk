@@ -26,15 +26,9 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.schema.GeocodingResult;
-import com.googleapis.maps.schema.Language;
-import com.googleapis.maps.schema.TranslateLanguageResult;
-import com.googleapis.maps.schema.TransliterateLanguageResult;
-import com.googleapis.maps.services.GeocodingQuery;
+import com.googleapis.maps.schema.PlacesResult;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
-import com.googleapis.maps.services.TranslateLanguageQuery;
-import com.googleapis.maps.services.TransliterateLanguageQuery;
+import com.googleapis.maps.services.PlacesQuery;
 
 /**
  * The Class TranslationSample.
@@ -77,61 +71,16 @@ public class PlacesSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		GeocodingQuery detectQuery = factory.newDetectLanguageQuery();
-    		GeocodingResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
-    		printResponse(detectResponse);
-    		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
-    		PagedList<TranslateLanguageResult> translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withLanguagePair(null, Language.FRENCH).withQuery(line.getOptionValue(QUERY_OPTION)).list();
-    		printResponse(translateResponse);
-    		TransliterateLanguageQuery transliterateQuery = factory.newTransliterateLanguageQuery();
-    		PagedList<TransliterateLanguageResult> transliterateResponse = transliterateQuery.withLanguagePair(Language.ENGLISH, Language.URDU).withQuery(line.getOptionValue(QUERY_OPTION)).list();
-    		for (TransliterateLanguageResult result : transliterateResponse) {
-    			printResponse(result);
-    		}
+    		PlacesQuery query = factory.newPlacesQuery();
+    		PlacesResult response = query.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		printResponse(response);
         } else {
         	printHelp(options);
         }
 	}
 
-	/**
-	 * Prints the response.
-	 * 
-	 * @param transliterateResponse the transliterate response
-	 */
-	private static void printResponse(TransliterateLanguageResult transliterateResponse) {
-		System.out.println(transliterateResponse.getSourceWord() + ":" + transliterateResponse.getTransliteratedWords());
-	}
-
-	/**
-	 * Prints the response.
-	 * 
-	 * @param response the response
-	 */
-	private static void printResponse(PagedList<TranslateLanguageResult> response) {
-		for (TranslateLanguageResult result : response) {
-			printResponse(result);
-		}
-	}
-
-	/**
-	 * Prints the response.
-	 * 
-	 * @param detectResponse the detect response
-	 */
-	private static void printResponse(GeocodingResult detectResponse) {
-		System.out.println(detectResponse.getLanguage());
-		System.out.println(detectResponse.getConfidence());
-		System.out.println(detectResponse.isReliable());
-	}
-
-	/**
-	 * Prints the response.
-	 * 
-	 * @param response the response
-	 */
-	private static void printResponse(TranslateLanguageResult response) {
-		System.out.println(response.getDetectedSourceLanguage());			
-		System.out.println(response.getTranslatedText());			
+	private static void printResponse(PlacesResult response) {
+		// TODO Auto-generated method stub
 	}
 
 	/**

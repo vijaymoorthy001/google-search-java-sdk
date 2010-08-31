@@ -41,7 +41,6 @@ import com.googleapis.maps.services.AsyncResponseHandler;
 import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.GoogleMapsQuery;
 import com.googleapis.maps.services.constant.ApplicationConstants;
-import com.googleapis.maps.services.constant.ParameterNames;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleMapsApiUrlBuilder;
 
 /**
@@ -214,15 +213,6 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 			}
 			
 		});
-		builder.registerTypeAdapter(PatentStatus.class, new JsonDeserializer<PatentStatus>() {
-
-			@Override
-			public PatentStatus deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return PatentStatus.fromValue(arg0.getAsString());
-			}
-			
-		});
 		
 		return builder;
 	}
@@ -247,29 +237,11 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	}
 
 	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withCallback(java.lang.String)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withCallback(String callback) {
-		apiUrlBuilder.withParameter(ParameterNames.CALLBACK, callback);
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withContext(java.lang.String)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withContext(String context) {
-		apiUrlBuilder.withParameter(ParameterNames.CONTEXT, context);
-		return this;
-	}
-
-	/* (non-Javadoc)
 	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withLocale(java.util.Locale)
 	 */
 	@Override
 	public GoogleMapsQuery<T> withLocale(Locale locale) {
-		apiUrlBuilder.withParameter(ParameterNames.HOST_LANGUAGE, locale.getLanguage());
+//		apiUrlBuilder.withParameter(ParameterNames.HOST_LANGUAGE, locale.getLanguage());
 		return this;
 	}
 
@@ -278,40 +250,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 */
 	@Override
 	public GoogleMapsQuery<T> withQuery(String query) {
-		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withResultSetSize(com.google.code.googlesearch.client.enumeration.ResultSetSize)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withResultSetSize(ResultSetSize rsz) {
-		apiUrlBuilder.withParameterEnum(ParameterNames.RESULTSET_SIZE, rsz);
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withSiteSearch(java.lang.String)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withSiteRestriction(String site) {
-		apiUrlBuilder.withParameterSuffix(ParameterNames.QUERY, ParameterNames.SITE_SUFFIX + site + " ");
-		return this;
-	}
-
-	@Override
-	public GoogleMapsQuery<T> withRelatedSite(String site) {
-		apiUrlBuilder.withParameterSuffix(ParameterNames.QUERY, ParameterNames.RELATED_SUFFIX + site + " ");
-		return this;
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.googlesearch.client.GoogleSearchQuery#withStartIndex(int)
-	 */
-	@Override
-	public GoogleMapsQuery<T> withStartIndex(int startIndex) {
-		apiUrlBuilder.withParameter(ParameterNames.START, String.valueOf(startIndex));
+//		apiUrlBuilder.withParameter(ParameterNames.QUERY, query);
 		return this;
 	}
 }
