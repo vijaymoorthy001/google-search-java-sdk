@@ -19,7 +19,6 @@ package com.googleapis.maps.services;
 import java.util.Locale;
 
 import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.services.enumeration.ResultSetSize;
 
 
 
@@ -37,15 +36,6 @@ public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
 	 */
 	public GoogleMapsQuery<T> withQuery(String query);
 	
-	/**
-	 * With result set size.
-	 * 
-	 * @param rsz the rsz
-	 * 
-	 * @return the google search query< t>
-	 */
-	public GoogleMapsQuery<T> withResultSetSize(ResultSetSize rsz);
-
 	/**
 	 * With locale.
 	 * 
