@@ -27,11 +27,11 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.schema.DetectLanguageResult;
+import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.schema.Language;
 import com.googleapis.maps.schema.TranslateLanguageResult;
 import com.googleapis.maps.schema.TransliterateLanguageResult;
-import com.googleapis.maps.services.DetectLanguageQuery;
+import com.googleapis.maps.services.GeocodingQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 import com.googleapis.maps.services.TranslateLanguageQuery;
 import com.googleapis.maps.services.TransliterateLanguageQuery;
@@ -77,8 +77,8 @@ public class TranslationSample {
             printHelp(options);            
         } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		DetectLanguageQuery detectQuery = factory.newDetectLanguageQuery();
-    		DetectLanguageResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
+    		GeocodingQuery detectQuery = factory.newDetectLanguageQuery();
+    		GeocodingResult detectResponse = detectQuery.withQuery(line.getOptionValue(QUERY_OPTION)).singleResult();
     		printResponse(detectResponse);
     		TranslateLanguageQuery translateQuery = factory.newTranslateLanguageQuery();
     		PagedList<TranslateLanguageResult> translateResponse = translateQuery.withLanguagePair(null, Language.GERMAN).withLanguagePair(null, Language.FRENCH).withQuery(line.getOptionValue(QUERY_OPTION)).list();
@@ -118,7 +118,7 @@ public class TranslationSample {
 	 * 
 	 * @param detectResponse the detect response
 	 */
-	private static void printResponse(DetectLanguageResult detectResponse) {
+	private static void printResponse(GeocodingResult detectResponse) {
 		System.out.println(detectResponse.getLanguage());
 		System.out.println(detectResponse.getConfidence());
 		System.out.println(detectResponse.isReliable());

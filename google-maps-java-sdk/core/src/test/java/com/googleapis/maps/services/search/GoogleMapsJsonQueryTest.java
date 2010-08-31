@@ -23,7 +23,7 @@ import org.junit.Test;
 import com.googleapis.maps.common.PagedList;
 import com.googleapis.maps.schema.BlogResult;
 import com.googleapis.maps.schema.BookResult;
-import com.googleapis.maps.schema.DetectLanguageResult;
+import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.schema.FindFeedResult;
 import com.googleapis.maps.schema.ImageResult;
 import com.googleapis.maps.schema.Language;
@@ -37,7 +37,7 @@ import com.googleapis.maps.schema.VideoResult;
 import com.googleapis.maps.schema.WebResult;
 import com.googleapis.maps.services.BlogSearchQuery;
 import com.googleapis.maps.services.BookSearchQuery;
-import com.googleapis.maps.services.DetectLanguageQuery;
+import com.googleapis.maps.services.GeocodingQuery;
 import com.googleapis.maps.services.FindFeedQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 import com.googleapis.maps.services.ImageSearchQuery;
@@ -170,8 +170,8 @@ public class GoogleMapsJsonQueryTest extends BaseGoogleMapsClientTest {
 	@Test
 	public void testDetectLanguage() {
     	assertNotNullOrEmpty(String.format(RESOURCE_MISSING_MESSAGE, "Test Query."), TestConstants.TEST_QUERY);
-		DetectLanguageQuery query = factory.newDetectLanguageQuery();
-		DetectLanguageResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
+		GeocodingQuery query = factory.newDetectLanguageQuery();
+		GeocodingResult result = query.withQuery(TestConstants.TEST_QUERY).singleResult();
 		assertNotNull("Search result should not be null or empty.", result);
 	}
 

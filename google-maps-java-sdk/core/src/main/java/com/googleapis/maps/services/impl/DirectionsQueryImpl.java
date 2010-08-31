@@ -18,22 +18,22 @@ package com.googleapis.maps.services.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.googleapis.maps.schema.DetectLanguageResult;
-import com.googleapis.maps.services.DetectLanguageQuery;
-import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
+import com.googleapis.maps.schema.DirectionsResult;
+import com.googleapis.maps.schema.GeocodingResult;
+import com.googleapis.maps.services.DirectionsQuery;
 
 /**
  * The Class DetectLanguageQueryImpl.
  */
-public class DetectLanguageQueryImpl extends BaseGoogleMapsApiQuery<DetectLanguageResult> implements
-	DetectLanguageQuery {
+public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult> implements
+	DirectionsQuery {
 	
 	/**
 	 * Instantiates a new detect language query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
-	public DetectLanguageQueryImpl(String applicationId) {
+	public DirectionsQueryImpl(String applicationId) {
 		super(applicationId);
 	}
 	
@@ -50,8 +50,8 @@ public class DetectLanguageQueryImpl extends BaseGoogleMapsApiQuery<DetectLangua
 	 * @see com.google.code.googlesearch.client.impl.BaseGoogleSearchApiQuery#unmarshall(com.google.gson.JsonElement)
 	 */
 	@Override
-	protected DetectLanguageResult unmarshall(JsonElement object) {
+	protected DirectionsResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
-		return gson.fromJson(object, DetectLanguageResult.class);
+		return gson.fromJson(object, DirectionsResult.class);
 	}
 }

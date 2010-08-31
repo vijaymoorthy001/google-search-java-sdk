@@ -16,7 +16,7 @@
  */
 package com.googleapis.maps.services;
 
-import com.googleapis.maps.services.impl.DetectLanguageQueryImpl;
+import com.googleapis.maps.services.impl.GeocodingQueryImpl;
 
 
 
@@ -53,7 +53,7 @@ public class GoogleMapsQueryFactory {
      * 
      * @return the detect language query
      */
-    public DetectLanguageQuery newDetectLanguageQuery() {
-    	return new DetectLanguageQueryImpl(applicationKey);
+    public GeocodingQuery newDetectLanguageQuery() {
+    	return new GeocodingQueryImpl(applicationKey);
     }
 }

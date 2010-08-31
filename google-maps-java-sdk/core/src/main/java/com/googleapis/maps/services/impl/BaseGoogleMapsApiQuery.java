@@ -36,7 +36,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.googleapis.maps.common.PagedArrayList;
 import com.googleapis.maps.common.PagedList;
-import com.googleapis.maps.schema.Language;
 import com.googleapis.maps.schema.ListingType;
 import com.googleapis.maps.services.AsyncResponseHandler;
 import com.googleapis.maps.services.GoogleMapsException;
@@ -44,7 +43,6 @@ import com.googleapis.maps.services.GoogleMapsQuery;
 import com.googleapis.maps.services.constant.ApplicationConstants;
 import com.googleapis.maps.services.constant.ParameterNames;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleSearchApiUrlBuilder;
-import com.googleapis.maps.services.enumeration.ResultSetSize;
 
 /**
  * The Class BaseGoogleSearchApiQuery.
