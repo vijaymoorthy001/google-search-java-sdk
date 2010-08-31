@@ -14,19 +14,42 @@
  * limitations under the License. 
  * 
  */
-package com.googleapis.maps.services;
+package com.googleapis.maps.schema;
 
-import java.util.List;
 
-import com.googleapis.maps.schema.ElevationResult;
-import com.googleapis.maps.schema.GeoLocation;
 
 /**
- * The Interface DetectLanguageQuery.
+ * The Class DetectLanguageResult.
  */
-public interface ElevationQuery extends GoogleMapsQuery<ElevationResult> {
-	public ElevationQuery withLocations(List<GeoLocation> locations);
-	public ElevationQuery withPath(List<GeoLocation> path);
-	public ElevationQuery withSamples(int samples);
-	public ElevationQuery withSensor(boolean sensor);
+public class GeoLocation extends SchemaEntity {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -7595223844163364948L;
+	
+	private double lat;
+	private double lng;
+	/**
+	 * @return the lat
+	 */
+	public double getLat() {
+		return lat;
+	}
+	/**
+	 * @param lat the lat to set
+	 */
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+	/**
+	 * @return the lng
+	 */
+	public double getLng() {
+		return lng;
+	}
+	/**
+	 * @param lng the lng to set
+	 */
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
 }

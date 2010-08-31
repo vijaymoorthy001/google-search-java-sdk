@@ -16,10 +16,20 @@
  */
 package com.googleapis.maps.services;
 
+import com.googleapis.maps.schema.Bounds;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.GeocodingResult;
+import com.googleapis.maps.services.enumeration.CCTLD;
+import com.googleapis.maps.services.enumeration.Language;
 
 /**
  * The Interface DetectLanguageQuery.
  */
 public interface GeocodingQuery extends GoogleMapsQuery<GeocodingResult> {
+	public GeocodingQuery withAddress(String address);
+	public GeocodingQuery withAddress(GeoLocation address);
+	public GeocodingQuery withBounds(Bounds bounds);
+	public GeocodingQuery withRegion(CCTLD region);
+	public GeocodingQuery withLanguage(Language language);
+	public GeocodingQuery withSensor(boolean sensor);
 }

@@ -17,9 +17,26 @@
 package com.googleapis.maps.services;
 
 import com.googleapis.maps.schema.DirectionsResult;
+import com.googleapis.maps.schema.GeoLocation;
+import com.googleapis.maps.schema.RouteType;
+import com.googleapis.maps.schema.TravelMode;
+import com.googleapis.maps.schema.UnitSystem;
+import com.googleapis.maps.services.enumeration.Language;
 
 /**
  * The Interface DetectLanguageQuery.
  */
 public interface DirectionsQuery extends GoogleMapsQuery<DirectionsResult> {
+	public DirectionsQuery withOrigin(String address);
+	public DirectionsQuery withOrigin(GeoLocation address);
+	public DirectionsQuery withDestination(String address);
+	public DirectionsQuery withDestination(GeoLocation address);
+	public DirectionsQuery withMode(TravelMode mode);
+	public DirectionsQuery withWaypoint(String address);
+	public DirectionsQuery withWaypoint(GeoLocation address);
+	public DirectionsQuery withAlternatives(boolean alternatives);
+	public DirectionsQuery withAvoid(RouteType avoid);
+	public DirectionsQuery withUnits(UnitSystem units);
+	public DirectionsQuery withLanguage(Language language);
+	public DirectionsQuery withSensor(boolean sensor);
 }

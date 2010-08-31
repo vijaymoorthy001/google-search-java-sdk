@@ -16,10 +16,16 @@
  */
 package com.googleapis.maps.services;
 
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
 
 /**
  * The Interface DetectLanguageQuery.
  */
 public interface PlacesQuery extends GoogleMapsQuery<PlacesResult> {
+	public PlacesQuery withLocation(GeoLocation location);
+	public PlacesQuery withRadius(double radius);
+	public PlacesQuery withClient(String client);
+	public PlacesQuery withPrivateKey(String privateKey);
+	public PlacesQuery withSensor(boolean sensor);
 }
