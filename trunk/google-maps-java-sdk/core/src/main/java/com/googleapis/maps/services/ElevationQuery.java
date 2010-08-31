@@ -16,10 +16,10 @@
  */
 package com.googleapis.maps.services;
 
-import com.googleapis.maps.schema.DetectLanguageResult;
+import com.googleapis.maps.schema.ElevationResult;
 
 /**
  * The Interface DetectLanguageQuery.
  */
-public interface DetectLanguageQuery extends GoogleMapsQuery<DetectLanguageResult> {
+public interface ElevationQuery extends GoogleMapsQuery<ElevationResult> {
 }

@@ -21,7 +21,7 @@ package com.googleapis.maps.schema;
 /**
  * The Class DetectLanguageResult.
  */
-public class DetectLanguageResult extends SchemaEntity {
+public class PlacesResult extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
