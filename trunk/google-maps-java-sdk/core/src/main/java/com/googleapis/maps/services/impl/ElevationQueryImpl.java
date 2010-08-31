@@ -16,9 +16,12 @@
  */
 package com.googleapis.maps.services.impl;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.ElevationResult;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.services.ElevationQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 
@@ -53,5 +56,33 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	protected ElevationResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
 		return gson.fromJson(object, ElevationResult.class);
+	}
+
+
+	@Override
+	public ElevationQuery withLocations(List<GeoLocation> locations) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ElevationQuery withPath(List<GeoLocation> path) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ElevationQuery withSamples(int samples) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ElevationQuery withSensor(boolean sensor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
