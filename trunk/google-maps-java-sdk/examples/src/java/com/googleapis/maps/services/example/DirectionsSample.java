@@ -39,7 +39,7 @@ import com.googleapis.maps.services.TransliterateLanguageQuery;
 /**
  * The Class TranslationSample.
  */
-public class TranslationSample {
+public class DirectionsSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
@@ -171,7 +171,7 @@ public class TranslationSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = TranslationSample.class.getName() + " <options>";
+        String syntax = DirectionsSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }

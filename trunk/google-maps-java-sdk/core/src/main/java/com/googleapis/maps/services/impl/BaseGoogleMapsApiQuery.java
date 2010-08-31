@@ -42,7 +42,7 @@ import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.GoogleMapsQuery;
 import com.googleapis.maps.services.constant.ApplicationConstants;
 import com.googleapis.maps.services.constant.ParameterNames;
-import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleSearchApiUrlBuilder;
+import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleMapsApiUrlBuilder;
 
 /**
  * The Class BaseGoogleSearchApiQuery.
@@ -52,7 +52,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	protected static final Charset UTF_8_CHAR_SET = Charset.forName(ApplicationConstants.CONTENT_ENCODING);
 
 	/** The api url builder. */
-	protected GoogleSearchApiUrlBuilder apiUrlBuilder;
+	protected GoogleMapsApiUrlBuilder apiUrlBuilder;
     
     /** The parser. */
     protected final JsonParser parser = new JsonParser();
@@ -223,50 +223,6 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 			}
 			
 		});
-		builder.registerTypeAdapter(VideoType.class, new JsonDeserializer<VideoType>() {
-
-			@Override
-			public VideoType deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return VideoType.fromValue(arg0.getAsString());
-			}
-			
-		});
-		builder.registerTypeAdapter(ViewPortMode.class, new JsonDeserializer<ViewPortMode>() {
-
-			@Override
-			public ViewPortMode deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return ViewPortMode.fromValue(arg0.getAsString());
-			}
-			
-		});
-		builder.registerTypeAdapter(GsearchResultClass.class, new JsonDeserializer<GsearchResultClass>() {
-
-			@Override
-			public GsearchResultClass deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return GsearchResultClass.fromValue(arg0.getAsString());
-			}
-			
-		});
-		builder.registerTypeAdapter(PhoneNumberType.class, new JsonDeserializer<PhoneNumberType>() {
-
-			@Override
-			public PhoneNumberType deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return PhoneNumberType.fromValue(arg0.getAsString());
-			}
-			
-		});
-		builder.registerTypeAdapter(Language.class, new JsonDeserializer<Language>() {
-
-			@Override
-			public Language deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return Language.fromValue(arg0.getAsString());
-			}
-		});
 		
 		return builder;
 	}
@@ -286,8 +242,8 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * 
 	 * @return the google search api url builder
 	 */
-	protected GoogleSearchApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
-		return new GoogleSearchApiUrlBuilder(urlFormat);
+	protected GoogleMapsApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
+		return new GoogleMapsApiUrlBuilder(urlFormat);
 	}
 
 	/* (non-Javadoc)
