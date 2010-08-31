@@ -18,9 +18,13 @@ package com.googleapis.maps.services.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.googleapis.maps.schema.Bounds;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.services.GeocodingQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
+import com.googleapis.maps.services.enumeration.CCTLD;
+import com.googleapis.maps.services.enumeration.Language;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -53,5 +57,47 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	protected GeocodingResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
 		return gson.fromJson(object, GeocodingResult.class);
+	}
+
+
+	@Override
+	public GeocodingQuery withAddress(String address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public GeocodingQuery withAddress(GeoLocation address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public GeocodingQuery withBounds(Bounds bounds) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public GeocodingQuery withLanguage(Language language) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public GeocodingQuery withRegion(CCTLD region) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public GeocodingQuery withSensor(boolean sensor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -18,6 +18,7 @@ package com.googleapis.maps.services.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
 import com.googleapis.maps.services.PlacesQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
@@ -53,5 +54,40 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	protected PlacesResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
 		return gson.fromJson(object, PlacesResult.class);
+	}
+
+
+	@Override
+	public PlacesQuery withClient(String client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public PlacesQuery withLocation(GeoLocation location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public PlacesQuery withPrivateKey(String privateKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public PlacesQuery withRadius(double radius) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public PlacesQuery withSensor(boolean sensor) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

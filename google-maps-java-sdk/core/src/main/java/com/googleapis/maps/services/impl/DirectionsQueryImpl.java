@@ -19,8 +19,13 @@ package com.googleapis.maps.services.impl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.DirectionsResult;
+import com.googleapis.maps.schema.GeoLocation;
+import com.googleapis.maps.schema.RouteType;
+import com.googleapis.maps.schema.TravelMode;
+import com.googleapis.maps.schema.UnitSystem;
 import com.googleapis.maps.services.DirectionsQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
+import com.googleapis.maps.services.enumeration.Language;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -53,5 +58,89 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	protected DirectionsResult unmarshall(JsonElement object) {
 		Gson gson = getGsonBuilder().create();
 		return gson.fromJson(object, DirectionsResult.class);
+	}
+
+
+	@Override
+	public DirectionsQuery withAlternatives(boolean alternatives) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withAvoid(RouteType avoid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withDestination(String address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withDestination(GeoLocation address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withLanguage(Language language) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withMode(TravelMode mode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withOrigin(String address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withOrigin(GeoLocation address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withSensor(boolean sensor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withUnits(UnitSystem units) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withWaypoint(String address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DirectionsQuery withWaypoint(GeoLocation address) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
