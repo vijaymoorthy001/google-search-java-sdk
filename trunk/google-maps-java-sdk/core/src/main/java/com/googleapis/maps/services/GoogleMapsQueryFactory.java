@@ -16,7 +16,10 @@
  */
 package com.googleapis.maps.services;
 
+import com.googleapis.maps.services.impl.DirectionsQueryImpl;
+import com.googleapis.maps.services.impl.ElevationQueryImpl;
 import com.googleapis.maps.services.impl.GeocodingQueryImpl;
+import com.googleapis.maps.services.impl.PlacesQueryImpl;
 
 
 
@@ -53,7 +56,34 @@ public class GoogleMapsQueryFactory {
      * 
      * @return the detect language query
      */
-    public GeocodingQuery newDetectLanguageQuery() {
+    public GeocodingQuery newGeocodingQuery() {
     	return new GeocodingQueryImpl(applicationKey);
+    }
+    
+    /**
+     * New detect language query.
+     * 
+     * @return the detect language query
+     */
+    public DirectionsQuery newDirectionsQuery() {
+    	return new DirectionsQueryImpl(applicationKey);
+    }
+    
+    /**
+     * New detect language query.
+     * 
+     * @return the detect language query
+     */
+    public ElevationQuery newElevationQuery() {
+    	return new ElevationQueryImpl(applicationKey);
+    }
+    
+    /**
+     * New detect language query.
+     * 
+     * @return the detect language query
+     */
+    public PlacesQuery newPlacesQuery() {
+    	return new PlacesQueryImpl(applicationKey);
     }
 }

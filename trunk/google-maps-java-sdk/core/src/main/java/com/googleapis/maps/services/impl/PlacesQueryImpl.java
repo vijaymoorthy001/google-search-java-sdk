@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.PlacesResult;
 import com.googleapis.maps.services.PlacesQuery;
+import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -42,7 +43,7 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.GoogleMapsApiUrls);
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleMapsApiUrls.PLACE_URL);
 	}
 
 	/* (non-Javadoc)

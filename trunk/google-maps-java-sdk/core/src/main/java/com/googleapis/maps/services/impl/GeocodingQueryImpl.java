@@ -43,7 +43,7 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.GoogleMapsApiUrls);
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleMapsApiUrls.GEOCODE_URL);
 	}
 
 	/* (non-Javadoc)

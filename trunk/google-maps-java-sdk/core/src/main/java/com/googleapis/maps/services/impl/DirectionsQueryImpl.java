@@ -19,8 +19,8 @@ package com.googleapis.maps.services.impl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.DirectionsResult;
-import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.services.DirectionsQuery;
+import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -43,7 +43,7 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	 */
 	@Override
 	public void reset() {
-		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleSearchApiUrls.GoogleMapsApiUrls);
+		apiUrlBuilder = createGoogleSearchApiUrlBuilder(GoogleMapsApiUrls.DIRECTIONS_URL);
 	}
 
 	/* (non-Javadoc)
