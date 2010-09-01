@@ -19,7 +19,6 @@ package com.googleapis.maps.schema;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.googleapis.maps.common.ValueEnum;
 
 /**
  * The Enum ListingType.

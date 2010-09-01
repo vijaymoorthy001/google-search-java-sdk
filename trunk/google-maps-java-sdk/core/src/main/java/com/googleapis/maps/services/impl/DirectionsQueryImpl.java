@@ -16,16 +16,22 @@
  */
 package com.googleapis.maps.services.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.googleapis.maps.schema.DirectionsResult;
 import com.googleapis.maps.schema.GeoLocation;
+import com.googleapis.maps.schema.Language;
 import com.googleapis.maps.schema.RouteType;
 import com.googleapis.maps.schema.TravelMode;
 import com.googleapis.maps.schema.UnitSystem;
 import com.googleapis.maps.services.DirectionsQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
-import com.googleapis.maps.services.enumeration.Language;
+import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -63,84 +69,112 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 
 	@Override
 	public DirectionsQuery withAlternatives(boolean alternatives) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.ALTERNATIVES, String.valueOf(alternatives));
+		return this;
 	}
 
 
 	@Override
 	public DirectionsQuery withAvoid(RouteType avoid) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameterEnum(ParameterNames.AVOID, avoid);
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withDestination(String address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withDestination(String destination) {
+		apiUrlBuilder.withParameter(ParameterNames.DESTINATION, destination);
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withDestination(GeoLocation address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withDestination(GeoLocation destination) {
+		apiUrlBuilder.withParameter(ParameterNames.DESTINATION, toParameterString(destination));
+		return this;
 	}
 
 
 	@Override
 	public DirectionsQuery withLanguage(Language language) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameterEnum(ParameterNames.LANGUAGE, language);
+		return this;
 	}
 
 
 	@Override
 	public DirectionsQuery withMode(TravelMode mode) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameterEnum(ParameterNames.MODE, mode);
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withOrigin(String address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withOrigin(String origin) {
+		apiUrlBuilder.withParameter(ParameterNames.ORIGIN, origin);
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withOrigin(GeoLocation address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withOrigin(GeoLocation origin) {
+		apiUrlBuilder.withParameter(ParameterNames.ORIGIN, toParameterString(origin));
+		return this;
 	}
 
 
 	@Override
 	public DirectionsQuery withSensor(boolean sensor) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));
+		return this;
 	}
 
 
 	@Override
 	public DirectionsQuery withUnits(UnitSystem units) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameterEnum(ParameterNames.UNITS, units);
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withWaypoint(String address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withWaypoints(String... waypoints) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < waypoints.length; i++) {
+			builder.append(waypoints[i]);
+			if (i < waypoints.length - 1) {
+				builder.append("|");
+			}
+		}
+		apiUrlBuilder.withParameter(ParameterNames.WAYPOINTS, builder.toString());
+		return this;
 	}
 
 
 	@Override
-	public DirectionsQuery withWaypoint(GeoLocation address) {
-		// TODO Auto-generated method stub
-		return null;
+	public DirectionsQuery withWaypoints(GeoLocation... waypoints) {
+		apiUrlBuilder.withParameter(ParameterNames.WAYPOINTS, toParameterString(waypoints));
+		return this;
+	}
+	
+	/**
+	 * Unmarshall list.
+	 * 
+	 * @param response the response
+	 * 
+	 * @return the paged list< t>
+	 */
+	protected List<DirectionsResult> unmarshallList(JsonObject response) {
+		String status = response.get("status").getAsString();
+		if (!"OK".equals(status) && !"ZERO_RESULTS".equals(status)) {
+			throw createGoogleMapsException(status);
+		}
+		ArrayList<DirectionsResult> list = new ArrayList<DirectionsResult>();
+		JsonArray results = response.get("routes").getAsJsonArray();
+		for (JsonElement object : results) {
+			DirectionsResult element = unmarshall(object);
+			list.add(element);
+		}
+		return list;
 	}
 }

@@ -17,6 +17,7 @@
 package com.googleapis.maps.services.example;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -26,6 +27,7 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.googleapis.maps.schema.AddressComponent;
 import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.services.GeocodingQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
@@ -69,18 +71,23 @@ public class GeocodingSample {
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
-        } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
+        } else {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		GeocodingQuery query = factory.newGeocodingQuery();
-    		GeocodingResult response = query.singleResult();
-    		printResponse(response);
-        } else {
-        	printHelp(options);
+    		query.withAddress("1600 Amphitheatre Parkway, Mountain View, CA").withSensor(false);
+    		List<GeocodingResult> response = query.list();
+    		for (GeocodingResult result : response) {
+        		printResponse(result);
+    		}
         }
 	}
 
-	private static void printResponse(GeocodingResult response) {
-		// TODO Auto-generated method stub
+	private static void printResponse(GeocodingResult result) {
+		System.out.println(result.getFormattedAddress());
+		System.out.println(result.getTypes());
+		for (AddressComponent component : result.getAddressComponents()) {
+			System.out.println(component.getLongName() + ":" + component.getTypes());			
+		}
 	}
 
 	/**

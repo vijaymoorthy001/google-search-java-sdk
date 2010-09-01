@@ -17,10 +17,10 @@
 package com.googleapis.maps.services;
 
 import com.googleapis.maps.schema.Bounds;
+import com.googleapis.maps.schema.CCTLD;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.GeocodingResult;
-import com.googleapis.maps.services.enumeration.CCTLD;
-import com.googleapis.maps.services.enumeration.Language;
+import com.googleapis.maps.schema.Language;
 
 /**
  * The Interface DetectLanguageQuery.

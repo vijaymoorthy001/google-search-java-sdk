@@ -16,14 +16,13 @@
  */
 package com.googleapis.maps.services.impl;
 
-import java.util.List;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.ElevationResult;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.services.ElevationQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
+import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
  * The Class DetectLanguageQueryImpl.
@@ -60,29 +59,29 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 
 
 	@Override
-	public ElevationQuery withLocations(List<GeoLocation> locations) {
-		// TODO Auto-generated method stub
-		return null;
+	public ElevationQuery withLocations(GeoLocation... locations) {
+		apiUrlBuilder.withParameter(ParameterNames.LOCATIONS, toParameterString(locations));
+		return this;
 	}
 
 
 	@Override
-	public ElevationQuery withPath(List<GeoLocation> path) {
-		// TODO Auto-generated method stub
-		return null;
+	public ElevationQuery withPath(GeoLocation... path) {
+		apiUrlBuilder.withParameter(ParameterNames.PATH, toParameterString(path));
+		return this;
 	}
 
 
 	@Override
 	public ElevationQuery withSamples(int samples) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.SAMPLES, String.valueOf(samples));
+		return this;
 	}
 
 
 	@Override
 	public ElevationQuery withSensor(boolean sensor) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));
+		return this;
 	}
 }

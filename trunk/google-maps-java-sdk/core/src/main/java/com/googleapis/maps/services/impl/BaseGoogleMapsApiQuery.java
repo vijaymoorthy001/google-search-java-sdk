@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -33,11 +34,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.googleapis.maps.schema.AddressComponentType;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.LocationType;
 import com.googleapis.maps.schema.TravelMode;
 import com.googleapis.maps.services.AsyncResponseHandler;
 import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.GoogleMapsQuery;
+import com.googleapis.maps.services.InvalidRequestException;
+import com.googleapis.maps.services.NotFoundException;
+import com.googleapis.maps.services.OverQueryLimitsException;
+import com.googleapis.maps.services.RequestDeniedException;
 import com.googleapis.maps.services.constant.ApplicationConstants;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleMapsApiUrlBuilder;
 
@@ -112,19 +118,16 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * @return the paged list< t>
 	 */
 	protected List<T> unmarshallList(JsonObject response) {
-		int status = response.get("responseStatus").getAsInt();
-		if (status != 200) {
-			throw new GoogleMapsException(String.valueOf(response.get("responseDetails").getAsString()));
+		String status = response.get("status").getAsString();
+		if (!"OK".equals(status) && !"ZERO_RESULTS".equals(status)) {
+			throw createGoogleMapsException(status);
 		}
-		JsonObject data = response.get("responseData").getAsJsonObject();
 		ArrayList<T> list = new ArrayList<T>();
-		if (data != null) { 
-			JsonArray results = data.get("results").getAsJsonArray();
-			for (JsonElement object : results) {
-				T element = unmarshall(object);
-				list.add(element);
-			}
-		} 
+		JsonArray results = response.get("results").getAsJsonArray();
+		for (JsonElement object : results) {
+			T element = unmarshall(object);
+			list.add(element);
+		}
 		return list;
 	}
 
@@ -142,27 +145,8 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 */
 	@Override
 	public T singleResult() {
-		InputStream jsonContent = null;
-        try {
-        	jsonContent = callApiGet(apiUrlBuilder.buildUrl());
-        	JsonElement response = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
-        	if (response.isJsonObject()) {
-        		JsonObject json = response.getAsJsonObject();
-        		int status = json.get("responseStatus").getAsInt();
-        		if (status != 200) {
-        			throw new GoogleMapsException(json.get("responseDetails").getAsString());
-        		}
-        		JsonElement data = json.get("responseData");
-        		if (data != null) {
-        			return unmarshall(data);
-        		}
-        	}
-        	throw new GoogleMapsException("Unknown content found in response:" + response.toString());
-        } catch (Exception e) {
-            throw new GoogleMapsException(e);
-        } finally {
-	        closeStream(jsonContent);
-	    }
+		List<T> list = list();
+		return (list == null || list.isEmpty())? null : list.get(0);
 	}
 	
 	/**
@@ -198,6 +182,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	protected GsonBuilder getGsonBuilder() {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setDateFormat(ApplicationConstants.RFC822DATEFORMAT);
+		builder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 		builder.registerTypeAdapter(LocationType.class, new JsonDeserializer<LocationType>() {
 			@Override
 			public LocationType deserialize(JsonElement arg0, Type arg1,
@@ -240,5 +225,36 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 */
 	protected GoogleMapsApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
 		return new GoogleMapsApiUrlBuilder(urlFormat);
+	}
+	
+	protected String toParameterString(GeoLocation... locations) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < locations.length; i++) {
+			builder.append(locations[i].getLat());
+			builder.append(",");
+			builder.append(locations[i].getLng());
+			if (i < locations.length - 1) {
+				builder.append("|");
+			}
+		}
+		return builder.toString();
+	}
+	
+	protected GoogleMapsException createGoogleMapsException(String statusCode) {
+		if ("OVER_QUERY_LIMIT".equals(statusCode)) {
+			return new OverQueryLimitsException("indicates that you are over your quota.");
+		} else if ("REQUEST_DENIED".equals(statusCode)) {
+			return new RequestDeniedException("indicates that your request was denied, generally because of lack of a sensor parameter.");
+		} else if ("INVALID_REQUEST".equals(statusCode)) {
+			return new InvalidRequestException("generally indicates that the query (address or latlng) is missing.");
+		} else if ("NOT_FOUND".equals(statusCode)) {
+			return new NotFoundException("indicates at least one of the locations specified in the requests's origin, destination, or waypoints could not be geocoded.");
+		} else if ("MAX_WAYPOINTS_EXCEEDED".equals(statusCode)) {
+			return new NotFoundException("indicates that too many waypointss were provided in the request The maximum allowed waypoints is 8, plus the origin, and destination.");
+		} else if ("UNKNOWN_ERROR".equals(statusCode)) {
+			return new NotFoundException("indicates a directions request could not be processed due to a server error. The request may succeed if you try again.");
+		} else {
+			return null;
+		}
 	}
 }

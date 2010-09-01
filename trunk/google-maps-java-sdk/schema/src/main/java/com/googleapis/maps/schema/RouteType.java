@@ -19,16 +19,14 @@ package com.googleapis.maps.schema;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.googleapis.maps.common.ValueEnum;
 
 /**
  * The Enum ListingType.
  */
 public enum RouteType implements ValueEnum {
 	
-	DRIVING("driving"),
-	WALKING("walking"),
-	BICYCLING("bicycling");
+	TOLLS("tolls"),
+	HIGHWAYS("highways");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, RouteType> stringToEnum = new HashMap<String, RouteType>();

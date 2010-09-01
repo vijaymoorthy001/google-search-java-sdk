@@ -16,6 +16,8 @@
  */
 package com.googleapis.maps.schema;
 
+import java.util.List;
+
 
 
 /**
@@ -25,4 +27,56 @@ public class GeocodingResult extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
+	private List<AddressComponentType> types;
+	private String formattedAddress;
+	private List<AddressComponent> addressComponents;
+	private GeoMetry geometry;
+	/**
+	 * @return the types
+	 */
+	public List<AddressComponentType> getTypes() {
+		return types;
+	}
+	/**
+	 * @param types the types to set
+	 */
+	public void setTypes(List<AddressComponentType> types) {
+		this.types = types;
+	}
+	/**
+	 * @return the formattedAddress
+	 */
+	public String getFormattedAddress() {
+		return formattedAddress;
+	}
+	/**
+	 * @param formattedAddress the formattedAddress to set
+	 */
+	public void setFormattedAddress(String formattedAddress) {
+		this.formattedAddress = formattedAddress;
+	}
+	/**
+	 * @return the addressComponents
+	 */
+	public List<AddressComponent> getAddressComponents() {
+		return addressComponents;
+	}
+	/**
+	 * @param addressComponents the addressComponents to set
+	 */
+	public void setAddressComponents(List<AddressComponent> addressComponents) {
+		this.addressComponents = addressComponents;
+	}
+	/**
+	 * @return the geometry
+	 */
+	public GeoMetry getGeometry() {
+		return geometry;
+	}
+	/**
+	 * @param geometry the geometry to set
+	 */
+	public void setGeometry(GeoMetry geometry) {
+		this.geometry = geometry;
+	}
 }

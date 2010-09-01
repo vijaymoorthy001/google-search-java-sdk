@@ -21,42 +21,36 @@ package com.googleapis.maps.schema;
 /**
  * The Class DetectLanguageResult.
  */
-public class GeoLocation extends SchemaEntity {
+public class ViewPort extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
 	
-	private double lat;
-	private double lng;
+	private GeoLocation southwest;
+	private GeoLocation northeast;
 	
-	public GeoLocation() {}
-	
-	public GeoLocation(double lat, double lng) {
-		this.lat = lat;
-		this.lng = lng;
+	/**
+	 * @return the southwest
+	 */
+	public GeoLocation getSouthwest() {
+		return southwest;
 	}
 	/**
-	 * @return the lat
+	 * @param southwest the southwest to set
 	 */
-	public double getLat() {
-		return lat;
+	public void setSouthwest(GeoLocation southwest) {
+		this.southwest = southwest;
 	}
 	/**
-	 * @param lat the lat to set
+	 * @return the northeast
 	 */
-	public void setLat(double lat) {
-		this.lat = lat;
+	public GeoLocation getNortheast() {
+		return northeast;
 	}
 	/**
-	 * @return the lng
+	 * @param northeast the northeast to set
 	 */
-	public double getLng() {
-		return lng;
-	}
-	/**
-	 * @param lng the lng to set
-	 */
-	public void setLng(double lng) {
-		this.lng = lng;
+	public void setNortheast(GeoLocation northeast) {
+		this.northeast = northeast;
 	}
 }
