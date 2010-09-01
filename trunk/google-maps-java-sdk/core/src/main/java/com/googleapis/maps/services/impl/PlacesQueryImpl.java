@@ -16,13 +16,17 @@
  */
 package com.googleapis.maps.services.impl;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
+import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.PlacesQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
+import com.googleapis.maps.services.constant.UrlSigner;
 
 /**
  * The Class PlacesQueryImpl.
@@ -108,5 +112,16 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	public PlacesQuery withSensor(boolean sensor) {
 		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));
 		return this;
+	}
+	
+	@Override
+	public List<PlacesResult> list() {
+		try {
+			String signature = UrlSigner.getUrlSignature(apiUrlBuilder.buildUrl(), privateKey);
+			apiUrlBuilder.withParameter(ParameterNames.SIGNATURE, signature);
+			return super.list();
+		} catch (Exception e) {
+			throw new GoogleMapsException(e);
+		}
 	}
 }

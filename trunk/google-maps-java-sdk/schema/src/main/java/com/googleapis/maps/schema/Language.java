@@ -24,111 +24,62 @@ import java.util.Map;
  * The Enum Language.
  */
 public enum Language implements ValueEnum  {
-	
-	/** The Arabic. */
-	Arabic ("lang_ar"),
-	
-	/** The Bulgarian. */
-	Bulgarian ("lang_bg"),
-	
-	/** The Catalan. */
-	Catalan ("lang_ca"),
-	
-	/** The Chinese_ simplified. */
-	Chinese_Simplified ("lang_zh-CN"),
-	
-	/** The Chinese_ traditional. */
-	Chinese_Traditional ("lang_zh-TW"),
-	
-	/** The Croation. */
-	Croation ("lang_hr"),
-	
-	/** The Czech. */
-	Czech ("lang_cs"),
-	
-	/** The Danish. */
-	Danish ("lang_da"),
-	
-	/** The Dutch. */
-	Dutch ("lang_nl"),
-	
-	/** The English. */
-	English ("lang_en"),
-	
-	/** The Estonian. */
-	Estonian ("lang_et"),
-	
-	/** The Finnish. */
-	Finnish ("lang_fi"),
-	
-	/** The French. */
-	French ("lang_fr"),
-	
-	/** The German. */
-	German ("lang_de"),
-	
-	/** The Greek. */
-	Greek ("lang_el"),
-	
-	/** The Hebrew. */
-	Hebrew ("lang_iw"),
-	
-	/** The Hungarian. */
-	Hungarian ("lang_hu"),
-	
-	/** The Icelandic. */
-	Icelandic ("lang_is"),
-	
-	/** The Indonesian. */
-	Indonesian ("lang_id"),
-	
-	/** The Italian. */
-	Italian ("lang_it"),
-	
-	/** The Japanese. */
-	Japanese ("lang_ja"),
-	
-	/** The Korean. */
-	Korean ("lang_ko"),
-	
-	/** The Latvian. */
-	Latvian ("lang_lv"),
-	
-	/** The Lithuanian. */
-	Lithuanian ("lang_lt"),
-	
-	/** The Norwegian. */
-	Norwegian ("lang_no"),
-	
-	/** The Polish. */
-	Polish ("lang_pl"),
-	
-	/** The Portuguese. */
-	Portuguese ("lang_pt"),
-	
-	/** The Romanian. */
-	Romanian ("lang_ro"),
-	
-	/** The Russian. */
-	Russian ("lang_ru"),
-	
-	/** The Serbian. */
-	Serbian ("lang_sr"),
-	
-	/** The Slovak. */
-	Slovak ("lang_sk"),
-	
-	/** The Slovenian. */
-	Slovenian ("lang_sl"),
-	
-	/** The Spanish. */
-	Spanish ("lang_es"),
-	
-	/** The Swedish. */
-	Swedish ("lang_sv"),
-	
-	/** The Turkish. */
-	Turkish ("lang_tr");
+	ARABIC("ar"),
+	BASQUE("eu"),
+	BULGARIAN("bg"),
+	BENGALI("bn"),
+	CATALAN("ca"),
+	CZECH("cs"),
+	DANISH("da"),
+	GERMAN("de"),
+	GREEK("el"),
+	ENGLISH("en"),
+	ENGLISH_AUSTRALIAN("en-AU"),
+	ENGLISH_GREAT_BRITAIN("en-GB"),
+	SPANISH("es"),
+	FARSI("fa"),
+	FINNISH("fi"),
+	FILIPINO("fil"),
+	FRENCH("fr"),
+	GALICIAN("gl"),
+	GUJARATI("gu"),
+	HINDI("hi"),
+	CROATIAN("hr"),
+	HUNGARIAN("hu"),
+	INDONESIAN("id"),
+	ITALIAN("it"),
+	HEBREW("iw"),
+	JAPANESE("ja"),
+	KANNADA("kn"),
+	KOREAN("ko"),
+	LITHUANIAN("lt"),
+	LATVIAN("lv"),
+	MALAYALAM("ml"),
+	MARATHI("mr"),
+	DUTCH("nl"),
+	NORWEGIAN_NYNORSK("nn"),
+	NORWEGIAN("no"),
+	ORIYA("or"),
+	POLISH("pl"),
+	PORTUGUESE("pt"),
+	PORTUGUESE_BRAZIL("pt-BR"),
+	PORTUGUESE_PORTUGAL("pt-PT"),
+	ROMANSCH("rm"),
+	ROMANIAN("ro"),
+	RUSSIAN("ru"),
+	SLOVAK("sk"),
+	SLOVENIAN("sl"),
+	SERBIAN("sr"),
+	SWEDISH("sv"),
+	TAGALOG("tl"),
+	TAMIL("ta"),
+	TELUGU("te"),
+	THAI("th"),
+	TURKISH("tr"),
+	UKRAINIAN("uk"),
+	VIETNAMESE("vi"),
+	CHINESE_SIMPLIFIED("zh-CN"),
+	CHINESE_TRADITIONAL("zh-TW");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, Language> stringToEnum = new HashMap<String, Language>();

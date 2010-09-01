@@ -33,116 +33,105 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class UrlSigner {
 
-  // Note: Generally, you should store your private key someplace safe
-  // and read them into your code
+	// Note: Generally, you should store your private key someplace safe
+	// and read them into your code
 
-  /** The key string. */
-  private static String keyString = "YOUR_PRIVATE_KEY";
-  
-  // The URL shown in these examples is a static URL which should already
-  // be URL-encoded. In practice, you will likely have code
-  // which assembles your URL from user or web service input
-  // and plugs those values into its parameters.
-  /** The url string. */
-  private static String urlString = "YOUR_URL_TO_SIGN";
+	/**
+	 * Instantiates a new url signer.
+	 * 
+	 * @param keyString
+	 *            the key string
+	 * 
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	private UrlSigner() {
+	}
 
-  // This variable stores the binary key, which is computed from the string (Base64) key
-  /** The key. */
-  private static byte[] key;
-  
-  /**
-   * The main method.
-   * 
-   * @param args the arguments
-   * 
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws InvalidKeyException the invalid key exception
-   * @throws NoSuchAlgorithmException the no such algorithm exception
-   * @throws URISyntaxException the URI syntax exception
-   */
-  public static void main(String[] args) throws IOException,
-    InvalidKeyException, NoSuchAlgorithmException, URISyntaxException {
-    
-    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    
-    String inputUrl, inputKey = null;
+	/**
+	 * The main method.
+	 * 
+	 * @param args
+	 *            the arguments
+	 * 
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 * @throws InvalidKeyException
+	 *             the invalid key exception
+	 * @throws NoSuchAlgorithmException
+	 *             the no such algorithm exception
+	 * @throws URISyntaxException
+	 *             the URI syntax exception
+	 */
+	public static void main(String[] args) throws Exception {
 
-    // For testing purposes, allow user input for the URL.
-    // If no input is entered, use the static URL defined above.    
-    System.out.println("Enter the URL (must be URL-encoded) to sign: ");
-    inputUrl = input.readLine();
-    if (inputUrl.equals("")) {
-      inputUrl = urlString;
-    }
-    
-    // Convert the string to a URL so we can parse it
-    URL url = new URL(inputUrl);
- 
-    // For testing purposes, allow user input for the private key.
-    // If no input is entered, use the static key defined above.   
-    System.out.println("Enter the Private key to sign the URL: ");
-    inputKey = input.readLine();
-    if (inputKey.equals("")) {
-      inputKey = keyString;
-    }
-    
-    UrlSigner signer = new UrlSigner(inputKey);
-    String request = signer.signRequest(url.getPath(),url.getQuery());
-    
-    System.out.println("Signed URL :" + url.getProtocol() + "://" + url.getHost() + request);
-  }
-  
-  /**
-   * Instantiates a new url signer.
-   * 
-   * @param keyString the key string
-   * 
-   * @throws IOException Signals that an I/O exception has occurred.
-   */
-  public UrlSigner(String keyString) throws IOException {
-    // Convert the key from 'web safe' base 64 to binary
-    keyString = keyString.replace('-', '+');
-    keyString = keyString.replace('_', '/');
-    System.out.println("Key: " + keyString);
-    this.key = Base64.decode(keyString);
-  }
+		BufferedReader input = new BufferedReader(new InputStreamReader(
+				System.in));
 
-  /**
-   * Sign request.
-   * 
-   * @param path the path
-   * @param query the query
-   * 
-   * @return the string
-   * 
-   * @throws NoSuchAlgorithmException the no such algorithm exception
-   * @throws InvalidKeyException the invalid key exception
-   * @throws UnsupportedEncodingException the unsupported encoding exception
-   * @throws URISyntaxException the URI syntax exception
-   */
-  public String signRequest(String path, String query) throws NoSuchAlgorithmException,
-    InvalidKeyException, UnsupportedEncodingException, URISyntaxException {
-    
-    // Retrieve the proper URL components to sign
-    String resource = path + '?' + query;
-    
-    // Get an HMAC-SHA1 signing key from the raw key bytes
-    SecretKeySpec sha1Key = new SecretKeySpec(key, "HmacSHA1");
+		String inputUrl, inputKey = null;
 
-    // Get an HMAC-SHA1 Mac instance and initialize it with the HMAC-SHA1 key
-    Mac mac = Mac.getInstance("HmacSHA1");
-    mac.init(sha1Key);
+		// For testing purposes, allow user input for the URL.
+		// If no input is entered, use the static URL defined above.
+		System.out.println("Enter the URL (must be URL-encoded) to sign: ");
+		inputUrl = input.readLine();
 
-    // compute the binary signature for the request
-    byte[] sigBytes = mac.doFinal(resource.getBytes());
+		// For testing purposes, allow user input for the private key.
+		// If no input is entered, use the static key defined above.
+		System.out.println("Enter the Private key to sign the URL: ");
+		inputKey = input.readLine();
 
-    // base 64 encode the binary signature
-    String signature = Base64.encodeBytes(sigBytes);
-    
-    // convert the signature to 'web safe' base 64
-    signature = signature.replace('+', '-');
-    signature = signature.replace('/', '_');
-    
-    return resource + "&signature=" + signature;
-  }
+		String request = UrlSigner.getUrlSignature(inputUrl, inputKey);
+
+		System.out.println("Signed URL :" + request);
+	}
+
+	/**
+	 * Sign request.
+	 * 
+	 * @param path
+	 *            the path
+	 * @param query
+	 *            the query
+	 * 
+	 * @return the string
+	 * 
+	 * @throws NoSuchAlgorithmException
+	 *             the no such algorithm exception
+	 * @throws InvalidKeyException
+	 *             the invalid key exception
+	 * @throws UnsupportedEncodingException
+	 *             the unsupported encoding exception
+	 * @throws URISyntaxException
+	 *             the URI syntax exception
+	 */
+	public static String getUrlSignature(String urlStr, String privateKey)
+			throws Exception {
+		URL url = new URL(urlStr);
+		// Retrieve the proper URL components to sign
+		String resource = url.getPath() + '?' + url.getQuery();
+
+		privateKey = privateKey.replace('-', '+');
+		privateKey = privateKey.replace('_', '/');
+		byte[] key = Base64.decode(privateKey);
+
+		// Get an HMAC-SHA1 signing key from the raw key bytes
+		SecretKeySpec sha1Key = new SecretKeySpec(key, "HmacSHA1");
+
+		// Get an HMAC-SHA1 Mac instance and initialize it with the HMAC-SHA1
+		// key
+		Mac mac = Mac.getInstance("HmacSHA1");
+		mac.init(sha1Key);
+
+		// compute the binary signature for the request
+		byte[] sigBytes = mac.doFinal(resource.getBytes());
+
+		// base 64 encode the binary signature
+		String signature = Base64.encodeBytes(sigBytes);
+
+		// convert the signature to 'web safe' base 64
+		signature = signature.replace('+', '-');
+		signature = signature.replace('/', '_');
+
+		return signature;
+	}
 }
