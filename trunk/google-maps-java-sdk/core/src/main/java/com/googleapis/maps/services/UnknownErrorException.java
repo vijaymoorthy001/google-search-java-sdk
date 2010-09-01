@@ -17,7 +17,7 @@
 package com.googleapis.maps.services;
 
 /**
- * The Class GoogleSearchException.
+ * The Class UnknownErrorException.
  */
 public class UnknownErrorException extends GoogleMapsException {
 
@@ -25,12 +25,12 @@ public class UnknownErrorException extends GoogleMapsException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new unknown error exception.
 	 */
 	public UnknownErrorException() {}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new unknown error exception.
 	 * 
 	 * @param message the message
 	 */
@@ -39,7 +39,7 @@ public class UnknownErrorException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new unknown error exception.
 	 * 
 	 * @param cause the cause
 	 */
@@ -48,7 +48,7 @@ public class UnknownErrorException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new unknown error exception.
 	 * 
 	 * @param message the message
 	 * @param cause the cause

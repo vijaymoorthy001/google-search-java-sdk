@@ -19,35 +19,50 @@ package com.googleapis.maps.schema;
 
 
 /**
- * The Class DetectLanguageResult.
+ * The Class ElevationResult.
  */
 public class ElevationResult extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
 	
+	/** The location. */
 	private GeoLocation location;
+	
+	/** The elevation. */
 	private double elevation;
+	
 	/**
+	 * Gets the location.
+	 * 
 	 * @return the location
 	 */
 	public GeoLocation getLocation() {
 		return location;
 	}
+	
 	/**
-	 * @param location the location to set
+	 * Sets the location.
+	 * 
+	 * @param location the new location
 	 */
 	public void setLocation(GeoLocation location) {
 		this.location = location;
 	}
+	
 	/**
+	 * Gets the elevation.
+	 * 
 	 * @return the elevation
 	 */
 	public double getElevation() {
 		return elevation;
 	}
+	
 	/**
-	 * @param elevation the elevation to set
+	 * Sets the elevation.
+	 * 
+	 * @param elevation the new elevation
 	 */
 	public void setElevation(double elevation) {
 		this.elevation = elevation;

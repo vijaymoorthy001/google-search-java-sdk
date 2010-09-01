@@ -17,7 +17,7 @@
 package com.googleapis.maps.services;
 
 /**
- * The Class GoogleSearchException.
+ * The Class GoogleMapsException.
  */
 public class GoogleMapsException extends RuntimeException {
 
@@ -25,12 +25,12 @@ public class GoogleMapsException extends RuntimeException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new google maps exception.
 	 */
 	public GoogleMapsException() {}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new google maps exception.
 	 * 
 	 * @param message the message
 	 */
@@ -39,7 +39,7 @@ public class GoogleMapsException extends RuntimeException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new google maps exception.
 	 * 
 	 * @param cause the cause
 	 */
@@ -48,7 +48,7 @@ public class GoogleMapsException extends RuntimeException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new google maps exception.
 	 * 
 	 * @param message the message
 	 * @param cause the cause

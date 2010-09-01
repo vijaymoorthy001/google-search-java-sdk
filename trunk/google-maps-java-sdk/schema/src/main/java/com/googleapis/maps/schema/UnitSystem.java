@@ -21,11 +21,14 @@ import java.util.Map;
 
 
 /**
- * The Enum ListingType.
+ * The Enum UnitSystem.
  */
 public enum UnitSystem implements ValueEnum {
 	
+	/** The METRIC. */
 	METRIC("metric"),
+	
+	/** The IMPERIAL. */
 	IMPERIAL("imperial");
 	
     /** The Constant stringToEnum. */
@@ -41,7 +44,7 @@ public enum UnitSystem implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new listing type.
+     * Instantiates a new unit system.
      * 
      * @param value the value
      */
@@ -62,7 +65,7 @@ public enum UnitSystem implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the listing type
+	 * @return the unit system
 	 */
 	public static UnitSystem fromValue(String value) {
 		return stringToEnum.get(value);

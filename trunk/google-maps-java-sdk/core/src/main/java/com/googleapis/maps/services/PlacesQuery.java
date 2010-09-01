@@ -20,12 +20,52 @@ import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
 
 /**
- * The Interface DetectLanguageQuery.
+ * The Interface PlacesQuery.
  */
 public interface PlacesQuery extends GoogleMapsQuery<PlacesResult> {
+	
+	/**
+	 * With location.
+	 * 
+	 * @param location the location
+	 * 
+	 * @return the places query
+	 */
 	public PlacesQuery withLocation(GeoLocation location);
+	
+	/**
+	 * With radius.
+	 * 
+	 * @param radius the radius
+	 * 
+	 * @return the places query
+	 */
 	public PlacesQuery withRadius(double radius);
+	
+	/**
+	 * With client.
+	 * 
+	 * @param client the client
+	 * 
+	 * @return the places query
+	 */
 	public PlacesQuery withClient(String client);
+	
+	/**
+	 * With private key.
+	 * 
+	 * @param privateKey the private key
+	 * 
+	 * @return the places query
+	 */
 	public PlacesQuery withPrivateKey(String privateKey);
+	
+	/**
+	 * With sensor.
+	 * 
+	 * @param sensor the sensor
+	 * 
+	 * @return the places query
+	 */
 	public PlacesQuery withSensor(boolean sensor);
 }

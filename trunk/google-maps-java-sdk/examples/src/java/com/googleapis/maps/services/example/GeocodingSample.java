@@ -33,7 +33,7 @@ import com.googleapis.maps.services.GeocodingQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
 /**
- * The Class TranslationSample.
+ * The Class GeocodingSample.
  */
 public class GeocodingSample {
 
@@ -82,6 +82,11 @@ public class GeocodingSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param result the result
+	 */
 	private static void printResponse(GeocodingResult result) {
 		System.out.println(result.getFormattedAddress());
 		System.out.println(result.getTypes());

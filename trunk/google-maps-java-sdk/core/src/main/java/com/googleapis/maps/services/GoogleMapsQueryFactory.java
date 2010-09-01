@@ -24,7 +24,7 @@ import com.googleapis.maps.services.impl.PlacesQueryImpl;
 
 
 /**
- * A factory for creating GoogleSearchQuery objects.
+ * A factory for creating GoogleMapsQuery objects.
  */
 public class GoogleMapsQueryFactory {
 
@@ -32,7 +32,7 @@ public class GoogleMapsQueryFactory {
     private String applicationKey;
 
     /**
-     * Instantiates a new google search query factory.
+     * Instantiates a new google maps query factory.
      * 
      * @param applicationKey the application key
      */
@@ -45,43 +45,43 @@ public class GoogleMapsQueryFactory {
      * 
      * @param applicationKey the application key
      * 
-     * @return the google search query factory
+     * @return the google maps query factory
      */
     public static GoogleMapsQueryFactory newInstance(String applicationKey) {
         return new GoogleMapsQueryFactory(applicationKey);
     }
     
     /**
-     * New detect language query.
+     * New geocoding query.
      * 
-     * @return the detect language query
+     * @return the geocoding query
      */
     public GeocodingQuery newGeocodingQuery() {
     	return new GeocodingQueryImpl(applicationKey);
     }
     
     /**
-     * New detect language query.
+     * New directions query.
      * 
-     * @return the detect language query
+     * @return the directions query
      */
     public DirectionsQuery newDirectionsQuery() {
     	return new DirectionsQueryImpl(applicationKey);
     }
     
     /**
-     * New detect language query.
+     * New elevation query.
      * 
-     * @return the detect language query
+     * @return the elevation query
      */
     public ElevationQuery newElevationQuery() {
     	return new ElevationQueryImpl(applicationKey);
     }
     
     /**
-     * New detect language query.
+     * New places query.
      * 
-     * @return the detect language query
+     * @return the places query
      */
     public PlacesQuery newPlacesQuery() {
     	return new PlacesQueryImpl(applicationKey);

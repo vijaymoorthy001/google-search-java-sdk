@@ -28,13 +28,13 @@ import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
- * The Class DetectLanguageQueryImpl.
+ * The Class GeocodingQueryImpl.
  */
 public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> implements
 	GeocodingQuery {
 	
 	/**
-	 * Instantiates a new detect language query impl.
+	 * Instantiates a new geocoding query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -61,6 +61,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withAddress(java.lang.String)
+	 */
 	@Override
 	public GeocodingQuery withAddress(String address) {
 		apiUrlBuilder.withParameter(ParameterNames.ADDRESS, address);
@@ -68,6 +71,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withAddress(com.googleapis.maps.schema.GeoLocation)
+	 */
 	@Override
 	public GeocodingQuery withAddress(GeoLocation address) {
 		apiUrlBuilder.withParameter(ParameterNames.LATLNG, toParameterString(address));
@@ -75,6 +81,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withBounds(com.googleapis.maps.schema.Bounds)
+	 */
 	@Override
 	public GeocodingQuery withBounds(Bounds bounds) {
 		apiUrlBuilder.withParameter(ParameterNames.BOUNDS, toParameterString(bounds.getSouthwest(), bounds.getNortheast()));
@@ -82,6 +91,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withLanguage(com.googleapis.maps.schema.Language)
+	 */
 	@Override
 	public GeocodingQuery withLanguage(Language language) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.LANGUAGE, language);
@@ -89,6 +101,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withRegion(com.googleapis.maps.schema.CCTLD)
+	 */
 	@Override
 	public GeocodingQuery withRegion(CCTLD region) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.REGION, region);
@@ -96,6 +111,9 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.GeocodingQuery#withSensor(boolean)
+	 */
 	@Override
 	public GeocodingQuery withSensor(boolean sensor) {
 		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));

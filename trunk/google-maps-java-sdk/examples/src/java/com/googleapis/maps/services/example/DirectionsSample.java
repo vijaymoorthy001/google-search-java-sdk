@@ -34,7 +34,7 @@ import com.googleapis.maps.services.DirectionsQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
 /**
- * The Class TranslationSample.
+ * The Class DirectionsSample.
  */
 public class DirectionsSample {
 
@@ -86,6 +86,11 @@ public class DirectionsSample {
 	}
 
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
 	private static void printResponse(DirectionsResult response) {
 		System.out.println(response.getSummary());
 		for (Leg leg : response.getLegs()) {

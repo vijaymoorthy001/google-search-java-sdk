@@ -21,7 +21,7 @@ import java.util.List;
 
 
 /**
- * The Interface GoogleSearchQuery.
+ * The Interface GoogleMapsQuery.
  */
 public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
 	
@@ -35,7 +35,7 @@ public interface GoogleMapsQuery<T> extends GoogleMapsAuthenticationClient {
 	/**
 	 * List.
 	 * 
-	 * @return the paged list< t>
+	 * @return the list< t>
 	 */
 	public List<T> list();
 	

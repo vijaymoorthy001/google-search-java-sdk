@@ -24,7 +24,7 @@ import com.googleapis.maps.services.GoogleMapsQueryFactory;
 import com.googleapis.maps.services.constant.TestConstants;
 
 /**
- * The Class GoogleSearchJsonQueryTest.
+ * The Class GoogleMapsJsonQueryTest.
  */
 public class GoogleMapsJsonQueryTest extends BaseGoogleMapsClientTest {
 	

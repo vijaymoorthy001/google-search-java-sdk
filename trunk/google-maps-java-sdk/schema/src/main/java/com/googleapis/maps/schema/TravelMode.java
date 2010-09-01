@@ -21,12 +21,17 @@ import java.util.Map;
 
 
 /**
- * The Enum ListingType.
+ * The Enum TravelMode.
  */
 public enum TravelMode implements ValueEnum {
 	
+	/** The DRIVING. */
 	DRIVING("DRIVING"),
+	
+	/** The WALKING. */
 	WALKING("WALKING"),
+	
+	/** The BICYCLING. */
 	BICYCLING("BICYCLING");
 	
     /** The Constant stringToEnum. */
@@ -42,7 +47,7 @@ public enum TravelMode implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new listing type.
+     * Instantiates a new travel mode.
      * 
      * @param value the value
      */
@@ -63,7 +68,7 @@ public enum TravelMode implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the listing type
+	 * @return the travel mode
 	 */
 	public static TravelMode fromValue(String value) {
 		return stringToEnum.get(value);

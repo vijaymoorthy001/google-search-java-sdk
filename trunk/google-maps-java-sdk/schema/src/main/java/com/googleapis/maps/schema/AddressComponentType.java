@@ -21,32 +21,77 @@ import java.util.Map;
 
 
 /**
- * The Enum ListingType.
+ * The Enum AddressComponentType.
  */
 public enum AddressComponentType implements ValueEnum {
 	
+	/** The STREE t_ address. */
 	STREET_ADDRESS("street_address"),
+	
+	/** The ROUTE. */
 	ROUTE("route"),
+	
+	/** The INTERSECTION. */
 	INTERSECTION("intersection"),
+	
+	/** The POLITICAL. */
 	POLITICAL("political"),
+	
+	/** The COUNTRY. */
 	COUNTRY("country"),
+	
+	/** The ADMINISTRATIV e_ are a_ leve l_1. */
 	ADMINISTRATIVE_AREA_LEVEL_1("administrative_area_level_1"),
+	
+	/** The ADMINISTRATIV e_ are a_ leve l_2. */
 	ADMINISTRATIVE_AREA_LEVEL_2("administrative_area_level_2"),
+	
+	/** The ADMINISTRATIV e_ are a_ leve l_3. */
 	ADMINISTRATIVE_AREA_LEVEL_3("administrative_area_level_3"),
+	
+	/** The COLLOQUIA l_ area. */
 	COLLOQUIAL_AREA("colloquial_area"),
+	
+	/** The LOCALITY. */
 	LOCALITY("locality"),
+	
+	/** The SUBLOCALITY. */
 	SUBLOCALITY("sublocality"),
+	
+	/** The NEIGHBORHOOD. */
 	NEIGHBORHOOD("neighborhood"),
+	
+	/** The PREMISE. */
 	PREMISE("premise"),
+	
+	/** The SUBPREMISE. */
 	SUBPREMISE("subpremise"),
+	
+	/** The POSTA l_ code. */
 	POSTAL_CODE("postal_code"),
+	
+	/** The NATURA l_ feature. */
 	NATURAL_FEATURE("natural_feature"),
+	
+	/** The AIRPORT. */
 	AIRPORT("airport"),
+	
+	/** The PARK. */
 	PARK("park"),
+	
+	/** The POIN t_ o f_ interest. */
 	POINT_OF_INTEREST("point_of_interest"),
+	
+	/** The POS t_ box. */
 	POST_BOX("post_box"),
+	
+	/** The STREE t_ number. */
 	STREET_NUMBER("street_number"),
+	
+	/** The FLOOR. */
 	FLOOR("floor"),
+	
+	/** The ROOM. */
 	ROOM("room");
 	
     /** The Constant stringToEnum. */
@@ -62,7 +107,7 @@ public enum AddressComponentType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new listing type.
+     * Instantiates a new address component type.
      * 
      * @param value the value
      */
@@ -83,7 +128,7 @@ public enum AddressComponentType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the listing type
+	 * @return the address component type
 	 */
 	public static AddressComponentType fromValue(String value) {
 		return stringToEnum.get(value);

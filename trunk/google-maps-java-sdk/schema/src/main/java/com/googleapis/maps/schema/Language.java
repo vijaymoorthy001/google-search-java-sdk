@@ -21,44 +21,113 @@ import java.util.Map;
 
 
 /**
- * The Enum ImageSize.
+ * The Enum Language.
  */
 public enum Language implements ValueEnum  {
 	
+	/** The Arabic. */
 	Arabic ("lang_ar"),
+	
+	/** The Bulgarian. */
 	Bulgarian ("lang_bg"),
+	
+	/** The Catalan. */
 	Catalan ("lang_ca"),
+	
+	/** The Chinese_ simplified. */
 	Chinese_Simplified ("lang_zh-CN"),
+	
+	/** The Chinese_ traditional. */
 	Chinese_Traditional ("lang_zh-TW"),
+	
+	/** The Croation. */
 	Croation ("lang_hr"),
+	
+	/** The Czech. */
 	Czech ("lang_cs"),
+	
+	/** The Danish. */
 	Danish ("lang_da"),
+	
+	/** The Dutch. */
 	Dutch ("lang_nl"),
+	
+	/** The English. */
 	English ("lang_en"),
+	
+	/** The Estonian. */
 	Estonian ("lang_et"),
+	
+	/** The Finnish. */
 	Finnish ("lang_fi"),
+	
+	/** The French. */
 	French ("lang_fr"),
+	
+	/** The German. */
 	German ("lang_de"),
+	
+	/** The Greek. */
 	Greek ("lang_el"),
+	
+	/** The Hebrew. */
 	Hebrew ("lang_iw"),
+	
+	/** The Hungarian. */
 	Hungarian ("lang_hu"),
+	
+	/** The Icelandic. */
 	Icelandic ("lang_is"),
+	
+	/** The Indonesian. */
 	Indonesian ("lang_id"),
+	
+	/** The Italian. */
 	Italian ("lang_it"),
+	
+	/** The Japanese. */
 	Japanese ("lang_ja"),
+	
+	/** The Korean. */
 	Korean ("lang_ko"),
+	
+	/** The Latvian. */
 	Latvian ("lang_lv"),
+	
+	/** The Lithuanian. */
 	Lithuanian ("lang_lt"),
+	
+	/** The Norwegian. */
 	Norwegian ("lang_no"),
+	
+	/** The Polish. */
 	Polish ("lang_pl"),
+	
+	/** The Portuguese. */
 	Portuguese ("lang_pt"),
+	
+	/** The Romanian. */
 	Romanian ("lang_ro"),
+	
+	/** The Russian. */
 	Russian ("lang_ru"),
+	
+	/** The Serbian. */
 	Serbian ("lang_sr"),
+	
+	/** The Slovak. */
 	Slovak ("lang_sk"),
+	
+	/** The Slovenian. */
 	Slovenian ("lang_sl"),
+	
+	/** The Spanish. */
 	Spanish ("lang_es"),
+	
+	/** The Swedish. */
 	Swedish ("lang_sv"),
+	
+	/** The Turkish. */
 	Turkish ("lang_tr");
 	
     /** The Constant stringToEnum. */
@@ -74,7 +143,7 @@ public enum Language implements ValueEnum  {
     private final String value;
     
     /**
-     * Instantiates a new image size.
+     * Instantiates a new language.
      * 
      * @param value the value
      */
@@ -82,6 +151,9 @@ public enum Language implements ValueEnum  {
         this.value = value;
     }
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.schema.ValueEnum#value()
+	 */
 	@Override
 	public String value() {
 		return value;
@@ -92,7 +164,7 @@ public enum Language implements ValueEnum  {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the image size
+	 * @return the language
 	 */
 	public static Language fromValue(String value) {
 		return stringToEnum.get(value);
