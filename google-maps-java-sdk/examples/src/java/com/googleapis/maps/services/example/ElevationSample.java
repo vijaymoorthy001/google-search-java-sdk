@@ -17,6 +17,7 @@
 package com.googleapis.maps.services.example;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -27,6 +28,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import com.googleapis.maps.schema.ElevationResult;
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.services.ElevationQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
@@ -69,18 +71,21 @@ public class ElevationSample {
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
-        } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
-    		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		ElevationQuery detectQuery = factory.newElevationQuery();
-    		ElevationResult detectResponse = detectQuery.singleResult();
-    		printResponse(detectResponse);
         } else {
-        	printHelp(options);
+    		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
+    		ElevationQuery query = factory.newElevationQuery();
+    		query.withLocations(new GeoLocation(39.7391536,-104.9847034), new GeoLocation(36.455556,-116.866667));
+    		query.withSensor(false);
+    		List<ElevationResult> response = query.list();
+    		for (ElevationResult elevationResult : response) {
+        		printResponse(elevationResult);
+			}
         }
 	}
 
-	private static void printResponse(ElevationResult detectResponse) {
-		// TODO Auto-generated method stub
+	private static void printResponse(ElevationResult response) {
+		System.out.println(response.getLocation().getLat() + ":" + response.getLocation().getLng());
+		System.out.println(response.getElevation());
 	}
 
 	/**

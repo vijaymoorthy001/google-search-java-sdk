@@ -17,6 +17,7 @@
 package com.googleapis.maps.services.example;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -27,6 +28,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import com.googleapis.maps.schema.DirectionsResult;
+import com.googleapis.maps.schema.Leg;
+import com.googleapis.maps.schema.Step;
 import com.googleapis.maps.services.DirectionsQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
@@ -69,19 +72,30 @@ public class DirectionsSample {
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
-        } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
+        } else {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		DirectionsQuery query = factory.newDirectionsQuery();
-    		DirectionsResult response = query.singleResult();
-    		printResponse(response);
-        } else {
-        	printHelp(options);
+    		query.withOrigin("Boston,MA").withDestination("Concord,MA");
+    		query.withWaypoints("Charlestown,MA", "Lexington,MA");
+    		query.withSensor(false);
+    		List<DirectionsResult> response = query.list();
+    		for (DirectionsResult directionsResult : response) {
+        		printResponse(directionsResult);
+			}
         }
 	}
 
 
 	private static void printResponse(DirectionsResult response) {
-		// TODO Auto-generated method stub
+		System.out.println(response.getSummary());
+		for (Leg leg : response.getLegs()) {
+			System.out.println(leg.getStartAddress() + ":" + leg.getEndAddress());
+			System.out.println(leg.getDistance() + ":" + leg.getDuration());
+			for(Step step : leg.getSteps()) {
+				System.out.println(step.getDistance() + ":" + step.getDuration());
+				System.out.println(step.getTravelMode());
+			}
+		}
 	}
 
 	/**

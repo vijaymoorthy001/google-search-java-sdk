@@ -14,17 +14,16 @@
  * limitations under the License. 
  * 
  */
-package com.googleapis.maps.services.enumeration;
+package com.googleapis.maps.schema;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.googleapis.maps.common.ValueEnum;
 
 /**
  * The Enum ImageSize.
  */
-public enum Language implements ValueEnum  {
+public enum CCTLD implements ValueEnum  {
 	
 	Arabic ("lang_ar"),
 	Bulgarian ("lang_bg"),
@@ -63,10 +62,10 @@ public enum Language implements ValueEnum  {
 	Turkish ("lang_tr");
 	
     /** The Constant stringToEnum. */
-	private static final Map<String, Language> stringToEnum = new HashMap<String, Language>();
+	private static final Map<String, CCTLD> stringToEnum = new HashMap<String, CCTLD>();
 
 	static { // Initialize map from constant name to enum constant
-		for (Language op : values()) {
+		for (CCTLD op : values()) {
 			stringToEnum.put(op.value(), op);
 		}
 	}
@@ -79,7 +78,7 @@ public enum Language implements ValueEnum  {
      * 
      * @param value the value
      */
-    Language(String value) {
+    CCTLD(String value) {
         this.value = value;
     }
 
@@ -95,7 +94,7 @@ public enum Language implements ValueEnum  {
 	 * 
 	 * @return the image size
 	 */
-	public static Language fromValue(String value) {
+	public static CCTLD fromValue(String value) {
 		return stringToEnum.get(value);
 	}
 

@@ -22,12 +22,14 @@ import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
 import com.googleapis.maps.services.PlacesQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
+import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
  * The Class DetectLanguageQueryImpl.
  */
 public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implements
 	PlacesQuery {
+	private String privateKey;
 	
 	/**
 	 * Instantiates a new detect language query impl.
@@ -59,35 +61,35 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 
 	@Override
 	public PlacesQuery withClient(String client) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.CLIENT, client);
+		return this;
 	}
 
 
 	@Override
 	public PlacesQuery withLocation(GeoLocation location) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.LOCATION, toParameterString(location));
+		return this;
 	}
 
 
 	@Override
 	public PlacesQuery withPrivateKey(String privateKey) {
-		// TODO Auto-generated method stub
-		return null;
+		this.privateKey = privateKey;
+		return this;
 	}
 
 
 	@Override
 	public PlacesQuery withRadius(double radius) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.RADIUS, String.valueOf(radius));
+		return this;
 	}
 
 
 	@Override
 	public PlacesQuery withSensor(boolean sensor) {
-		// TODO Auto-generated method stub
-		return null;
+		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));
+		return this;
 	}
 }

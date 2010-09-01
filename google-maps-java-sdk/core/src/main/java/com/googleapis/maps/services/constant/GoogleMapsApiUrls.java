@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.googleapis.maps.common.ValueEnum;
+import com.googleapis.maps.schema.ValueEnum;
 
 /**
  * The Class GoogleSearchApiUrls.

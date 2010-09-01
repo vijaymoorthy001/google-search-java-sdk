@@ -14,7 +14,7 @@
  * limitations under the License. 
  * 
  */
-package com.googleapis.maps.common;
+package com.googleapis.maps.schema;
 
 /**
  * The Interface ValueEnum.

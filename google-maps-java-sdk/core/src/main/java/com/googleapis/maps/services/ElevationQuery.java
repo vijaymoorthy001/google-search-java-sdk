@@ -16,8 +16,6 @@
  */
 package com.googleapis.maps.services;
 
-import java.util.List;
-
 import com.googleapis.maps.schema.ElevationResult;
 import com.googleapis.maps.schema.GeoLocation;
 
@@ -25,8 +23,8 @@ import com.googleapis.maps.schema.GeoLocation;
  * The Interface DetectLanguageQuery.
  */
 public interface ElevationQuery extends GoogleMapsQuery<ElevationResult> {
-	public ElevationQuery withLocations(List<GeoLocation> locations);
-	public ElevationQuery withPath(List<GeoLocation> path);
+	public ElevationQuery withLocations(GeoLocation... locations);
+	public ElevationQuery withPath(GeoLocation... path);
 	public ElevationQuery withSamples(int samples);
 	public ElevationQuery withSensor(boolean sensor);
 }

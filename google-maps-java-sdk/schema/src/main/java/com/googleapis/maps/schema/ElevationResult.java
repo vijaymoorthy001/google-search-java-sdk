@@ -25,4 +25,31 @@ public class ElevationResult extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
+	
+	private GeoLocation location;
+	private double elevation;
+	/**
+	 * @return the location
+	 */
+	public GeoLocation getLocation() {
+		return location;
+	}
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(GeoLocation location) {
+		this.location = location;
+	}
+	/**
+	 * @return the elevation
+	 */
+	public double getElevation() {
+		return elevation;
+	}
+	/**
+	 * @param elevation the elevation to set
+	 */
+	public void setElevation(double elevation) {
+		this.elevation = elevation;
+	}
 }
