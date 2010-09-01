@@ -4,9 +4,8 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
-<project basedir="." default="build" name="google-search-java-sdk">
+<project basedir="." default="build" name="google-maps-java-sdk">
     <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
@@ -78,20 +77,22 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="GoogleMapsJsonQueryTest">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.googleapis.ajax.service.search.GoogleMapsJsonQueryTest" todir="${junit.output.dir}"/>
+    <target name="GeocodingSample">
+        <java classname="com.googleapis.maps.services.example.GeocodingSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRQp6rJd3H_HsG1JiwVMmomhNQm4OxQ3k_hdeVblR92hs1Ng_Afb4bofkw -query &quot;1600 Amphitheatre Parkway, Mountain View, CA&quot;"/>
             <classpath refid="google-maps-java-sdk.classpath"/>
-        </junit>
+        </java>
     </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
+    <target name="DirectionsSample">
+        <java classname="com.googleapis.maps.services.example.DirectionsSample" failonerror="true" fork="yes">
+            <arg line="-appid ABQIAAAAvQycN2a0eBLRB8DGrLfzQRQp6rJd3H_HsG1JiwVMmomhNQm4OxQ3k_hdeVblR92hs1Ng_Afb4bofkw"/>
+            <classpath refid="google-maps-java-sdk.classpath"/>
+        </java>
+    </target>
+    <target name="ElevationSample">
+        <java classname="com.googleapis.maps.services.example.ElevationSample" failonerror="true" fork="yes">
+            <arg line="-appid Nabeel"/>
+            <classpath refid="google-maps-java-sdk.classpath"/>
+        </java>
     </target>
 </project>
