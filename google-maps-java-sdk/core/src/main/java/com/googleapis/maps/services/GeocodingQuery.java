@@ -23,13 +23,61 @@ import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.schema.Language;
 
 /**
- * The Interface DetectLanguageQuery.
+ * The Interface GeocodingQuery.
  */
 public interface GeocodingQuery extends GoogleMapsQuery<GeocodingResult> {
+	
+	/**
+	 * With address.
+	 * 
+	 * @param address the address
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withAddress(String address);
+	
+	/**
+	 * With address.
+	 * 
+	 * @param address the address
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withAddress(GeoLocation address);
+	
+	/**
+	 * With bounds.
+	 * 
+	 * @param bounds the bounds
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withBounds(Bounds bounds);
+	
+	/**
+	 * With region.
+	 * 
+	 * @param region the region
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withRegion(CCTLD region);
+	
+	/**
+	 * With language.
+	 * 
+	 * @param language the language
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withLanguage(Language language);
+	
+	/**
+	 * With sensor.
+	 * 
+	 * @param sensor the sensor
+	 * 
+	 * @return the geocoding query
+	 */
 	public GeocodingQuery withSensor(boolean sensor);
 }

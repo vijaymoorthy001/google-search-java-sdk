@@ -38,7 +38,7 @@ import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.constant.ApplicationConstants;
 
 /**
- * The Class GoogleSearchApiGateway.
+ * The Class GoogleMapsApiGateway.
  */
 public abstract class GoogleMapsApiGateway {
 	
@@ -192,8 +192,7 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Call api get.
 	 * 
-	 * @param apiUrl
-	 *            the api url
+	 * @param apiUrl the api url
 	 * 
 	 * @return the input stream
 	 */
@@ -204,10 +203,8 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Call api get.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -245,10 +242,8 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Call api post.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param parameters
-	 *            the parameters
+	 * @param apiUrl the api url
+	 * @param parameters the parameters
 	 * 
 	 * @return the input stream
 	 */
@@ -259,12 +254,9 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Call api post.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param parameters
-	 *            the parameters
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param parameters the parameters
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -310,8 +302,7 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Gets the parameters string.
 	 * 
-	 * @param parameters
-	 *            the parameters
+	 * @param parameters the parameters
 	 * 
 	 * @return the parameters string
 	 */
@@ -338,16 +329,11 @@ public abstract class GoogleMapsApiGateway {
 	/**
 	 * Call api method.
 	 * 
-	 * @param apiUrl
-	 *            the api url
-	 * @param xmlContent
-	 *            the xml content
-	 * @param contentType
-	 *            the content type
-	 * @param method
-	 *            the method
-	 * @param expected
-	 *            the expected
+	 * @param apiUrl the api url
+	 * @param xmlContent the xml content
+	 * @param contentType the content type
+	 * @param method the method
+	 * @param expected the expected
 	 * 
 	 * @return the input stream
 	 */
@@ -463,13 +449,12 @@ public abstract class GoogleMapsApiGateway {
 	}
 	
     /**
-	 * Encode url.
-	 * 
-	 * @param original
-	 *            the original
-	 * 
-	 * @return the string
-	 */
+     * Encode url.
+     * 
+     * @param original the original
+     * 
+     * @return the string
+     */
     private static String encodeUrl(String original) {
     	try {
 			return URLEncoder.encode(original, ApplicationConstants.CONTENT_ENCODING);

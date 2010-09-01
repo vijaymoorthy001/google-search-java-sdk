@@ -18,7 +18,7 @@ package com.googleapis.maps.services;
 
 
 /**
- * The Interface GoogleSearchAuthenticationClient.
+ * The Interface GoogleMapsAuthenticationClient.
  */
 public interface GoogleMapsAuthenticationClient extends GoogleMapsCommunicationClient {
 

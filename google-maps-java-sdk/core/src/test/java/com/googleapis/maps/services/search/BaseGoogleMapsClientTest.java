@@ -21,7 +21,7 @@ import java.util.Collection;
 import junit.framework.TestCase;
 
 /**
- * The Class BaseGoogleSearchClientTest.
+ * The Class BaseGoogleMapsClientTest.
  */
 public class BaseGoogleMapsClientTest extends TestCase {
     

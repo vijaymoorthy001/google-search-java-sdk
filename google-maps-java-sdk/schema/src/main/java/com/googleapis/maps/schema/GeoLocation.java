@@ -19,42 +19,66 @@ package com.googleapis.maps.schema;
 
 
 /**
- * The Class DetectLanguageResult.
+ * The Class GeoLocation.
  */
 public class GeoLocation extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
 	
+	/** The lat. */
 	private double lat;
+	
+	/** The lng. */
 	private double lng;
 	
+	/**
+	 * Instantiates a new geo location.
+	 */
 	public GeoLocation() {}
 	
+	/**
+	 * Instantiates a new geo location.
+	 * 
+	 * @param lat the lat
+	 * @param lng the lng
+	 */
 	public GeoLocation(double lat, double lng) {
 		this.lat = lat;
 		this.lng = lng;
 	}
+	
 	/**
+	 * Gets the lat.
+	 * 
 	 * @return the lat
 	 */
 	public double getLat() {
 		return lat;
 	}
+	
 	/**
-	 * @param lat the lat to set
+	 * Sets the lat.
+	 * 
+	 * @param lat the new lat
 	 */
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
+	
 	/**
+	 * Gets the lng.
+	 * 
 	 * @return the lng
 	 */
 	public double getLng() {
 		return lng;
 	}
+	
 	/**
-	 * @param lng the lng to set
+	 * Sets the lng.
+	 * 
+	 * @param lng the new lng
 	 */
 	public void setLng(double lng) {
 		this.lng = lng;

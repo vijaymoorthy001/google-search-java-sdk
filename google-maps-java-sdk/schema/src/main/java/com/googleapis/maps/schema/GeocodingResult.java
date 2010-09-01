@@ -21,60 +21,92 @@ import java.util.List;
 
 
 /**
- * The Class DetectLanguageResult.
+ * The Class GeocodingResult.
  */
 public class GeocodingResult extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
+	
+	/** The types. */
 	private List<AddressComponentType> types;
+	
+	/** The formatted address. */
 	private String formattedAddress;
+	
+	/** The address components. */
 	private List<AddressComponent> addressComponents;
+	
+	/** The geometry. */
 	private GeoMetry geometry;
+	
 	/**
+	 * Gets the types.
+	 * 
 	 * @return the types
 	 */
 	public List<AddressComponentType> getTypes() {
 		return types;
 	}
+	
 	/**
-	 * @param types the types to set
+	 * Sets the types.
+	 * 
+	 * @param types the new types
 	 */
 	public void setTypes(List<AddressComponentType> types) {
 		this.types = types;
 	}
+	
 	/**
-	 * @return the formattedAddress
+	 * Gets the formatted address.
+	 * 
+	 * @return the formatted address
 	 */
 	public String getFormattedAddress() {
 		return formattedAddress;
 	}
+	
 	/**
-	 * @param formattedAddress the formattedAddress to set
+	 * Sets the formatted address.
+	 * 
+	 * @param formattedAddress the new formatted address
 	 */
 	public void setFormattedAddress(String formattedAddress) {
 		this.formattedAddress = formattedAddress;
 	}
+	
 	/**
-	 * @return the addressComponents
+	 * Gets the address components.
+	 * 
+	 * @return the address components
 	 */
 	public List<AddressComponent> getAddressComponents() {
 		return addressComponents;
 	}
+	
 	/**
-	 * @param addressComponents the addressComponents to set
+	 * Sets the address components.
+	 * 
+	 * @param addressComponents the new address components
 	 */
 	public void setAddressComponents(List<AddressComponent> addressComponents) {
 		this.addressComponents = addressComponents;
 	}
+	
 	/**
+	 * Gets the geometry.
+	 * 
 	 * @return the geometry
 	 */
 	public GeoMetry getGeometry() {
 		return geometry;
 	}
+	
 	/**
-	 * @param geometry the geometry to set
+	 * Sets the geometry.
+	 * 
+	 * @param geometry the new geometry
 	 */
 	public void setGeometry(GeoMetry geometry) {
 		this.geometry = geometry;

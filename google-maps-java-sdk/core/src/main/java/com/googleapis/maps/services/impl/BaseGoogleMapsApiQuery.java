@@ -48,10 +48,11 @@ import com.googleapis.maps.services.constant.ApplicationConstants;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls.GoogleMapsApiUrlBuilder;
 
 /**
- * The Class BaseGoogleSearchApiQuery.
+ * The Class BaseGoogleMapsApiQuery.
  */
 public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway implements GoogleMapsQuery<T> {
 	
+	/** The Constant UTF_8_CHAR_SET. */
 	protected static final Charset UTF_8_CHAR_SET = Charset.forName(ApplicationConstants.CONTENT_ENCODING);
 
 	/** The api url builder. */
@@ -64,7 +65,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
     private List<AsyncResponseHandler<List<T>>> handlers = new ArrayList<AsyncResponseHandler<List<T>>>();
 	
 	/**
-	 * Instantiates a new base google search api query.
+	 * Instantiates a new base google maps api query.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -78,7 +79,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	}
 
 	/**
-	 * Instantiates a new base google search api query.
+	 * Instantiates a new base google maps api query.
 	 * 
 	 * @param applicationId the application id
 	 * @param apiVersion the api version
@@ -115,7 +116,7 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * 
 	 * @param response the response
 	 * 
-	 * @return the paged list< t>
+	 * @return the list< t>
 	 */
 	protected List<T> unmarshallList(JsonObject response) {
 		String status = response.get("status").getAsString();
@@ -221,12 +222,19 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 	 * 
 	 * @param urlFormat the url format
 	 * 
-	 * @return the google search api url builder
+	 * @return the google maps api url builder
 	 */
 	protected GoogleMapsApiUrlBuilder createGoogleSearchApiUrlBuilder(String urlFormat) {
 		return new GoogleMapsApiUrlBuilder(urlFormat);
 	}
 	
+	/**
+	 * To parameter string.
+	 * 
+	 * @param locations the locations
+	 * 
+	 * @return the string
+	 */
 	protected String toParameterString(GeoLocation... locations) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < locations.length; i++) {
@@ -240,6 +248,13 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 		return builder.toString();
 	}
 	
+	/**
+	 * Creates the google maps exception.
+	 * 
+	 * @param statusCode the status code
+	 * 
+	 * @return the google maps exception
+	 */
 	protected GoogleMapsException createGoogleMapsException(String statusCode) {
 		if ("OVER_QUERY_LIMIT".equals(statusCode)) {
 			return new OverQueryLimitsException("indicates that you are over your quota.");

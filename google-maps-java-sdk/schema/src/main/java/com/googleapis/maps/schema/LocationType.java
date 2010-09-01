@@ -21,13 +21,20 @@ import java.util.Map;
 
 
 /**
- * The Enum ListingType.
+ * The Enum LocationType.
  */
 public enum LocationType implements ValueEnum {
 	
+	/** The ROOFTOP. */
 	ROOFTOP("ROOFTOP"),
+	
+	/** The RANG e_ interpolated. */
 	RANGE_INTERPOLATED("RANGE_INTERPOLATED"),
+	
+	/** The GEOMETRI c_ center. */
 	GEOMETRIC_CENTER("GEOMETRIC_CENTER"),
+	
+	/** The APPROXIMATE. */
 	APPROXIMATE("APPROXIMATE");
 	
     /** The Constant stringToEnum. */
@@ -43,7 +50,7 @@ public enum LocationType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new listing type.
+     * Instantiates a new location type.
      * 
      * @param value the value
      */
@@ -64,7 +71,7 @@ public enum LocationType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the listing type
+	 * @return the location type
 	 */
 	public static LocationType fromValue(String value) {
 		return stringToEnum.get(value);

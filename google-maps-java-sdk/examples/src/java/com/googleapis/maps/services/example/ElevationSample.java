@@ -33,7 +33,7 @@ import com.googleapis.maps.services.ElevationQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
 /**
- * The Class TranslationSample.
+ * The Class ElevationSample.
  */
 public class ElevationSample {
 
@@ -83,6 +83,11 @@ public class ElevationSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
 	private static void printResponse(ElevationResult response) {
 		System.out.println(response.getLocation().getLat() + ":" + response.getLocation().getLng());
 		System.out.println(response.getElevation());

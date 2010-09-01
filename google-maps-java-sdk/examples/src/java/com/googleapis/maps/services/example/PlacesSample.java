@@ -31,7 +31,7 @@ import com.googleapis.maps.services.GoogleMapsQueryFactory;
 import com.googleapis.maps.services.PlacesQuery;
 
 /**
- * The Class TranslationSample.
+ * The Class PlacesSample.
  */
 public class PlacesSample {
 
@@ -79,6 +79,11 @@ public class PlacesSample {
         }
 	}
 
+	/**
+	 * Prints the response.
+	 * 
+	 * @param response the response
+	 */
 	private static void printResponse(PlacesResult response) {
 		// TODO Auto-generated method stub
 	}

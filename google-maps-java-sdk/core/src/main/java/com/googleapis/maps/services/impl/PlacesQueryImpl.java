@@ -25,14 +25,16 @@ import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
- * The Class DetectLanguageQueryImpl.
+ * The Class PlacesQueryImpl.
  */
 public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implements
 	PlacesQuery {
+	
+	/** The private key. */
 	private String privateKey;
 	
 	/**
-	 * Instantiates a new detect language query impl.
+	 * Instantiates a new places query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -59,6 +61,9 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.PlacesQuery#withClient(java.lang.String)
+	 */
 	@Override
 	public PlacesQuery withClient(String client) {
 		apiUrlBuilder.withParameter(ParameterNames.CLIENT, client);
@@ -66,6 +71,9 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.PlacesQuery#withLocation(com.googleapis.maps.schema.GeoLocation)
+	 */
 	@Override
 	public PlacesQuery withLocation(GeoLocation location) {
 		apiUrlBuilder.withParameter(ParameterNames.LOCATION, toParameterString(location));
@@ -73,6 +81,9 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.PlacesQuery#withPrivateKey(java.lang.String)
+	 */
 	@Override
 	public PlacesQuery withPrivateKey(String privateKey) {
 		this.privateKey = privateKey;
@@ -80,6 +91,9 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.PlacesQuery#withRadius(double)
+	 */
 	@Override
 	public PlacesQuery withRadius(double radius) {
 		apiUrlBuilder.withParameter(ParameterNames.RADIUS, String.valueOf(radius));
@@ -87,6 +101,9 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.PlacesQuery#withSensor(boolean)
+	 */
 	@Override
 	public PlacesQuery withSensor(boolean sensor) {
 		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));

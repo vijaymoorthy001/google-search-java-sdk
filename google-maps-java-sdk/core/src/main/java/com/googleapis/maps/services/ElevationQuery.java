@@ -20,11 +20,43 @@ import com.googleapis.maps.schema.ElevationResult;
 import com.googleapis.maps.schema.GeoLocation;
 
 /**
- * The Interface DetectLanguageQuery.
+ * The Interface ElevationQuery.
  */
 public interface ElevationQuery extends GoogleMapsQuery<ElevationResult> {
+	
+	/**
+	 * With locations.
+	 * 
+	 * @param locations the locations
+	 * 
+	 * @return the elevation query
+	 */
 	public ElevationQuery withLocations(GeoLocation... locations);
+	
+	/**
+	 * With path.
+	 * 
+	 * @param path the path
+	 * 
+	 * @return the elevation query
+	 */
 	public ElevationQuery withPath(GeoLocation... path);
+	
+	/**
+	 * With samples.
+	 * 
+	 * @param samples the samples
+	 * 
+	 * @return the elevation query
+	 */
 	public ElevationQuery withSamples(int samples);
+	
+	/**
+	 * With sensor.
+	 * 
+	 * @param sensor the sensor
+	 * 
+	 * @return the elevation query
+	 */
 	public ElevationQuery withSensor(boolean sensor);
 }

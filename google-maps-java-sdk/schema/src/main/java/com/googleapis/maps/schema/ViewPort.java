@@ -19,36 +19,50 @@ package com.googleapis.maps.schema;
 
 
 /**
- * The Class DetectLanguageResult.
+ * The Class ViewPort.
  */
 public class ViewPort extends SchemaEntity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -7595223844163364948L;
 	
+	/** The southwest. */
 	private GeoLocation southwest;
+	
+	/** The northeast. */
 	private GeoLocation northeast;
 	
 	/**
+	 * Gets the southwest.
+	 * 
 	 * @return the southwest
 	 */
 	public GeoLocation getSouthwest() {
 		return southwest;
 	}
+	
 	/**
-	 * @param southwest the southwest to set
+	 * Sets the southwest.
+	 * 
+	 * @param southwest the new southwest
 	 */
 	public void setSouthwest(GeoLocation southwest) {
 		this.southwest = southwest;
 	}
+	
 	/**
+	 * Gets the northeast.
+	 * 
 	 * @return the northeast
 	 */
 	public GeoLocation getNortheast() {
 		return northeast;
 	}
+	
 	/**
-	 * @param northeast the northeast to set
+	 * Sets the northeast.
+	 * 
+	 * @param northeast the new northeast
 	 */
 	public void setNortheast(GeoLocation northeast) {
 		this.northeast = northeast;

@@ -19,7 +19,7 @@ package com.googleapis.maps.services;
 import java.util.Map;
 
 /**
- * The Interface GoogleSearchCommunicationClient.
+ * The Interface GoogleMapsCommunicationClient.
  */
 public interface GoogleMapsCommunicationClient {
 

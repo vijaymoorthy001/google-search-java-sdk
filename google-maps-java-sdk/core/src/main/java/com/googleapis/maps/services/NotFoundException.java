@@ -17,7 +17,7 @@
 package com.googleapis.maps.services;
 
 /**
- * The Class GoogleSearchException.
+ * The Class NotFoundException.
  */
 public class NotFoundException extends GoogleMapsException {
 
@@ -25,12 +25,12 @@ public class NotFoundException extends GoogleMapsException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new not found exception.
 	 */
 	public NotFoundException() {}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new not found exception.
 	 * 
 	 * @param message the message
 	 */
@@ -39,7 +39,7 @@ public class NotFoundException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new not found exception.
 	 * 
 	 * @param cause the cause
 	 */
@@ -48,7 +48,7 @@ public class NotFoundException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new not found exception.
 	 * 
 	 * @param message the message
 	 * @param cause the cause

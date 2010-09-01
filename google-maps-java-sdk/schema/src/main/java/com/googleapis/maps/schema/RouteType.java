@@ -21,11 +21,14 @@ import java.util.Map;
 
 
 /**
- * The Enum ListingType.
+ * The Enum RouteType.
  */
 public enum RouteType implements ValueEnum {
 	
+	/** The TOLLS. */
 	TOLLS("tolls"),
+	
+	/** The HIGHWAYS. */
 	HIGHWAYS("highways");
 	
     /** The Constant stringToEnum. */
@@ -41,7 +44,7 @@ public enum RouteType implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new listing type.
+     * Instantiates a new route type.
      * 
      * @param value the value
      */
@@ -62,7 +65,7 @@ public enum RouteType implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the listing type
+	 * @return the route type
 	 */
 	public static RouteType fromValue(String value) {
 		return stringToEnum.get(value);

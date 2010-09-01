@@ -34,13 +34,13 @@ import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
- * The Class DetectLanguageQueryImpl.
+ * The Class DirectionsQueryImpl.
  */
 public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult> implements
 	DirectionsQuery {
 	
 	/**
-	 * Instantiates a new detect language query impl.
+	 * Instantiates a new directions query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -67,6 +67,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withAlternatives(boolean)
+	 */
 	@Override
 	public DirectionsQuery withAlternatives(boolean alternatives) {
 		apiUrlBuilder.withParameter(ParameterNames.ALTERNATIVES, String.valueOf(alternatives));
@@ -74,6 +77,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withAvoid(com.googleapis.maps.schema.RouteType)
+	 */
 	@Override
 	public DirectionsQuery withAvoid(RouteType avoid) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.AVOID, avoid);
@@ -81,6 +87,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withDestination(java.lang.String)
+	 */
 	@Override
 	public DirectionsQuery withDestination(String destination) {
 		apiUrlBuilder.withParameter(ParameterNames.DESTINATION, destination);
@@ -88,6 +97,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withDestination(com.googleapis.maps.schema.GeoLocation)
+	 */
 	@Override
 	public DirectionsQuery withDestination(GeoLocation destination) {
 		apiUrlBuilder.withParameter(ParameterNames.DESTINATION, toParameterString(destination));
@@ -95,6 +107,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withLanguage(com.googleapis.maps.schema.Language)
+	 */
 	@Override
 	public DirectionsQuery withLanguage(Language language) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.LANGUAGE, language);
@@ -102,6 +117,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withMode(com.googleapis.maps.schema.TravelMode)
+	 */
 	@Override
 	public DirectionsQuery withMode(TravelMode mode) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.MODE, mode);
@@ -109,6 +127,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withOrigin(java.lang.String)
+	 */
 	@Override
 	public DirectionsQuery withOrigin(String origin) {
 		apiUrlBuilder.withParameter(ParameterNames.ORIGIN, origin);
@@ -116,6 +137,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withOrigin(com.googleapis.maps.schema.GeoLocation)
+	 */
 	@Override
 	public DirectionsQuery withOrigin(GeoLocation origin) {
 		apiUrlBuilder.withParameter(ParameterNames.ORIGIN, toParameterString(origin));
@@ -123,6 +147,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withSensor(boolean)
+	 */
 	@Override
 	public DirectionsQuery withSensor(boolean sensor) {
 		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));
@@ -130,6 +157,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withUnits(com.googleapis.maps.schema.UnitSystem)
+	 */
 	@Override
 	public DirectionsQuery withUnits(UnitSystem units) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.UNITS, units);
@@ -137,6 +167,9 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withWaypoints(java.lang.String[])
+	 */
 	@Override
 	public DirectionsQuery withWaypoints(String... waypoints) {
 		StringBuilder builder = new StringBuilder();
@@ -151,18 +184,17 @@ public class DirectionsQueryImpl extends BaseGoogleMapsApiQuery<DirectionsResult
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.DirectionsQuery#withWaypoints(com.googleapis.maps.schema.GeoLocation[])
+	 */
 	@Override
 	public DirectionsQuery withWaypoints(GeoLocation... waypoints) {
 		apiUrlBuilder.withParameter(ParameterNames.WAYPOINTS, toParameterString(waypoints));
 		return this;
 	}
 	
-	/**
-	 * Unmarshall list.
-	 * 
-	 * @param response the response
-	 * 
-	 * @return the paged list< t>
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.impl.BaseGoogleMapsApiQuery#unmarshallList(com.google.gson.JsonObject)
 	 */
 	protected List<DirectionsResult> unmarshallList(JsonObject response) {
 		String status = response.get("status").getAsString();

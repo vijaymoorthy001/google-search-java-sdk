@@ -25,13 +25,13 @@ import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
 
 /**
- * The Class DetectLanguageQueryImpl.
+ * The Class ElevationQueryImpl.
  */
 public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> implements
 	ElevationQuery {
 	
 	/**
-	 * Instantiates a new detect language query impl.
+	 * Instantiates a new elevation query impl.
 	 * 
 	 * @param applicationId the application id
 	 */
@@ -58,6 +58,9 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.ElevationQuery#withLocations(com.googleapis.maps.schema.GeoLocation[])
+	 */
 	@Override
 	public ElevationQuery withLocations(GeoLocation... locations) {
 		apiUrlBuilder.withParameter(ParameterNames.LOCATIONS, toParameterString(locations));
@@ -65,6 +68,9 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.ElevationQuery#withPath(com.googleapis.maps.schema.GeoLocation[])
+	 */
 	@Override
 	public ElevationQuery withPath(GeoLocation... path) {
 		apiUrlBuilder.withParameter(ParameterNames.PATH, toParameterString(path));
@@ -72,6 +78,9 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.ElevationQuery#withSamples(int)
+	 */
 	@Override
 	public ElevationQuery withSamples(int samples) {
 		apiUrlBuilder.withParameter(ParameterNames.SAMPLES, String.valueOf(samples));
@@ -79,6 +88,9 @@ public class ElevationQueryImpl extends BaseGoogleMapsApiQuery<ElevationResult> 
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.ElevationQuery#withSensor(boolean)
+	 */
 	@Override
 	public ElevationQuery withSensor(boolean sensor) {
 		apiUrlBuilder.withParameter(ParameterNames.SENSOR, String.valueOf(sensor));

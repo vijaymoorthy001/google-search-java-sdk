@@ -34,7 +34,7 @@ import java.util.logging.Logger;
 import com.googleapis.maps.schema.ValueEnum;
 
 /**
- * The Class GoogleSearchApiUrls.
+ * The Class GoogleMapsApiUrls.
  */
 public final class GoogleMapsApiUrls {
 
@@ -72,12 +72,12 @@ public final class GoogleMapsApiUrls {
         googleApiUrls.getProperty("com.googleapis.maps.services.place");
     
     /**
-     * Instantiates a new google search api urls.
+     * Instantiates a new google maps api urls.
      */
     private GoogleMapsApiUrls() {}
 
     /**
-     * The Class GoogleSearchApiUrlBuilder.
+     * The Class GoogleMapsApiUrlBuilder.
      */
     public static class GoogleMapsApiUrlBuilder {
         
@@ -97,7 +97,7 @@ public final class GoogleMapsApiUrls {
 	    private Map<String, Collection<String>> parametersMap = new HashMap<String, Collection<String>>();
     	
     	/**
-	     * Instantiates a new google search api url builder.
+	     * Instantiates a new google maps api url builder.
 	     * 
 	     * @param urlFormat the url format
 	     */
@@ -106,7 +106,7 @@ public final class GoogleMapsApiUrls {
     	}
     	
     	/**
-	     * Instantiates a new google search api url builder.
+	     * Instantiates a new google maps api url builder.
 	     * 
 	     * @param urlFormat the url format
 	     * @param apiVersion the api version
@@ -121,7 +121,7 @@ public final class GoogleMapsApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameter(String name, String value) {
 	    	if (value != null && value.length() > 0) {
@@ -137,12 +137,12 @@ public final class GoogleMapsApiUrls {
     	}
     	
     	/**
-	     * With parameter.
+	     * With parameter suffix.
 	     * 
 	     * @param name the name
-	     * @param value the value
+	     * @param suffix the suffix
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameterSuffix(String name, String suffix) {
 	    	if (suffix != null && suffix.length() > 0) {
@@ -165,7 +165,7 @@ public final class GoogleMapsApiUrls {
 	     * @param name the name
 	     * @param values the values
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameters(String name, Collection<String> values) {
 	    	List<String> encodedValues = new ArrayList<String>(values.size());
@@ -183,7 +183,7 @@ public final class GoogleMapsApiUrls {
 	     * @param name the name
 	     * @param enumSet the enum set
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameterEnumSet(String name, Set<? extends ValueEnum> enumSet) {
 	    	Set<String> values = new HashSet<String>(enumSet.size());
@@ -203,7 +203,7 @@ public final class GoogleMapsApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameterEnum(String name, ValueEnum value) {
 	    	withParameter(name, value.value());
@@ -216,7 +216,7 @@ public final class GoogleMapsApiUrls {
 	     * 
 	     * @param enumMap the enum map
 	     * 
-	     * @return the google search api url builder
+	     * @return the google maps api url builder
 	     */
 	    public GoogleMapsApiUrlBuilder withParameterEnumMap(Map<? extends ValueEnum, String> enumMap) {
 	    	for (ValueEnum parameter : enumMap.keySet()) {

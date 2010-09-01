@@ -1,3 +1,19 @@
+/*
+ * Copyright 2010 Nabeel Mukhtar 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and
+ * limitations under the License. 
+ * 
+ */
 package com.googleapis.maps.services.constant;
 
 import java.io.BufferedReader;
@@ -12,22 +28,38 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * The Class UrlSigner.
+ */
 public class UrlSigner {
 
   // Note: Generally, you should store your private key someplace safe
   // and read them into your code
 
+  /** The key string. */
   private static String keyString = "YOUR_PRIVATE_KEY";
   
   // The URL shown in these examples is a static URL which should already
   // be URL-encoded. In practice, you will likely have code
   // which assembles your URL from user or web service input
   // and plugs those values into its parameters.
+  /** The url string. */
   private static String urlString = "YOUR_URL_TO_SIGN";
 
   // This variable stores the binary key, which is computed from the string (Base64) key
+  /** The key. */
   private static byte[] key;
   
+  /**
+   * The main method.
+   * 
+   * @param args the arguments
+   * 
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws InvalidKeyException the invalid key exception
+   * @throws NoSuchAlgorithmException the no such algorithm exception
+   * @throws URISyntaxException the URI syntax exception
+   */
   public static void main(String[] args) throws IOException,
     InvalidKeyException, NoSuchAlgorithmException, URISyntaxException {
     
@@ -60,6 +92,13 @@ public class UrlSigner {
     System.out.println("Signed URL :" + url.getProtocol() + "://" + url.getHost() + request);
   }
   
+  /**
+   * Instantiates a new url signer.
+   * 
+   * @param keyString the key string
+   * 
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public UrlSigner(String keyString) throws IOException {
     // Convert the key from 'web safe' base 64 to binary
     keyString = keyString.replace('-', '+');
@@ -68,6 +107,19 @@ public class UrlSigner {
     this.key = Base64.decode(keyString);
   }
 
+  /**
+   * Sign request.
+   * 
+   * @param path the path
+   * @param query the query
+   * 
+   * @return the string
+   * 
+   * @throws NoSuchAlgorithmException the no such algorithm exception
+   * @throws InvalidKeyException the invalid key exception
+   * @throws UnsupportedEncodingException the unsupported encoding exception
+   * @throws URISyntaxException the URI syntax exception
+   */
   public String signRequest(String path, String query) throws NoSuchAlgorithmException,
     InvalidKeyException, UnsupportedEncodingException, URISyntaxException {
     

@@ -17,7 +17,7 @@
 package com.googleapis.maps.services;
 
 /**
- * The Class GoogleSearchException.
+ * The Class RequestDeniedException.
  */
 public class RequestDeniedException extends GoogleMapsException {
 
@@ -25,12 +25,12 @@ public class RequestDeniedException extends GoogleMapsException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new request denied exception.
 	 */
 	public RequestDeniedException() {}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new request denied exception.
 	 * 
 	 * @param message the message
 	 */
@@ -39,7 +39,7 @@ public class RequestDeniedException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new request denied exception.
 	 * 
 	 * @param cause the cause
 	 */
@@ -48,7 +48,7 @@ public class RequestDeniedException extends GoogleMapsException {
 	}
 
 	/**
-	 * Instantiates a new google search exception.
+	 * Instantiates a new request denied exception.
 	 * 
 	 * @param message the message
 	 * @param cause the cause
