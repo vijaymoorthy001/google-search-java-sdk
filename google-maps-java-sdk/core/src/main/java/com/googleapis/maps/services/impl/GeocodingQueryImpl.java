@@ -19,7 +19,7 @@ package com.googleapis.maps.services.impl;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.googleapis.maps.schema.Bounds;
-import com.googleapis.maps.schema.CCTLD;
+import com.googleapis.maps.schema.Region;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.schema.Language;
@@ -105,7 +105,7 @@ public class GeocodingQueryImpl extends BaseGoogleMapsApiQuery<GeocodingResult> 
 	 * @see com.googleapis.maps.services.GeocodingQuery#withRegion(com.googleapis.maps.schema.CCTLD)
 	 */
 	@Override
-	public GeocodingQuery withRegion(CCTLD region) {
+	public GeocodingQuery withRegion(Region region) {
 		apiUrlBuilder.withParameterEnum(ParameterNames.REGION, region);
 		return this;
 	}

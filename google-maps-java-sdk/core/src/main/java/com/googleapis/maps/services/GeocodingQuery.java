@@ -17,7 +17,7 @@
 package com.googleapis.maps.services;
 
 import com.googleapis.maps.schema.Bounds;
-import com.googleapis.maps.schema.CCTLD;
+import com.googleapis.maps.schema.Region;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.GeocodingResult;
 import com.googleapis.maps.schema.Language;
@@ -61,7 +61,7 @@ public interface GeocodingQuery extends GoogleMapsQuery<GeocodingResult> {
 	 * 
 	 * @return the geocoding query
 	 */
-	public GeocodingQuery withRegion(CCTLD region);
+	public GeocodingQuery withRegion(Region region);
 	
 	/**
 	 * With language.
