@@ -22,6 +22,7 @@ import java.util.Map;
 
 /**
  * The Enum TravelMode.
+ * Revision is: $Rev$
  */
 public enum TravelMode implements ValueEnum {
 	
