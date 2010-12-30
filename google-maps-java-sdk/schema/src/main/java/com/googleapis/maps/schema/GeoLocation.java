@@ -20,6 +20,7 @@ package com.googleapis.maps.schema;
 
 /**
  * The Class GeoLocation.
+ * Revision is: $Rev$
  */
 public class GeoLocation extends SchemaEntity {
 
