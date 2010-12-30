@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * The Class AddressComponent.
+ * $Rev$
  */
 public class AddressComponent extends SchemaEntity {
 
