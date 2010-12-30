@@ -21,6 +21,7 @@ import com.googleapis.ajax.services.enumeration.BlogSortOrder;
 
 /**
  * The Interface BlogSearchQuery.
+ * Revision: $Rev$
  */
 public interface BlogSearchQuery extends GoogleSearchQuery<BlogResult> {
 	
