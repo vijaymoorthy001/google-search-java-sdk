@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -38,12 +38,6 @@ public class UrlSigner {
 
 	/**
 	 * Instantiates a new url signer.
-	 * 
-	 * @param keyString
-	 *            the key string
-	 * 
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
 	 */
 	private UrlSigner() {
 	}
@@ -51,17 +45,9 @@ public class UrlSigner {
 	/**
 	 * The main method.
 	 * 
-	 * @param args
-	 *            the arguments
+	 * @param args the arguments
 	 * 
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 * @throws InvalidKeyException
-	 *             the invalid key exception
-	 * @throws NoSuchAlgorithmException
-	 *             the no such algorithm exception
-	 * @throws URISyntaxException
-	 *             the URI syntax exception
+	 * @throws Exception the exception
 	 */
 	public static void main(String[] args) throws Exception {
 
@@ -86,23 +72,14 @@ public class UrlSigner {
 	}
 
 	/**
-	 * Sign request.
+	 * Gets the url signature.
 	 * 
-	 * @param path
-	 *            the path
-	 * @param query
-	 *            the query
+	 * @param urlStr the url str
+	 * @param privateKey the private key
 	 * 
-	 * @return the string
+	 * @return the url signature
 	 * 
-	 * @throws NoSuchAlgorithmException
-	 *             the no such algorithm exception
-	 * @throws InvalidKeyException
-	 *             the invalid key exception
-	 * @throws UnsupportedEncodingException
-	 *             the unsupported encoding exception
-	 * @throws URISyntaxException
-	 *             the URI syntax exception
+	 * @throws Exception the exception
 	 */
 	public static String getUrlSignature(String urlStr, String privateKey)
 			throws Exception {

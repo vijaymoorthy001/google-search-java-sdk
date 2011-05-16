@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -70,9 +70,16 @@ public class GoogleMapsJsonQueryTest extends BaseGoogleMapsClientTest {
 	}
 	
 	/**
-	 * Test place query.
+	 * Test places query.
 	 */
 	@Test
-	public void testPlaceQuery() {
+	public void testPlacesQuery() {
+	}
+	
+	/**
+	 * Test distance matrix query.
+	 */
+	@Test
+	public void testDistanceMatrixQuery() {
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -70,6 +70,10 @@ public final class GoogleMapsApiUrls {
     /** The Constant PLACE_URL. */
     public static final String PLACE_URL =
         googleApiUrls.getProperty("com.googleapis.maps.services.place");
+    
+    /** The Constant DISTANCE_MATRIX_URL. */
+    public static final String DISTANCE_MATRIX_URL =
+        googleApiUrls.getProperty("com.googleapis.maps.services.distanceMatrix");
     
     /**
      * Instantiates a new google maps api urls.

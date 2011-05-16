@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -17,6 +17,7 @@
 package com.googleapis.maps.services;
 
 import com.googleapis.maps.services.impl.DirectionsQueryImpl;
+import com.googleapis.maps.services.impl.DistanceMatrixQueryImpl;
 import com.googleapis.maps.services.impl.ElevationQueryImpl;
 import com.googleapis.maps.services.impl.GeocodingQueryImpl;
 import com.googleapis.maps.services.impl.PlacesQueryImpl;
@@ -67,6 +68,15 @@ public class GoogleMapsQueryFactory {
      */
     public DirectionsQuery newDirectionsQuery() {
     	return new DirectionsQueryImpl(applicationKey);
+    }
+    
+    /**
+     * New distance matrix query.
+     * 
+     * @return the distance matrix query
+     */
+    public DistanceMatrixQuery newDistanceMatrixQuery() {
+    	return new DistanceMatrixQueryImpl(applicationKey);
     }
     
     /**

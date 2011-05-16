@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -84,4 +84,13 @@ public interface ParameterNames {
 	
 	/** The Constant SIGNATURE. */
 	public static final String SIGNATURE = "signature";
+	
+	/** The Constant KEY. */
+	public static final String KEY = "key";
+
+	/** The Constant DESTINATIONS. */
+	public static final String DESTINATIONS = "destinations";
+
+	/** The Constant ORIGINS. */
+	public static final String ORIGINS = "origins";
 }

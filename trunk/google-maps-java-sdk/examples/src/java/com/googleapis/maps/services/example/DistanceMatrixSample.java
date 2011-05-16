@@ -27,15 +27,15 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.googleapis.maps.schema.ElevationResult;
-import com.googleapis.maps.schema.GeoLocation;
-import com.googleapis.maps.services.ElevationQuery;
+import com.googleapis.maps.schema.DistanceMatrixResult;
+import com.googleapis.maps.schema.TravelMode;
+import com.googleapis.maps.services.DistanceMatrixQuery;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 
 /**
- * The Class ElevationSample.
+ * The Class DistanceMatrixSample.
  */
-public class ElevationSample {
+public class DistanceMatrixSample {
 
     /** The Constant APPLICATION_KEY_OPTION. */
     private static final String APPLICATION_KEY_OPTION = "appid";
@@ -73,24 +73,25 @@ public class ElevationSample {
             printHelp(options);            
         } else {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
-    		ElevationQuery query = factory.newElevationQuery();
-    		query.withLocations(new GeoLocation(39.7391536,-104.9847034), new GeoLocation(36.455556,-116.866667));
-    		query.withSensor(false);
-    		List<ElevationResult> response = query.list();
-    		for (ElevationResult elevationResult : response) {
-        		printResponse(elevationResult);
+    		DistanceMatrixQuery query = factory.newDistanceMatrixQuery();
+    		query.withOrigins("Vancouver BC", "Seattle").withDestinations("San Francisco", "Victoria BC");
+    		query.withMode(TravelMode.BICYCLING).withSensor(false);
+    		List<DistanceMatrixResult> response = query.list();
+    		for (DistanceMatrixResult directionsResult : response) {
+        		printResponse(directionsResult);
 			}
         }
 	}
+
 
 	/**
 	 * Prints the response.
 	 * 
 	 * @param response the response
 	 */
-	private static void printResponse(ElevationResult response) {
-		System.out.println(response.getLocation().getLat() + ":" + response.getLocation().getLng());
-		System.out.println(response.getElevation());
+	private static void printResponse(DistanceMatrixResult response) {
+		System.out.println(response.getOriginAddress() + ":" + response.getDestinationAddress());
+		System.out.println(response.getDuration() + ":" + response.getDistance());
 	}
 
 	/**
@@ -130,7 +131,7 @@ public class ElevationSample {
      */
     private static void printHelp(Options options) {
         int width = 80;
-        String syntax = ElevationSample.class.getName() + " <options>";
+        String syntax = DistanceMatrixSample.class.getName() + " <options>";
         String header = MessageFormat.format("\nThe -{0} and -{1} options are required. All others are optional.", APPLICATION_KEY_OPTION, QUERY_OPTION);
         new HelpFormatter().printHelp(width, syntax, header, options, null, false);
     }
