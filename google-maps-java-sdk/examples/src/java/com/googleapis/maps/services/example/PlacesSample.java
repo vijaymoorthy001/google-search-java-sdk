@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -17,6 +17,7 @@
 package com.googleapis.maps.services.example;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -26,6 +27,7 @@ import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
 import com.googleapis.maps.services.GoogleMapsQueryFactory;
 import com.googleapis.maps.services.PlacesQuery;
@@ -69,11 +71,14 @@ public class PlacesSample {
     private static void processCommandLine(CommandLine line, Options options) {
         if(line.hasOption(HELP_OPTION)) {
             printHelp(options);            
-        } else if(line.hasOption(APPLICATION_KEY_OPTION) && line.hasOption(QUERY_OPTION)) {
+        } else if(line.hasOption(APPLICATION_KEY_OPTION)) {
     		GoogleMapsQueryFactory factory = GoogleMapsQueryFactory.newInstance(line.getOptionValue(APPLICATION_KEY_OPTION));
     		PlacesQuery query = factory.newPlacesQuery();
-    		PlacesResult response = query.singleResult();
-    		printResponse(response);
+    		query.withLocation(new GeoLocation(-33.8670522, 151.1957362)).withRadius(500).withSensor(false);;
+    		List<PlacesResult> response = query.list();
+    		for (PlacesResult placesResult : response) {
+        		printResponse(placesResult);
+			}
         } else {
         	printHelp(options);
         }
@@ -85,6 +90,7 @@ public class PlacesSample {
 	 * @param response the response
 	 */
 	private static void printResponse(PlacesResult response) {
+		System.out.println(response.getName());
 		// TODO Auto-generated method stub
 	}
 

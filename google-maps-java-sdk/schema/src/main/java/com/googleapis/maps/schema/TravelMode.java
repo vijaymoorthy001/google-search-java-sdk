@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -22,18 +22,17 @@ import java.util.Map;
 
 /**
  * The Enum TravelMode.
- * Revision is: $Rev$
  */
 public enum TravelMode implements ValueEnum {
 	
 	/** The DRIVING. */
-	DRIVING("DRIVING"),
+	DRIVING("driving"),
 	
 	/** The WALKING. */
-	WALKING("WALKING"),
+	WALKING("walking"),
 	
 	/** The BICYCLING. */
-	BICYCLING("BICYCLING");
+	BICYCLING("bicycling");
 	
     /** The Constant stringToEnum. */
 	private static final Map<String, TravelMode> stringToEnum = new HashMap<String, TravelMode>();

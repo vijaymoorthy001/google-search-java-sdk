@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -20,7 +20,6 @@ package com.googleapis.maps.schema;
 
 /**
  * The Class GeoLocation.
- * Revision is: $Rev$
  */
 public class GeoLocation extends SchemaEntity {
 

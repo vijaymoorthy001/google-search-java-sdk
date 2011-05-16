@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -16,26 +16,24 @@
  */
 package com.googleapis.maps.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.PlacesResult;
-import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.PlacesQuery;
 import com.googleapis.maps.services.constant.GoogleMapsApiUrls;
 import com.googleapis.maps.services.constant.ParameterNames;
-import com.googleapis.maps.services.constant.UrlSigner;
 
 /**
  * The Class PlacesQueryImpl.
  */
 public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implements
 	PlacesQuery {
-	
-	/** The private key. */
-	private String privateKey;
 	
 	/**
 	 * Instantiates a new places query impl.
@@ -64,7 +62,6 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 		return gson.fromJson(object, PlacesResult.class);
 	}
 
-
 	/* (non-Javadoc)
 	 * @see com.googleapis.maps.services.PlacesQuery#withClient(java.lang.String)
 	 */
@@ -90,7 +87,7 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 	 */
 	@Override
 	public PlacesQuery withPrivateKey(String privateKey) {
-		this.privateKey = privateKey;
+//		this.privateKey = privateKey;
 		return this;
 	}
 
@@ -114,14 +111,21 @@ public class PlacesQueryImpl extends BaseGoogleMapsApiQuery<PlacesResult> implem
 		return this;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.googleapis.maps.services.impl.BaseGoogleMapsApiQuery#unmarshallList(com.google.gson.JsonObject)
+	 */
 	@Override
-	public List<PlacesResult> list() {
-		try {
-			String signature = UrlSigner.getUrlSignature(apiUrlBuilder.buildUrl(), privateKey);
-			apiUrlBuilder.withParameter(ParameterNames.SIGNATURE, signature);
-			return super.list();
-		} catch (Exception e) {
-			throw new GoogleMapsException(e);
+	protected List<PlacesResult> unmarshallList(JsonObject response) {
+		String status = response.get("status").getAsString();
+		if (!"OK".equals(status) && !"ZERO_RESULTS".equals(status)) {
+			throw createGoogleMapsException(status);
 		}
+		ArrayList<PlacesResult> list = new ArrayList<PlacesResult>();
+		JsonArray results = response.get("results").getAsJsonArray();
+		for (JsonElement object : results) {
+			PlacesResult element = unmarshall(object);
+			list.add(element);
+		}
+		return list;
 	}
 }

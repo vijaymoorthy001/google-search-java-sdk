@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Nabeel Mukhtar 
+ * Copyright 2010-2011 Nabeel Mukhtar 
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -33,10 +34,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.googleapis.maps.schema.AddressComponentType;
 import com.googleapis.maps.schema.GeoLocation;
 import com.googleapis.maps.schema.LocationType;
-import com.googleapis.maps.schema.TravelMode;
 import com.googleapis.maps.services.AsyncResponseHandler;
 import com.googleapis.maps.services.GoogleMapsException;
 import com.googleapis.maps.services.GoogleMapsQuery;
@@ -131,6 +132,20 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 		}
 		return list;
 	}
+	
+	/**
+	 * Unmarshall.
+	 * 
+	 * @param typeToken the type token
+	 * @param response the response
+	 * 
+	 * @return the e
+	 */
+	@SuppressWarnings("unchecked")
+	protected <E> E unmarshall(TypeToken<E> typeToken, JsonElement response) {
+		Gson gson = getGsonBuilder().create();
+		return (E) gson.fromJson(response, typeToken.getType());
+	}
 
 	/**
 	 * Unmarshall.
@@ -198,13 +213,13 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 				return AddressComponentType.fromValue(arg0.getAsString());
 			}
 		});
-		builder.registerTypeAdapter(TravelMode.class, new JsonDeserializer<TravelMode>() {
-			@Override
-			public TravelMode deserialize(JsonElement arg0, Type arg1,
-					JsonDeserializationContext arg2) throws JsonParseException {
-				return TravelMode.fromValue(arg0.getAsString());
-			}
-		});
+//		builder.registerTypeAdapter(TravelMode.class, new JsonDeserializer<TravelMode>() {
+//			@Override
+//			public TravelMode deserialize(JsonElement arg0, Type arg1,
+//					JsonDeserializationContext arg2) throws JsonParseException {
+//				return TravelMode.fromValue(arg0.getAsString());
+//			}
+//		});
 		
 		return builder;
 	}
@@ -247,6 +262,25 @@ public abstract class BaseGoogleMapsApiQuery<T> extends GoogleMapsApiGateway imp
 		}
 		return builder.toString();
 	}
+	
+	/**
+	 * To parameter string.
+	 * 
+	 * @param locations the locations
+	 * 
+	 * @return the string
+	 */
+	protected String toParameterString(String... locations) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < locations.length; i++) {
+			builder.append(locations[i]);
+			if (i < locations.length - 1) {
+				builder.append("|");
+			}
+		}
+		return builder.toString();
+	}
+
 	
 	/**
 	 * Creates the google maps exception.
